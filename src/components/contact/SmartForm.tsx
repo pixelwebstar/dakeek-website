@@ -12,7 +12,7 @@ const formSchema = z.object({
     service: z.enum(["ac", "plumbing", "electrical", "cleaning", "gas", "stoves", "emergency"]),
     location: z.string().min(3, "Location is too short (e.g. Meadows 9)"),
     name: z.string().min(2, "Name is required"),
-    phone: z.string().regex(/^\+971\d{9}$/, "Must be a valid UAE number (+971...)")
+    phone: z.string().regex(/^(?:\+971|00971|0)?5\d{8}$/, "Enter a valid UAE number (e.g. 050...)")
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -23,7 +23,7 @@ export function SmartForm() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm<FormData>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            phone: "+971"
+            phone: ""
         }
     });
 
@@ -92,7 +92,7 @@ export function SmartForm() {
                             <input
                                 {...register("location")}
                                 placeholder="Location (e.g. Springs 14, Villa 22)"
-                                className="w-full bg-white border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 transition-all placeholder:text-slate-400"
+                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#A18262]/20 focus:border-[#A18262] transition-all placeholder:text-slate-400 text-slate-900"
                             />
                             {errors.location && <p className="absolute right-4 top-4 text-red-500 text-xs">{errors.location.message}</p>}
                         </div>
@@ -102,14 +102,14 @@ export function SmartForm() {
                                 <input
                                     {...register("name")}
                                     placeholder="Your Name"
-                                    className="w-full bg-white border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 transition-all placeholder:text-slate-400"
+                                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#A18262]/20 focus:border-[#A18262] transition-all placeholder:text-slate-400 text-slate-900"
                                 />
                                 {errors.name && <p className="absolute right-4 top-4 text-red-500 text-xs"><AlertCircle className="w-4 h-4" /></p>}
                             </div>
                             <div className="relative">
                                 <input
                                     {...register("phone")}
-                                    className="w-full bg-white border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 transition-all placeholder:text-slate-400"
+                                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-4 focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#A18262]/20 focus:border-[#A18262] transition-all placeholder:text-slate-400 text-slate-900"
                                 />
                                 {errors.phone && <p className="absolute right-4 top-4 text-red-500 text-xs">Invalid Format</p>}
                             </div>

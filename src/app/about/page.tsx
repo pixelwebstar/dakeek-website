@@ -22,27 +22,22 @@ export default function AboutPage() {
                     initialColor="#C0C0C0"
                 />
 
-                <SectionWrapper className="max-w-4xl mx-auto z-10 text-center px-6" delay={0.2}>
+                <SectionWrapper className="max-w-6xl mx-auto z-10 text-center px-6" delay={0.2}>
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#111]/10 bg-white/40 backdrop-blur-md mb-8 mx-auto shadow-sm">
                         <span className="w-2 h-2 rounded-full bg-[#A18262] animate-pulse" />
-                        <span className="font-mono text-[10px] uppercase tracking-widest text-[#111]">The Standard</span>
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-[#111]">Our Promise</span>
                     </div>
 
-                    <h1 className="text-5xl lg:text-8xl font-serif leading-[1.0] mb-8 text-[#111] tracking-tight">
-                        We fix your home <br />
-                        <span className="italic text-[#666]">like it’s ours.</span>
+                    <h1 className="text-5xl lg:text-7xl font-serif leading-[1.0] mb-8 text-[#111] tracking-tight">
+                        Built Different.
                     </h1>
 
-                    <p className="text-xl lg:text-3xl font-light text-[#444] leading-relaxed max-w-2xl mx-auto mb-12 bg-white/20 backdrop-blur-md p-6 rounded-2xl border border-white/30 shadow-lg lg:shadow-none lg:bg-transparent lg:border-none lg:p-0">
-                        Dakeek trains and sends technicians you don’t have to babysit.
-                        On time, verified, and serious about your home.
-                    </p>
-
-                    <div className="flex flex-wrap justify-center gap-4 mb-16">
-                        {["Trained in our own academy", "Background-checked & verified", "No surprise visits"].map((item, i) => (
-                            <div key={i} className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-md border border-white/40 shadow-sm">
+                    {/* Minimal Tags as requested */}
+                    <div className="flex flex-wrap justify-center gap-3 mb-12">
+                        {["Background-checked & verified", "No surprise visits", "In-house Academy", "Full-time Employees"].map((item, i) => (
+                            <div key={i} className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-md rounded-full border border-white/40 shadow-sm">
                                 <Check className="w-3 h-3 text-[#A18262]" />
-                                <span className="font-mono text-[10px] uppercase tracking-wider text-[#666]">{item}</span>
+                                <span className="font-mono text-[10px] uppercase tracking-wider text-[#111]">{item}</span>
                             </div>
                         ))}
                     </div>
@@ -60,60 +55,20 @@ export default function AboutPage() {
                 {/* Scroll Indicator */}
                 <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-[#111]/30">
                     <span className="sr-only">Scroll Down</span>
-                    {/* Chevron or similar indicator if needed, sticking to minimalist for now */}
                 </div>
             </section>
 
-            {/* SECTION 2: THE STORY (Why Dakeek Exists) */}
-            <section id="story" className="relative py-24 lg:py-32 px-[5vw] lg:px-[8vw] bg-[#FAFAF9]">
-                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start">
-
-                    <div className="lg:sticky lg:top-32">
-                        <SectionWrapper>
-                            <h2 className="text-6xl lg:text-8xl font-serif text-[#E5E5E5] leading-none mb-6">Why.</h2>
-                            <h3 className="text-3xl font-medium text-[#111] mb-6">The problem with home services in Dubai.</h3>
-                            <p className="text-[#666] leading-relaxed max-w-sm">
-                                Most people don’t trust who walks into their home. Random freelancers, no training, no checks. We realized needed to build something different.
-                            </p>
-                        </SectionWrapper>
-                    </div>
-
-                    <div className="space-y-24">
-                        <SectionWrapper delay={0.2}>
-                            <div className="flex flex-col gap-6 p-8 bg-white border border-[#E5E5E5] shadow-sm rounded-xl">
-                                <div className="w-12 h-12 bg-red-50 flex items-center justify-center rounded-lg">
-                                    <span className="text-2xl">🛑</span>
-                                </div>
-                                <h4 className="text-xl font-serif italic">The "Freelancer" Chaos</h4>
-                                <p className="text-[#666] text-sm leading-relaxed">
-                                    You book an app. A random person shows up. They might not have tools. They might not speak your language. And tomorrow, they might be gone. It’s stressful.
-                                </p>
-                            </div>
-                        </SectionWrapper>
-
-                        <SectionWrapper delay={0.3}>
-                            <div className="flex flex-col gap-6 p-8 bg-[#111] text-white shadow-xl rounded-xl relative overflow-hidden">
-                                <div className="absolute top-0 right-0 p-32 bg-[#A18262] blur-[100px] opacity-20" />
-                                <div className="w-12 h-12 bg-white/10 flex items-center justify-center rounded-lg relative z-10">
-                                    <ShieldCheck className="w-6 h-6 text-[#A18262]" />
-                                </div>
-                                <h4 className="text-xl font-serif italic relative z-10">The Dakeek Solution</h4>
-                                <p className="text-[#aaa] text-sm leading-relaxed relative z-10">
-                                    We built the <strong>Academy</strong>. Every technician is a full-time employee. They train for 500 hours before they ever touch a client's door. We control the quality from start to finish.
-                                </p>
-                            </div>
-                        </SectionWrapper>
-
-                        <SectionWrapper delay={0.4}>
-                            <div className="pl-8 border-l-2 border-[#A18262]">
-                                <h4 className="text-2xl font-serif italic mb-4">Our Promise</h4>
-                                <p className="text-xl font-light text-[#444]">
-                                    "If we send someone to your home, we’d trust them in ours."
-                                </p>
-                            </div>
-                        </SectionWrapper>
-                    </div>
-
+            {/* SECTION 2: THE STORY (Minimal) */}
+            <section id="story" className="relative py-24 px-[5vw] lg:px-[8vw] bg-white text-center">
+                <div className="max-w-3xl mx-auto">
+                    <SectionWrapper>
+                        <h2 className="text-3xl font-serif text-[#111] mb-6">We don't outsource trust.</h2>
+                        <p className="text-[#666] text-lg leading-relaxed">
+                            Most home service apps are just matchmakers. We are different.
+                            We employ every single technician. We train them in our own academy.
+                            We verify their backgrounds. So when we say "precise", we mean it.
+                        </p>
+                    </SectionWrapper>
                 </div>
             </section>
 
@@ -124,12 +79,9 @@ export default function AboutPage() {
                         <div className="inline-block px-3 py-1 bg-[#A18262] text-xs font-mono uppercase tracking-widest text-white rounded-sm mb-8">
                             Controlled Environment
                         </div>
-                        <h2 className="text-5xl lg:text-7xl font-serif italic mb-8">Built in Dakeek Academy.</h2>
-                        <p className="text-[#a3a3a3] text-xl leading-relaxed mb-16 max-w-2xl mx-auto">
-                            We realized the only way to guarantee quality was to build it ourselves.
-                            Our technicians don't just "apply" — they graduate. They spend hundreds of hours
-                            in our facility practicing on real equipment before they are allowed
-                            to step foot in your home.
+                        <h2 className="text-4xl lg:text-5xl font-serif italic mb-6">The Dakeek Academy</h2>
+                        <p className="text-[#a3a3a3] text-lg leading-relaxed mb-12 max-w-2xl mx-auto">
+                            Quality isn't accidental. It's engineered. Our state-of-the-art facility trains technicians for hundreds of hours on real-world scenarios before they graduate to your home.
                         </p>
                     </SectionWrapper>
 

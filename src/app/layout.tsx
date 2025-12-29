@@ -4,6 +4,7 @@ import "./globals.css";
 import { SmoothScroll } from "../components/layout/SmoothScroll";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import { UnifiedContactHub } from "../components/shared/UnifiedContactHub";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -58,6 +59,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </SmoothScroll>
+        <UnifiedContactHub />
         <script
           dangerouslySetInnerHTML={{
             __html: `
