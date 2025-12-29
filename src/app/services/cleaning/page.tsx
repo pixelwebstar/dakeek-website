@@ -3,7 +3,7 @@ import ServicePageLayout from '@/components/services/ServicePageLayout';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: `Dakeek | ${serviceData.cleaning.hero.title}`,
+    title: serviceData.cleaning.hero.title,
     description: serviceData.cleaning.hero.description,
 };
 

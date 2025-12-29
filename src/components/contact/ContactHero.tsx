@@ -11,11 +11,11 @@ export function ContactHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <h1 className="text-5xl md:text-7xl font-serif italic text-[#111] leading-tight mb-4">
+                <h1 className="text-5xl md:text-7xl font-serif italic text-ink leading-tight mb-4">
                     Let's Fix It. <br />
-                    <span className="text-[#A18262]">Right Now.</span>
+                    <span className="text-bronze">Right Now.</span>
                 </h1>
-                <p className="text-lg md:text-xl text-gray-600 max-w-md leading-relaxed">
+                <p className="text-lg md:text-xl text-titanium max-w-md leading-relaxed">
                     Tell us what's broken, and we'll dispatch a verified technician to your doorstep. No hassle. No waiting.
                 </p>
             </motion.div>
@@ -27,16 +27,16 @@ export function ContactHero() {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="space-y-4"
             >
-                <div className="flex items-center gap-3 text-sm text-gray-700">
-                    <CheckCircle2 className="w-5 h-5 text-[#A18262] flex-shrink-0" />
+                <div className="flex items-center gap-3 text-sm text-titanium">
+                    <CheckCircle2 className="w-5 h-5 text-bronze flex-shrink-0" />
                     <span>Licensed & Insured Technicians</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm text-gray-700">
-                    <Shield className="w-5 h-5 text-[#A18262] flex-shrink-0" />
+                <div className="flex items-center gap-3 text-sm text-titanium">
+                    <Shield className="w-5 h-5 text-bronze flex-shrink-0" />
                     <span>100% Privacy Guaranteed</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm text-gray-700">
-                    <Clock className="w-5 h-5 text-[#A18262] flex-shrink-0" />
+                <div className="flex items-center gap-3 text-sm text-titanium">
+                    <Clock className="w-5 h-5 text-bronze flex-shrink-0" />
                     <span>2-Minute Average Response Time</span>
                 </div>
             </motion.div>
@@ -46,7 +46,7 @@ export function ContactHero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className="flex gap-4 items-center pt-4 border-t border-gray-200"
+                className="flex gap-4 items-center pt-4 border-t border-structure"
             >
                 <div className="flex -space-x-3">
                     {[1, 2, 3, 4].map(i => (
@@ -56,8 +56,8 @@ export function ContactHero() {
                     ))}
                 </div>
                 <div className="text-sm">
-                    <span className="font-bold text-[#111]">50+ Techs</span>
-                    <span className="text-gray-600"> standing by</span>
+                    <span className="font-bold text-ink">50+ Techs</span>
+                    <span className="text-titanium"> standing by</span>
                 </div>
             </motion.div>
         </div>

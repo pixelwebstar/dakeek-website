@@ -40,7 +40,7 @@ export function FAQAccordion({ faqs, showSearch = true, defaultOpen = 0 }: FAQAc
                         placeholder="Search questions..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-12 pr-4 py-4 bg-white border-2 border-[#E5E5E5] rounded-2xl text-[#111] placeholder-gray-400 focus:outline-none focus:border-[#A18262] transition-all font-light text-lg"
+                        className="w-full pl-12 pr-4 py-4 bg-white border-2 border-structure rounded-2xl text-ink placeholder-gray-400 focus:outline-none focus:border-bronze transition-all font-light text-lg"
                     />
                 </motion.div>
             )}
@@ -56,7 +56,7 @@ export function FAQAccordion({ faqs, showSearch = true, defaultOpen = 0 }: FAQAc
                         <p className="text-lg font-serif italic">No questions found matching "{searchQuery}"</p>
                         <button
                             onClick={() => setSearchQuery("")}
-                            className="mt-4 text-sm text-[#A18262] hover:underline"
+                            className="mt-4 text-sm text-bronze hover:underline"
                         >
                             Clear search
                         </button>
@@ -70,13 +70,13 @@ export function FAQAccordion({ faqs, showSearch = true, defaultOpen = 0 }: FAQAc
                             transition={{ delay: index * 0.05 }}
                             className="group"
                         >
-                            <div className="bg-white border border-[#E5E5E5] rounded-xl overflow-hidden hover:border-[#A18262] transition-all hover:shadow-lg">
+                            <div className="bg-white border border-structure rounded-xl overflow-hidden hover:border-bronze transition-all hover:shadow-lg">
                                 {/* Question Button */}
                                 <button
                                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                                     className="w-full flex justify-between items-center p-6 md:p-8 text-left transition-all group-hover:bg-[#FAFAF9]"
                                 >
-                                    <span className="text-lg md:text-xl font-serif italic text-[#111] pr-4 leading-relaxed">
+                                    <span className="text-lg md:text-xl font-serif italic text-ink pr-4 leading-relaxed">
                                         {faq.question}
                                     </span>
                                     <motion.div
@@ -85,9 +85,9 @@ export function FAQAccordion({ faqs, showSearch = true, defaultOpen = 0 }: FAQAc
                                         className="flex-shrink-0"
                                     >
                                         {openIndex === index ? (
-                                            <Minus className="w-5 h-5 text-[#A18262]" />
+                                            <Minus className="w-5 h-5 text-bronze" />
                                         ) : (
-                                            <Plus className="w-5 h-5 text-[#86868b] group-hover:text-[#A18262] transition-colors" />
+                                            <Plus className="w-5 h-5 text-[#86868b] group-hover:text-bronze transition-colors" />
                                         )}
                                     </motion.div>
                                 </button>
@@ -103,7 +103,7 @@ export function FAQAccordion({ faqs, showSearch = true, defaultOpen = 0 }: FAQAc
                                             className="overflow-hidden"
                                         >
                                             <div className="px-6 md:px-8 pb-6 md:pb-8 pt-0">
-                                                <div className="w-12 h-px bg-[#E5E5E5] mb-4"></div>
+                                                <div className="w-12 h-px bg-structure mb-4"></div>
                                                 <p className="text-[#666] leading-relaxed text-base md:text-lg font-light">
                                                     {faq.answer}
                                                 </p>

@@ -3,7 +3,7 @@ import { serviceData } from "../../../data/serviceData";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: `Dakeek | ${serviceData.plumbing.hero.title}`,
+    title: serviceData.plumbing.hero.title,
     description: serviceData.plumbing.hero.description,
 };
 

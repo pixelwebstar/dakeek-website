@@ -40,12 +40,12 @@ export default function Footer() {
 
         // Default Theme (Home / Other)
         return {
-            bg: "bg-[#FAFAF9]",
-            text: "text-[#111]",
-            accent: "text-[#A18262]",
-            header: "text-[#A18262]",
-            border: "border-[#E5E5E5]",
-            iconBg: "hover:bg-[#A18262] hover:border-[#A18262]",
+            bg: "bg-canvas",
+            text: "text-ink",
+            accent: "text-bronze",
+            header: "text-bronze",
+            border: "border-structure",
+            iconBg: "hover:bg-bronze hover:border-bronze",
             secondaryText: "text-[#555]",
             mutedText: "text-[#888]",
             copyright: "text-[#999]",
@@ -61,7 +61,7 @@ export default function Footer() {
             const service = serviceData[pathParts[2]];
             if (service) return service.theme.hero1;
         }
-        return "#E5E5E5"; // Default grey
+        return "#E5E5E5"; // Default grey structure
     };
 
     const socialLinks = [
