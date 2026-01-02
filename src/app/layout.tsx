@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     images: ["https://dakeek.ae/opengraph-image.png"],
   },
   verification: {
-    google: "google-site-verification-placeholder", // User can update later
+    google: "T8hhiXgeP_vxqaKG5DT3GpJik50Qiv2vNYv9yZ7xBE4",
   },
   category: "Home Services",
 };
