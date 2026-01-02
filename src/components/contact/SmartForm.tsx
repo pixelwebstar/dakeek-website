@@ -75,8 +75,8 @@ export function SmartForm() {
 
         } catch (error) {
             setStatus("error");
-            setErrorMessage("Something went wrong. Please try again or call 800-DAKEEK.");
-            toast.error("Submission Failed", { description: "Please try again or call us directly." });
+            setErrorMessage("Something went wrong. Please try again or call +971 54 247 2151.");
+            toast.error("Submission Failed", { description: "Please try again or call +971 54 247 2151." });
         }
     };
 

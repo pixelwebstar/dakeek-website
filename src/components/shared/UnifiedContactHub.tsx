@@ -350,7 +350,7 @@ export function UnifiedContactHub() {
 
         } catch (error) {
             console.error("Submission error", error);
-            setMessages(prev => [...prev, { id: "err", role: "assistant", content: "Connection error. Please call 800-DAKEEK.", timestamp: new Date() }]);
+            setMessages(prev => [...prev, { id: "err", role: "assistant", content: "Connection error. Please call +971 54 247 2151.", timestamp: new Date() }]);
             setIsTyping(false);
         }
     };

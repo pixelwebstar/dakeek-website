@@ -26,13 +26,15 @@ export async function POST(req: Request) {
             }
         });
 
-        // Verify connection configuration
-        try {
-            await transporter.verify();
-            console.log("✅ SMTP Connection Verified");
-        } catch (verifyError) {
-            console.error("❌ SMTP Connection Failed:", verifyError);
-            return NextResponse.json({ error: "Email Server Connection Failed. Check credentials." }, { status: 500 });
+        // Verify connection configuration ONLY if credentials exist
+        if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+            try {
+                await transporter.verify();
+                console.log("✅ SMTP Connection Verified");
+            } catch (verifyError) {
+                console.error("❌ SMTP Connection Failed:", verifyError);
+                return NextResponse.json({ error: "Email Server Connection Failed. Check credentials." }, { status: 500 });
+            }
         }
 
         // Action-Oriented Subject Line
