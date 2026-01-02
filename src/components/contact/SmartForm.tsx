@@ -35,14 +35,20 @@ export function SmartForm() {
         setErrorMessage("");
 
         try {
-            // Simulate API call
-            await new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    // Randomly simulate success for now, or always success. 
-                    // Let's keep it robust.
-                    resolve(true);
-                }, 2000);
+            const response = await fetch('/api/contact-submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    service: data.service,
+                    location: data.location,
+                    name: data.name,
+                    contactInfo: data.phone,
+                    contactMethod: 'Phone', // Defaulting to Phone since form only asks for phone
+                    serviceType: 'General Inquiry'
+                })
             });
+
+            if (!response.ok) throw new Error('Failed to send');
 
             setStatus("success");
             // eslint-disable-next-line @typescript-eslint/no-unused-vars

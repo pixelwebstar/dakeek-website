@@ -28,7 +28,7 @@ const FAQS: FAQItem[] = [
     },
     {
         question: "How do I book a service?",
-        answer: "You can book through our contact form, WhatsApp at 800-DAKEEK, or call us directly. We'll confirm your appointment within minutes and send a technician profile 30 minutes before arrival.",
+        answer: "You can book through our contact form, WhatsApp at +971 54 247 2151, or call us directly. We'll confirm your appointment within minutes and send a technician profile 30 minutes before arrival.",
         category: "Getting Started"
     },
 
@@ -97,7 +97,7 @@ export default function QueriesPage() {
             <div className="fixed inset-0 w-full h-full opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none z-0 mix-blend-multiply"></div>
 
             {/* 1. HERO: The Encyclopedia */}
-            <section className="relative h-[60vh] w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
+            <section className="relative h-[60vh] md:h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
                 <HyperHero
                     color1="#D1D5DB"
                     color2="#F3F4F6"
@@ -108,7 +108,7 @@ export default function QueriesPage() {
                     <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
                         Knowledge Base
                     </span>
-                    <h1 className="text-6xl md:text-8xl font-sans tracking-tighter mb-6 leading-[0.9] text-ink">
+                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 leading-[0.9] text-ink">
                         Queries.
                     </h1>
                     <p className="text-lg md:text-xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium">
@@ -174,10 +174,10 @@ export default function QueriesPage() {
                         </Link>
 
                         <a
-                            href="tel:800332533"
+                            href="tel:+971542472151"
                             className="px-12 py-4 border border-black/10 text-[#111] rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white hover:bg-[#FAFAF9] transition-all shadow-sm hover:shadow-md"
                         >
-                            Call 800-DAKEEK
+                            Call +971 54 247 2151
                         </a>
                     </div>
                 </div>

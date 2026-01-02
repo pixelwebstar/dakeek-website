@@ -58,7 +58,7 @@ export default function ContactPage() {
 
                             {/* Phone */}
                             <motion.a
-                                href="tel:800332533"
+                                href="tel:+971542472151"
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
@@ -69,13 +69,13 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <p className="text-xs font-mono uppercase tracking-wider text-titanium">Call Us</p>
-                                    <p className="text-lg font-medium text-ink group-hover:text-bronze transition-colors">800-DAKEEK</p>
+                                    <p className="text-lg font-medium text-ink group-hover:text-bronze transition-colors">+971 54 247 2151</p>
                                 </div>
                             </motion.a>
 
                             {/* WhatsApp */}
                             <motion.a
-                                href="https://wa.me/971800332533"
+                                href="https://wa.me/971542472151"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 initial={{ opacity: 0, x: -20 }}
@@ -97,7 +97,7 @@ export default function ContactPage() {
 
                             {/* Email */}
                             <motion.a
-                                href="mailto:hello@dakeek.ae"
+                                href="mailto:asheejajayan@gmail.com"
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
@@ -109,7 +109,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <p className="text-xs font-mono uppercase tracking-wider text-titanium">Email</p>
-                                    <p className="text-lg font-medium text-ink group-hover:text-bronze transition-colors">hello@dakeek.ae</p>
+                                    <p className="text-lg font-medium text-ink group-hover:text-bronze transition-colors">asheejajayan@gmail.com</p>
                                 </div>
                             </motion.a>
 
@@ -140,8 +140,8 @@ export default function ContactPage() {
                             <MapPin className="w-4 h-4" strokeWidth={1.5} />
                             DUBAI HEADQUARTERS
                         </p>
-                        <p className="pl-6">AL QUOZ INDUSTRIAL AREA 4</p>
-                        <p className="pl-6">LICENSE NO. 827192</p>
+                        <p className="pl-6">ANZAR GALLERY BUILDING, AL KARAMA</p>
+                        <p className="pl-6">LICENSE NO. 1382290</p>
                     </div>
                 </div>
 

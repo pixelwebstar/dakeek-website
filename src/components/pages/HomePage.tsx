@@ -86,9 +86,9 @@ export default function HomePage() {
 
             {/* 2. SOCIAL PROOF: General Trust */}
             <section className="w-full border-b border-structure bg-white py-6 overflow-hidden flex items-center">
-                <div className="ticker-track flex gap-24 whitespace-nowrap font-mono text-xs uppercase tracking-widest text-bronze opacity-90">
+                <div className="ticker-track flex gap-12 md:gap-24 whitespace-nowrap font-mono text-xs uppercase tracking-widest text-bronze opacity-90">
                     {[...Array(4)].map((_, i) => (
-                        <div key={i} className="flex gap-24">
+                        <div key={i} className="flex gap-12 md:gap-24">
                             <span className="flex items-center gap-3"><ShieldCheck className="w-4 h-4" strokeWidth={1.5} /> PRIVACY GUARANTEED</span>
                             <span className="flex items-center gap-3"><Award className="w-4 h-4" strokeWidth={1.5} /> TRUSTED BY FAMILIES</span>
                             <span className="flex items-center gap-3">RESIDENTIAL SPECIALISTS</span>
@@ -99,7 +99,7 @@ export default function HomePage() {
             </section>
 
             {/* 3. PHILOSOPHY: The Manifesto (Compact Edition) */}
-            <section className="px-[5vw] lg:px-[8vw] py-24 lg:py-32 border-b border-structure bg-[#F5F5F4]">
+            <section className="px-[5vw] lg:px-[8vw] py-16 lg:py-32 border-b border-structure bg-[#F5F5F4]">
                 <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
                     {/* Left: Label (Vertical on desktop?) or just standard */}
                     <span className="shrink-0 font-mono text-xs text-bronze uppercase tracking-[0.2em] pt-2">The Philosophy</span>
@@ -112,7 +112,7 @@ export default function HomePage() {
             </section>
 
             {/* 4. THE COLLECTION (Formerly Matrix) - Restored from v2.0 */}
-            <section id="services" className="w-full px-[5vw] lg:px-[8vw] py-24 lg:py-32 space-y-16 bg-[#FAFAF9]">
+            <section id="services" className="w-full px-[5vw] lg:px-[8vw] py-16 lg:py-32 space-y-16 bg-[#FAFAF9]">
                 <div className="flex justify-between items-end border-b border-[#E5E5E5] pb-8">
                     <div>
                         <span className="block font-mono text-xs text-[#A18262] uppercase tracking-[0.2em] mb-4">The Scope</span>
@@ -290,8 +290,8 @@ export default function HomePage() {
                     </p>
                 </div>
 
-                <Link href="/contact" className="group relative px-16 py-8 bg-[#111] text-white overflow-hidden rounded-sm transition-all hover:scale-105 active:scale-95 shadow-2xl">
-                    <span className="relative z-10 font-mono text-sm uppercase tracking-[0.2em]">Book Now</span>
+                <Link href="/contact" className="group relative px-12 py-4 bg-[#111] text-white overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95 shadow-2xl">
+                    <span className="relative z-10 font-mono text-xs uppercase tracking-[0.2em]">Book Now</span>
                     <div className="absolute inset-0 bg-[#A18262] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
             </section>

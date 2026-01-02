@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MapPin, Instagram, Facebook, Linkedin, Mail, Phone } from "lucide-react";
+import { MapPin } from "lucide-react";
 import FooterPhysics from "./FooterPhysics";
 import { serviceData } from "../../data/serviceData";
 
@@ -65,11 +65,11 @@ export default function Footer() {
     };
 
     const socialLinks = [
-        { name: "Instagram", href: "#", icon: Instagram },
-        { name: "Facebook", href: "#", icon: Facebook },
-        { name: "LinkedIn", href: "#", icon: Linkedin },
-        { name: "Email", href: "mailto:info@dakeek.ae", icon: Mail },
-        { name: "Phone", href: "tel:+97150000000", icon: Phone }
+        { name: "Instagram", href: "https://www.instagram.com/dakeektechnicalservice/" },
+        { name: "Facebook", href: "https://www.facebook.com/dakeektechnicalservice/" },
+        { name: "LinkedIn", href: "https://www.linkedin.com/company/dakeek-technical-service-co-llc/" },
+        { name: "Email", href: "mailto:asheejajayan@gmail.com" },
+        { name: "Phone", href: "tel:+971542472151" }
     ];
 
     return (
@@ -93,9 +93,22 @@ export default function Footer() {
                     <p className={`font-serif italic text-lg leading-relaxed ${theme.secondaryText}`}>
                         &quot;Engineering rigor for Dubai’s finest homes. Precision in every detail.&quot;
                     </p>
-                    <div className={`flex items-center gap-2 text-sm ${theme.mutedText}`}>
-                        <MapPin size={16} />
-                        <span>Dubai, United Arab Emirates</span>
+                    <div className="flex flex-col gap-1 items-start">
+                        <div className={`flex items-center gap-2 text-sm ${theme.mutedText}`}>
+                            <MapPin size={16} />
+                            <span>Anzar Gallery Building, Al Karama, Dubai</span>
+                        </div>
+                        <a
+                            href="https://ded.ae/VerifyLicense" // Generic DED verification as placeholder or just a trust badge
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex items-center gap-2 mt-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group`}
+                        >
+                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                            <span className={`text-[10px] font-mono uppercase tracking-widest ${theme.mutedText} group-hover:text-white`}>
+                                Official License: 1382290
+                            </span>
+                        </a>
                     </div>
                 </div>
 
@@ -142,7 +155,6 @@ export default function Footer() {
                                 href={link.href}
                                 className={`flex items-center gap-2 font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header}`}
                             >
-                                <link.icon size={14} />
                                 <span>{link.name}</span>
                             </a>
                         ))}

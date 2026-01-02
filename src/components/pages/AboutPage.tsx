@@ -49,10 +49,10 @@ export default function AboutPage() {
 
                     <div className="flex justify-center gap-4">
                         <Link href="/contact" className="group relative px-12 py-4 bg-ink text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
-                            <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Book a Visit</span>
+                            <span className="relative z-10 font-mono text-sm font-medium uppercase tracking-[0.2em]">Book a Visit</span>
                             <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                         </Link>
-                        <Link href="#story" className="px-12 py-4 border border-black/10 text-ink rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
+                        <Link href="#story" className="px-12 py-4 border border-black/10 text-ink rounded-full font-mono text-sm font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
                             Our Story
                         </Link>
                     </div>
@@ -154,10 +154,10 @@ export default function AboutPage() {
                     </p>
 
                     <div className="flex flex-col md:flex-row justify-center gap-6 relative z-10">
-                        <Link href="/contact" className="px-10 py-5 bg-white text-[#A18262] font-mono text-xs uppercase tracking-widest hover:bg-[#111] hover:text-white transition-colors">
+                        <Link href="/contact" className="px-10 py-4 bg-white text-[#A18262] font-mono text-xs uppercase tracking-widest hover:bg-[#111] hover:text-white transition-colors rounded-full shadow-lg">
                             Book a Visit
                         </Link>
-                        <Link href="https://wa.me/971500000000" className="px-10 py-5 border border-white text-white font-mono text-xs uppercase tracking-widest hover:bg-white hover:text-[#A18262] transition-colors">
+                        <Link href="https://wa.me/971542472151" className="px-10 py-4 border border-white text-white font-mono text-xs uppercase tracking-widest hover:bg-white hover:text-[#A18262] transition-colors rounded-full">
                             Talk to a Human
                         </Link>
                     </div>

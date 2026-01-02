@@ -28,7 +28,7 @@ export async function POST(req: Request) {
 
         const mailOptions = {
             from: '"Dakeek Assistant" <no-reply@dakeek.ae>',
-            to: `orders@dakeek.ae, ${contactInfo}`,
+            to: `asheejajayan@gmail.com, ${contactInfo}`,
             subject: subject,
             html: `
                 <div style="font-family: Arial, sans-serif; color: #333; border: 1px solid #ddd; padding: 20px; max-width: 600px;">

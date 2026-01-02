@@ -40,6 +40,12 @@ export interface ServicePageData {
         title: string;
         description: string;
     };
+    seo: {  // [NEW] Hard Core SEO Data
+        title: string;
+        keywords: string[];
+        schemaType: string;
+        qna?: { question: string; answer: string }[];
+    };
     intro: {
         heading: string;
         stats: { value: string; label: string; sub: string }[];
@@ -59,6 +65,14 @@ export interface ServicePageData {
     };
 }
 
+const DUBAI_AREAS = [
+    "Palm Jumeirah", "Dubai Marina", "Jumeirah Lake Towers", "JLT", "Downtown Dubai",
+    "Business Bay", "Arabian Ranches", "Emirates Hills", "Jumeirah Islands", "The Meadows",
+    "The Springs", "Jumeirah Park", "Al Barsha", "Umm Suqeim", "Jumeirah", "Mudon",
+    "Damac Hills", "Dubai Hills Estate", "Meydan", "Difc", "Sheikh Zayed Road",
+    "Greens", "Views", "Victory Heights", "Sports City", "Motor City", "Sustainable City"
+];
+
 export const serviceData: Record<string, ServicePageData> = {
     ac: {
         id: "01",
@@ -77,11 +91,37 @@ export const serviceData: Record<string, ServicePageData> = {
             title: "AC Care",
             description: "Fixing leaks, noise, and heat. Fast."
         },
+        seo: {
+            title: "Best AC Repair & Maintenance Services in Dubai | Dakeek",
+            keywords: [
+                "AC Repair Dubai", "Air Conditioning Service Dubai", "AC Maintenance Dubai", "Chiller Repair Dubai",
+                "Split AC Repair", "Central AC Maintenance", "Duct Cleaning Dubai", "AC Gas Refill",
+                "Emergency AC Repair Dubai", "AC Technician Near Me", "Best AC Company Dubai", "24/7 AC Repair",
+                "AC Installation Dubai", "Cooling System Repair", "AC Water Leak Fix", "Villa AC Maintenance",
+                ...DUBAI_AREAS.map(area => `AC Repair ${area}`),
+                ...DUBAI_AREAS.map(area => `AC Maintenance ${area}`)
+            ],
+            schemaType: "HVACBusiness",
+            qna: [
+                {
+                    question: "How quickly can you fix my AC in Dubai?",
+                    answer: "We offer 60-minute emergency response times across Dubai, including Marina, Palm Jumeirah, and Downtown. Our vans are fully stocked to fix 90% of issues on the first visit."
+                },
+                {
+                    question: "Do you offer warranty on AC repairs?",
+                    answer: "Yes, we provide a 30-day warranty on all workmanship. If the same issue returns, we fix it for free. No questions asked."
+                },
+                {
+                    question: "What is the cost of AC service in Dubai?",
+                    answer: "Our inspections are free with any service. Basic maintenance starts at 179 AED. We provide upfront pricing before starting any work."
+                }
+            ]
+        },
         intro: {
             heading: "Excellence shouldn't have an entry fee. That’s why we start with a free inspection and finish with a guaranteed warranty.",
             stats: [
                 { value: "Free", label: "Inspection", sub: "Diagnosis" },
-                { value: "149 AED", label: "Starts at", sub: "Service" },
+                { value: "179 AED", label: "Starts at", sub: "Service" },
                 { value: "30", label: "Days", sub: "Warranty" },
                 { value: "100%", label: "Transparent", sub: "Pricing" }
             ]
@@ -94,7 +134,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "A flawless installation is the foundation of a decade of comfort. We calculate load, optimize placement, and calibrate airflow.",
                 icon: Wind,
                 details: ["Load Calculation", "Ductwork Design", "Efficiency Audits", "Smart Thermostats"],
-                image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80"
+                image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&q=80"
             },
             {
                 id: "maintenance",
@@ -150,6 +190,28 @@ export const serviceData: Record<string, ServicePageData> = {
             title: "Plumbing",
             description: "Flow restored. Leaks stopped. Pressure optimized."
         },
+        seo: {
+            title: "Emergency Plumber Dubai | Leak Detection & Water Heater Repair | Dakeek",
+            keywords: [
+                "Plumber Dubai", "Emergency Plumber Dubai", "Water Leak Detection Dubai", "Water Heater Repair Dubai",
+                "Drain Cleaning Dubai", "Blocked Toilet Fix", "Pump Repair Dubai", "Pipe Leak Repair",
+                "Bathroom Plumbing Dubai", "Kitchen Plumbing", "Water Pump Repair Dubai", "Best Plumbers in Dubai",
+                "24 Hour Plumber Dubai", "Dripping Tap Fix", "Water Pressure Booster Dubai",
+                ...DUBAI_AREAS.map(area => `Plumber ${area}`),
+                ...DUBAI_AREAS.map(area => `Leak Detection ${area}`)
+            ],
+            schemaType: "Plumber",
+            qna: [
+                {
+                    question: "Can you find a water leak under my floor tiles?",
+                    answer: "Yes, we use advanced ultrasonic and thermal leak detection technology to locate hidden leaks without breaking your tiles or damaging your property."
+                },
+                {
+                    question: "Do you fix blocked drains on weekends?",
+                    answer: "We operate 24/7, including weekends and holidays. We can clear blocked drains, toilets, and sinks immediately."
+                }
+            ]
+        },
         intro: {
             heading: "Water belongs in pipes, not on your floor. We use ultrasonic detection to find leaks you can't see.",
             stats: [
@@ -167,7 +229,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Hidden leaks ruin foundations. We find them without tearing up your walls using thermal and acoustic sensors.",
                 icon: Search,
                 details: ["Ultrasonic Detection", "Thermal Imaging", "Pressure Testing", "Non-Invasive"],
-                image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80" // Plumber checking pipes (Residential)
+                image: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&q=80" // Plumber checking pipes (Residential)
             },
             {
                 id: "heaters",
@@ -216,11 +278,33 @@ export const serviceData: Record<string, ServicePageData> = {
             title: "Electrical",
             description: "Safe. Stable. Certified. Lighting up your life."
         },
+        seo: {
+            title: "Certified Electrician Dubai | Emergency Electrical Services | Dakeek",
+            keywords: [
+                "Electrician Dubai", "Emergency Electrician Dubai", "Electrical Maintenance Dubai", "Short Circuit Fix Dubai",
+                "Electrical Panel Upgrade", "Light Installation Dubai", "Power Outage Fix", "Home Wiring Dubai",
+                "Socket Repair Dubai", "Certified Electricians Dubai", "Electrical Contractor Dubai", "24/7 Electrician",
+                "Breaker Tripping Fix", "Garden Lighting Installation", "Villa Electrical Maintenance",
+                ...DUBAI_AREAS.map(area => `Electrician ${area}`),
+                ...DUBAI_AREAS.map(area => `Electrical Services ${area}`)
+            ],
+            schemaType: "Electrician",
+            qna: [
+                {
+                    question: "Why does my DEWA bill keep increasing?",
+                    answer: "High bills often indicate faulty wiring, old AC units, or inefficient lighting. We perform comprehensive electrical audits to reduce your consumption."
+                },
+                {
+                    question: "Are your electricians certified?",
+                    answer: "Yes, all our senior technicians are certified and trained to handle residential and commercial electrical systems safely."
+                }
+            ]
+        },
         intro: {
             heading: "Electricity is dangerous. Don't risk it. Our certified technicians ensure your home is wired for safety and efficiency.",
             stats: [
                 { value: "Free", label: "Safety", sub: "Check" },
-                { value: "149 AED", label: "Starts at", sub: "Service" },
+                { value: "179 AED", label: "Starts at", sub: "Service" },
                 { value: "100%", label: "Safe", sub: "Certified" },
                 { value: "0", label: "Hazards", sub: "Goal" }
             ]
@@ -233,7 +317,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Old wiring is a fire hazard. We inspect, upgrade, and organize your distribution boards for maximum safety.",
                 icon: Zap,
                 details: ["Load Balancing", "Breaker Testing", "Short Circuit Fix", "Rewiring"],
-                image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80" // Electrical Panel / Tech
+                image: "https://images.unsplash.com/photo-1555963966-b7ae5404b6ed?auto=format&fit=crop&q=80" // Electrical Panel / Tech
             },
             {
                 id: "lights",
@@ -283,6 +367,28 @@ export const serviceData: Record<string, ServicePageData> = {
             title: "Cleaning Services",
             description: "Deep cleaning, water tanks, and sanitization."
         },
+        seo: {
+            title: "Professional Deep Cleaning & Water Tank Cleaning Dubai | Dakeek",
+            keywords: [
+                "Deep Cleaning Service Dubai", "Water Tank Cleaning Dubai", "Home Sanitization Dubai", "AC Duct Cleaning",
+                "Best Cleaning Company Dubai", "Move In Cleaning Dubai", "Villa Deep Cleaning", "Apartment Cleaning Service",
+                "Floor Scrubbing Dubai", "Kitchen Deep Clean", "Mold Removal Dubai", "Hygiene Cleaning Services",
+                "Disinfection Service Dubai", "Water Tank Sanitization", "Dubai Municipality Approved Cleaning",
+                ...DUBAI_AREAS.map(area => `Deep Cleaning ${area}`),
+                ...DUBAI_AREAS.map(area => `Water Tank Cleaning ${area}`)
+            ],
+            schemaType: "ProfessionalService",
+            qna: [
+                {
+                    question: "How often should I clean my water tank in Dubai?",
+                    answer: "Dubai Municipality recommends cleaning water tanks every 6 months to prevent bacteria, algae, and sediment buildup."
+                },
+                {
+                    question: "What is included in a deep clean?",
+                    answer: "Our deep clean covers everything from floor scrubbing and window cleaning to sanitizing bathrooms, kitchens, and hard-to-reach areas."
+                }
+            ]
+        },
         intro: {
             heading: "From dusty ducts to water tanks, we ensure a spotless, healthy environment.",
             stats: [
@@ -309,7 +415,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Removal of sediment and disinfection of your main water supply.",
                 icon: Droplet,
                 details: ["Drain & Scrub", "Chlorination", "Pump Check", "Lab Test Option"],
-                image: "https://images.unsplash.com/photo-1504198458649-3128b932f49e?auto=format&fit=crop&q=80" // Reliable Water/Tank
+                image: "https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&q=80" // Reliable Water/Tank (Reusing functioning water img)
             },
             {
                 id: "ducts",
@@ -318,7 +424,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Removing dust and mold from your AC ductwork.",
                 icon: Wind,
                 details: ["Rotary Brush", "HEPA Vacuum", "Fogging", "Filter Wash"],
-                image: "https://images.unsplash.com/photo-1574360778004-4762e5b7fb7c?auto=format&fit=crop&q=80" // Corrected Duct
+                image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80" // Corrected Duct
             }
         ],
         techSpecs: {
@@ -352,6 +458,27 @@ export const serviceData: Record<string, ServicePageData> = {
             tag: "Critical Safety",
             title: "Gas Systems",
             description: "No leaks. No risks. Civil Defense compliant."
+        },
+        seo: {
+            title: "Gas Leak Detection & Pipe Installation Dubai | Licensed Gas Services",
+            keywords: [
+                "Gas Leak Detection Dubai", "Gas Pipe Installation Dubai", "Central Gas System Repair", "IGD System Installation",
+                "Gas Safety Check Dubai", "Kitchen Gas Line Repair", "LPG Gas Piping", "Civil Defense Approved Gas",
+                "Gas Solenoid Valve Installation", "Gas Leak Fix Dubai", "Emergency Gas Repair", "Gas Maintenance Company",
+                ...DUBAI_AREAS.map(area => `Gas Leak Detection ${area}`),
+                ...DUBAI_AREAS.map(area => `Gas Installation ${area}`)
+            ],
+            schemaType: "ProfessionalService",
+            qna: [
+                {
+                    question: "What should I do if I smell gas?",
+                    answer: "Immediately turn off the main gas valve, open windows, and evacuate. Call us immediately for emergency leak detection and repair."
+                },
+                {
+                    question: "Are your gas technicians certified?",
+                    answer: "Yes, all our gas technicians are trained and follow strict Civil Defense safety protocols for LPG and central gas systems."
+                }
+            ]
         },
         intro: {
             heading: "Gas is invisible and silent until it's too late. We use high-sensitivity sniffers to ensure your home is explosive-proof.",
@@ -388,7 +515,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Install an Intelligent Gas Detection system that automatically cuts off supply if a leak is detected.",
                 icon: ShieldAlert,
                 details: ["Sensor Mount", "Valve Control", "Panel Setup", "Annual Test"],
-                image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80" // Sensor/tech panel
+                image: "https://images.unsplash.com/photo-1517420879524-86d64ac2f339?auto=format&fit=crop&q=80" // Sensor/tech panel
             }
         ],
         techSpecs: {
@@ -420,6 +547,27 @@ export const serviceData: Record<string, ServicePageData> = {
             title: "Stove Repair",
             description: "Blue flames. Even heat. Safe cooking."
         },
+        seo: {
+            title: "Cooker & Gas Stove Repair Dubai | Oven Maintenance | Dakeek",
+            keywords: [
+                "Gas Stove Repair Dubai", "Cooker Repair Dubai", "Oven Repair Service", "Cooking Range Repair",
+                "Gas Hob Fix", "Burner Cleaning Service", "Stove Maintenance Dubai", "Induction Cooker Repair",
+                "Kitchen Appliance Repair Dubai", "Gas Leak Stove Fix", "Ariston Stove Repair", "Elba Cooker Repair",
+                ...DUBAI_AREAS.map(area => `Stove Repair ${area}`),
+                ...DUBAI_AREAS.map(area => `Oven Repair ${area}`)
+            ],
+            schemaType: "GeneralContractor",
+            qna: [
+                {
+                    question: "Why is my gas stove flame yellow instead of blue?",
+                    answer: "A yellow flame indicates incomplete combustion, which can produce carbon monoxide. We clean and calibrate the burners to restore a safe blue flame."
+                },
+                {
+                    question: "Do you repair all brands of cookers?",
+                    answer: "Yes, we repair major brands including Ariston, Elba, Bosch, Siemens, and Teka."
+                }
+            ]
+        },
         intro: {
             heading: "A bad stove ruins dinner. A broken gas stove risks your home. We fix both.",
             stats: [
@@ -437,7 +585,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Yellow flame? Soot? We clean nozzles and adjust air mixers for a perfect, hot blue flame.",
                 icon: Flame,
                 details: ["Nozzle Cleaning", "Air Mix Adjust", "Igniter Fix", "Grate Cleaning"],
-                image: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&q=80" // Blue Flame / Cooking
+                image: "https://images.unsplash.com/photo-1452960962994-acf4fd70b632?auto=format&fit=crop&q=80" // Blue Flame / Cooking
             },
             {
                 id: "oven",
@@ -446,7 +594,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Cakes burning on one side? We calibrate thermostats and replace heating elements.",
                 icon: Thermometer,
                 details: ["Element Swap", "Thermostat Calib", "Door Seal", "Fan Motor"],
-                image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80" // Oven interior
+                image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80" // Oven interior
             },
             {
                 id: "safety",
@@ -455,7 +603,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Ensuring the gas cuts off if the flame blows out. A vital safety feature we test on every visit.",
                 icon: ShieldCheck,
                 details: ["Thermocouple Test", "Shutoff Valve", "Glass Integrity", "Knob Repair"],
-                image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&q=80" // Safety valve/knob
+                image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80" // Safety valve/knob
             }
         ],
         techSpecs: {
@@ -488,6 +636,28 @@ export const serviceData: Record<string, ServicePageData> = {
             title: "Handyman",
             description: "Furniture assembly. Mounting. Repairs. Done right."
         },
+        seo: {
+            title: "Best Handyman Services Dubai | Mounting, Assembly & Repairs | Dakeek",
+            keywords: [
+                "Handyman Dubai", "Furniture Assembly Dubai", "TV Mounting Service", "Curtain Installation Dubai",
+                "IKEA Furniture Assembly", "Home Maintenance Handyman", "Picture Hanging Service", "Drilling Services Dubai",
+                "Door Handle Repair", "Shelving Installation", "Carpenter Handyman", "Odd Jobs Dubai",
+                "Professional Handyman Near Me", "Cheap Handyman Dubai",
+                ...DUBAI_AREAS.map(area => `Handyman ${area}`),
+                ...DUBAI_AREAS.map(area => `Furniture Assembly ${area}`)
+            ],
+            schemaType: "GeneralContractor",
+            qna: [
+                {
+                    question: "Do you assemble IKEA furniture?",
+                    answer: "Yes, we are experts in assembling all flat-pack furniture from IKEA, Home Centre, and Danube, ensuring it is sturdy and correctly built."
+                },
+                {
+                    question: "Can you mount a TV on a gypsum wall?",
+                    answer: "Yes, we use special heavy-duty anchors designed for gypsum/drywall to ensure your TV is mounted safely and securely."
+                }
+            ]
+        },
         intro: {
             heading: "Small tasks pile up. We knock them down. From hanging art to assembling IKEA furniture, we handle the details.",
             stats: [
@@ -505,7 +675,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "TVs, mirrors, curtains, and art. We use laser levels and proper anchors so nothing ever falls.",
                 icon: Wrench, // Reusing generic tool icon
                 details: ["TV Mounting", "Curtain Rods", "Shelving", "Art Installation"],
-                image: "https://images.unsplash.com/photo-1581242163695-19d0accd4891?auto=format&fit=crop&q=80" // Drill/Wall
+                image: "https://images.unsplash.com/photo-1521207418485-99c705420785?auto=format&fit=crop&q=80" // Drill/Wall
             },
             {
                 id: "assembly",
@@ -523,7 +693,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Door handles, hinges, drawer slides, and minor touch-ups. If it's broken, we probably fix it.",
                 icon: Wrench,
                 details: ["Door Hinges", "Cabinet Handles", "Drawer Slides", "Caulking"],
-                image: "https://images.unsplash.com/photo-1505798577917-a651a5d40318?auto=format&fit=crop&q=80" // Toolbox
+                image: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80" // Toolbox
             }
         ],
         techSpecs: {
@@ -555,6 +725,26 @@ export const serviceData: Record<string, ServicePageData> = {
             tag: "SOS",
             title: "Emergency 24/7",
             description: "We are on the way. Right now."
+        },
+        seo: {
+            title: "24/7 Emergency Home Maintenace Dubai | Urgent Repair Services | Dakeek",
+            keywords: [
+                "Emergency Home Maintenance Dubai", "24 Hour Repair Service Dubai", "Urgent AC Repair", "Emergency Plumber 24/7",
+                "Power Outage Emergency Dubai", "Flood Cleanup Service", "Emergency Handyman Dubai", "Fast Response Maintenance",
+                "After Hours Repair Dubai", "Holiday Maintenance Service", "Critical Home Repair", "SOS Home Services",
+                ...DUBAI_AREAS.map(area => `Emergency Repair ${area}`)
+            ],
+            schemaType: "EmergencyService",
+            qna: [
+                {
+                    question: "How long does it take for you to arrive in an emergency?",
+                    answer: "We aim for an arrival time of under 60 minutes for all emergency calls within Dubai limits."
+                },
+                {
+                    question: "Is there an extra charge for after-hours service?",
+                    answer: "We are transparent about our pricing. Emergency call-outs may carry a standard surcharge, which will be confirmed with you before we dispatch the team."
+                }
+            ]
         },
         intro: {
             heading: "Disasters don't keep office hours. Neither do we. If there is water flooding or power out, we deploy immediately.",

@@ -30,7 +30,6 @@ export default function Icon() {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                    {/* Shield Outline */}
                     <path
                         d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z"
                         stroke="#9A7B4F"
@@ -38,9 +37,8 @@ export default function Icon() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                     />
-                    {/* Internal Roof/Checkmark (Meaning: Home + Done Right) */}
                     <path
-                        d="M8 12L11 15L16 9"
+                        d="M7 12L10.5 15.5L17 9"
                         stroke="#9A7B4F"
                         strokeWidth="2.5"
                         strokeLinecap="round"

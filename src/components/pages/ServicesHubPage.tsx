@@ -93,13 +93,13 @@ export default function ServicesHubPage() {
                     const bgClass = isEven ? "bg-white" : "bg-canvas";
 
                     return (
-                        <section key={slug} className={`py-24 lg:py-32 px-[5vw] lg:px-[8vw] ${bgClass}`}>
+                        <section key={slug} className={`py-16 lg:py-32 px-[5vw] lg:px-[8vw] ${bgClass}`}>
                             <div className="max-w-7xl mx-auto">
                                 <SectionWrapper delay={0.1}>
                                     <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-24 ${isEven ? '' : 'lg:flex-row-reverse'}`}>
 
                                         {/* VISUAL - CLICKABLE */}
-                                        <Link href={`/services/${slug}`} className="w-full lg:w-1/2 relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl shadow-black/5 group block cursor-pointer">
+                                        <Link href={`/services/${slug}`} className="w-full lg:w-1/2 relative h-[280px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl shadow-black/5 group block cursor-pointer">
                                             <Image
                                                 src={coverImage}
                                                 alt={service.hero.title}
