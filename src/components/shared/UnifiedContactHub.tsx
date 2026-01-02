@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Minimize2, Phone, Mail, Bot, ChevronRight, Sparkles, AlertCircle, ArrowLeft, RefreshCw, ArrowRight } from "lucide-react";
+import { PhoneInput } from "@/components/ui/PhoneInput";
 
 // --- Types ---
 interface Message {
@@ -23,6 +24,7 @@ interface ChatFormState {
     contactMethod?: string;
     name?: string;
     contactInfo?: string;
+    confirmationEmail?: string; // Optional email for notifications
     countryCode?: string;
     historyStack?: string[];
 }
@@ -70,8 +72,8 @@ export function UnifiedContactHub() {
 
     // Form State
     const [formState, setFormState] = useState<ChatFormState>({ step: 'GREETING', services: [], historyStack: [] });
-    const [detailsInput, setDetailsInput] = useState({ name: '', contact: '', countryCode: '+971' });
-    const [errors, setErrors] = useState({ name: '', contact: '' });
+    const [detailsInput, setDetailsInput] = useState({ name: '', contact: '', confirmationEmail: '', countryCode: '+971' });
+    const [errors, setErrors] = useState({ name: '', contact: '', confirmationEmail: '' });
 
     // Multi-Select Temp State
     const [currentSelections, setCurrentSelections] = useState<string[]>([]);
@@ -99,6 +101,16 @@ export function UnifiedContactHub() {
     useEffect(() => {
         if (view === "chat") messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages, view, isTyping]);
+
+    // Listen for external open triggers
+    useEffect(() => {
+        const handleOpen = () => {
+            setIsOpen(true);
+            setView("chat");
+        };
+        window.addEventListener('open-chat', handleOpen);
+        return () => window.removeEventListener('open-chat', handleOpen);
+    }, []);
 
 
     // --- LOGIC: Options Bot Flow ---
@@ -273,7 +285,7 @@ export function UnifiedContactHub() {
     // --- Phone Formatting & Validation ---
     const validateInputs = () => {
         let isValid = true;
-        const newErrors = { name: '', contact: '' };
+        const newErrors = { name: '', contact: '', confirmationEmail: '' };
 
         if (!detailsInput.name.trim()) { newErrors.name = "Name is required"; isValid = false; }
 
@@ -288,6 +300,15 @@ export function UnifiedContactHub() {
             const isUAE = /^(?:971|0)?5\d{8}$/.test(digits);
             if (!val) { newErrors.contact = "Phone number is required"; isValid = false; }
             else if (!isUAE) { newErrors.contact = "Please enter a valid UAE number (e.g. 050 123 4567)"; isValid = false; }
+
+            // Validate Optional Email if provided
+            if (detailsInput.confirmationEmail.trim()) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(detailsInput.confirmationEmail.trim())) {
+                    newErrors.confirmationEmail = "Invalid email format";
+                    isValid = false;
+                }
+            }
         }
         setErrors(newErrors);
         return isValid;
@@ -305,7 +326,8 @@ export function UnifiedContactHub() {
             ...formState,
             service: formState.services.join(", "),
             name: detailsInput.name,
-            contactInfo: formState.contactMethod === 'Email' ? detailsInput.contact : `${detailsInput.countryCode} ${detailsInput.contact}`
+            contactInfo: formState.contactMethod === 'Email' ? detailsInput.contact : `${detailsInput.countryCode} ${detailsInput.contact}`,
+            confirmationEmail: detailsInput.confirmationEmail
         };
 
         try {
@@ -369,7 +391,7 @@ export function UnifiedContactHub() {
                             bg-black/80 backdrop-blur-[40px] border border-white/10 
                             rounded-[32px] overflow-hidden flex flex-col 
                             shadow-[0_32px_64px_-12px_rgba(0,0,0,0.5)] 
-                            ${view === "chat" ? "h-[600px] max-h-[80vh]" : "h-auto max-h-[80vh]"}`}
+                            ${view === "chat" ? "h-[600px] max-h-[80dvh]" : "h-auto max-h-[80dvh]"}`}
                         style={{ transformOrigin: "bottom right" }}
                     >
                         {/* Top Highlight */}
@@ -443,12 +465,36 @@ export function UnifiedContactHub() {
                                                     <input type="text" placeholder="Full Name" className={`w-full bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`} value={detailsInput.name} onChange={e => { setDetailsInput({ ...detailsInput, name: e.target.value }); if (errors.name) setErrors({ ...errors, name: '' }); }} />
                                                     {errors.name && <span className="text-[10px] text-red-500 block">{errors.name}</span>}
                                                     <div className="flex gap-2">
-                                                        <select className="bg-white/5 border border-white/10 rounded-lg px-2 py-3 text-sm text-white focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all appearance-none" value={detailsInput.countryCode} onChange={e => setDetailsInput({ ...detailsInput, countryCode: e.target.value })} style={{ width: '80px', textAlign: 'center' }}>
-                                                            <option value="+971">🇦🇪</option><option value="+966">🇸🇦</option><option value="+44">🇬🇧</option><option value="+1">🇺🇸</option><option value="+91">🇮🇳</option><option value="+92">🇵🇰</option><option value="+63">🇵🇭</option><option value="+20">🇪🇬</option>
-                                                        </select>
-                                                        <input type="text" placeholder={formState.contactMethod === "Email" ? "Email Address" : "50 123 4567"} className={`flex-1 bg-white/5 border ${errors.contact ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`} value={detailsInput.contact} onChange={e => { let val = e.target.value; if (formState.contactMethod !== "Email") val = val.replace(/\D/g, ''); setDetailsInput({ ...detailsInput, contact: val }); if (errors.contact) setErrors({ ...errors, contact: '' }); }} />
+                                                        <PhoneInput
+                                                            value={detailsInput.contact}
+                                                            onChange={(val) => {
+                                                                // Library returns undefined if empty, or string
+                                                                setDetailsInput({ ...detailsInput, contact: val || "" });
+                                                                if (errors.contact) setErrors({ ...errors, contact: '' });
+                                                            }}
+                                                            placeholder={formState.contactMethod === "Email" ? "Email Address" : "50 123 4567"}
+                                                            className="flex-1"
+                                                            error={errors.contact}
+                                                        />
                                                     </div>
-                                                    <div className="text-[10px] text-white/30 text-right pr-1">{formState.contactMethod !== "Email" && detailsInput.countryCode}</div>
+
+                                                    {/* Optional Email for Non-Email Methods */}
+                                                    {formState.contactMethod !== "Email" && (
+                                                        <div className="animate-in fade-in slide-in-from-top-1 duration-300">
+                                                            <input
+                                                                type="text"
+                                                                placeholder="Email for confirmation (Optional)"
+                                                                className={`w-full bg-white/5 border ${errors.confirmationEmail ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`}
+                                                                value={detailsInput.confirmationEmail}
+                                                                onChange={e => {
+                                                                    setDetailsInput({ ...detailsInput, confirmationEmail: e.target.value });
+                                                                    if (errors.confirmationEmail) setErrors({ ...errors, confirmationEmail: '' });
+                                                                }}
+                                                            />
+                                                            {errors.confirmationEmail && <span className="text-[10px] text-red-500 block ml-1 mt-1">{errors.confirmationEmail}</span>}
+                                                        </div>
+                                                    )}
+
                                                     <button onClick={handleFormSubmit} className="w-full py-3 bg-[#A18262] hover:bg-[#B09476] text-white rounded-lg text-sm font-medium transition-all shadow-lg hover:shadow-xl active:scale-[0.98]">Submit Request</button>
                                                 </div>
                                             )}

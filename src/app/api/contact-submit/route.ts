@@ -4,12 +4,15 @@ import nodemailer from 'nodemailer';
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        const { service, serviceType, issue, contactMethod, name, contactInfo } = body;
+        const { service, serviceType, issue, contactMethod, name, contactInfo, confirmationEmail } = body;
 
         // Validating required fields
         if (!service || !contactMethod || !name || !contactInfo) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
+
+        // Determine Client Email (Primary or Optional)
+        const clientEmail = contactMethod === 'Email' ? contactInfo : confirmationEmail;
 
         // Configure Transporter (Mock or Real)
         // NOTE: For production, use environment variables.
@@ -36,8 +39,9 @@ export async function POST(req: Request) {
         const subject = `⚠️ ACTION: ${contactMethod} Request - ${name} (${service})`;
 
         const mailOptions = {
-            from: `"Dakeek Assistant" <${process.env.EMAIL_USER}>`, // MUST match authenticated user
-            to: `asheejajayan@gmail.com, ${contactInfo}`, // Send to Admin AND Client
+            from: `"Dakeek Assistant" <${process.env.EMAIL_USER}>`,
+            to: clientEmail ? `asheejajayan@gmail.com, ${clientEmail}` : 'asheejajayan@gmail.com',
+            replyTo: clientEmail || undefined,
             subject: subject,
             html: `
                 <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f9fafb; padding: 40px 0;">

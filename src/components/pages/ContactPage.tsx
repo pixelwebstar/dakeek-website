@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, MessageCircle, Bot } from "lucide-react";
 
 import dynamic from "next/dynamic";
 
@@ -9,13 +9,21 @@ const HyperHero = dynamic(() => import("@/components/hero/HyperHero"), {
     ssr: false,
     loading: () => <div className="absolute inset-0 w-full h-full bg-[#D1D5DB]" />,
 });
-import { ContactHero } from "@/components/contact/ContactHero";
-import { SmartForm } from "@/components/contact/SmartForm";
 // @ts-ignore
 const TrustIndicators = dynamic(() => import("@/components/shared/TrustIndicators").then(mod => mod.TrustIndicators));
+import { SmartForm } from "@/components/contact/SmartForm";
 import SectionWrapper from "@/components/about/SectionWrapper";
 
 export default function ContactPage() {
+
+    // Function to trigger global chat open
+    const openChat = () => {
+        if (typeof window !== 'undefined') {
+            const event = new Event('open-chat');
+            window.dispatchEvent(event);
+        }
+    };
+
     return (
         <main className="min-h-screen bg-canvas text-ink overflow-x-hidden selection:bg-bronze selection:text-white">
 
@@ -54,7 +62,24 @@ export default function ContactPage() {
                     <div className="space-y-12">
                         {/* Contact Methods */}
                         <div className="space-y-8">
-                            <h2 className="text-4xl font-serif italic text-ink mb-8">Get in Touch</h2>
+                            <div>
+                                <h2 className="text-4xl font-sans font-light tracking-tight text-ink mb-2">Get in Touch</h2>
+                                <p className="text-titanium text-lg font-light mb-6">Choose how you'd like to connect.</p>
+
+                                {/* NEW: Bot Trigger Button */}
+                                <button
+                                    onClick={openChat}
+                                    className="group flex items-center gap-3 px-5 py-3 bg-[#f3f4f6] hover:bg-[#A18262] text-ink hover:text-white rounded-xl transition-all duration-300 w-full md:w-auto border border-black/5"
+                                >
+                                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
+                                        <Bot className="w-4 h-4 text-[#A18262]" />
+                                    </div>
+                                    <span className="font-medium">Use AI Assistant</span>
+                                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse ml-auto md:ml-2"></div>
+                                </button>
+                            </div>
+
+                            <div className="h-px bg-black/5 w-full my-8"></div>
 
                             {/* Phone */}
                             <motion.a
@@ -152,7 +177,7 @@ export default function ContactPage() {
 
                     <div className="w-full max-w-xl relative z-10">
                         <div className="mb-8">
-                            <h2 className="text-3xl font-serif italic text-ink mb-3">Send us a message</h2>
+                            <h2 className="text-3xl font-sans font-light tracking-tight text-ink mb-3">Send us a message</h2>
                             <p className="text-titanium">We'll respond within 2 minutes during business hours.</p>
                         </div>
                         <SmartForm />
@@ -160,12 +185,30 @@ export default function ContactPage() {
                 </div>
             </section>
 
-            {/* SECTION: LOCATION MAP (Dark Mode) */}
-            <section className="relative w-full h-[50vh] min-h-[400px] border-t border-structure bg-[#18181b] overflow-hidden">
+            {/* SECTION: LOCATION MAP (Dark Mode & Interactive) */}
+            <section className="relative w-full h-[60vh] min-h-[500px] border-t border-structure bg-[#18181b] overflow-hidden group">
                 {/* Map Overlay Gradient */}
                 <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-black/80 via-transparent to-black/80"></div>
 
-                {/* Google Map Iframe with Dark Mode Filter */}
+                {/* VISUAL: Transparent Glassy Target */}
+                <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center">
+                    <div className="relative">
+                        {/* Subtle Pulse Ring */}
+                        <div className="absolute inset-0 rounded-full border border-white/10 scale-150 animate-ping opacity-20"></div>
+
+                        {/* Glassy Lens */}
+                        <div className="w-24 h-24 rounded-full border border-white/20 bg-white/5 backdrop-blur-[2px] shadow-2xl flex items-center justify-center overflow-hidden">
+                            {/* Thin Crosshair */}
+                            <div className="absolute w-full h-[1px] bg-white/20"></div>
+                            <div className="absolute h-full w-[1px] bg-white/20"></div>
+
+                            {/* Central Dot */}
+                            <div className="w-1.5 h-1.5 bg-[#A18262] rounded-full shadow-[0_0_10px_#A18262]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Google Map Iframe (Unlocked) */}
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.686866858204!2d55.30232407604368!3d25.24747732965664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432962375991%3A0x62953830c24c2592!2sAnzar%20Gallery!5e0!3m2!1sen!2sae!4v1709462837283!5m2!1sen!2sae"
                     width="100%"
@@ -174,33 +217,40 @@ export default function ContactPage() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    className="absolute inset-0 z-0 opacity-80"
+                    className="absolute inset-0 z-0 opacity-80 transition-opacity duration-700 hover:opacity-100"
                 ></iframe>
 
-                {/* Location Card */}
-                <div className="absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm px-4 pointer-events-none">
+                {/* Location Card (Side) */}
+                <div className="absolute z-20 bottom-8 left-4 md:bottom-12 md:left-12 w-full max-w-xs pointer-events-none">
                     <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
+                        initial={{ x: -20, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
                         viewport={{ once: true }}
-                        className="bg-black/80 backdrop-blur-xl border border-white/10 p-8 text-center rounded-2xl pointer-events-auto shadow-2xl"
+                        className="bg-black/90 backdrop-blur-md border border-white/10 p-6 rounded-2xl pointer-events-auto shadow-2xl relative overflow-hidden"
                     >
-                        <div className="w-12 h-12 rounded-full bg-[#A18262] text-white flex items-center justify-center mx-auto mb-4 animate-pulse">
-                            <MapPin className="w-6 h-6" />
+                        {/* Decorative Corner */}
+                        <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#A18262]/20 to-transparent rounded-bl-3xl"></div>
+
+                        <div className="flex items-start gap-4">
+                            <div className="mt-1 w-10 h-10 rounded-full bg-[#A18262] text-white flex items-center justify-center shrink-0 shadow-lg">
+                                <MapPin className="w-5 h-5" />
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold text-white mb-1">Visit Our HQ</h3>
+                                <p className="text-gray-400 font-mono text-xs uppercase tracking-widest leading-relaxed mb-4">
+                                    Anzar Gallery Building<br />
+                                    Al Karama, Dubai, UAE
+                                </p>
+                                <a
+                                    href="https://maps.app.goo.gl/kXjXjXjXjXjXjXjX"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 text-[#A18262] hover:text-white transition-colors text-xs font-bold uppercase tracking-widest group/link"
+                                >
+                                    Get Directions <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+                                </a>
+                            </div>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-2">Visit Our HQ</h3>
-                        <p className="text-gray-400 font-mono text-xs uppercase tracking-widest mb-6">
-                            Anzar Gallery Building<br />
-                            Al Karama, Dubai, UAE
-                        </p>
-                        <a
-                            href="https://maps.app.goo.gl/kXjXjXjXjXjXjXjX" // Placeholder or actual link if known, using generic query for now
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold text-sm uppercase tracking-wider hover:bg-gray-200 transition-colors rounded-lg"
-                        >
-                            Get Directions
-                        </a>
                     </motion.div>
                 </div>
             </section>
