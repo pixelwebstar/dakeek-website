@@ -20,11 +20,11 @@ export default function AboutPage() {
         <main className="bg-canvas min-h-screen text-ink overflow-x-hidden selection:bg-bronze selection:text-white">
 
             {/* SECTION 1: HERO (Hyper Metal) */}
-            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
+            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E7E5E4] border-b border-structure">
                 <HyperHero
-                    color1="#C0C0C0" // Pure Automotive Silver
-                    color2="#E8E8E8" // High Gloss Silver
-                    initialColor="#C0C0C0"
+                    color1="#A8A29E" // Stone 400 (Human/Warm)
+                    color2="#E7E5E4" // Stone 200
+                    initialColor="#E7E5E4"
                 />
 
                 <SectionWrapper className="max-w-6xl mx-auto z-10 text-center px-6" delay={0.2}>

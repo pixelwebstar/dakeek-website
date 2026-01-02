@@ -97,11 +97,11 @@ export default function QueriesPage() {
             <div className="fixed inset-0 w-full h-full opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none z-0 mix-blend-multiply"></div>
 
             {/* 1. HERO: The Encyclopedia */}
-            <section className="relative h-[60vh] md:h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
+            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#F4F4F5] border-b border-structure">
                 <HyperHero
-                    color1="#D1D5DB"
-                    color2="#F3F4F6"
-                    initialColor="#D1D5DB"
+                    color1="#A1A1AA" // Zinc 400
+                    color2="#F4F4F5" // Zinc 100
+                    initialColor="#F4F4F5"
                 />
 
                 <SectionWrapper className="max-w-4xl mx-auto text-center relative z-10 px-6">

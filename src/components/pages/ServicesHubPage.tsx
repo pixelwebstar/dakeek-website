@@ -30,11 +30,11 @@ export default function ServicesHubPage() {
         <main className="min-h-screen bg-canvas text-ink overflow-x-hidden selection:bg-bronze selection:text-white">
 
             {/* 1. HERO: The Standard - PLATINUM/SILVER */}
-            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#F3F4F6] border-b border-structure">
+            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E2E8F0] border-b border-structure">
                 <HyperHero
-                    color1="#D1D5DB" // Platinum
-                    color2="#F3F4F6" // Silver Mist
-                    initialColor="#F3F4F6"
+                    color1="#94A3B8" // Slate 400 (Technical/Cool)
+                    color2="#E2E8F0" // Slate 200
+                    initialColor="#E2E8F0"
                 />
 
                 <SectionWrapper className="max-w-4xl mx-auto text-center relative z-10 px-6">

@@ -5,8 +5,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Check, Loader2, Send, AlertCircle, XCircle } from "lucide-react";
+import { Loader2, XCircle } from "lucide-react";
 import { PhoneInput } from "@/components/ui/PhoneInput";
+import { toast } from "sonner";
 
 export function SmartForm() {
     const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -23,7 +24,7 @@ export function SmartForm() {
 
     type FormData = z.infer<typeof formSchema>;
 
-    const { register, control, handleSubmit, setValue, watch, formState: { errors } } = useForm<FormData>({
+    const { register, control, handleSubmit, setValue, watch, reset, formState: { errors } } = useForm<FormData>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             services: [],
@@ -65,32 +66,19 @@ export function SmartForm() {
 
             if (!response.ok) throw new Error('Failed to send');
 
-            setStatus("success");
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            setStatus("idle");
+            reset();
+            toast.success("Request Received", {
+                description: "We'll be in touch shortly via WhatsApp/Phone.",
+                duration: 5000,
+            });
+
         } catch (error) {
             setStatus("error");
             setErrorMessage("Something went wrong. Please try again or call 800-DAKEEK.");
+            toast.error("Submission Failed", { description: "Please try again or call us directly." });
         }
     };
-
-    if (status === "success") {
-        return (
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-white/95 backdrop-blur-xl p-12 rounded-3xl shadow-xl text-center space-y-4 border border-green-100 h-full flex flex-col items-center justify-center max-h-[80vh]"
-            >
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto animate-bounce">
-                    <Check className="w-8 h-8 text-green-600" />
-                </div>
-                <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Request Received</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed max-w-xs mx-auto">We're on it. Expect a conformation via WhatsApp shortly.</p>
-                </div>
-                <button onClick={() => setStatus("idle")} className="text-xs font-bold uppercase tracking-widest text-[#A18262] hover:text-[#8a6a4b] mt-4 border-b border-[#A18262]/30 pb-1">Send another request</button>
-            </motion.div>
-        );
-    }
 
     return (
         <motion.div

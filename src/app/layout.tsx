@@ -5,6 +5,7 @@ import { SmoothScroll } from "../components/layout/SmoothScroll";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { UnifiedContactHub } from "../components/shared/UnifiedContactHub";
+import { Toaster } from "sonner";
 
 export const viewport: Viewport = {
   themeColor: "#111111",
@@ -101,6 +102,7 @@ export default function RootLayout({
           <Footer />
         </SmoothScroll>
         <UnifiedContactHub />
+        <Toaster richColors position="top-center" closeButton theme="light" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

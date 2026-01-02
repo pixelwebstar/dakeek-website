@@ -297,9 +297,9 @@ export function UnifiedContactHub() {
             if (!emailRegex.test(val)) { newErrors.contact = "Please enter a valid email address"; isValid = false; }
         } else {
             const digits = val.replace(/\D/g, '');
-            const isUAE = /^(?:971|0)?5\d{8}$/.test(digits);
+            // Relaxed validation for international support
             if (!val) { newErrors.contact = "Phone number is required"; isValid = false; }
-            else if (!isUAE) { newErrors.contact = "Please enter a valid UAE number (e.g. 050 123 4567)"; isValid = false; }
+            else if (digits.length < 6) { newErrors.contact = "Please enter a valid phone number"; isValid = false; }
 
             // Validate Optional Email if provided
             if (detailsInput.confirmationEmail.trim()) {

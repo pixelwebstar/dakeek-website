@@ -14,7 +14,12 @@ const TrustIndicators = dynamic(() => import("@/components/shared/TrustIndicator
 import { SmartForm } from "@/components/contact/SmartForm";
 import SectionWrapper from "@/components/about/SectionWrapper";
 
+// @ts-ignore
+import { useState } from "react";
+
 export default function ContactPage() {
+    const [zoom, setZoom] = useState(15);
+
 
     // Function to trigger global chat open
     const openChat = () => {
@@ -209,16 +214,35 @@ export default function ContactPage() {
                 </div>
 
                 {/* Google Map Iframe (Unlocked) */}
+                {/* Google Map Iframe (Locked & Custom Zoom) */}
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.686866858204!2d55.30232407604368!3d25.24747732965664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432962375991%3A0x62953830c24c2592!2sAnzar%20Gallery!5e0!3m2!1sen!2sae!4v1709462837283!5m2!1sen!2sae"
+                    src={`https://maps.google.com/maps?q=25.2487,55.3003&hl=es;z=${zoom}&output=embed`}
                     width="100%"
                     height="100%"
                     style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(83%)' }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    className="absolute inset-0 z-0 opacity-80 transition-opacity duration-700 hover:opacity-100"
+                    className="absolute inset-0 z-0 opacity-80 transition-opacity duration-700 hover:opacity-100 pointer-events-none" // LOCKED: pointer-events-none
                 ></iframe>
+
+                {/* Custom Zoom Controls (Glassy) */}
+                <div className="absolute top-1/2 right-4 -translate-y-1/2 flex flex-col gap-2 z-30">
+                    <button
+                        onClick={() => setZoom(prev => Math.min(prev + 1, 20))}
+                        className="w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-[#A18262] transition-colors shadow-lg active:scale-95"
+                        aria-label="Zoom In"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+                    </button>
+                    <button
+                        onClick={() => setZoom(prev => Math.max(prev - 1, 1))}
+                        className="w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-[#A18262] transition-colors shadow-lg active:scale-95"
+                        aria-label="Zoom Out"
+                    >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" /></svg>
+                    </button>
+                </div>
 
                 {/* Location Card (Side) */}
                 <div className="absolute z-20 bottom-8 left-4 md:bottom-12 md:left-12 w-full max-w-xs pointer-events-none">

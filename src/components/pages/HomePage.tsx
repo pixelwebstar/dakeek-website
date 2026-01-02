@@ -3,6 +3,7 @@
 
 import { IconAC, IconElectrical, IconPlumbing, IconStoves, IconGas, IconEmergency, IconCleaning, IconHandyman } from "@/components/services/ServiceIcons";
 import { ShieldCheck, HeartHandshake, Sparkles, Award } from "lucide-react";
+import Balancer from "react-wrap-balancer";
 
 import Link from "next/link";
 
@@ -59,10 +60,10 @@ export default function HomePage() {
                         Precision Home Services
                     </p>
                     <h1 className="hero-line-1 text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink">
-                        Dakeek.
+                        <Balancer>Dakeek.</Balancer>
                     </h1>
                     <p className="hero-line-2 text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12">
-                        The Science of Maintenance.
+                        <Balancer>The Science of Maintenance.</Balancer>
                     </p>
 
                     <div className="hero-cta flex flex-col md:flex-row gap-4 justify-center items-center">
@@ -106,7 +107,7 @@ export default function HomePage() {
 
                     {/* Right: The Text (Tight & Bold) */}
                     <h2 className="text-2xl md:text-4xl font-serif leading-[1.2] text-[#111] font-light max-w-4xl">
-                        We believe your home is a sanctuary. It is not just about fixing what is broken, but preserving your <span className="italic text-[#A18262]">peace of mind</span>.
+                        <Balancer>We believe your home is a sanctuary. It is not just about fixing what is broken, but preserving your <span className="italic text-[#A18262]">peace of mind</span>.</Balancer>
                     </h2>
                 </div>
             </section>
