@@ -11,21 +11,21 @@ export default function manifest(): MetadataRoute.Manifest {
         theme_color: '#111111',
         icons: [
             {
-                src: '/icon-192',
+                src: '/icons/icon-192.png',
                 sizes: '192x192',
                 type: 'image/png',
                 // @ts-expect-error - Next.js types don't support "any maskable" yet, but it is valid spec
                 purpose: 'any maskable',
             },
             {
-                src: '/icon-512',
+                src: '/icons/icon-512.png',
                 sizes: '512x512',
                 type: 'image/png',
                 // @ts-expect-error - Next.js types don't support "any maskable" yet, but it is valid spec
                 purpose: 'any maskable',
             },
             {
-                src: '/apple-icon',
+                src: '/icons/apple-touch-icon.png',
                 sizes: '180x180',
                 type: 'image/png',
             }

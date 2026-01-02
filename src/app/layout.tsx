@@ -83,6 +83,15 @@ export const metadata: Metadata = {
     google: "T8hhiXgeP_vxqaKG5DT3GpJik50Qiv2vNYv9yZ7xBE4",
   },
   category: "Home Services",
+  icons: {
+    icon: '/icons/icon-512.png',
+    shortcut: '/icons/icon-512.png',
+    apple: '/icons/apple-touch-icon.png',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/icons/apple-touch-icon.png',
+    },
+  },
 };
 
 export default function RootLayout({
