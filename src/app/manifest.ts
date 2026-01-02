@@ -14,11 +14,15 @@ export default function manifest(): MetadataRoute.Manifest {
                 src: '/icon-192',
                 sizes: '192x192',
                 type: 'image/png',
+                // @ts-expect-error - Next.js types don't support "any maskable" yet, but it is valid spec
+                purpose: 'any maskable',
             },
             {
                 src: '/icon-512',
                 sizes: '512x512',
                 type: 'image/png',
+                // @ts-expect-error - Next.js types don't support "any maskable" yet, but it is valid spec
+                purpose: 'any maskable',
             },
             {
                 src: '/apple-icon',

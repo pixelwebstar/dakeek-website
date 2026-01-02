@@ -134,7 +134,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "A flawless installation is the foundation of a decade of comfort. We calculate load, optimize placement, and calibrate airflow.",
                 icon: Wind,
                 details: ["Load Calculation", "Ductwork Design", "Efficiency Audits", "Smart Thermostats"],
-                image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&q=80"
+                image: "/images/ac/maintenance.jpg" // Using reliable local asset
             },
             {
                 id: "maintenance",
@@ -152,7 +152,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "When the heat rises, we drop it. Our emergency repair team identifies the root cause instantly.",
                 icon: Wrench,
                 details: ["Compressor Diagnostics", "Leak Repair", "Circuit Board Fix", "24/7 Service"],
-                image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80"
+                image: "/images/ac/maintenance_final.jpg"
             }
         ],
         addOn: {
@@ -160,7 +160,7 @@ export const serviceData: Record<string, ServicePageData> = {
             tag: "Add-On Service",
             description: "Dirty ducts mean dirty air. Dust, mold, and allergens hide inside your walls. We use industrial vacuums to clear them out.",
             benefits: ["Removes bad smells", "Reduces dust", "Improves airflow"],
-            image: "https://images.unsplash.com/photo-1584622781564-1d987f7333c1?q=80&w=800&auto=format&fit=crop"
+            image: "/images/ac/deep_clean_new.png"
         },
         techSpecs: {
             grid: [
@@ -229,7 +229,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Hidden leaks ruin foundations. We find them without tearing up your walls using thermal and acoustic sensors.",
                 icon: Search,
                 details: ["Ultrasonic Detection", "Thermal Imaging", "Pressure Testing", "Non-Invasive"],
-                image: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&q=80" // Plumber checking pipes (Residential)
+                image: "/images/plumbing_brass_detail.png"
             },
             {
                 id: "heaters",
@@ -317,7 +317,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Old wiring is a fire hazard. We inspect, upgrade, and organize your distribution boards for maximum safety.",
                 icon: Zap,
                 details: ["Load Balancing", "Breaker Testing", "Short Circuit Fix", "Rewiring"],
-                image: "https://images.unsplash.com/photo-1555963966-b7ae5404b6ed?auto=format&fit=crop&q=80" // Electrical Panel / Tech
+                image: "/images/modern_electrical_panel.png"
             },
             {
                 id: "lights",
@@ -415,7 +415,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Removal of sediment and disinfection of your main water supply.",
                 icon: Droplet,
                 details: ["Drain & Scrub", "Chlorination", "Pump Check", "Lab Test Option"],
-                image: "https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&q=80" // Reliable Water/Tank (Reusing functioning water img)
+                image: "https://images.unsplash.com/photo-1533618105727-b08e50b1df2c?auto=format&fit=crop&q=80" // Clean Water Texture
             },
             {
                 id: "ducts",
@@ -585,7 +585,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Yellow flame? Soot? We clean nozzles and adjust air mixers for a perfect, hot blue flame.",
                 icon: Flame,
                 details: ["Nozzle Cleaning", "Air Mix Adjust", "Igniter Fix", "Grate Cleaning"],
-                image: "https://images.unsplash.com/photo-1452960962994-acf4fd70b632?auto=format&fit=crop&q=80" // Blue Flame / Cooking
+                image: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&q=80" // Modern Gas Hob
             },
             {
                 id: "oven",
@@ -594,7 +594,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Cakes burning on one side? We calibrate thermostats and replace heating elements.",
                 icon: Thermometer,
                 details: ["Element Swap", "Thermostat Calib", "Door Seal", "Fan Motor"],
-                image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80" // Oven interior
+                image: "https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?auto=format&fit=crop&q=80" // Modern Oven Interior
             },
             {
                 id: "safety",
@@ -603,7 +603,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Ensuring the gas cuts off if the flame blows out. A vital safety feature we test on every visit.",
                 icon: ShieldCheck,
                 details: ["Thermocouple Test", "Shutoff Valve", "Glass Integrity", "Knob Repair"],
-                image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80" // Safety valve/knob
+                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80" // Safety Valve / Technical
             }
         ],
         techSpecs: {

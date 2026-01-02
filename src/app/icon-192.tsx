@@ -17,7 +17,6 @@ export default function Icon() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     background: '#09090b', // Zinc-950
-                    borderRadius: '24px', // Slight rounding for Android/PWA
                 }}
             >
                 <div

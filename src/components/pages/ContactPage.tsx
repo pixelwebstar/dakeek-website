@@ -159,6 +159,51 @@ export default function ContactPage() {
                     </div>
                 </div>
             </section>
+
+            {/* SECTION: LOCATION MAP (Dark Mode) */}
+            <section className="relative w-full h-[50vh] min-h-[400px] border-t border-structure bg-[#18181b] overflow-hidden">
+                {/* Map Overlay Gradient */}
+                <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-black/80 via-transparent to-black/80"></div>
+
+                {/* Google Map Iframe with Dark Mode Filter */}
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.686866858204!2d55.30232407604368!3d25.24747732965664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432962375991%3A0x62953830c24c2592!2sAnzar%20Gallery!5e0!3m2!1sen!2sae!4v1709462837283!5m2!1sen!2sae"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(83%)' }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="absolute inset-0 z-0 opacity-80"
+                ></iframe>
+
+                {/* Location Card */}
+                <div className="absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-sm px-4 pointer-events-none">
+                    <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        className="bg-black/80 backdrop-blur-xl border border-white/10 p-8 text-center rounded-2xl pointer-events-auto shadow-2xl"
+                    >
+                        <div className="w-12 h-12 rounded-full bg-[#A18262] text-white flex items-center justify-center mx-auto mb-4 animate-pulse">
+                            <MapPin className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-xl font-bold text-white mb-2">Visit Our HQ</h3>
+                        <p className="text-gray-400 font-mono text-xs uppercase tracking-widest mb-6">
+                            Anzar Gallery Building<br />
+                            Al Karama, Dubai, UAE
+                        </p>
+                        <a
+                            href="https://maps.app.goo.gl/kXjXjXjXjXjXjXjX" // Placeholder or actual link if known, using generic query for now
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold text-sm uppercase tracking-wider hover:bg-gray-200 transition-colors rounded-lg"
+                        >
+                            Get Directions
+                        </a>
+                    </motion.div>
+                </div>
+            </section>
         </main>
     );
 }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Minimize2, Phone, Mail, Bot, ChevronRight, Sparkles, AlertCircle, ArrowLeft, RefreshCw } from "lucide-react";
+import { MessageCircle, X, Send, Minimize2, Phone, Mail, Bot, ChevronRight, Sparkles, AlertCircle, ArrowLeft, RefreshCw, ArrowRight } from "lucide-react";
 
 // --- Types ---
 interface Message {
@@ -11,18 +11,20 @@ interface Message {
     content: string;
     type?: 'text' | 'options' | 'form';
     options?: string[];
+    isMultiSelect?: boolean;
     timestamp: Date;
 }
 
 interface ChatFormState {
     step: 'GREETING' | 'SERVICE' | 'TYPE' | 'ISSUE' | 'CONTACT_METHOD' | 'DETAILS' | 'DONE';
-    service?: string;
+    services: string[]; // Changed to array
     serviceType?: string;
     issue?: string;
     contactMethod?: string;
     name?: string;
     contactInfo?: string;
-    historyStack?: string[]; // To track history for "Back" button
+    countryCode?: string;
+    historyStack?: string[];
 }
 
 // --- Liquid Metal Icon Component ---
@@ -67,9 +69,13 @@ export function UnifiedContactHub() {
     const triggerRef = useRef<HTMLButtonElement>(null);
 
     // Form State
-    const [formState, setFormState] = useState<ChatFormState>({ step: 'GREETING', historyStack: [] });
-    const [detailsInput, setDetailsInput] = useState({ name: '', contact: '' });
+    const [formState, setFormState] = useState<ChatFormState>({ step: 'GREETING', services: [], historyStack: [] });
+    const [detailsInput, setDetailsInput] = useState({ name: '', contact: '', countryCode: '+971' });
     const [errors, setErrors] = useState({ name: '', contact: '' });
+
+    // Multi-Select Temp State
+    const [currentSelections, setCurrentSelections] = useState<string[]>([]);
+    const [isProcessing, setIsProcessing] = useState(false);
 
 
     // Initialize Chat Flow
@@ -79,45 +85,36 @@ export function UnifiedContactHub() {
         }
     }, [view]);
 
-    // Click Outside Handling
+    // Click Outside
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (isOpen &&
-                containerRef.current &&
-                !containerRef.current.contains(event.target as Node) &&
-                triggerRef.current &&
-                !triggerRef.current.contains(event.target as Node)
-            ) {
+            if (isOpen && containerRef.current && !containerRef.current.contains(event.target as Node) && triggerRef.current && !triggerRef.current.contains(event.target as Node)) {
                 setIsOpen(false);
             }
         };
-
         document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
+        return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [isOpen]);
 
-    // Auto-scroll logic
     useEffect(() => {
-        if (view === "chat") {
-            messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-        }
+        if (view === "chat") messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages, view, isTyping]);
 
 
     // --- LOGIC: Options Bot Flow ---
 
     const startChatFlow = () => {
-        setMessages([]); // Clear chat
-        setFormState({ step: 'SERVICE', historyStack: [] });
+        setMessages([]);
+        setFormState({ step: 'SERVICE', services: [], historyStack: [] });
+        setCurrentSelections([]);
         setIsTyping(true);
         setTimeout(() => {
             const welcomeMsg: Message = {
                 id: "welcome",
                 role: "assistant",
-                content: "Hello! I'm Dakeek's Intelligent Service Assistant. 🛠️\n\nHow can I help you today?",
+                content: "Hello! I'm Dakeek's Intelligent Service Assistant. 🛠️\n\nSelect one or more services you need:",
                 type: 'options',
+                isMultiSelect: true,
                 options: [
                     "AC Services", "Plumbing", "Electrical", "Cleaning",
                     "Gas Systems", "Stove Repair", "Handyman", "Emergency",
@@ -130,27 +127,46 @@ export function UnifiedContactHub() {
         }, 800);
     };
 
-    const handleOptionClick = (option: string) => {
-        // 1. Remove options from the previous assistant message (so they can't be clicked again)
+    const handleOptionClick = (option: string, isMulti: boolean = false) => {
+        if (isProcessing) return;
+
+        if (isMulti) {
+            setCurrentSelections(prev => {
+                const newSel = prev.includes(option) ? prev.filter(item => item !== option) : [...prev, option];
+                return newSel;
+            });
+            return;
+        }
+
+        setIsProcessing(true);
         setMessages(prev => prev.map(msg => {
-            if (msg.role === 'assistant' && msg.type === 'options' && msg.options) {
-                return { ...msg, options: undefined }; // Remove options
-            }
+            if (msg.role === 'assistant' && msg.type === 'options') return { ...msg, options: undefined };
             return msg;
         }));
 
-        // 2. Add User Selection to Chat
-        const userMsg: Message = {
-            id: Date.now().toString(),
-            role: "user",
-            content: option,
-            timestamp: new Date()
-        };
+        const userMsg: Message = { id: Date.now().toString(), role: "user", content: option, timestamp: new Date() };
+        setMessages(prev => [...prev, userMsg]);
+        setIsTyping(true);
+        processFlow(option);
+    };
+
+    const confirmSelection = () => {
+        if (currentSelections.length === 0 || isProcessing) return;
+        setIsProcessing(true);
+
+        const finalSelection = [...currentSelections];
+        setFormState(prev => ({ ...prev, services: finalSelection }));
+
+        setMessages(prev => prev.map(msg => {
+            if (msg.role === 'assistant' && msg.type === 'options') return { ...msg, options: undefined };
+            return msg;
+        }));
+
+        const userMsg: Message = { id: Date.now().toString(), role: "user", content: finalSelection.join(", "), timestamp: new Date() };
         setMessages(prev => [...prev, userMsg]);
         setIsTyping(true);
 
-        // Process State Transition
-        processFlow(option);
+        processFlow(finalSelection);
     };
 
     const handleTextInput = (text: string) => {
@@ -159,107 +175,57 @@ export function UnifiedContactHub() {
         setMessages(prev => [...prev, userMsg]);
         setInputText("");
         setIsTyping(true);
-
         processFlow(text);
     };
 
     const handleBack = () => {
-        // Simple "Reset" for now as true history recursion is complex in linear chat
-        // Ideally, we pop the stack. For this MVP, let's offer a "Step Back" which just restarts the current logic or goes to previous known state.
-
-        // Strategy: Based on current step, go to previous.
-        // GREETING -> (none)
-        // SERVICE -> GREETING (Restart)
-        // TYPE -> SERVICE
-        // ISSUE -> TYPE
-        // CONTACT_METHOD -> TYPE/ISSUE
-        // DETAILS -> CONTACT_METHOD
-
         let prevStep: ChatFormState['step'] = 'GREETING';
-
         switch (formState.step) {
             case 'TYPE': prevStep = 'SERVICE'; break;
-            case 'ISSUE': prevStep = 'SERVICE'; break; // Go back to root for safety
-            case 'CONTACT_METHOD': prevStep = 'TYPE'; break;
+            case 'ISSUE': prevStep = 'TYPE'; break;
+            case 'CONTACT_METHOD': prevStep = 'ISSUE'; break;
             case 'DETAILS': prevStep = 'CONTACT_METHOD'; break;
             default: startChatFlow(); return;
         }
-
-        // Re-trigger the bot message for that state
+        if (prevStep === 'SERVICE') { startChatFlow(); return; }
         setFormState(prev => ({ ...prev, step: prevStep }));
-
-        // Re-trigger the question for that step
-        setIsTyping(true);
-        setTimeout(() => {
-            // We need to re-render the question for 'prevStep'.
-            // This is a bit tricky without a proper state machine function generator. 
-            // SIMPLER: Just restart flow instructions for that step.
-            if (prevStep === 'SERVICE') startChatFlow();
-            else {
-                // Manually trigger the prompt for the step we fell back to
-                let responseMsg: Message = { id: Date.now().toString(), role: "assistant", content: "", timestamp: new Date() };
-                if (prevStep === 'TYPE') {
-                    responseMsg.content = `What specifically do you need for ${formState.service}?`;
-                    responseMsg.type = 'options';
-
-                    // Re-populate options based on service logic
-                    const input = formState.service;
-                    if (input === "Cleaning") {
-                        responseMsg.options = ["Deep Cleaning", "Water Tank", "Sofa / Carpet", "General", "Other"];
-                    } else if (input === "Handyman") {
-                        responseMsg.options = ["Furniture Assembly", "Wall Mounting", "Curtains/Blinds", "Repairs", "Other"];
-                    } else if (input === "Emergency") {
-                        responseMsg.options = ["Water Leak / Flood", "Power Outage", "AC Failure", "Gas Issue", "Other"];
-                    } else if (input === "Stove Repair") {
-                        responseMsg.options = ["Not Lighting", "Yellow Flame", "Gas Leak", "Maintenance", "Other"];
-                    } else {
-                        responseMsg.options = ["Installation", "Maintenance", "Repair", "Inspection", "Other"];
-                    }
-
-                } else if (prevStep === 'CONTACT_METHOD') {
-                    responseMsg.content = `How should we connect?`;
-                    responseMsg.type = 'options';
-                    responseMsg.options = ["Call Back", "WhatsApp", "Email"];
-                }
-                setMessages(prev => [...prev, responseMsg]);
-                setIsTyping(false);
-            }
-        }, 500);
+        startChatFlow();
     };
 
 
-    const processFlow = (input: string) => {
+    const processFlow = (input: string | string[]) => {
         setTimeout(() => {
             let responseMsg: Message = { id: Date.now().toString(), role: "assistant", content: "", timestamp: new Date() };
+            setIsProcessing(false);
 
             switch (formState.step) {
                 case 'SERVICE':
-                    setFormState(prev => ({ ...prev, service: input, step: 'TYPE' }));
-                    responseMsg.content = `Got it, ${input}. What specifically do you need?`;
-                    responseMsg.type = 'options';
+                    const selectedServices = Array.isArray(input) ? input : [input];
+                    setFormState(prev => ({ ...prev, services: selectedServices, step: 'TYPE' }));
 
-                    // SMART LOGIC: Dynamic Options based on Service
-                    if (input === "Cleaning") {
-                        responseMsg.options = ["Deep Cleaning", "Water Tank", "Sofa / Carpet", "General", "Other"];
-                    } else if (input === "Handyman") {
-                        responseMsg.options = ["Furniture Assembly", "Wall Mounting", "Curtains/Blinds", "Repairs", "Other"];
-                    } else if (input === "Emergency") {
-                        responseMsg.content = "🚨 Priority Mode. What is the emergency?";
-                        responseMsg.options = ["Water Leak / Flood", "Power Outage", "AC Failure", "Gas Issue", "Other"];
-                    } else if (input === "Stove Repair") {
-                        responseMsg.options = ["Not Lighting", "Yellow Flame", "Gas Leak", "Maintenance", "Other"];
+                    if (selectedServices.length > 1) {
+                        responseMsg.content = `Got it: ${selectedServices.join(", ")}. \n\nCould you briefly describe what checks or repairs you need?`;
+                        setFormState(prev => ({ ...prev, step: 'ISSUE' }));
+                        responseMsg.type = 'text';
                     } else {
-                        // Default for AC, Plumbing, Electrical
-                        responseMsg.options = ["Installation", "Maintenance", "Repair", "Inspection", "Other"];
+                        const singleData = selectedServices[0];
+                        responseMsg.content = `Got it, ${singleData}. What specifically do you need?`;
+                        responseMsg.type = 'options';
+
+                        if (singleData === "Cleaning") responseMsg.options = ["Deep Cleaning", "Water Tank", "Sofa / Carpet", "General", "Other"];
+                        else if (singleData === "Handyman") responseMsg.options = ["Furniture Assembly", "Wall Mounting", "Curtains/Blinds", "Repairs", "Other"];
+                        else if (singleData === "Emergency") { responseMsg.content = "🚨 Priority Mode. What is the emergency?"; responseMsg.options = ["Water Leak / Flood", "Power Outage", "AC Failure", "Gas Issue", "Other"]; }
+                        else if (singleData === "Stove Repair") responseMsg.options = ["Not Lighting", "Yellow Flame", "Gas Leak", "Maintenance", "Other"];
+                        else responseMsg.options = ["Installation", "Maintenance", "Repair", "Inspection", "Other"];
                     }
                     break;
 
                 case 'TYPE':
-                    setFormState(prev => ({ ...prev, serviceType: input }));
+                    setFormState(prev => ({ ...prev, serviceType: input as string }));
                     if (input === "Other") {
                         setFormState(prev => ({ ...prev, step: 'ISSUE' }));
                         responseMsg.content = "Could you briefly describe the issue?";
-                        responseMsg.type = 'text'; // Expects typing
+                        responseMsg.type = 'text';
                     } else {
                         setFormState(prev => ({ ...prev, step: 'CONTACT_METHOD' }));
                         responseMsg.content = `Understood. How would you like us to connect with you?`;
@@ -269,21 +235,19 @@ export function UnifiedContactHub() {
                     break;
 
                 case 'ISSUE':
-                    setFormState(prev => ({ ...prev, issue: input, step: 'CONTACT_METHOD' }));
+                    setFormState(prev => ({ ...prev, issue: input as string, step: 'CONTACT_METHOD' }));
                     responseMsg.content = `Thanks for the details. How should we contact you?`;
                     responseMsg.type = 'options';
                     responseMsg.options = ["Call Back", "WhatsApp", "Email"];
                     break;
 
                 case 'CONTACT_METHOD':
-                    setFormState(prev => ({ ...prev, contactMethod: input, step: 'DETAILS' }));
+                    setFormState(prev => ({ ...prev, contactMethod: input as string, step: 'DETAILS' }));
                     responseMsg.content = `Great. Please provide your **Name** and **${input === 'Email' ? 'Email Address' : 'Phone Number'}** so we can confirm.`;
-                    responseMsg.type = 'form'; // Triggers custom form input
+                    responseMsg.type = 'form';
                     break;
 
-                case 'DETAILS':
-                    // handled by form submit handler specifically
-                    break;
+                case 'DETAILS': break;
 
                 case 'DONE':
                     responseMsg.content = "Is there anything else I can help with?";
@@ -292,10 +256,7 @@ export function UnifiedContactHub() {
                     break;
             }
 
-            if (input === "Start Over") {
-                startChatFlow();
-                return;
-            }
+            if (input === "Start Over") { startChatFlow(); return; }
             if (input === "No, thanks") {
                 responseMsg.content = "Have a wonderful day! 👋";
                 setMessages(prev => [...prev, responseMsg]);
@@ -310,51 +271,24 @@ export function UnifiedContactHub() {
     };
 
     // --- Phone Formatting & Validation ---
-    const formatPhoneNumber = (value: string) => {
-        // Remove non-digits
-        const digits = value.replace(/\D/g, '');
-
-        // Allow user to type freely but hint at structure
-        if (digits.length <= 3) return digits;
-        if (digits.length <= 6) return `${digits.slice(0, 3)} ${digits.slice(3)}`;
-        return `${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6, 9)}`;
-    };
-
     const validateInputs = () => {
         let isValid = true;
         const newErrors = { name: '', contact: '' };
 
-        if (!detailsInput.name.trim()) {
-            newErrors.name = "Name is required";
-            isValid = false;
-        }
+        if (!detailsInput.name.trim()) { newErrors.name = "Name is required"; isValid = false; }
 
         const isEmail = formState.contactMethod === 'Email';
         const val = detailsInput.contact.trim();
 
         if (isEmail) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(val)) {
-                newErrors.contact = "Please enter a valid email address";
-                isValid = false;
-            }
+            if (!emailRegex.test(val)) { newErrors.contact = "Please enter a valid email address"; isValid = false; }
         } else {
-            // UAE Phone Validation
-            // Accepted formats: 
-            // +971 5x xxx xxxx, 05x xxx xxxx, 5x xxx xxxx
             const digits = val.replace(/\D/g, '');
-            // Check for valid lengths: 9 (5x...), 10 (05x...), 12 (9715x...)
             const isUAE = /^(?:971|0)?5\d{8}$/.test(digits);
-
-            if (!val) {
-                newErrors.contact = "Phone number is required";
-                isValid = false;
-            } else if (!isUAE) {
-                newErrors.contact = "Please enter a valid UAE number (e.g. 050 123 4567)";
-                isValid = false;
-            }
+            if (!val) { newErrors.contact = "Phone number is required"; isValid = false; }
+            else if (!isUAE) { newErrors.contact = "Please enter a valid UAE number (e.g. 050 123 4567)"; isValid = false; }
         }
-
         setErrors(newErrors);
         return isValid;
     };
@@ -363,21 +297,15 @@ export function UnifiedContactHub() {
     const handleFormSubmit = async () => {
         if (!validateInputs()) return;
 
-        // Add user info message
-        const userMsg: Message = {
-            id: Date.now().toString(),
-            role: "user",
-            content: `${detailsInput.name} | ${detailsInput.contact}`,
-            timestamp: new Date()
-        };
+        const userMsg: Message = { id: Date.now().toString(), role: "user", content: `${detailsInput.name} | ${detailsInput.contact}`, timestamp: new Date() };
         setMessages(prev => [...prev, userMsg]);
         setIsTyping(true);
 
-        // Prepare Payload
         const payload = {
             ...formState,
+            service: formState.services.join(", "),
             name: detailsInput.name,
-            contactInfo: detailsInput.contact
+            contactInfo: formState.contactMethod === 'Email' ? detailsInput.contact : `${detailsInput.countryCode} ${detailsInput.contact}`
         };
 
         try {
@@ -387,32 +315,20 @@ export function UnifiedContactHub() {
                 body: JSON.stringify(payload)
             });
 
-            // Dynamic Success Message based on preference
             let successText = "✅ Request Sent!";
-            if (formState.contactMethod === "Call Back") {
-                successText = `✅ Request Received! We'll call you at **${detailsInput.contact}** shortly to confirm.`;
-            } else if (formState.contactMethod === "WhatsApp") {
-                successText = `✅ Request Received! Our team will reach out to you on **WhatsApp** (${detailsInput.contact}) momentarily.`;
-            } else if (formState.contactMethod === "Email") {
-                successText = `✅ Request Received! We've sent a confirmation email to **${detailsInput.contact}**.`;
-            }
+            if (formState.contactMethod === "Call Back") successText = `✅ Request Received! We'll call you at **${detailsInput.contact}** shortly.`;
+            else if (formState.contactMethod === "WhatsApp") successText = `✅ Request Received! We'll message **${detailsInput.contact}** shortly.`;
+            else if (formState.contactMethod === "Email") successText = `✅ Request Received! Check your email at **${detailsInput.contact}**.`;
 
             setTimeout(() => {
-                setMessages(prev => [...prev, {
-                    id: Date.now().toString(),
-                    role: "assistant",
-                    content: successText,
-                    timestamp: new Date()
-                }]);
+                setMessages(prev => [...prev, { id: Date.now().toString(), role: "assistant", content: successText, timestamp: new Date() }]);
                 setFormState(prev => ({ ...prev, step: 'DONE' }));
                 setIsTyping(false);
             }, 1000);
 
         } catch (error) {
             console.error("Submission error", error);
-            setMessages(prev => [...prev, {
-                id: "err", role: "assistant", content: "I'm having trouble connecting. Please call 800-DAKEEK directly.", timestamp: new Date()
-            }]);
+            setMessages(prev => [...prev, { id: "err", role: "assistant", content: "Connection error. Please call 800-DAKEEK.", timestamp: new Date() }]);
             setIsTyping(false);
         }
     };
@@ -420,9 +336,7 @@ export function UnifiedContactHub() {
 
     const toggleHub = () => {
         setIsOpen(!isOpen);
-        if (!isOpen) {
-            setView("menu");
-        }
+        if (!isOpen) setView("menu");
     };
 
     return (
@@ -474,150 +388,84 @@ export function UnifiedContactHub() {
                                 {/* Chat Header */}
                                 <div className="p-4 flex items-center justify-between border-b border-white/5 bg-white/5 backdrop-blur-md z-20">
                                     <div className="flex items-center gap-3">
-                                        {/* Back to Menu */}
-                                        <button
-                                            onClick={() => setView("menu")}
-                                            className="bg-white/10 hover:bg-white/20 p-2 rounded-full text-white transition-colors border border-white/5"
-                                            title="Back to Menu"
-                                        >
+                                        <button onClick={() => setView("menu")} className="bg-white/10 hover:bg-white/20 p-2 rounded-full text-white transition-colors border border-white/5">
                                             <ChevronRight className="w-4 h-4 rotate-180" />
                                         </button>
-
-                                        {/* Chat Controls */}
                                         {formState.step !== 'GREETING' && (
                                             <div className="flex items-center gap-2 border-l border-white/10 pl-3">
-                                                <button
-                                                    onClick={handleBack}
-                                                    className="bg-white/10 hover:bg-white/20 p-2 rounded-full text-white transition-colors border border-white/5"
-                                                    title="Go Back"
-                                                >
-                                                    <ArrowLeft className="w-4 h-4" />
-                                                </button>
-                                                <button
-                                                    onClick={startChatFlow}
-                                                    className="bg-white/10 hover:bg-white/20 p-2 rounded-full text-white transition-colors border border-white/5"
-                                                    title="Restart Chat"
-                                                >
-                                                    <RefreshCw className="w-3.5 h-3.5" />
-                                                </button>
+                                                <button onClick={handleBack} className="bg-white/10 hover:bg-white/20 p-2 rounded-full text-white transition-colors border border-white/5"><ArrowLeft className="w-4 h-4" /></button>
+                                                <button onClick={startChatFlow} className="bg-white/10 hover:bg-white/20 p-2 rounded-full text-white transition-colors border border-white/5"><RefreshCw className="w-3.5 h-3.5" /></button>
                                             </div>
                                         )}
-
-                                        <div>
-                                            <span className="text-sm font-medium text-white flex items-center gap-2">
-                                                Assistant
-                                                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                                            </span>
-                                        </div>
+                                        <div><span className="text-sm font-medium text-white flex items-center gap-2">Assistant <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span></span></div>
                                     </div>
                                 </div>
 
                                 {/* Chat Messages Area */}
-                                <>
-                                    <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-gradient-to-b from-[#111] to-[#0a0a0a]">
-                                        {messages.map((msg) => (
-                                            <div key={msg.id} className={`flex flex-col ${msg.role === "user" ? "items-end" : "items-start"}`}>
-                                                <div className={`max-w-[85%] px-5 py-4 rounded-3xl text-sm leading-relaxed mb-2 shadow-sm ${msg.role === "user"
-                                                    ? "bg-[#333] text-white rounded-br-sm"
-                                                    : "bg-white/10 border border-white/5 text-gray-100 rounded-bl-sm backdrop-blur-md"
-                                                    }`}>
-                                                    {msg.content}
+                                <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-gradient-to-b from-[#111] to-[#0a0a0a]">
+                                    {messages.map((msg) => (
+                                        <div key={msg.id} className={`flex flex-col ${msg.role === "user" ? "items-end" : "items-start"}`}>
+                                            <div className={`max-w-[85%] px-5 py-4 rounded-3xl text-sm leading-relaxed mb-2 shadow-sm ${msg.role === "user" ? "bg-[#333] text-white rounded-br-sm" : "bg-white/10 border border-white/5 text-gray-100 rounded-bl-sm backdrop-blur-md"}`}>
+                                                {msg.content}
+                                            </div>
+                                            {msg.type === 'options' && msg.options && (
+                                                <div className="mt-3 w-full">
+                                                    <div className={`grid gap-2 ${msg.options.length > 4 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+                                                        {msg.options.map((opt, i) => {
+                                                            const isSelected = currentSelections.includes(opt);
+                                                            return (
+                                                                <button
+                                                                    key={opt}
+                                                                    onClick={() => handleOptionClick(opt, msg.isMultiSelect)}
+                                                                    className={`px-4 py-3 rounded-xl border text-xs font-medium transition-all text-left flex items-center justify-between group ${isSelected && msg.isMultiSelect ? 'bg-[#A18262] border-[#A18262] text-white shadow-lg' : 'bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/20'}`}
+                                                                >
+                                                                    {opt}
+                                                                    {msg.isMultiSelect ? (
+                                                                        <div className={`w-4 h-4 rounded-full border flex items-center justify-center transition-colors ${isSelected ? 'border-white bg-white/20' : 'border-white/30'}`}>
+                                                                            {isSelected && <div className="w-2 h-2 rounded-full bg-white" />}
+                                                                        </div>
+                                                                    ) : (
+                                                                        <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                                                    )}
+                                                                </button>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                    {msg.isMultiSelect && currentSelections.length > 0 && (
+                                                        <motion.button initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} onClick={confirmSelection} className="w-full mt-3 py-3 bg-white text-black font-bold rounded-xl text-sm hover:bg-gray-200 transition-colors shadow-lg flex items-center justify-center gap-2">
+                                                            Next <ArrowRight className="w-4 h-4" />
+                                                        </motion.button>
+                                                    )}
                                                 </div>
-
-                                                {/* RENDER OPTIONS - GRID LAYOUT */}
-                                                {msg.type === 'options' && msg.options && (
-                                                    <div className={`grid gap-2 mt-3 max-w-[100%] ${msg.options.length > 4 ? 'grid-cols-2' : 'grid-cols-1'}`}>
-                                                        {msg.options.map((opt, i) => (
-                                                            <button
-                                                                key={opt}
-                                                                onClick={() => handleOptionClick(opt)}
-                                                                className="px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-medium text-white hover:bg-[#A18262] hover:border-[#A18262] hover:shadow-lg hover:-translate-y-0.5 transition-all text-left flex items-center justify-between group"
-                                                                style={{ animationDelay: `${i * 0.05}s` }}
-                                                            >
-                                                                {opt}
-                                                                <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                                            </button>
-                                                        ))}
+                                            )}
+                                            {msg.type === 'form' && (
+                                                <div className="w-full max-w-[85%] mt-2 p-3 bg-white/5 border border-white/10 rounded-xl space-y-2">
+                                                    <input type="text" placeholder="Full Name" className={`w-full bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`} value={detailsInput.name} onChange={e => { setDetailsInput({ ...detailsInput, name: e.target.value }); if (errors.name) setErrors({ ...errors, name: '' }); }} />
+                                                    {errors.name && <span className="text-[10px] text-red-500 block">{errors.name}</span>}
+                                                    <div className="flex gap-2">
+                                                        <select className="bg-white/5 border border-white/10 rounded-lg px-2 py-3 text-sm text-white focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all appearance-none" value={detailsInput.countryCode} onChange={e => setDetailsInput({ ...detailsInput, countryCode: e.target.value })} style={{ width: '80px', textAlign: 'center' }}>
+                                                            <option value="+971">🇦🇪</option><option value="+966">🇸🇦</option><option value="+44">🇬🇧</option><option value="+1">🇺🇸</option><option value="+91">🇮🇳</option><option value="+92">🇵🇰</option><option value="+63">🇵🇭</option><option value="+20">🇪🇬</option>
+                                                        </select>
+                                                        <input type="text" placeholder={formState.contactMethod === "Email" ? "Email Address" : "50 123 4567"} className={`flex-1 bg-white/5 border ${errors.contact ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`} value={detailsInput.contact} onChange={e => { let val = e.target.value; if (formState.contactMethod !== "Email") val = val.replace(/\D/g, ''); setDetailsInput({ ...detailsInput, contact: val }); if (errors.contact) setErrors({ ...errors, contact: '' }); }} />
                                                     </div>
-                                                )}
-
-                                                {/* RENDER FORM */}
-                                                {msg.type === 'form' && (
-                                                    <div className="w-full max-w-[85%] mt-2 p-3 bg-white/5 border border-white/10 rounded-xl space-y-2">
-                                                        <input
-                                                            type="text"
-                                                            placeholder="Full Name"
-                                                            className={`w-full bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`}
-                                                            value={detailsInput.name}
-                                                            onChange={e => {
-                                                                setDetailsInput({ ...detailsInput, name: e.target.value });
-                                                                if (errors.name) setErrors({ ...errors, name: '' });
-                                                            }}
-                                                        />
-                                                        {errors.name && <span className="text-[10px] text-red-500 block">{errors.name}</span>}
-
-                                                        <input
-                                                            type="text"
-                                                            placeholder={formState.contactMethod === "Email" ? "Email Address" : "050 123 4567"}
-                                                            className={`w-full bg-white/5 border ${errors.contact ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`}
-                                                            value={detailsInput.contact}
-                                                            onChange={e => {
-                                                                let val = e.target.value;
-                                                                // Auto-format phone if selected
-                                                                if (formState.contactMethod !== "Email") {
-                                                                    // Only format if typing, not deleting
-                                                                    if (val.length > detailsInput.contact.length) {
-                                                                        val = formatPhoneNumber(val);
-                                                                    }
-                                                                }
-                                                                setDetailsInput({ ...detailsInput, contact: val });
-                                                                if (errors.contact) setErrors({ ...errors, contact: '' });
-                                                            }}
-                                                        />
-                                                        {errors.contact && <span className="text-[10px] text-red-500 block">{errors.contact}</span>}
-
-                                                        <button
-                                                            onClick={handleFormSubmit}
-                                                            className="w-full py-3 bg-[#A18262] hover:bg-[#B09476] text-white rounded-lg text-sm font-medium transition-all shadow-lg hover:shadow-xl active:scale-[0.98]"
-                                                        >
-                                                            Submit Request
-                                                        </button>
-                                                    </div>
-                                                )}
-                                            </div>
-                                        ))}
-
-                                        {isTyping && (
-                                            <div className="flex items-center gap-1 text-white/30 text-xs ml-2">
-                                                <Bot className="w-3 h-3" /> typing...
-                                            </div>
-                                        )}
-                                        <div ref={messagesEndRef} />
-                                    </div>
-
-                                    {/* Input Area (Only active for 'text' inputs like 'Other' issue) - REMOVED if not needed to keep UI clean */}
-                                    {formState.step === 'ISSUE' && (
-                                        <div className="p-3 bg-[#0a0a0a] border-t border-white/5">
-                                            <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-1.5 py-1.5">
-                                                <input
-                                                    type="text"
-                                                    value={inputText}
-                                                    onChange={(e) => setInputText(e.target.value)}
-                                                    onKeyDown={(e) => e.key === "Enter" && handleTextInput(inputText)}
-                                                    placeholder="Describe your issue..."
-                                                    className="flex-1 bg-transparent px-3 py-1 text-sm text-white placeholder-white/30 focus:outline-none"
-                                                />
-                                                <button
-                                                    onClick={() => handleTextInput(inputText)}
-                                                    disabled={!inputText.trim()}
-                                                    className="w-8 h-8 bg-[#A18262] text-white rounded-full flex items-center justify-center hover:scale-105 transition-all disabled:opacity-50"
-                                                >
-                                                    <Send className="w-3.5 h-3.5" />
-                                                </button>
-                                            </div>
+                                                    <div className="text-[10px] text-white/30 text-right pr-1">{formState.contactMethod !== "Email" && detailsInput.countryCode}</div>
+                                                    <button onClick={handleFormSubmit} className="w-full py-3 bg-[#A18262] hover:bg-[#B09476] text-white rounded-lg text-sm font-medium transition-all shadow-lg hover:shadow-xl active:scale-[0.98]">Submit Request</button>
+                                                </div>
+                                            )}
                                         </div>
-                                    )}
-                                </>
+                                    ))}
+                                    {isTyping && <div className="flex items-center gap-1 text-white/30 text-xs ml-2"><Bot className="w-3 h-3" /> typing...</div>}
+                                    <div ref={messagesEndRef} />
+                                </div>
+
+                                {formState.step === 'ISSUE' && (
+                                    <div className="p-3 bg-[#0a0a0a] border-t border-white/5">
+                                        <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-1.5 py-1.5">
+                                            <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleTextInput(inputText)} placeholder="Describe your issue..." className="flex-1 bg-transparent px-3 py-1 text-sm text-white placeholder-white/30 focus:outline-none" />
+                                            <button onClick={() => handleTextInput(inputText)} disabled={!inputText.trim()} className="w-8 h-8 bg-[#A18262] text-white rounded-full flex items-center justify-center hover:scale-105 transition-all disabled:opacity-50"><Send className="w-3.5 h-3.5" /></button>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         )}
                     </motion.div>
