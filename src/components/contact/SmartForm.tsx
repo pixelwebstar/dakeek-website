@@ -64,7 +64,12 @@ export function SmartForm() {
                 })
             });
 
-            if (!response.ok) throw new Error('Failed to send');
+            const result = await response.json();
+
+            if (!response.ok) {
+                console.error("API Error:", result);
+                throw new Error(result.error || 'Failed to send');
+            }
 
             setStatus("idle");
             reset();
@@ -73,10 +78,12 @@ export function SmartForm() {
                 duration: 5000,
             });
 
-        } catch (error) {
+        } catch (error: any) {
+            console.error("Form submission error:", error);
             setStatus("error");
-            setErrorMessage("Something went wrong. Please try again or call +971 54 247 2151.");
-            toast.error("Submission Failed", { description: "Please try again or call +971 54 247 2151." });
+            const message = error?.message || "Something went wrong. Please try again or call +971 54 247 2151.";
+            setErrorMessage(message);
+            toast.error("Submission Failed", { description: message });
         }
     };
 
