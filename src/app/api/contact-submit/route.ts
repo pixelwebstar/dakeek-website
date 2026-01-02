@@ -95,10 +95,9 @@ export async function POST(req: Request) {
         `;
 
         // Build recipients list
+        // NOTE: Resend free tier only allows sending to the account owner's email
+        // To send to clients, verify a custom domain on Resend
         const toEmails: string[] = ['asheejajayan@gmail.com'];
-        if (clientEmail && clientEmail.includes('@')) {
-            toEmails.push(clientEmail);
-        }
 
         // Send email using Resend
         const { data, error } = await resend.emails.send({
