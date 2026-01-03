@@ -465,19 +465,33 @@ export default function UnifiedContactHub() {
                                                 <div className="w-full max-w-[85%] mt-2 p-3 bg-white/5 border border-white/10 rounded-xl space-y-2">
                                                     <input type="text" placeholder="Full Name" className={`w-full bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`} value={detailsInput.name} onChange={e => { setDetailsInput({ ...detailsInput, name: e.target.value }); if (errors.name) setErrors({ ...errors, name: '' }); }} />
                                                     {errors.name && <span className="text-[10px] text-red-500 block">{errors.name}</span>}
-                                                    <div className="flex gap-2">
-                                                        <PhoneInput
-                                                            value={detailsInput.contact}
-                                                            onChange={(val) => {
-                                                                // Library returns undefined if empty, or string
-                                                                setDetailsInput({ ...detailsInput, contact: val || "" });
-                                                                if (errors.contact) setErrors({ ...errors, contact: '' });
-                                                            }}
-                                                            placeholder={formState.contactMethod === "Email" ? "Email Address" : "50 123 4567"}
-                                                            className="flex-1"
-                                                            error={errors.contact}
-                                                        />
-                                                    </div>
+                                                    {formState.contactMethod === 'Email' ? (
+                                                        <div className="flex gap-2">
+                                                            <input
+                                                                type="email"
+                                                                placeholder="Email Address"
+                                                                className={`w-full bg-white/5 border ${errors.contact ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`}
+                                                                value={detailsInput.contact}
+                                                                onChange={(e) => {
+                                                                    setDetailsInput({ ...detailsInput, contact: e.target.value });
+                                                                    if (errors.contact) setErrors({ ...errors, contact: '' });
+                                                                }}
+                                                            />
+                                                        </div>
+                                                    ) : (
+                                                        <div className="flex gap-2">
+                                                            <PhoneInput
+                                                                value={detailsInput.contact}
+                                                                onChange={(val) => {
+                                                                    setDetailsInput({ ...detailsInput, contact: val || "" });
+                                                                    if (errors.contact) setErrors({ ...errors, contact: '' });
+                                                                }}
+                                                                placeholder="50 123 4567"
+                                                                className="flex-1"
+                                                                error={errors.contact}
+                                                            />
+                                                        </div>
+                                                    )}
 
                                                     {/* Optional Email for Non-Email Methods */}
                                                     {formState.contactMethod !== "Email" && (

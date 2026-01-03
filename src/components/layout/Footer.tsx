@@ -85,18 +85,23 @@ export default function Footer() {
                         &quot;Engineering rigor for Dubai’s finest homes. Precision in every detail.&quot;
                     </p>
                     <div className="flex flex-col gap-1 items-start">
-                        <div className={`flex items-center gap-2 text-sm ${theme.mutedText}`}>
-                            <MapPin size={16} />
-                            <span>Anzar Gallery Building, Al Karama, Dubai</span>
-                        </div>
                         <a
-                            href="https://ded.ae/VerifyLicense" // Generic DED verification as placeholder or just a trust badge
+                            href="https://www.google.com/maps/search/?api=1&query=Anzar+Gallery+Building+Al+Karama+Dubai"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex items-center gap-2 mt-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-colors cursor-pointer group`}
+                            className={`flex items-center gap-2 text-sm ${theme.mutedText} hover:text-black transition-colors cursor-pointer duration-300`}
+                        >
+                            <MapPin size={16} />
+                            <span>Anzar Gallery Building, Al Karama, Dubai</span>
+                        </a>
+                        <a
+                            href="https://app.invest.dubai.ae/search-license"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex items-center gap-2 mt-2 px-3 py-1.5 rounded-full border border-black/5 bg-black/5 hover:bg-black/10 transition-colors cursor-pointer group`}
                         >
                             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                            <span className={`text-[10px] font-mono uppercase tracking-widest ${theme.mutedText} group-hover:text-white`}>
+                            <span className={`text-[10px] font-mono uppercase tracking-widest ${theme.mutedText} group-hover:text-black`}>
                                 Official License: 1382290
                             </span>
                         </a>
@@ -132,6 +137,9 @@ export default function Footer() {
 
                         <Link href="/services/emergency" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header}`}>
                             Emergency (24/7)
+                        </Link>
+                        <Link href="/all-pages" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header} opacity-50`}>
+                            All Pages (Temp)
                         </Link>
                     </div>
                 </div>
