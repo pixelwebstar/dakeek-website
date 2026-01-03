@@ -79,7 +79,10 @@ export default function AboutPage() {
 
             {/* 2. THE CONFLICT: "The Intruder" (Text Reveal) */}
             <motion.section
-                style={{ y: storyY, opacity: storyOpacity }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
                 className="relative py-32 px-[5vw] md:px-[10vw] max-w-4xl mx-auto"
             >
                 <p className="text-3xl md:text-5xl font-serif text-stone-300 leading-snug">
