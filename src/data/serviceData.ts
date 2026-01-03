@@ -65,13 +65,10 @@ export interface ServicePageData {
     };
 }
 
-export const DUBAI_AREAS = [
-    "Palm Jumeirah", "Dubai Marina", "Jumeirah Lake Towers", "JLT", "Downtown Dubai",
-    "Business Bay", "Arabian Ranches", "Emirates Hills", "Jumeirah Islands", "The Meadows",
-    "The Springs", "Jumeirah Park", "Al Barsha", "Umm Suqeim", "Jumeirah", "Mudon",
-    "Damac Hills", "Dubai Hills Estate", "Meydan", "Difc", "Sheikh Zayed Road",
-    "Greens", "Views", "Victory Heights", "Sports City", "Motor City", "Sustainable City"
-];
+import { DUBAI_AREAS } from "@/lib/constants";
+
+export { DUBAI_AREAS };
+
 
 export const serviceData: Record<string, ServicePageData> = {
     ac: {

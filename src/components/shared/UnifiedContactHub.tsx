@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Minimize2, Phone, Mail, Bot, ChevronRight, Sparkles, AlertCircle, ArrowLeft, RefreshCw, ArrowRight } from "lucide-react";
 import { PhoneInput } from "@/components/ui/PhoneInput";
+import { contactFormSchema } from "@/lib/schemas";
+import { SERVICE_TYPES, CONTACT_METHODS } from "@/lib/constants";
 
 // --- Types ---
 interface Message {
@@ -115,11 +117,7 @@ export default function UnifiedContactHub() {
                 content: "Hello! I'm Dakeek's Intelligent Service Assistant. 🛠️\n\nSelect one or more services you need:",
                 type: 'options',
                 isMultiSelect: true,
-                options: [
-                    "AC Services", "Plumbing", "Electrical", "Cleaning",
-                    "Gas Systems", "Stove Repair", "Handyman", "Emergency",
-                    "Other"
-                ],
+                options: [...SERVICE_TYPES, "Other"],
                 timestamp: new Date()
             };
             setMessages([welcomeMsg]);
@@ -212,6 +210,7 @@ export default function UnifiedContactHub() {
                         responseMsg.content = `Got it, ${singleData}. What specifically do you need?`;
                         responseMsg.type = 'options';
 
+                        // Dynamic sub-options could be moved to constants as well for full centralization
                         if (singleData === "Cleaning") responseMsg.options = ["Deep Cleaning", "Water Tank", "Sofa / Carpet", "General", "Other"];
                         else if (singleData === "Handyman") responseMsg.options = ["Furniture Assembly", "Wall Mounting", "Curtains/Blinds", "Repairs", "Other"];
                         else if (singleData === "Emergency") { responseMsg.content = "🚨 Priority Mode. What is the emergency?"; responseMsg.options = ["Water Leak / Flood", "Power Outage", "AC Failure", "Gas Issue", "Other"]; }
@@ -230,7 +229,7 @@ export default function UnifiedContactHub() {
                         setFormState(prev => ({ ...prev, step: 'CONTACT_METHOD' }));
                         responseMsg.content = `Understood. How would you like us to connect with you?`;
                         responseMsg.type = 'options';
-                        responseMsg.options = ["Call Back", "WhatsApp", "Email"];
+                        responseMsg.options = [...CONTACT_METHODS];
                     }
                     break;
 
@@ -238,7 +237,7 @@ export default function UnifiedContactHub() {
                     setFormState(prev => ({ ...prev, issue: input as string, step: 'CONTACT_METHOD' }));
                     responseMsg.content = `Thanks for the details. How should we contact you?`;
                     responseMsg.type = 'options';
-                    responseMsg.options = ["Call Back", "WhatsApp", "Email"];
+                    responseMsg.options = [...CONTACT_METHODS];
                     break;
 
                 case 'CONTACT_METHOD':
@@ -275,29 +274,28 @@ export default function UnifiedContactHub() {
         let isValid = true;
         const newErrors = { name: '', contact: '', confirmationEmail: '' };
 
-        if (!detailsInput.name.trim()) { newErrors.name = "Name is required"; isValid = false; }
+        // 1. Create a validation object
+        const validationPayload = {
+            name: detailsInput.name,
+            phone: formState.contactMethod !== 'Email' ? detailsInput.contact : "0000000000", // Dummy for strict schema if email
+            email: formState.contactMethod === 'Email' ? detailsInput.contact : (detailsInput.confirmationEmail || ""),
+            services: formState.services,
+            location: "Chat Request", // Default
+            contactMethod: formState.contactMethod
+        };
 
-        const isEmail = formState.contactMethod === 'Email';
-        const val = detailsInput.contact.trim();
+        const result = contactFormSchema.safeParse(validationPayload);
 
-        if (isEmail) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(val)) { newErrors.contact = "Please enter a valid email address"; isValid = false; }
-        } else {
-            const digits = val.replace(/\D/g, '');
-            // Relaxed validation for international support
-            if (!val) { newErrors.contact = "Phone number is required"; isValid = false; }
-            else if (digits.length < 6) { newErrors.contact = "Please enter a valid phone number"; isValid = false; }
-
-            // Validate Optional Email if provided
-            if (detailsInput.confirmationEmail.trim()) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(detailsInput.confirmationEmail.trim())) {
-                    newErrors.confirmationEmail = "Invalid email format";
-                    isValid = false;
-                }
-            }
+        if (!result.success) {
+            result.error.issues.forEach(issue => {
+                if (issue.path.includes("name")) newErrors.name = issue.message;
+                if (issue.path.includes("email") && formState.contactMethod === 'Email') newErrors.contact = issue.message; // Mapping email error to contact field
+                if (issue.path.includes("phone") && formState.contactMethod !== 'Email') newErrors.contact = issue.message;
+                if (issue.path.includes("email") && formState.contactMethod !== 'Email' && detailsInput.confirmationEmail) newErrors.confirmationEmail = issue.message;
+            });
+            isValid = false;
         }
+
         setErrors(newErrors);
         return isValid;
     };

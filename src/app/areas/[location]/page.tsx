@@ -1,4 +1,5 @@
-import { DUBAI_AREAS, serviceData } from "@/data/serviceData";
+import { serviceData } from "@/data/serviceData";
+import { DUBAI_AREAS } from "@/lib/constants";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServiceCard from "@/components/services/ServiceCard";
@@ -78,6 +79,7 @@ export default async function LocationPage(props: { params: Promise<{ location: 
                                 href={`/services/${service.slug}`}
                                 icon={service.details[0].icon} // Using first detail icon as proxy
                                 features={service.details.flatMap(d => d.details).slice(0, 3)}
+                                image={service.details[0].image}
                             />
                         ))}
                     </div>

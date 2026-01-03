@@ -1,29 +1,50 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { contactFormSchema } from '@/lib/schemas';
+
+// Force dynamic to ensure API is not cached
+export const dynamic = 'force-dynamic';
 
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        const { service, serviceType, issue, contactMethod, name, contactInfo, confirmationEmail, location } = body;
 
-        // Validating required fields
-        if (!service || !contactMethod || !name || !contactInfo) {
-            return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+        // 1. Strict Validation using Zod
+        const validation = contactFormSchema.safeParse({
+            ...body,
+            // Map legacy fields if necessary or ensure frontend matches schema
+            services: body.service ? body.service.split(", ") : body.services
+        });
+
+        if (!validation.success) {
+            console.error("❌ Validation Error:", validation.error.format());
+            // Safe access to errors array
+            return NextResponse.json({
+                error: "Invalid Request",
+                details: validation.error.issues.map((e: any) => e.message)
+            }, { status: 400 });
         }
 
-        // Check for API Key
+        const data = validation.data;
+        const { serviceType, issue, contactMethod, name, phone, email, location } = data;
+
+        // Use phone as contactInfo fallback or primary
+        const contactInfo = phone;
+
+        // 2. Check for API Key securely
         if (!process.env.RESEND_API_KEY) {
-            console.error("❌ Missing RESEND_API_KEY in environment variables");
-            return NextResponse.json({ error: "Server Configuration Error: Missing Email API Key" }, { status: 500 });
+            console.error("❌ FATAL: Missing RESEND_API_KEY");
+            return NextResponse.json({ error: "Server Configuration Error" }, { status: 500 });
         }
 
         const resend = new Resend(process.env.RESEND_API_KEY);
 
         // Determine Client Email (Primary or Optional)
-        const clientEmail = contactMethod === 'Email' ? contactInfo : confirmationEmail;
+        const clientEmail = email;
 
         // Action-Oriented Subject Line
-        const subject = `⚠️ ACTION: ${contactMethod} Request - ${name} (${service})`;
+        const servicesList = data.services.join(", ");
+        const subject = `⚠️ ACTION: ${contactMethod || 'Service'} Request - ${name} (${servicesList})`;
 
         const htmlContent = `
             <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f9fafb; padding: 40px 0;">
@@ -38,9 +59,9 @@ export async function POST(req: Request) {
                     <!-- Content -->
                     <div style="padding: 40px 30px;">
                         <div style="margin-bottom: 30px;">
-                            <h2 style="color: #18181b; font-size: 20px; font-weight: 700; margin: 0 0 10px;">New Request: <span style="color: #A18262;">${service}</span></h2>
+                            <h2 style="color: #18181b; font-size: 20px; font-weight: 700; margin: 0 0 10px;">New Request: <span style="color: #A18262;">${servicesList}</span></h2>
                             <p style="color: #52525b; font-size: 16px; margin: 0; line-height: 1.5;">
-                                <strong>${name}</strong> is requesting ${serviceType || 'assistance'} (${contactMethod}).
+                                <strong>${name}</strong> is requesting assistance via ${contactMethod || 'Website Form'}.
                             </p>
                         </div>
 
@@ -52,13 +73,19 @@ export async function POST(req: Request) {
                                     <td style="padding: 8px 0; color: #18181b; font-weight: 600; text-align: right;">${name}</td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 8px 0; color: #71717a; font-size: 14px;">CONTACT</td>
-                                    <td style="padding: 8px 0; color: #18181b; font-weight: 600; text-align: right;">${contactInfo}</td>
+                                    <td style="padding: 8px 0; color: #71717a; font-size: 14px;">PHONE</td>
+                                    <td style="padding: 8px 0; color: #18181b; font-weight: 600; text-align: right;">
+                                        <a href="tel:${contactInfo}" style="color: #18181b; text-decoration: none;">${contactInfo}</a>
+                                    </td>
                                 </tr>
-                                ${location ? `<tr>
+                                ${email ? `<tr>
+                                    <td style="padding: 8px 0; color: #71717a; font-size: 14px;">EMAIL</td>
+                                    <td style="padding: 8px 0; color: #18181b; font-weight: 600; text-align: right;">${email}</td>
+                                </tr>` : ''}
+                                <tr>
                                     <td style="padding: 8px 0; color: #71717a; font-size: 14px;">LOCATION</td>
                                     <td style="padding: 8px 0; color: #18181b; font-weight: 600; text-align: right;">${location}</td>
-                                </tr>` : ''}
+                                </tr>
                                 <tr>
                                     <td style="padding: 8px 0; color: #71717a; font-size: 14px;">ISSUE DETAILS</td>
                                     <td style="padding: 8px 0; color: #18181b; font-weight: 600; text-align: right;">${issue || serviceType || 'General Inquiry'}</td>
@@ -67,57 +94,52 @@ export async function POST(req: Request) {
                         </div>
 
                         <!-- Action Buttons -->
-                        ${contactMethod !== 'Email' ? `
                         <div style="text-align: center; margin-top: 40px;">
                             <p style="color: #71717a; font-size: 12px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Immediate Actions</p>
-                            <div style="display: inline-flex; gap: 15px;">
-                                <a href="https://wa.me/${contactInfo.replace(/\D/g, '')}" style="background: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px; box-shadow: 0 2px 4px rgba(37, 211, 102, 0.2);">Chat on WhatsApp 💬</a>
+                            <div style="display: inline-flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                                <a href="https://wa.me/${contactInfo.replace(/\D/g, '')}" style="background: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px; box-shadow: 0 2px 4px rgba(37, 211, 102, 0.2);">WhatsApp 💬</a>
                                 <a href="tel:${contactInfo}" style="background: #18181b; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 14px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">Call Now 📞</a>
                             </div>
                         </div>
-                        ` : ''}
-
-                        <!-- Email Specific Footer -->
-                        ${contactMethod === 'Email' ? `
-                        <div style="margin-top: 30px; padding: 15px; background: #eff6ff; border-radius: 8px; color: #1e40af; font-size: 14px; text-align: center;">
-                            ✉️ <strong>Email Action:</strong> Please reply securely to this thread or compose a new email to <strong>${contactInfo}</strong>.
-                        </div>
-                        ` : ''}
 
                     </div>
 
                     <!-- Footer -->
                     <div style="background: #f4f4f5; padding: 20px; text-align: center; font-size: 12px; color: #a1a1aa;">
-                        <p style="margin: 0;">Sent by Dakeek Intelligent Service Assistant</p>
+                        <p style="margin: 0;">Sent by Dakeek V5 System</p>
                     </div>
                 </div>
             </div>
         `;
 
-        // Build recipients list
-        // NOTE: Resend free tier only allows sending to the account owner's email
-        // To send to clients, verify a custom domain on Resend
+        // Safe recipient handling
         const toEmails: string[] = ['asheejajayan@gmail.com'];
 
-        // Send email using Resend
-        const { data, error } = await resend.emails.send({
-            from: 'Dakeek <onboarding@resend.dev>', // Use verified domain in production
-            to: toEmails,
-            subject: subject,
-            html: htmlContent,
-            replyTo: clientEmail && clientEmail.includes('@') ? clientEmail : undefined,
-        });
+        // Attempt to send email
+        try {
+            const { data, error } = await resend.emails.send({
+                from: 'Dakeek <onboarding@resend.dev>', // Should be updated to verified domain in env
+                to: toEmails,
+                subject: subject,
+                html: htmlContent,
+                replyTo: clientEmail,
+            });
 
-        if (error) {
-            console.error("❌ Resend Error:", error);
-            return NextResponse.json({ error: error.message || "Failed to send email" }, { status: 500 });
+            if (error) {
+                console.error("❌ Resend API Error:", error);
+                return NextResponse.json({ error: "Email Service Error" }, { status: 502 });
+            }
+
+            console.log("✅ Email dispatched:", data?.id);
+            return NextResponse.json({ success: true, message: "Request received", emailId: data?.id });
+
+        } catch (emailError) {
+            console.error("❌ Resend Logic Error:", emailError);
+            return NextResponse.json({ error: "Email Dispatch Failed" }, { status: 502 });
         }
 
-        console.log("✅ Email sent successfully:", data?.id);
-        return NextResponse.json({ success: true, message: "Request received successfully", emailId: data?.id });
-
     } catch (error) {
-        console.error("Email Dispatch Error:", error);
+        console.error("❌ Unhandled API Error:", error);
         return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
     }
 }
