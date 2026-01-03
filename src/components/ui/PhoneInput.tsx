@@ -29,7 +29,8 @@ export function PhoneInput({ value, onChange, placeholder = "50 123 4567", error
                     className="flex-1 PhoneInputCustom min-w-0" // min-w-0 prevents flex blowout
                     numberInputProps={{
                         className: "w-full bg-transparent px-4 py-3 md:py-4 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none placeholder:font-normal font-medium h-[50px] md:h-[54px] min-w-0", // min-w-0
-                        style: { width: '100%' }
+                        style: { width: '100%' },
+                        "aria-label": "Phone Number"
                     }}
                     countrySelectProps={{
                         className: "bg-transparent border-r border-slate-200 px-3 hover:bg-slate-100/50 transition-colors outline-none cursor-pointer appearance-none text-xl shrink-0" // shrink-0

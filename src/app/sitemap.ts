@@ -42,5 +42,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'monthly' as const,
             priority: 0.9,
         })),
+        // Location Pages
+        ...[
+            "palm-jumeirah", "dubai-marina", "jumeirah-lake-towers", "jlt", "downtown-dubai",
+            "business-bay", "arabian-ranches", "emirates-hills", "jumeirah-islands", "the-meadows",
+            "the-springs", "jumeirah-park", "al-barsha", "umm-suqeim", "jumeirah", "mudon",
+            "damac-hills", "dubai-hills-estate", "meydan", "difc", "sheikh-zayed-road",
+            "greens", "views", "victory-heights", "sports-city", "motor-city", "sustainable-city"
+        ].map((slug) => ({
+            url: `https://dakeek.ae/areas/${slug}`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.8,
+        })),
     ]
 }

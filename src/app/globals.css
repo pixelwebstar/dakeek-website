@@ -12,8 +12,8 @@
   /* Darkened Titanium for readability */
   --color-titanium: #66666e;
   --color-bronze: #A18262;
-  /* Darkened Stone for readability */
-  --color-stone: #a8a29e;
+  /* Darkened Stone for readability - WCAG AA Compliant */
+  --color-stone: #78716c;
   --color-structure: #E5E5E5;
   --color-signal: #EF4444;
 }

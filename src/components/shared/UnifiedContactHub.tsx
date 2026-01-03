@@ -58,7 +58,7 @@ const LiquidIcon = ({ isOpen }: { isOpen: boolean }) => {
 };
 
 
-export function UnifiedContactHub() {
+export default function UnifiedContactHub() {
     const [isOpen, setIsOpen] = useState(false);
     const [view, setView] = useState<"menu" | "chat">("menu");
 
@@ -372,6 +372,7 @@ export function UnifiedContactHub() {
                 whileTap={{ scale: 0.9 }}
                 onClick={toggleHub}
                 className="fixed bottom-8 right-8 z-[9999] w-14 h-14 rounded-full focus:outline-none"
+                aria-label={isOpen ? "Close Support Chat" : "Open Support Chat"}
             >
                 <LiquidIcon isOpen={isOpen} />
             </motion.button>

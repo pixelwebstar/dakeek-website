@@ -65,7 +65,7 @@ export interface ServicePageData {
     };
 }
 
-const DUBAI_AREAS = [
+export const DUBAI_AREAS = [
     "Palm Jumeirah", "Dubai Marina", "Jumeirah Lake Towers", "JLT", "Downtown Dubai",
     "Business Bay", "Arabian Ranches", "Emirates Hills", "Jumeirah Islands", "The Meadows",
     "The Springs", "Jumeirah Park", "Al Barsha", "Umm Suqeim", "Jumeirah", "Mudon",

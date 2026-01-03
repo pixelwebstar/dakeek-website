@@ -1,6 +1,9 @@
 import ServicePageLayout from "../../../components/services/ServicePageLayout";
 import { serviceData } from "../../../data/serviceData";
 import { Metadata } from "next";
+import { ServiceSchema } from "../../../components/schema/ServiceSchema";
+import { FAQSchema } from "../../../components/schema/FAQSchema";
+import { BreadcrumbSchema } from "../../../components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
     title: serviceData.handyman.seo.title,
@@ -14,37 +17,25 @@ export const metadata: Metadata = {
 };
 
 export default function HandymanServicePage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": serviceData.handyman.seo.schemaType,
-        "name": serviceData.handyman.seo.title,
-        "image": serviceData.handyman.details[0].image,
-        "description": serviceData.handyman.hero.description,
-        "url": "https://dakeek.ae/services/handyman",
-        "telephone": "+971542472151",
-        "priceRange": "$$",
-        "areaServed": "Dubai",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "45"
-        },
-        "mainEntity": serviceData.handyman.seo.qna ? serviceData.handyman.seo.qna.map(q => ({
-            "@type": "Question",
-            "name": q.question,
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": q.answer
-            }
-        })) : []
-    };
-
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            <ServiceSchema
+                name={serviceData.handyman.seo.title}
+                description={serviceData.handyman.hero.description}
+                image={serviceData.handyman.details[0].image}
+                url="https://dakeek.ae/services/handyman"
+                telephone="+971542472151"
+                priceRange="$$"
+                ratingValue="5.0"
+                reviewCount="45"
+                areaServed="Dubai"
             />
+            <FAQSchema faqs={serviceData.handyman.seo.qna ? serviceData.handyman.seo.qna.map(q => ({ question: q.question, answer: q.answer })) : []} />
+            <BreadcrumbSchema items={[
+                { label: 'Home', path: '/' },
+                { label: 'Services', path: '/services' },
+                { label: 'Handyman Services', path: '/services/handyman' }
+            ]} />
             <ServicePageLayout slug="handyman" />
         </>
     );

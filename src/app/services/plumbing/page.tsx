@@ -1,6 +1,9 @@
 import ServicePageLayout from "../../../components/services/ServicePageLayout";
 import { serviceData } from "../../../data/serviceData";
 import { Metadata } from "next";
+import { ServiceSchema } from "../../../components/schema/ServiceSchema";
+import { FAQSchema } from "../../../components/schema/FAQSchema";
+import { BreadcrumbSchema } from "../../../components/schema/BreadcrumbSchema";
 
 export const metadata: Metadata = {
     title: serviceData.plumbing.seo.title,
@@ -14,50 +17,35 @@ export const metadata: Metadata = {
 };
 
 export default function PlumbingServicePage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": serviceData.plumbing.seo.schemaType,
-        "name": serviceData.plumbing.seo.title,
-        "image": serviceData.plumbing.details[0].image,
-        "description": serviceData.plumbing.hero.description,
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Anzar Gallery, Al Karama",
-            "addressLocality": "Dubai",
-            "addressRegion": "Dubai",
-            "postalCode": "00000",
-            "addressCountry": "AE"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 25.2532,
-            "longitude": 55.3657
-        },
-        "url": "https://dakeek.ae/services/plumbing",
-        "telephone": "+971542472151",
-        "priceRange": "$$",
-        "areaServed": "Dubai",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "89"
-        },
-        "mainEntity": serviceData.plumbing.seo.qna ? serviceData.plumbing.seo.qna.map(q => ({
-            "@type": "Question",
-            "name": q.question,
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": q.answer
-            }
-        })) : []
-    };
-
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            <ServiceSchema
+                name={serviceData.plumbing.seo.title}
+                description={serviceData.plumbing.hero.description}
+                image={serviceData.plumbing.details[0].image}
+                url="https://dakeek.ae/services/plumbing"
+                telephone="+971542472151"
+                priceRange="$$"
+                ratingValue="4.8"
+                reviewCount="89"
+                address={{
+                    streetAddress: "Anzar Gallery, Al Karama",
+                    addressLocality: "Dubai",
+                    addressRegion: "Dubai",
+                    postalCode: "00000",
+                    addressCountry: "AE"
+                }}
+                geo={{
+                    latitude: 25.2532,
+                    longitude: 55.3657
+                }}
             />
+            <FAQSchema faqs={serviceData.plumbing.seo.qna ? serviceData.plumbing.seo.qna.map(q => ({ question: q.question, answer: q.answer })) : []} />
+            <BreadcrumbSchema items={[
+                { label: 'Home', path: '/' },
+                { label: 'Services', path: '/services' },
+                { label: 'Plumbing Services', path: '/services/plumbing' }
+            ]} />
             <ServicePageLayout slug="plumbing" />
         </>
     );

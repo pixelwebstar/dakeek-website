@@ -1,18 +1,14 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MapPin } from "lucide-react";
-import FooterPhysics from "./FooterPhysics";
+import StaticFooterWatermark from "./StaticFooterWatermark";
 import { serviceData } from "../../data/serviceData";
 
 export default function Footer() {
-    const [isDragging, setIsDragging] = useState(false);
     const pathname = usePathname();
-
-    const handleDragStart = useCallback(() => setIsDragging(true), []);
-    const handleDragEnd = useCallback(() => setIsDragging(false), []);
 
     // Dynamic Theme Logic
     const theme = useMemo(() => {
@@ -55,7 +51,7 @@ export default function Footer() {
 
     // Calculate Physics Color (The 'watermark' color)
     // For service pages, we use the hero1 color (which is usually the lighter one)
-    const getPhysicsColor = () => {
+    const getWatermarkColor = () => {
         const pathParts = pathname?.split('/') || [];
         if (pathParts[1] === 'services' && pathParts[2]) {
             const service = serviceData[pathParts[2]];
@@ -75,17 +71,12 @@ export default function Footer() {
     return (
         <footer className={`w-full px-[5vw] lg:px-[8vw] pt-24 pb-8 ${theme.bg} ${theme.text} relative overflow-hidden flex flex-col items-center justify-between border-t ${theme.border} min-h-[50vh]`}>
 
-            {/* 1. LAYER 0: The Watermark (Interactive Physics) */}
-            <FooterPhysics
-                key={pathname} // Force re-mount on page change to reset physics
-                onDragStart={handleDragStart}
-                onDragEnd={handleDragEnd}
-                color={getPhysicsColor()}
-            />
+            {/* 1. LAYER 0: The Watermark (Static) */}
+            <StaticFooterWatermark color={getWatermarkColor()} />
 
             {/* 2. LAYER 10: The Content (Floating Above) */}
             <div
-                className={`relative z-10 w-full max-w-[1600px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24 mb-24 md:mb-32 transition-opacity duration-300 ${isDragging ? 'pointer-events-none opacity-50 select-none' : 'pointer-events-auto opacity-100'}`}
+                className={`relative z-10 w-full max-w-[1600px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24 mb-24 md:mb-32 transition-opacity duration-300 pointer-events-auto opacity-100`}
             >
                 {/* Col 1: Brand */}
                 <div className="space-y-6">
@@ -145,6 +136,7 @@ export default function Footer() {
                     </div>
                 </div>
 
+
                 {/* Col 4: Connect (Text Links) */}
                 <div className="space-y-6">
                     <h3 className={`font-mono text-xs uppercase tracking-widest opacity-70`}>Connect</h3>
@@ -164,7 +156,7 @@ export default function Footer() {
 
             {/* 3. LAYER 60: Copyright (Floating perfectly ON TOP) */}
             <div
-                className={`absolute bottom-6 left-1/2 -translate-x-1/2 text-center w-full px-4 transition-opacity duration-300 ${isDragging ? 'opacity-20' : 'opacity-100'} pointer-events-none select-none`}
+                className={`absolute bottom-6 left-1/2 -translate-x-1/2 text-center w-full px-4 transition-opacity duration-300 pointer-events-none select-none`}
                 style={{ zIndex: 60 }}
             >
                 <p className={`text-[10px] font-mono uppercase tracking-widest ${theme.copyright}`}>

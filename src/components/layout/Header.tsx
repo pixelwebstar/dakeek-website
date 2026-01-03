@@ -90,7 +90,7 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-8">
+                <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
                     <ul className="flex gap-8 text-sm font-medium tracking-wide">
                         {links.map((link) => {
                             const isActive = mounted && pathname === link.href;
