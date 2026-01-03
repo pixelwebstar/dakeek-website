@@ -118,7 +118,7 @@ export async function POST(req: Request) {
         // Attempt to send email
         try {
             const { data, error } = await resend.emails.send({
-                from: 'Dakeek <onboarding@resend.dev>', // Should be updated to verified domain in env
+                from: 'Dakeek <noreply@dakeek.ae>', // Should be updated to verified domain in env
                 to: toEmails,
                 subject: subject,
                 html: htmlContent,
