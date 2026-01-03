@@ -46,7 +46,7 @@ export function SmartForm() {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    services: data.services(", "), // Mapping for legacy API structure
+                    services: data.services // Mapping for legacy API structure
                     location: data.location,
                     name: data.name,
                     phone: data.phone,
