@@ -46,12 +46,12 @@ export function SmartForm() {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    service: data.services.join(", "), // Mapping for legacy API structure
+                    services: data.services(", "), // Mapping for legacy API structure
                     location: data.location,
                     name: data.name,
-                    contactInfo: data.phone,
-                    contactMethod: 'Phone',
-                    confirmationEmail: data.email || undefined,
+                    phone: data.phone,
+                    contactMethod: 'WhatsApp',
+                    email: data.email || undefined,
                     serviceType: 'General Inquiry'
                 })
             });
