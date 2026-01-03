@@ -7,6 +7,9 @@ import {
     Search,
     Sparkles, ShieldCheck
 } from "lucide-react";
+import { DUBAI_AREAS } from "@/lib/constants";
+
+export { DUBAI_AREAS };
 
 
 
@@ -65,9 +68,7 @@ export interface ServicePageData {
     };
 }
 
-import { DUBAI_AREAS } from "@/lib/constants";
 
-export { DUBAI_AREAS };
 
 
 export const serviceData: Record<string, ServicePageData> = {

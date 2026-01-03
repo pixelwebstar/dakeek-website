@@ -77,7 +77,6 @@ export default async function LocationPage(props: { params: Promise<{ location: 
                                 key={service.id}
                                 title={service.hero.title}
                                 href={`/services/${service.slug}`}
-                                icon={service.details[0].icon} // Using first detail icon as proxy
                                 features={service.details.flatMap(d => d.details).slice(0, 3)}
                                 image={service.details[0].image}
                             />
