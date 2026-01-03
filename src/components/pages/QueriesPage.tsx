@@ -1,189 +1,228 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-
-import HyperHero from "@/components/hero/HyperHero";
-import { FAQAccordion, type FAQItem } from "@/components/shared/FAQAccordion";
-import { TrustIndicators } from "@/components/shared/TrustIndicators";
+import { ArrowRight, Plus, Minus } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import SectionWrapper from "@/components/about/SectionWrapper";
+import dynamic from "next/dynamic";
 
-// Expanded FAQ data with categories
-const FAQS: FAQItem[] = [
-    // Getting Started
-    {
-        question: "How fast do you arrive?",
-        answer: "For emergency calls, we arrive in 60 minutes or less anywhere in Dubai. For scheduled appointments, we arrive within your chosen 1-hour window. We respect your time.",
-        category: "Getting Started"
-    },
-    {
-        question: "Is there a callout fee?",
-        answer: "There is a standard inspection fee of AED 150. However, if you proceed with the repair work, this fee is waived completely. You only pay for the actual service.",
-        category: "Getting Started"
-    },
-    {
-        question: "What areas do you cover?",
-        answer: "We currently serve all major freehold communities in Dubai, including Emirates Hills, Palm Jumeirah, Arabian Ranches, Jumeirah Park, Dubai Marina, JBR, Downtown Dubai, and surrounding areas.",
-        category: "Getting Started"
-    },
-    {
-        question: "How do I book a service?",
-        answer: "You can book through our contact form, WhatsApp at +971 54 247 2151, or call us directly. We'll confirm your appointment within minutes and send a technician profile 30 minutes before arrival.",
-        category: "Getting Started"
-    },
+const HyperHero = dynamic(() => import("@/components/hero/HyperHero"), {
+    ssr: false,
+    loading: () => <div className="absolute inset-0 w-full h-full bg-[#F4F4F5]" />,
+});
 
-    // Services & Technicians
+// Data Structure: Categories of Questions
+const FAQ_CATEGORIES = [
     {
-        question: "Do you use subcontractors?",
-        answer: "Never. Every technician is a full-time Dakeek employee, trained in our own academy. We do not use random freelancers or outsource our work. You get the same quality every time.",
-        category: "Services & Technicians"
+        id: "essentials",
+        title: "The Essentials",
+        description: "Booking, timing, and areas.",
+        image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80", // Minimal Clock/Time
+        questions: [
+            { q: "How quickly can you arrive?", a: "For emergency requests, our dispatch protocol targets a 60-minute arrival time anywhere in Dubai. For standard scheduled maintenance, we adhere to precise 1-hour windows to respect your schedule." },
+            { q: "What areas do you cover?", a: "We serve all major freehold communities including Emirates Hills, Palm Jumeirah, Arabian Ranches, Dubai Hills, and Downtown Dubai. If you reside in a premium community, we likely cover it." },
+            { q: "Is there a call-out fee?", a: "We charge a standard inspection fee of AED 150. This covers the engineer's time and professional diagnosis. Crucially, if you proceed with the quoted repair, this fee is completely waived." },
+            { q: "Do I need to be home?", a: "We recommend being present for the initial diagnosis. However, for established clients in secure properties, we can coordinate access directly with your concierge or security team for seamless service." }
+        ]
     },
     {
-        question: "Are your technicians certified?",
-        answer: "Yes. All technicians are certified professionals with minimum 5 years experience. They undergo continuous training and are evaluated monthly on quality and customer satisfaction.",
-        category: "Services & Technicians"
+        id: "standards",
+        title: "Our Standards",
+        description: "Quality, vetting, and warranty.",
+        image: "https://images.unsplash.com/photo-1635326444826-06c8f84991a9?auto=format&fit=crop&q=80", // Marble/Statue/Quality
+        questions: [
+            { q: "Who will be entering my home?", a: "We exclusively employ full-time, in-house technicians. By avoiding the variability of the freelance market, we ensure you receive a consistent, vetted, and highly trained professional every single time." },
+            { q: "Is the work guaranteed?", a: "Yes. We offer a comprehensive 30-day workmanship warranty. If the issue persists, we return and rectify it at zero cost. We stand by our engineering standards." },
+            { q: "Are spare parts included?", a: "Parts are charged separately as per market rates. We use only genuine, high-grade components which carry their own manufacturer warranty (typically 1 year)." },
+            { q: "What if the repair is complex?", a: "Our field technicians are backed by a team of Senior Engineers. If a problem is unusually complex, we escalate it internally for technical review at no additional cost to you." }
+        ]
     },
     {
-        question: "Do you offer a warranty?",
-        answer: "Yes. All our workmanship is guaranteed for 30 days. If the same problem comes back, we fix it for free, no questions asked. Spare parts carry their own manufacturer warranty (usually 1 year).",
-        category: "Services & Technicians"
-    },
-
-    // Trust & Safety
-    {
-        question: "Are your technicians insured?",
-        answer: "Yes, fully. We carry comprehensive liability insurance covering both property damage and personal liability. If we accidentally break something in your home (which rarely happens), we pay for it.",
-        category: "Trust & Safety"
-    },
-    {
-        question: "Do you do background checks?",
-        answer: "Absolutely. Every technician undergoes thorough background verification, police clearance, and reference checks before joining our team. Your safety is our priority.",
-        category: "Trust & Safety"
-    },
-    {
-        question: "What about privacy and discretion?",
-        answer: "We treat your home with the utmost respect. Technicians wear shoe covers, never enter unannounced rooms, and sign strict confidentiality agreements. Many of our clients are VIPs who value privacy.",
-        category: "Trust & Safety"
-    },
-
-    // Emergency & Urgency
-    {
-        question: "Are you available 24/7?",
-        answer: "Yes! Our emergency service operates 24/7/365 for critical issues like AC failures in summer, electrical hazards, gas leaks, or major plumbing emergencies. We never close.",
-        category: "Emergency & Urgency"
-    },
-    {
-        question: "What qualifies as an emergency?",
-        answer: "Any issue that poses immediate safety risk, significant property damage, or makes your home unlivable. Examples: gas leaks, electrical sparks, flooding, AC failure in peak summer, or sewage backups.",
-        category: "Emergency & Urgency"
+        id: "trust",
+        title: "Trust & Safety",
+        description: "Privacy, insurance, and respect.",
+        image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&q=80", // Handshake/Gentle
+        questions: [
+            { q: "Are you insured?", a: "Fully. We carry comprehensive liability insurance. Your property is protected against any accidental damage, however unlikely that may be." },
+            { q: "What about privacy?", a: "Discretion is paramount. Our teams are trained to work quietly, respect your personal space, and are happy to sign confidentiality agreements for VIP residences." },
+            { q: "Do you clean up after the job?", a: "Absolutely. We consider 'leaving no trace' to be part of the repair itself. Your technician carries cleaning equipment and will leave your home exactly as they found it." },
+            { q: "How do I identify the technician?", a: "Security is key. You will receive a digital profile with your technician's photo and name 30 minutes before arrival. All our staff wear distinctive Dakeek uniforms and carry identification." }
+        ]
     }
 ];
 
-import { useState, useMemo } from "react";
-
 export default function QueriesPage() {
-    const categories = ["All", ...Array.from(new Set(FAQS.map(f => f.category || "General")))];
-    const [activeCategory, setActiveCategory] = useState("All");
+    const [activeCategory, setActiveCategory] = useState(FAQ_CATEGORIES[0].id);
+    const [openQuestion, setOpenQuestion] = useState<string | null>(null);
 
-    const filteredFaqs = useMemo(() => {
-        if (activeCategory === "All") return FAQS;
-        return FAQS.filter(f => f.category === activeCategory);
-    }, [activeCategory]);
+    const activeData = FAQ_CATEGORIES.find(c => c.id === activeCategory) || FAQ_CATEGORIES[0];
 
     return (
-        <main className="relative min-h-screen bg-[#FAFAF9] text-[#111] overflow-hidden">
+        <main className="bg-[#FDFCF8] min-h-screen text-[#1a1a1a] overflow-x-hidden selection:bg-bronze selection:text-white font-sans">
 
-            {/* Global Noise Texture */}
-            <div className="fixed inset-0 w-full h-full opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none z-0 mix-blend-multiply"></div>
-
-            {/* 1. HERO: The Encyclopedia */}
+            {/* 1. HERO: The Encyclopedia (From GitHub) */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#F4F4F5] border-b border-structure">
-                <HyperHero
-                    color1="#A1A1AA" // Zinc 400
-                    color2="#F4F4F5" // Zinc 100
-                    initialColor="#F4F4F5"
-                />
+                <div className="absolute inset-0 z-0">
+                    <HyperHero
+                        color1="#A1A1AA" // Zinc 400
+                        color2="#F4F4F5" // Zinc 100
+                        initialColor="#F4F4F5"
+                    />
+                </div>
 
-                <SectionWrapper className="max-w-4xl mx-auto text-center relative z-10 px-6">
-                    <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
+                <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
+                    <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
                         Knowledge Base
                     </span>
-                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 leading-[0.9] text-ink">
+                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 leading-[0.9] text-[#111]">
                         Queries.
                     </h1>
-                    <p className="text-lg md:text-xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium">
+                    <p className="text-lg md:text-xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#444]">
                         Everything you need to know about our process, pricing, and promise.
                     </p>
-                </SectionWrapper>
-            </section>
-
-            {/* TRUST INDICATORS */}
-            <section className="relative z-10 px-[5vw] lg:px-[8vw] py-24 lg:py-32 bg-white border-y border-[#E5E5E5]">
-                <TrustIndicators />
-            </section>
-
-            {/* 2. FAQ SECTION */}
-            <section className="py-24 px-[5vw] lg:px-[8vw] bg-white min-h-[60vh]">
-                <div className="max-w-4xl mx-auto">
-                    <SectionWrapper>
-                        <div className="flex flex-col md:flex-row gap-12 lg:gap-24">
-                            {/* Categories */}
-                            <div className="w-full md:w-1/4 space-y-4">
-                                <h3 className="font-mono text-xs uppercase tracking-widest text-[#888] mb-6">Categories</h3>
-                                {categories.map((cat) => (
-                                    <button
-                                        key={cat}
-                                        onClick={() => setActiveCategory(cat)}
-                                        className={`block w-full text-left font-serif text-lg transition-colors ${activeCategory === cat ? "text-bronze italic" : "text-titanium hover:text-ink"
-                                            }`}
-                                    >
-                                        {cat}
-                                    </button>
-                                ))}
-                            </div>
-
-                            {/* FAQ Accordion */}
-                            <div className="w-full md:w-3/4">
-                                <FAQAccordion faqs={filteredFaqs} showSearch={true} defaultOpen={0} />
-                            </div>
-                        </div>
-                    </SectionWrapper>
                 </div>
             </section>
 
-            {/* STILL LOST CTA */}
-            <section className="relative z-10 px-[5vw] lg:px-[8vw] py-24 lg:py-32 bg-white border-t border-[#E5E5E5]">
-                <div className="max-w-3xl mx-auto text-center">
-                    <h2 className="text-4xl md:text-5xl font-serif italic mb-6 text-[#111]">
-                        Still can't find what you're looking for?
-                    </h2>
-                    <p className="text-lg text-[#666] mb-12 max-w-xl mx-auto">
-                        Our team is standing by to help. Get in touch, and we'll answer within minutes.
-                    </p>
+            {/* 2. THE INTERFACE: Split Layout */}
+            <section className="relative px-[5vw] lg:px-[8vw] py-24 min-h-screen">
+                <div className="flex flex-col lg:flex-row gap-20">
 
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <Link
-                            href="/contact"
-                            className="group relative px-12 py-4 bg-[#111] text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl"
-                        >
-                            <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em] flex items-center gap-2">
-                                Contact Us
-                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
-                            </span>
-                            <div className="absolute inset-0 bg-[#A18262] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
-                        </Link>
+                    {/* LEFT: Content & Navigation */}
+                    <div className="lg:w-1/2 relative z-10">
 
-                        <a
-                            href="tel:+971542472151"
-                            className="px-12 py-4 border border-black/10 text-[#111] rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white hover:bg-[#FAFAF9] transition-all shadow-sm hover:shadow-md"
-                        >
-                            Call +971 54 247 2151
-                        </a>
+                        {/* Category Nav */}
+                        <div className="flex gap-8 mb-20 border-b border-black/5 pb-8 overflow-x-auto">
+                            {FAQ_CATEGORIES.map((cat) => (
+                                <button
+                                    key={cat.id}
+                                    onClick={() => { setActiveCategory(cat.id); setOpenQuestion(null); }}
+                                    className={`text-sm font-mono uppercase tracking-widest pb-4 -mb-4 border-b-2 transition-all whitespace-nowrap ${activeCategory === cat.id
+                                        ? "border-bronze text-ink"
+                                        : "border-transparent text-stone-400 hover:text-bronze"
+                                        }`}
+                                >
+                                    {cat.title}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Questions List */}
+                        <div className="space-y-0">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={activeCategory}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.4 }}
+                                >
+                                    {activeData.questions.map((item, idx) => {
+                                        const isOpen = openQuestion === item.q;
+                                        return (
+                                            <div
+                                                key={idx}
+                                                className="border-b border-black/10 group"
+                                            >
+                                                <button
+                                                    onClick={() => setOpenQuestion(isOpen ? null : item.q)}
+                                                    className="w-full py-10 flex items-start justify-between gap-8 text-left"
+                                                >
+                                                    <h3 className={`text-2xl md:text-4xl font-serif transition-colors duration-500 ${isOpen ? "text-bronze italic" : "text-[#111] group-hover:text-bronze"}`}>
+                                                        {item.q}
+                                                    </h3>
+                                                    <div className={`mt-2 transition-transform duration-500 ${isOpen ? "rotate-45" : "rotate-0"}`}>
+                                                        <Plus className="w-6 h-6 text-bronze" strokeWidth={1} />
+                                                    </div>
+                                                </button>
+
+                                                <AnimatePresence>
+                                                    {isOpen && (
+                                                        <motion.div
+                                                            initial={{ height: 0, opacity: 0 }}
+                                                            animate={{ height: "auto", opacity: 1 }}
+                                                            exit={{ height: 0, opacity: 0 }}
+                                                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                                                            className="overflow-hidden"
+                                                        >
+                                                            <div className="pb-12 pr-12">
+                                                                <p className="text-xl text-stone-500 font-light leading-relaxed">
+                                                                    {item.a}
+                                                                </p>
+                                                            </div>
+                                                        </motion.div>
+                                                    )}
+                                                </AnimatePresence>
+                                            </div>
+                                        );
+                                    })}
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+
+                    </div>
+
+                    {/* RIGHT: Dynamic Image (Sticky) */}
+                    <div className="lg:w-1/2 lg:h-[80vh] sticky top-32 hidden lg:block">
+                        <div className="relative w-full h-full overflow-hidden rounded-sm bg-stone-100">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={activeCategory}
+                                    initial={{ opacity: 0, scale: 1.1 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                                    className="absolute inset-0"
+                                >
+                                    <Image
+                                        src={activeData.image}
+                                        alt={activeData.title}
+                                        fill
+                                        className="object-cover grayscale-[20%] sepia-[10%]"
+                                        priority
+                                    />
+                                    {/* Overlay for cinematic feel */}
+                                    <div className="absolute inset-0 bg-stone-900/10 mix-blend-multiply" />
+                                </motion.div>
+                            </AnimatePresence>
+
+                            {/* Caption */}
+                            <div className="absolute bottom-8 left-8 right-8 z-10 text-white">
+                                <motion.div
+                                    key={`text-${activeCategory}`}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.2, duration: 0.6 }}
+                                >
+                                    <span className="font-mono text-xs uppercase tracking-widest opacity-80 mb-2 block">Focus</span>
+                                    <h3 className="text-3xl font-serif italic">{activeData.title}</h3>
+                                    <p className="font-light opacity-80 mt-2">{activeData.description}</p>
+                                </motion.div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-
+            {/* 3. CTA: Simple & Elegant */}
+            <section className="py-32 text-center bg-white border-t border-black/5">
+                <div className="max-w-2xl mx-auto px-6">
+                    <h2 className="text-4xl md:text-5xl font-serif mb-8 text-[#111]">
+                        Still have questions?
+                    </h2>
+                    <p className="text-lg text-stone-500 mb-12 font-light">
+                        Our concierge team is available to discuss your specific requirements.
+                    </p>
+                    <Link
+                        href="/contact"
+                        className="group inline-flex items-center gap-4 px-10 py-5 bg-[#111] text-white rounded-full hover:bg-bronze transition-colors duration-500 shadow-xl"
+                    >
+                        <span className="font-mono text-xs uppercase tracking-[0.2em]">Contact Concierge</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </div>
+            </section>
         </main>
     );
 }

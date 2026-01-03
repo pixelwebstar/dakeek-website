@@ -1,13 +1,15 @@
-
+"use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-
+import { motion } from "framer-motion";
 
 interface ServiceCardProps {
   title: string;
   href: string;
-  icon: React.ElementType<{ className?: string }>;
+  image: string;
+  icon?: React.ElementType<{ className?: string }>;
   features: string[];
   variant?: "default" | "emergency";
 }
@@ -15,6 +17,7 @@ interface ServiceCardProps {
 export default function ServiceCard({
   title,
   href,
+  image,
   icon: Icon,
   features,
   variant = "default",
@@ -22,77 +25,88 @@ export default function ServiceCard({
   const isEmergency = variant === "emergency";
 
   return (
-    <Link
-      href={href}
-      className={`group relative block p-10 h-[420px] border flex flex-col justify-between items-center text-center transition-all duration-500 hover:-translate-y-1
-        ${isEmergency
-          ? "bg-[#111] border-white/10 hover:border-white/20 hover:shadow-[0_20px_40px_-15px_rgba(255,255,255,0.05)]"
-          : "bg-white border-[#E5E5E5] hover:border-[#D6D3D1] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)]"
-        }`}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
     >
-      {/* Subtle Gradient Overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-b opacity-0 group-hover:opacity-100 transition-opacity duration-700
-        ${isEmergency ? "from-transparent to-white/5" : "from-transparent to-[#FAFAF9]"}`}
-      />
-
-      {/* Hover Top Line */}
-      <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[3px] group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]
-        ${isEmergency ? "bg-red-600" : "bg-[#A18262]"}`}
-      />
-
-      <div className="relative z-10 w-full flex flex-col items-center pt-2">
-        <div className="mb-8 relative transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2">
-          {/* Icon Glow */}
-          <div className={`absolute inset-0 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500
-            ${isEmergency ? "bg-red-600/20" : "bg-[#A18262]/10"}`}
+      <Link
+        href={href}
+        className={`group relative block h-[480px] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl
+          ${isEmergency ? "rounded-2xl" : "rounded-2xl"}`}
+      >
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
-
-          <Icon className={`relative z-10 w-12 h-12 transition-colors duration-500
+          {/* Gradient Overlay */}
+          <div className={`absolute inset-0 transition-opacity duration-500
             ${isEmergency
-              ? "text-white group-hover:text-red-500"
-              : "text-[#444] group-hover:text-[#A18262]"}`}
+              ? "bg-gradient-to-t from-red-950/95 via-red-950/60 to-transparent"
+              : "bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/95"}`}
           />
         </div>
 
-        <h3 className={`text-3xl font-serif font-medium mb-2 transition-all duration-300
-          ${isEmergency
-            ? "text-white group-hover:text-red-500 group-hover:italic"
-            : "text-[#111] group-hover:text-[#A18262] group-hover:italic"}`}
-        >
-          {title}
-        </h3>
-
-        {/* Emergency Extra Text */}
-        {isEmergency && (
-          <p className="font-mono text-[9px] text-white/50 uppercase tracking-[0.2em] mb-1">60 Minute Response</p>
-        )}
-
-        {/* Decorative short line */}
-        <div className={`w-8 h-[1px] my-4 transition-all duration-500 group-hover:w-16
-          ${isEmergency
-            ? "bg-white/20 group-hover:bg-red-500/50"
-            : "bg-[#E5E5E5] group-hover:bg-[#A18262]/30"}`}
+        {/* Glowing Border on Hover */}
+        <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-2
+          ${isEmergency ? "border-red-500/50" : "border-[#A18262]/50"}`}
         />
-      </div>
 
-      <ul className="relative z-10 space-y-3 flex flex-col items-center w-full mb-8">
-        {features.map((feature, index) => (
-          <li
-            key={index}
-            className={`font-mono text-[10px] uppercase tracking-[0.15em] flex items-center justify-center gap-2 transition-colors
-              ${isEmergency
-                ? "text-white/60 group-hover:text-white"
-                : "text-[#86868b] group-hover:text-[#444]"}`}
+        {/* Content */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col z-10">
+          {/* Icon Badge */}
+          {Icon && (
+            <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 backdrop-blur-md transition-transform duration-500 group-hover:scale-110
+              ${isEmergency ? "bg-red-500/20 border border-red-500/30" : "bg-white/10 border border-white/20"}`}
+            >
+              <Icon className={`w-7 h-7 ${isEmergency ? "text-red-400" : "text-white"}`} />
+            </div>
+          )}
+
+          {/* Title */}
+          <h3 className={`text-2xl font-serif font-semibold mb-2 transition-colors duration-300
+            ${isEmergency ? "text-white group-hover:text-red-300" : "text-white"}`}
           >
-            {feature}
-          </li>
-        ))}
-      </ul>
+            {title}
+          </h3>
 
-      {/* Interaction Hint */}
-      <div className="absolute bottom-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-        <ArrowRight className={`w-5 h-5 ${isEmergency ? "text-red-500" : "text-[#A18262]"}`} />
-      </div>
-    </Link>
+          {/* Emergency Badge */}
+          {isEmergency && (
+            <span className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-red-400 mb-3">
+              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+              60 Minute Response
+            </span>
+          )}
+
+          {/* Features */}
+          <ul className="flex flex-wrap gap-2 mb-4">
+            {features.slice(0, 3).map((feature, index) => (
+              <li
+                key={index}
+                className={`text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-md backdrop-blur-md
+                  ${isEmergency
+                    ? "bg-red-500/20 text-red-200 border border-red-500/20"
+                    : "bg-white/10 text-white/80 border border-white/10"}`}
+              >
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          <div className={`flex items-center gap-2 text-sm font-medium transition-all duration-300 group-hover:gap-3
+            ${isEmergency ? "text-red-400" : "text-[#A18262]"}`}
+          >
+            View Service
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </div>
+        </div>
+      </Link>
+    </motion.div>
   );
 }

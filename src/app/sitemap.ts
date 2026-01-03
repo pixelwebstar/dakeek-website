@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         // Individual Services - High Priority
         ...[
             'ac', 'plumbing', 'electrical', 'cleaning',
-            'gas', 'stoves', 'handyman', 'emergency'
+            'stoves', 'handyman', 'emergency'
         ].map((slug) => ({
             url: `https://dakeek.ae/services/${slug}`,
             lastModified: new Date(),

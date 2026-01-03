@@ -59,133 +59,94 @@ export default function ContactPage() {
                 <TrustIndicators />
             </section>
 
-            {/* MAIN CONTACT SECTION */}
-            <section className="relative z-10 w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-canvas">
+            {/* MAIN CONTACT SECTION: The Concierge Desk (Dark Premium) */}
+            <section className="relative z-10 w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-[#0c0c0c]">
 
-                {/* Left Column: Contact Info & Map */}
-                <div className="relative flex flex-col justify-between p-8 lg:p-24 border-b lg:border-b-0 lg:border-r border-structure bg-white">
-                    <div className="space-y-12">
-                        {/* Contact Methods */}
-                        <div className="space-y-8">
-                            <div>
-                                <h2 className="text-4xl font-sans font-light tracking-tight text-ink mb-2">Get in Touch</h2>
-                                <p className="text-titanium text-lg font-light mb-6">Choose how you'd like to connect.</p>
+                {/* Left Column: Direct Access (VIP Info) */}
+                <div className="relative flex flex-col justify-center p-8 lg:p-24 border-b lg:border-b-0 lg:border-r border-white/5 bg-[#0c0c0c]">
+                    <div className="space-y-16 max-w-lg">
 
-                                {/* NEW: Bot Trigger Button */}
-                                <button
-                                    onClick={openChat}
-                                    className="group flex items-center gap-3 px-5 py-3 bg-[#f3f4f6] hover:bg-[#A18262] text-ink hover:text-white rounded-xl transition-all duration-300 w-full md:w-auto border border-black/5"
-                                >
-                                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm">
-                                        <Bot className="w-4 h-4 text-[#A18262]" />
-                                    </div>
-                                    <span className="font-medium">Use AI Assistant</span>
-                                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse ml-auto md:ml-2"></div>
-                                </button>
-                            </div>
-
-                            <div className="h-px bg-black/5 w-full my-8"></div>
-
-                            {/* Phone */}
-                            <motion.a
-                                href="tel:+971542472151"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                className="flex items-center gap-4 group cursor-pointer"
-                            >
-                                <div className="w-12 h-12 rounded-full bg-bronze text-white flex items-center justify-center group-hover:scale-110 transition-transform">
-                                    <Phone className="w-5 h-5" strokeWidth={1.5} />
-                                </div>
-                                <div>
-                                    <p className="text-xs font-mono uppercase tracking-wider text-titanium">Call Us</p>
-                                    <p className="text-lg font-medium text-ink group-hover:text-bronze transition-colors">+971 54 247 2151</p>
-                                </div>
-                            </motion.a>
-
-                            {/* WhatsApp */}
-                            <motion.a
-                                href="https://wa.me/971542472151"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.1 }}
-                                className="flex items-center gap-4 group cursor-pointer"
-                            >
-                                <div className="w-12 h-12 rounded-full bg-green-500 text-white flex items-center justify-center group-hover:scale-110 transition-transform">
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p className="text-xs font-mono uppercase tracking-wider text-titanium">WhatsApp</p>
-                                    <p className="text-lg font-medium text-ink group-hover:text-green-500 transition-colors">Chat with us</p>
-                                </div>
-                            </motion.a>
-
-                            {/* Email */}
-                            <motion.a
-                                href="mailto:asheejajayan@gmail.com"
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.2 }}
-                                className="flex items-center gap-4 group cursor-pointer"
-                            >
-                                <div className="w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center group-hover:scale-110 transition-transform">
-                                    <Mail className="w-5 h-5" strokeWidth={1.5} />
-                                </div>
-                                <div>
-                                    <p className="text-xs font-mono uppercase tracking-wider text-titanium">Email</p>
-                                    <p className="text-lg font-medium text-ink group-hover:text-bronze transition-colors">asheejajayan@gmail.com</p>
-                                </div>
-                            </motion.a>
-
-                            {/* Hours */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.3 }}
-                                className="flex items-center gap-4"
-                            >
-                                <div className="w-12 h-12 rounded-full bg-canvas text-bronze flex items-center justify-center">
-                                    <Clock className="w-5 h-5" strokeWidth={1.5} />
-                                </div>
-                                <div>
-                                    <p className="text-xs font-mono uppercase tracking-wider text-titanium">Hours</p>
-                                    <p className="text-lg font-medium text-ink">24/7 Emergency</p>
-                                    <p className="text-sm text-titanium">8 AM - 10 PM Standard</p>
-                                </div>
-                            </motion.div>
+                        <div>
+                            <span className="font-mono text-xs uppercase tracking-[0.2em] text-bronze mb-4 block">Direct Access</span>
+                            <h2 className="text-4xl md:text-6xl font-serif text-white mb-6">The Concierge.</h2>
+                            <p className="text-stone-400 text-lg font-light leading-relaxed">
+                                You are not entering a queue. You are contacting a dedicated engineering team. We value precision in communication as much as in repair.
+                            </p>
                         </div>
 
-                    </div>
+                        {/* Contact Methods (Vertical Elegant List) */}
+                        <div className="space-y-10">
 
-                    {/* Footer Info */}
-                    <div className="hidden lg:block space-y-2 text-sm text-stone font-mono pt-12 border-t border-structure mt-12">
-                        <p className="flex items-center gap-2">
-                            <MapPin className="w-4 h-4" strokeWidth={1.5} />
-                            DUBAI HEADQUARTERS
-                        </p>
-                        <p className="pl-6">ANZAR GALLERY BUILDING, AL KARAMA</p>
-                        <p className="pl-6">LICENSE NO. 1382290</p>
+                            {/* Phone */}
+                            <div className="group flex items-start gap-6">
+                                <span className="font-mono text-xs text-stone-600 mt-1">01</span>
+                                <div>
+                                    <h3 className="text-white text-xl font-serif mb-2 group-hover:text-bronze transition-colors">Emergency & Support</h3>
+                                    <a href="tel:+971542472151" className="text-2xl md:text-3xl font-light text-stone-300 hover:text-white transition-colors block mb-1">
+                                        +971 54 247 2151
+                                    </a>
+                                    <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-green-500">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                                        Live 24/7
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* WhatsApp */}
+                            <div className="group flex items-start gap-6">
+                                <span className="font-mono text-xs text-stone-600 mt-1">02</span>
+                                <div>
+                                    <h3 className="text-white text-xl font-serif mb-2 group-hover:text-bronze transition-colors">Instant Chat</h3>
+                                    <a href="https://wa.me/971542472151" target="_blank" className="text-2xl md:text-3xl font-light text-stone-300 hover:text-white transition-colors block mb-1">
+                                        WhatsApp Concierge
+                                    </a>
+                                    <p className="text-xs font-mono uppercase tracking-wider text-stone-500">Avg. Response: 2 mins</p>
+                                </div>
+                            </div>
+
+                            {/* Email */}
+                            <div className="group flex items-start gap-6">
+                                <span className="font-mono text-xs text-stone-600 mt-1">03</span>
+                                <div>
+                                    <h3 className="text-white text-xl font-serif mb-2 group-hover:text-bronze transition-colors">Formal Inquiries</h3>
+                                    <a href="mailto:asheejajayan@gmail.com" className="text-lg md:text-xl font-light text-stone-300 hover:text-white transition-colors block mb-1">
+                                        asheejajayan@gmail.com
+                                    </a>
+                                    <p className="text-xs font-mono uppercase tracking-wider text-stone-500">Projects & Partnerships</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        {/* Location Context */}
+                        <div className="pt-12 border-t border-white/5">
+                            <p className="flex items-center gap-3 text-stone-500 text-sm font-mono uppercase tracking-widest">
+                                <MapPin className="w-4 h-4 text-bronze" />
+                                Dubai Headquarters • Al Karama
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                {/* Right Column: Contact Form */}
-                <div className="relative h-full bg-canvas flex items-center justify-center p-6 lg:p-24">
-                    {/* Background Pattern */}
-                    <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                {/* Right Column: Smart Form (Glass Card) */}
+                <div className="relative h-full flex items-center justify-center p-6 lg:p-24 bg-[#0a0a0a]">
+
+                    {/* Background Noise/Gradient */}
+                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] animate-grain"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0c0c0c] via-[#111] to-[#0c0c0c] z-0"></div>
 
                     <div className="w-full max-w-xl relative z-10">
-                        <div className="mb-8">
-                            <h2 className="text-3xl font-sans font-light tracking-tight text-ink mb-3">Send us a message</h2>
-                            <p className="text-titanium">We'll respond within 2 minutes during business hours.</p>
+                        <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-sm shadow-2xl">
+                            <div className="mb-8 border-b border-white/5 pb-8">
+                                <h2 className="text-2xl font-serif text-white mb-2">Priority Request</h2>
+                                <p className="text-stone-400 font-light text-sm">Fill out the details below. This goes directly to our dispatch desk.</p>
+                            </div>
+
+                            {/* The SmartForm (Preserved Functionality, Inherits Transparency if built correctly, or we wrap it carefully) */}
+                            <div className="contact-form-dark-override">
+                                <SmartForm />
+                            </div>
                         </div>
-                        <SmartForm />
                     </div>
                 </div>
             </section>

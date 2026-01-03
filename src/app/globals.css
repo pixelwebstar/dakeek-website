@@ -39,6 +39,22 @@
     @apply backdrop-blur-md bg-white/30 border border-white/20;
   }
 
+  .bg-noise {
+    position: relative;
+  }
+
+  .bg-noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    background-size: 128px;
+    mix-blend-mode: overlay;
+  }
+
   .premium-bg {
     background-color: #FAFAF9;
     background-image:

@@ -134,7 +134,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "A flawless installation is the foundation of a decade of comfort. We calculate load, optimize placement, and calibrate airflow.",
                 icon: Wind,
                 details: ["Load Calculation", "Ductwork Design", "Efficiency Audits", "Smart Thermostats"],
-                image: "/images/ac/maintenance.jpg" // Using reliable local asset
+                image: "/images/services/ac.jpg" // Using reliable local asset
             },
             {
                 id: "maintenance",
@@ -229,7 +229,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Hidden leaks ruin foundations. We find them without tearing up your walls using thermal and acoustic sensors.",
                 icon: Search,
                 details: ["Ultrasonic Detection", "Thermal Imaging", "Pressure Testing", "Non-Invasive"],
-                image: "/images/plumbing_brass_detail.png"
+                image: "/images/services/plumbing.png"
             },
             {
                 id: "heaters",
@@ -317,7 +317,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Old wiring is a fire hazard. We inspect, upgrade, and organize your distribution boards for maximum safety.",
                 icon: Zap,
                 details: ["Load Balancing", "Breaker Testing", "Short Circuit Fix", "Rewiring"],
-                image: "/images/modern_electrical_panel.png"
+                image: "/images/services/electrical.png"
             },
             {
                 id: "lights",
@@ -406,7 +406,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Complete home sanitization for move-ins or spring cleaning. Floors, windows, and surfaces.",
                 icon: Sparkles,
                 details: ["Floor Scrubbing", "Window Cleaning", "Kitchen Degreasing", "Bathroom Sanitize"],
-                image: "https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&q=80" // Clean Living Room
+                image: "/images/services/cleaning.png"
             },
             {
                 id: "tanks",
@@ -441,95 +441,7 @@ export const serviceData: Record<string, ServicePageData> = {
 
 
 
-    // 05. Gas (Renumbered)
-    gas: {
-        id: "05",
-        slug: "gas",
-        theme: {
-            primaryText: "text-red-900",
-            primaryBg: "bg-red-950",
-            secondaryBg: "bg-red-50",
-            accentText: "text-red-400",
-            iconBg: "bg-red-500/10",
-            hero1: "#ef4444",
-            hero2: "#fef2f2"
-        },
-        hero: {
-            tag: "Critical Safety",
-            title: "Gas Systems",
-            description: "No leaks. No risks. Civil Defense compliant."
-        },
-        seo: {
-            title: "Gas Leak Detection & Pipe Installation Dubai | Licensed Gas Services",
-            keywords: [
-                "Gas Leak Detection Dubai", "Gas Pipe Installation Dubai", "Central Gas System Repair", "IGD System Installation",
-                "Gas Safety Check Dubai", "Kitchen Gas Line Repair", "LPG Gas Piping", "Civil Defense Approved Gas",
-                "Gas Solenoid Valve Installation", "Gas Leak Fix Dubai", "Emergency Gas Repair", "Gas Maintenance Company",
-                ...DUBAI_AREAS.map(area => `Gas Leak Detection ${area}`),
-                ...DUBAI_AREAS.map(area => `Gas Installation ${area}`)
-            ],
-            schemaType: "ProfessionalService",
-            qna: [
-                {
-                    question: "What should I do if I smell gas?",
-                    answer: "Immediately turn off the main gas valve, open windows, and evacuate. Call us immediately for emergency leak detection and repair."
-                },
-                {
-                    question: "Are your gas technicians certified?",
-                    answer: "Yes, all our gas technicians are trained and follow strict Civil Defense safety protocols for LPG and central gas systems."
-                }
-            ]
-        },
-        intro: {
-            heading: "Gas is invisible and silent until it's too late. We use high-sensitivity sniffers to ensure your home is explosive-proof.",
-            stats: [
-                { value: "100%", label: "Sealed", sub: "Guarantee" },
-                { value: "LPG", label: "Certified", sub: "Techs" },
-                { value: "IGD", label: "Systems", sub: "Install" },
-                { value: "24/7", label: "Emergency", sub: "Response" }
-            ]
-        },
-        details: [
-            {
-                id: "detection",
-                title: "Leak Detection",
-                subtitle: "Zero Tolerance",
-                description: "We pressure test your entire line. If there's a micro-leak, we find it and seal it. Period.",
-                icon: Search,
-                details: ["Pressure Testing", "Bubble Test", "Digital Sniffing", "Line Tracing"],
-                image: "https://images.unsplash.com/photo-1581092335878-2d9ff86ca2bf?auto=format&fit=crop&q=80" // Gas Safety Check
-            },
-            {
-                id: "installation",
-                title: "Pipe Installation",
-                subtitle: "Copper & PEX",
-                description: "New kitchen? We run safe, compliant gas lines from your central cylinder to your appliances.",
-                icon: Wrench,
-                details: ["Copper Piping", "Safety Valves", "Regulator Setup", "Civil Defense Approved"],
-                image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80" // Industrial pipe
-            },
-            {
-                id: "igd",
-                title: "IGD Systems",
-                subtitle: "Auto-Shutoff",
-                description: "Install an Intelligent Gas Detection system that automatically cuts off supply if a leak is detected.",
-                icon: ShieldAlert,
-                details: ["Sensor Mount", "Valve Control", "Panel Setup", "Annual Test"],
-                image: "https://images.unsplash.com/photo-1517420879524-86d64ac2f339?auto=format&fit=crop&q=80" // Sensor/tech panel
-            }
-        ],
-        techSpecs: {
-            grid: [
-                { label: "PRESSURE", value: "HOLDING" },
-                { label: "LEAKS", value: "ZERO" },
-                { label: "SAFETY", value: "MAX" },
-                { label: "WARRANTY", value: "1 YEAR" }
-            ],
-            tools: "Calibrated manometers and combustible gas detectors.",
-            list: ["Pressure hold", "Soap test", "Valve check", "Regulator flow", "Ventilation check"]
-        }
-    },
-    // 06. Stoves (Renumbered)
+    // 05. Stoves (Renumbered)
     stoves: {
         id: "06",
         slug: "stoves",
@@ -548,19 +460,19 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Blue flames. Even heat. Safe cooking."
         },
         seo: {
-            title: "Cooker & Gas Stove Repair Dubai | Oven Maintenance | Dakeek",
+            title: "Cooker & Stove Repair Dubai | Oven Maintenance | Dakeek",
             keywords: [
-                "Gas Stove Repair Dubai", "Cooker Repair Dubai", "Oven Repair Service", "Cooking Range Repair",
-                "Gas Hob Fix", "Burner Cleaning Service", "Stove Maintenance Dubai", "Induction Cooker Repair",
-                "Kitchen Appliance Repair Dubai", "Gas Leak Stove Fix", "Ariston Stove Repair", "Elba Cooker Repair",
+                "Stove Repair Dubai", "Cooker Repair Dubai", "Oven Repair Service", "Cooking Range Repair",
+                "Hob Fix", "Burner Cleaning Service", "Stove Maintenance Dubai", "Induction Cooker Repair",
+                "Kitchen Appliance Repair Dubai", "Cooker Hood Fix", "Ariston Stove Repair", "Elba Cooker Repair",
                 ...DUBAI_AREAS.map(area => `Stove Repair ${area}`),
                 ...DUBAI_AREAS.map(area => `Oven Repair ${area}`)
             ],
             schemaType: "GeneralContractor",
             qna: [
                 {
-                    question: "Why is my gas stove flame yellow instead of blue?",
-                    answer: "A yellow flame indicates incomplete combustion, which can produce carbon monoxide. We clean and calibrate the burners to restore a safe blue flame."
+                    question: "Why is my stove flame yellow instead of blue?",
+                    answer: "A yellow flame indicates incomplete combustion or dirty burners. We clean and calibrate the burners to restore a safe blue flame."
                 },
                 {
                     question: "Do you repair all brands of cookers?",
@@ -569,7 +481,7 @@ export const serviceData: Record<string, ServicePageData> = {
             ]
         },
         intro: {
-            heading: "A bad stove ruins dinner. A broken gas stove risks your home. We fix both.",
+            heading: "A bad stove ruins dinner. A broken cooker risks your home. We fix both.",
             stats: [
                 { value: "Blue", label: "Flame", sub: "Target" },
                 { value: "Glass", label: "Top", sub: "Care" },
@@ -585,7 +497,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Yellow flame? Soot? We clean nozzles and adjust air mixers for a perfect, hot blue flame.",
                 icon: Flame,
                 details: ["Nozzle Cleaning", "Air Mix Adjust", "Igniter Fix", "Grate Cleaning"],
-                image: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&q=80" // Modern Gas Hob
+                image: "/images/services/stoves.png"
             },
             {
                 id: "oven",
@@ -599,10 +511,10 @@ export const serviceData: Record<string, ServicePageData> = {
             {
                 id: "safety",
                 title: "Safety Check",
-                subtitle: "Thermocouples",
-                description: "Ensuring the gas cuts off if the flame blows out. A vital safety feature we test on every visit.",
+                subtitle: "Connections",
+                description: "Ensuring all connections are tight and leak-free. A vital safety feature we test on every visit.",
                 icon: ShieldCheck,
-                details: ["Thermocouple Test", "Shutoff Valve", "Glass Integrity", "Knob Repair"],
+                details: ["Connection Test", "Shutoff Valve", "Glass Integrity", "Knob Repair"],
                 image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80" // Safety Valve / Technical
             }
         ],
@@ -614,7 +526,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 { label: "WARRANTY", value: "30 DAYS" }
             ],
             tools: "Digital thermometers for oven calibration.",
-            list: ["Flame adjust", "Igniter gap", "Gas flow", "Temp accuracy", "Leak check"]
+            list: ["Flame adjust", "Igniter gap", "Fuel flow", "Temp accuracy", "Leak check"]
         }
     },
 
@@ -675,7 +587,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "TVs, mirrors, curtains, and art. We use laser levels and proper anchors so nothing ever falls.",
                 icon: Wrench, // Reusing generic tool icon
                 details: ["TV Mounting", "Curtain Rods", "Shelving", "Art Installation"],
-                image: "https://images.unsplash.com/photo-1521207418485-99c705420785?auto=format&fit=crop&q=80" // Drill/Wall
+                image: "/images/services/handyman.png" // Drill/Wall
             },
             {
                 id: "assembly",
@@ -763,7 +675,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Burst pipe? Heater leak? We extract water and stop the flow immediately to protect your furniture.",
                 icon: Droplet,
                 details: ["Valve Shutoff", "Water Vac", "Pipe Repair", "Damage Control"],
-                image: "https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&q=80" // Flooded floor/water
+                image: "/images/services/emergency.png" // Flooded floor/water
             },
             {
                 id: "power",

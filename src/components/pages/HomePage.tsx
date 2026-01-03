@@ -1,7 +1,7 @@
 "use client";
 // HMR Trigger
 
-import { IconAC, IconElectrical, IconPlumbing, IconStoves, IconGas, IconEmergency, IconCleaning, IconHandyman } from "@/components/services/ServiceIcons";
+import { IconAC, IconElectrical, IconPlumbing, IconStoves, IconEmergency, IconCleaning, IconHandyman } from "@/components/services/ServiceIcons";
 import { ShieldCheck, HeartHandshake, Sparkles, Award } from "lucide-react";
 import Balancer from "react-wrap-balancer";
 
@@ -122,54 +122,55 @@ export default function HomePage() {
                     <Link href="/services" className="text-xs font-mono text-[#86868b] hover:text-[#111] transition-colors uppercase tracking-widest">Full Specifications</Link>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-[#E5E5E5]">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[
                         {
                             title: "AC",
                             href: "/services/ac",
                             icon: IconAC,
+                            image: "/images/services/ac.jpg",
                             features: ["Precision Cooling", "Install & Repair", "Split / Central"]
                         },
                         {
                             title: "Plumbing",
                             href: "/services/plumbing",
                             icon: IconPlumbing,
+                            image: "/images/services/plumbing.png",
                             features: ["Water Systems", "Leak Detection", "Pumps & Heaters"]
                         },
                         {
                             title: "Electrical",
                             href: "/services/electrical",
                             icon: IconElectrical,
+                            image: "/images/services/electrical.png",
                             features: ["Power Distribution", "Load Balancing", "Safety Systems"]
                         },
                         {
                             title: "Cleaning",
                             href: "/services/cleaning",
                             icon: IconCleaning,
+                            image: "/images/services/cleaning.png",
                             features: ["Deep Cleaning", "Water Tanks", "Duct Sanitization"]
-                        },
-                        {
-                            title: "Gas",
-                            href: "/services/gas",
-                            icon: IconGas,
-                            features: ["Central Systems", "Safety Valves", "Leak Detection"]
                         },
                         {
                             title: "Stoves",
                             href: "/services/stoves",
                             icon: IconStoves,
-                            features: ["Gas Appliances", "Calibration", "Burner Service"]
+                            image: "/images/services/stoves.png",
+                            features: ["Cooker Repair", "Calibration", "Burner Service"]
                         },
                         {
                             title: "Handyman",
                             href: "/services/handyman",
                             icon: IconHandyman,
+                            image: "/images/services/handyman.png",
                             features: ["Mounting", "Assembly", "General Repairs"]
                         },
                         {
                             title: "Emergency",
                             href: "/services/emergency",
                             icon: IconEmergency,
+                            image: "/images/services/emergency.png",
                             features: ["Critical Failure", "24/7 Response", "Immediate Dispatch"],
                             variant: "emergency"
                         }
@@ -179,6 +180,7 @@ export default function HomePage() {
                             title={service.title}
                             href={service.href}
                             icon={service.icon}
+                            image={service.image}
                             features={service.features}
                             // @ts-expect-error variant string literal check
                             variant={service.variant}

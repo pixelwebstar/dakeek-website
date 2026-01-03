@@ -53,14 +53,7 @@ export const IconCleaning = ({ className }: { className?: string }) => (
     </svg>
 );
 
-// 05. Gas: Piping Schematic
-export const IconGas = ({ className }: { className?: string }) => (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <rect x="2" y="10" width="20" height="4" rx="2" />
-        <path d="M6 10V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4" />
-        <circle cx="12" cy="12" r="1" />
-    </svg>
-);
+
 
 // 06. Stoves: Burner Flame
 export const IconStoves = ({ className }: { className?: string }) => (

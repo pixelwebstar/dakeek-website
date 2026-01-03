@@ -29,29 +29,17 @@ interface ChatFormState {
     historyStack?: string[];
 }
 
-// --- Liquid Metal Icon Component ---
+// --- Minimal Premium Icon Component ---
 const LiquidIcon = ({ isOpen }: { isOpen: boolean }) => {
     return (
-        <div className="relative w-full h-full flex items-center justify-center">
-            {/* Ambient Glow */}
-            <div className={`absolute inset-0 rounded-full bg-[#A18262] blur-xl transition-opacity duration-1000 ${isOpen ? 'opacity-0' : 'opacity-40 animate-pulse'}`}></div>
+        <div className={`relative w-full h-full rounded-full flex items-center justify-center transition-all duration-300 shadow-xl border border-white/10 ${isOpen ? 'bg-[#111] rotate-90' : 'bg-[#0c0c0c] hover:bg-[#111]'}`}>
+            {/* Subtle Gradient Overlay */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
 
-            {/* Core Orb */}
-            <div className={`relative w-full h-full rounded-full flex items-center justify-center overflow-hidden transition-all duration-500 shadow-2xl ${isOpen ? 'bg-[#111] rotate-90 scale-90' : 'bg-gradient-to-br from-[#111] via-[#333] to-[#000] scale-100'}`}>
-                {!isOpen && (
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent skew-x-12 translate-x-[-150%] animate-[shimmer_3s_infinite]"></div>
-                )}
-                {isOpen ? (
-                    <X className="w-6 h-6 text-[#A18262]" />
-                ) : (
-                    <Bot className="w-7 h-7 text-[#E5E5E5]" />
-                )}
-            </div>
-            {/* Orbiting Ring */}
-            {!isOpen && (
-                <svg className="absolute inset-[-4px] w-[calc(100%+8px)] h-[calc(100%+8px)] animate-[spin_10s_linear_infinite] opacity-30 pointer-events-none">
-                    <circle cx="50%" cy="50%" r="48%" fill="none" stroke="#A18262" strokeWidth="1" strokeDasharray="10 20" />
-                </svg>
+            {isOpen ? (
+                <X className="w-6 h-6 text-white" />
+            ) : (
+                <MessageCircle className="w-6 h-6 text-white" strokeWidth={1.5} />
             )}
         </div>
     );
