@@ -117,7 +117,7 @@ export default function UnifiedContactHub() {
                 content: "Hello! I'm Dakeek's Intelligent Service Assistant. 🛠️\n\nSelect one or more services you need:",
                 type: 'options',
                 isMultiSelect: true,
-                options: [...SERVICE_TYPES, "Other"],
+                options: [...SERVICE_TYPES],
                 timestamp: new Date()
             };
             setMessages([welcomeMsg]);
