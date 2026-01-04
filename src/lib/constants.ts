@@ -15,6 +15,7 @@ export const SERVICE_TYPES = [
     "Cleaning",
     "Stove Repair",
     "Handyman",
+    "Other",
     "Emergency"
 ] as const;
 

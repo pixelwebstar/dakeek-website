@@ -1,7 +1,7 @@
 "use client";
 // HMR Trigger
 
-import { IconAC, IconElectrical, IconPlumbing, IconStoves, IconEmergency, IconCleaning, IconHandyman } from "@/components/services/ServiceIcons";
+import { IconAC, IconElectrical, IconPlumbing, IconStoves, IconEmergency, IconCleaning, IconHandyman, IconOther } from "@/components/services/ServiceIcons";
 import { ShieldCheck, HeartHandshake, Sparkles, Award } from "lucide-react";
 import Balancer from "react-wrap-balancer";
 
@@ -165,6 +165,14 @@ export default function HomePage() {
                             icon: IconHandyman,
                             image: "/images/services/handyman.png",
                             features: ["Mounting", "Assembly", "General Repairs"]
+                        },
+                        {
+                            title: "Other",
+                            href: "/contact",
+                            icon: IconOther,
+                            image: "/images/services/other.png",
+                            features: ["Custom Request", "Consultation", "Special Projects"],
+                            variant: "other"
                         },
                         {
                             title: "Emergency",
