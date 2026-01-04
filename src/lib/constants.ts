@@ -13,7 +13,6 @@ export const SERVICE_TYPES = [
     "Plumbing",
     "Electrical",
     "Cleaning",
-    "Gas Systems",
     "Stove Repair",
     "Handyman",
     "Emergency"

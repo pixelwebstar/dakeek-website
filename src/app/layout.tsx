@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     default: "Dakeek - Premium Home Maintenance Dubai",
   },
   description: "Professional home maintenance services in Dubai. AC, Plumbing, Electrical, and more. 60-minute emergency response for licensed and certified repairs.",
-  keywords: ["AC Maintenance Dubai", "Emergency Plumber Dubai", "Electrical Services", "Luxury Home Maintenance", "Duct Cleaning", "Water Tank Cleaning", "Gas Line Safety", "Dubai Maintenance Company"],
+  keywords: ["AC Maintenance Dubai", "Emergency Plumber Dubai", "Electrical Services", "Luxury Home Maintenance", "Duct Cleaning", "Water Tank Cleaning", "Dubai Maintenance Company"],
   authors: [{ name: "Dakeek Technical Services LLC", url: "https://dakeek.ae" }],
   creator: "Dakeek Technical Services LLC",
   publisher: "Dakeek Technical Services LLC",
@@ -173,7 +173,6 @@ export default function RootLayout({
                   { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Plumbing Services" } },
                   { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electrical Services" } },
                   { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Deep Cleaning" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gas System Maintenance" } },
                   { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stove & Cooker Repair" } },
                   { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Handyman Services" } },
                   { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency Repairs" } }
