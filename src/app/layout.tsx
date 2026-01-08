@@ -6,6 +6,8 @@ import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import dynamic from 'next/dynamic';
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import ContactHubLoader from "../components/shared/ContactHubLoader";
 import { TransitionProvider } from "../lib/context/TransitionContext";
@@ -123,6 +125,8 @@ export default function RootLayout({
           <ContactHubLoader />
         </TransitionProvider>
         <Toaster richColors position="top-center" closeButton theme="light" />
+                <Analytics />
+                <SpeedInsights />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
