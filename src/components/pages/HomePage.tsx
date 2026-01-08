@@ -30,7 +30,7 @@ export default function HomePage() {
                     <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
                         Precision Home Services
                     </p>
-                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade" style={{ animationDelay: '0.1s' }}>
+                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade" style={{ animationDelay: '0s' }}>
                         <Balancer>Dakeek.</Balancer>
                     </h1>
                     <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12 uppercase tracking-widest animate-hero-fade" style={{ animationDelay: '0.3s' }}>
@@ -58,7 +58,7 @@ export default function HomePage() {
 
             {/* 2. SOCIAL PROOF: General Trust */}
             <section className="w-full border-b border-structure bg-white py-6 overflow-hidden flex items-center">
-                <div className="flex gap-12 md:gap-24 whitespace-nowrap font-mono text-xs uppercase tracking-widest text-bronze opacity-90 animate-ticker">
+                <div className="flex gap-12 md:gap-24 whitespace-nowrap font-mono text-xs uppercase tracking-widest text-[#6B5344] animate-ticker">
                     {[...Array(4)].map((_, i) => (
                         <div key={i} className="flex gap-12 md:gap-24">
                             <span className="flex items-center gap-3"><ShieldCheck className="w-4 h-4" strokeWidth={1.5} /> PRIVACY GUARANTEED</span>
@@ -74,7 +74,7 @@ export default function HomePage() {
             <section className="px-[5vw] lg:px-[8vw] py-16 lg:py-32 border-b border-structure bg-[#F5F5F4]">
                 <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
                     {/* Left: Label (Vertical on desktop?) or just standard */}
-                    <span className="shrink-0 font-mono text-xs text-bronze uppercase tracking-[0.2em] pt-2">The Philosophy</span>
+                    <span className="shrink-0 font-mono text-xs text-[#6B5344] uppercase tracking-[0.2em] pt-2">The Philosophy</span>
 
                     {/* Right: The Text (Tight & Bold) */}
                     <h2 className="text-2xl md:text-4xl font-serif leading-[1.2] text-[#111] font-light max-w-4xl">
@@ -90,7 +90,7 @@ export default function HomePage() {
                         <span className="block font-mono text-xs text-[#A18262] uppercase tracking-[0.2em] mb-4">The Scope</span>
                         <h2 className="text-4xl font-serif italic text-[#111]">Our Services</h2>
                     </div>
-                    <Link href="/services" className="text-xs font-mono text-[#86868b] hover:text-[#111] transition-colors uppercase tracking-widest">Full Specifications</Link>
+                    <Link href="/services" className="text-xs font-mono text-[#555] hover:text-[#111] transition-colors uppercase tracking-widest">Full Specifications</Link>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -211,7 +211,7 @@ export default function HomePage() {
                         <h2 className="text-5xl md:text-7xl font-serif italic font-light mb-12">
                             Simply <br /> Better.
                         </h2>
-                        <p className="text-[#888] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+                        <p className="text-[#555] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
                             We understand that inviting someone into your home is a matter of trust.
                             That is why we focus on being respectful, clean, and invisible. We fix the problem, and then we disappear.
                         </p>
@@ -222,8 +222,8 @@ export default function HomePage() {
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
                             <HeartHandshake className="w-8 h-8 text-[#A18262]" />
                             <div>
-                                <h4 className="font-serif italic text-2xl mb-2">Respect</h4>
-                                <p className="text-xs font-mono text-[#666] uppercase tracking-widest leading-relaxed">
+                                <h3 className="font-serif italic text-2xl mb-2">Respect</h3>
+                                <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">
                                     We treat your home <br /> like it is our own.
                                 </p>
                             </div>
@@ -232,8 +232,8 @@ export default function HomePage() {
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
                             <ShieldCheck className="w-8 h-8 text-[#A18262]" />
                             <div>
-                                <h4 className="font-serif italic text-2xl mb-2">Privacy</h4>
-                                <p className="text-xs font-mono text-[#666] uppercase tracking-widest leading-relaxed">
+                                <h3 className="font-serif italic text-2xl mb-2">Privacy</h3>
+                                <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">
                                     Discreet service <br /> that respects your space.
                                 </p>
                             </div>
@@ -242,8 +242,8 @@ export default function HomePage() {
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
                             <Sparkles className="w-8 h-8 text-[#A18262]" />
                             <div>
-                                <h4 className="font-serif italic text-2xl mb-2">Cleanliness</h4>
-                                <p className="text-xs font-mono text-[#666] uppercase tracking-widest leading-relaxed">
+                                <h3 className="font-serif italic text-2xl mb-2">Cleanliness</h3>
+                                <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">
                                     We leave your home <br /> cleaner than we found it.
                                 </p>
                             </div>
@@ -252,8 +252,8 @@ export default function HomePage() {
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
                             <Award className="w-8 h-8 text-[#A18262]" />
                             <div>
-                                <h4 className="font-serif italic text-2xl mb-2">Quality</h4>
-                                <p className="text-xs font-mono text-[#666] uppercase tracking-widest leading-relaxed">
+                                <h3 className="font-serif italic text-2xl mb-2">Quality</h3>
+                                <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">
                                     Done right the first time. <br /> No shortcuts.
                                 </p>
                             </div>

@@ -56,8 +56,8 @@ export default function Footer() {
             border: "border-structure",
             iconBg: "hover:bg-bronze hover:border-bronze",
             secondaryText: "text-[#555]",
-            mutedText: "text-[#888]",
-            copyright: "text-[#999]",
+            mutedText: "text-[#666]",
+            copyright: "text-[#666]",
             isDark: false
         };
     }, [pathname]);

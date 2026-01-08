@@ -9,8 +9,8 @@
   --color-canvas: #FAFAF9;
   --color-void: #050505;
   --color-ink: #111111;
-  /* Darkened Titanium for readability */
-  --color-titanium: #66666e;
+  /* Darkened Titanium for WCAG AA+ contrast (7:1 on white) */
+  --color-titanium: #555558;
   --color-bronze: #A18262;
   /* Darkened Stone for readability - WCAG AA Compliant */
   --color-stone: #78716c;
@@ -157,13 +157,14 @@ html {
   }
 }
 
+/* Progress bar - GPU composited using scaleX */
 @keyframes progress-bar {
   from {
-    width: 0%;
+    transform: scaleX(0);
   }
 
   to {
-    width: 100%;
+    transform: scaleX(1);
   }
 }
 
@@ -176,6 +177,7 @@ html {
 }
 
 .animate-progress-bar {
+  transform-origin: left;
   animation: progress-bar 0.5s ease-out forwards;
 }
 
@@ -190,13 +192,14 @@ html {
   }
 }
 
+/* Preloader progress - GPU composited using scaleX */
 @keyframes preloader-progress {
   from {
-    width: 0%;
+    transform: scaleX(0);
   }
 
   to {
-    width: 100%;
+    transform: scaleX(1);
   }
 }
 
@@ -205,6 +208,7 @@ html {
 }
 
 .animate-preloader-progress {
+  transform-origin: left;
   animation: preloader-progress 0.2s ease-out forwards;
 }
 

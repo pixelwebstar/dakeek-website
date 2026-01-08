@@ -105,7 +105,7 @@ export default function Header() {
                                         href={link.href}
                                         className={cn(
                                             "relative z-10 transition-colors duration-300 hover:text-[#A18262]",
-                                            isActive ? "text-[#111] font-bold" : "text-[#666] hover:text-[#A18262]"
+                                            isActive ? "text-[#111] font-bold" : "text-[#555] hover:text-[#A18262]"
                                         )}
                                     >
                                         {link.label}

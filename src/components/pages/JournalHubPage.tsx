@@ -118,7 +118,7 @@ export default function JournalHubPage() {
 
                                     {/* Content Left */}
                                     <div className="md:col-span-2 order-2 md:order-1">
-                                        <div className="flex items-center gap-3 text-[10px] font-mono uppercase tracking-widest text-[#999] mb-3">
+                                        <div className="flex items-center gap-3 text-[10px] font-mono uppercase tracking-widest text-[#666] mb-3">
                                             <span style={{ color: BLOG_CATEGORIES[post.category].color }}>
                                                 {BLOG_CATEGORIES[post.category].label}
                                             </span>
@@ -130,11 +130,11 @@ export default function JournalHubPage() {
                                             {post.title}
                                         </h3>
 
-                                        <p className="text-[#666] text-sm md:text-base leading-relaxed mb-6 max-w-xl">
+                                        <p className="text-[#555] text-sm md:text-base leading-relaxed mb-6 max-w-xl">
                                             {post.excerpt}
                                         </p>
 
-                                        <div className="text-xs font-medium text-[#ccc] group-hover:text-[#111] transition-colors flex items-center gap-2">
+                                        <div className="text-xs font-medium text-[#777] group-hover:text-[#111] transition-colors flex items-center gap-2">
                                             Read Article <span className="block w-4 h-px bg-current transition-all group-hover:w-8" />
                                         </div>
                                     </div>
@@ -159,14 +159,14 @@ export default function JournalHubPage() {
                 {/* 5. Subscribe (Minimal) */}
                 <div className="mt-32 border-t border-black/10 pt-20 text-center">
                     <BookOpen className="w-8 h-8 mx-auto text-bronze mb-6 opacity-80" />
-                    <h4 className="font-serif italic text-3xl md:text-4xl mb-4 text-[#1c1917]">Stay Informed.</h4>
-                    <p className="text-[#666] mb-8 max-w-md mx-auto">Get the expert advice you need to maintain a perfect home.</p>
+                    <h2 className="font-serif italic text-3xl md:text-4xl mb-4 text-[#1c1917]">Stay Informed.</h2>
+                    <p className="text-[#555] mb-8 max-w-md mx-auto">Get the expert advice you need to maintain a perfect home.</p>
 
                     <div className="flex justify-center flex-col md:flex-row gap-2 max-w-md mx-auto">
                         <input
                             type="email"
                             placeholder="Email address"
-                            className="bg-transparent border-b border-[#999] px-4 py-3 text-sm flex-grow focus:border-bronze transition-colors outline-none text-center md:text-left placeholder:text-[#ccc]"
+                            className="bg-transparent border-b border-[#999] px-4 py-3 text-sm flex-grow focus:border-bronze transition-colors outline-none text-center md:text-left placeholder:text-[#888]"
                         />
                         <button className="text-xs font-mono uppercase tracking-widest text-[#111] hover:text-bronze transition-colors py-3 px-4">
                             Subscribe
