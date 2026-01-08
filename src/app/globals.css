@@ -87,22 +87,36 @@ body {
   --tw-ring-color: transparent !important;
 }
 
-/* Custom Scrollbar for 'Heavy' Feel */
+::selection {
+  background-color: #111;
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Premium Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
+  /* Vertical scrollbar width */
+  height: 6px;
+  /* Horizontal scrollbar height */
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F5F7;
+  background: transparent;
+  /* Invisible track */
 }
 
 ::-webkit-scrollbar-thumb {
   background: #D1D1D1;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #86868b;
+  background: #A18262;
+  /* Bronze on hover */
 }
 
 /* Utility for asymmetric grid debugging (Phase 1 only) */

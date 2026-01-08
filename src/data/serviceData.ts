@@ -66,6 +66,9 @@ export interface ServicePageData {
         tools: string;
         list: string[];
     };
+    // Phase 3 Additions
+    uniqueBenefits?: string[]; // Why Dakeek for this service?
+    relatedServices?: string[]; // Slugs of related services for internal linking
 }
 
 
@@ -121,7 +124,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 { value: "Free", label: "Inspection", sub: "Diagnosis" },
                 { value: "179 AED", label: "Starts at", sub: "Service" },
                 { value: "30", label: "Days", sub: "Warranty" },
-                { value: "100%", label: "Transparent", sub: "Pricing" }
+                { value: "Clear", label: "Transparent", sub: "Pricing" }
             ]
         },
         details: [
@@ -169,7 +172,14 @@ export const serviceData: Record<string, ServicePageData> = {
             ],
             tools: "We use digital tools to measure gas pressure, airflow, and temperature.",
             list: ["Filter cleaning", "Gas check", "Motor inspection", "Coil washing", "Leak test"]
-        }
+        },
+        uniqueBenefits: [
+            "Specialized AC training per technician",
+            "We carry parts for all major brands in our vans",
+            "Same-day service for emergencies in extreme heat",
+            "Free inspection with every repair"
+        ],
+        relatedServices: ["cleaning", "electrical", "emergency"]
     },
     plumbing: {
         id: "02",
@@ -257,7 +267,14 @@ export const serviceData: Record<string, ServicePageData> = {
             ],
             tools: "We use acoustic leak detectors and thermal cameras to see inside walls.",
             list: ["Pressure testing", "Drain snaking", "Heater flush", "Valve seating", "Pipe insulation"]
-        }
+        },
+        uniqueBenefits: [
+            "Non-invasive leak detection with thermal cameras",
+            "24/7 emergency response for floods and burst pipes",
+            "Licensed plumbers with Dubai Municipality certification",
+            "Upfront pricing with no hidden fees"
+        ],
+        relatedServices: ["cleaning", "ac", "emergency"]
     },
     electrical: {
         id: "03",
@@ -303,7 +320,7 @@ export const serviceData: Record<string, ServicePageData> = {
             stats: [
                 { value: "Free", label: "Safety", sub: "Check" },
                 { value: "179 AED", label: "Starts at", sub: "Service" },
-                { value: "100%", label: "Safe", sub: "Certified" },
+                { value: "Verified", label: "Safe", sub: "Certified" },
                 { value: "0", label: "Hazards", sub: "Goal" }
             ]
         },
@@ -345,7 +362,14 @@ export const serviceData: Record<string, ServicePageData> = {
             ],
             tools: "Fluke Multimeters and thermal scanners to detect hotspots before they burn.",
             list: ["Load check", "Breaker test", "Grounding", "Insulation test", "Socket polarity"]
-        }
+        },
+        uniqueBenefits: [
+            "All technicians are certified and insured",
+            "Thermal scanning to detect hidden hotspots",
+            "Smart home integration specialists",
+            "DEWA bill reduction audits"
+        ],
+        relatedServices: ["ac", "handyman", "emergency"]
     },
     // 04. Cleaning (Consolidated)
     cleaning: {
@@ -393,7 +417,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 { value: "Full", label: "Sanitization", sub: "Deep" },
                 { value: "Safe", label: "Water", sub: "Tanks" },
                 { value: "Pure", label: "Air", sub: "Ducts" },
-                { value: "100%", label: "Hygiene", sub: "Goal" }
+                { value: "Verified", label: "Hygiene", sub: "Goal" }
             ]
         },
         details: [
@@ -434,7 +458,14 @@ export const serviceData: Record<string, ServicePageData> = {
             ],
             tools: "Industrial steamers, wet vacuums, and rotary brushes.",
             list: ["Steam sanitize", "Vacuum extraction", "Scrubbing", "Fogging", "Polishing"]
-        }
+        },
+        uniqueBenefits: [
+            "Dubai Municipality approved cleaning products",
+            "Trained staff for villas and high-rises",
+            "Water tank cleaning with lab testing option",
+            "Eco-friendly and safe for children and pets"
+        ],
+        relatedServices: ["ac", "plumbing"]
     },
 
 
@@ -525,7 +556,14 @@ export const serviceData: Record<string, ServicePageData> = {
             ],
             tools: "Digital thermometers for oven calibration.",
             list: ["Flame adjust", "Igniter gap", "Fuel flow", "Temp accuracy", "Leak check"]
-        }
+        },
+        uniqueBenefits: [
+            "Specialists in Ariston, Bosch, Siemens, and Teka",
+            "Safe handling of gas connections",
+            "Oven temperature calibration",
+            "Burner cleaning for perfect blue flame"
+        ],
+        relatedServices: ["electrical", "handyman"]
     },
 
     // 07. Handyman (Moved Up)
@@ -573,8 +611,8 @@ export const serviceData: Record<string, ServicePageData> = {
             stats: [
                 { value: "Any", label: "Task", sub: "Solution" },
                 { value: "Fast", label: "Assembly", sub: "Service" },
-                { value: "laser", label: "Level", sub: "Mounting" },
-                { value: "100%", label: "Clean", sub: "Finish" }
+                { value: "Precise", label: "Level", sub: "Mounting" },
+                { value: "Spotless", label: "Clean", sub: "Finish" }
             ]
         },
         details: [
@@ -615,7 +653,14 @@ export const serviceData: Record<string, ServicePageData> = {
             ],
             tools: "Laser levels, stud finders, and impact drivers.",
             list: ["Leveling", "Stud finding", "Drilling", "Anchoring", "Touch-ups"]
-        }
+        },
+        uniqueBenefits: [
+            "IKEA and flat-pack furniture experts",
+            "Proper anchors for gypsum and concrete walls",
+            "Laser-leveled precision for every mount",
+            "Clean finish with no mess left behind"
+        ],
+        relatedServices: ["electrical", "other"]
     },
 
     // 08. Emergency (Moved Down)
@@ -703,6 +748,97 @@ export const serviceData: Record<string, ServicePageData> = {
             ],
             tools: "Rapid Response Kits designed for triage and containment.",
             list: ["Stop leak", "Isolate power", "Cool down", "Clean up", "Report"]
-        }
+        },
+        uniqueBenefits: [
+            "Under 60-minute arrival time in Dubai",
+            "Fully stocked vans with emergency parts",
+            "Night and weekend availability at no extra charge",
+            "Immediate damage control to protect your property"
+        ],
+        relatedServices: ["ac", "plumbing", "electrical"]
+    },
+
+    // 09. Other (Custom)
+    other: {
+        id: "09",
+        slug: "other",
+        theme: {
+            primaryText: "text-slate-900",
+            primaryBg: "bg-slate-950",
+            secondaryBg: "bg-slate-50",
+            accentText: "text-slate-500",
+            iconBg: "bg-slate-500/10",
+            hero1: "#64748b",
+            hero2: "#f1f5f9"
+        },
+        hero: {
+            tag: "Custom",
+            title: "Other Services",
+            description: "Unique requests? We handle special projects too."
+        },
+        seo: {
+            title: "Custom Home Maintenance Services Dubai | Special Projects | Dakeek",
+            keywords: [
+                "Custom Home Repairs Dubai", "Special Manitenance Projects", "Villa Renovation Minor", "Home Improvement Dubai",
+                "Odd Jobs Service", "Custom Carpentry", "General Fixes Dubai"
+            ],
+            schemaType: "GeneralContractor",
+            qna: []
+        },
+        intro: {
+            heading: "Not every problem fits a category. If it's broken, tricky, or unusual, let us take a look.",
+            stats: [
+                { value: "Custom", label: "Scope", sub: "Defined" },
+                { value: "Flex", label: "Team", sub: "Adapted" },
+                { value: "Quote", label: "Free", sub: "Upfront" },
+                { value: "100%", label: "Solution", sub: "Found" }
+            ]
+        },
+        details: [
+            {
+                id: "consult",
+                title: "Consultation",
+                subtitle: "Diagnosis",
+                description: "Don't know what's wrong? We perform a full home health check to identify underlying issues.",
+                icon: Search,
+                details: ["Full Inspection", "Report", "Advice", "Plan"],
+                image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80" // Blueprint/Plan
+            },
+            {
+                id: "special",
+                title: "Special Projects",
+                subtitle: "Unique",
+                description: "From installing pet doors to hanging chandeliers or custom requests.",
+                icon: Sparkles,
+                details: ["Conversions", "Upgrades", "Installations", "Fixes"],
+                image: "https://images.unsplash.com/photo-1581092921461-eab62e9e8c18?auto=format&fit=crop&q=80" // Workshop
+            },
+            {
+                id: "renovation",
+                title: "Minor Touch-ups",
+                subtitle: "Refresh",
+                description: "Grouting, sealing, painting touch-ups, and restoring the look of your home.",
+                icon: Wrench,
+                details: ["Grouting", "Sealing", "Patching", "Restoring"],
+                image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&q=80" // Paint/Wall
+            }
+        ],
+        techSpecs: {
+            grid: [
+                { label: "SCOPE", value: "CUSTOM" },
+                { label: "TEAM", value: "EXPERT" },
+                { label: "PLAN", value: "CLEAR" },
+                { label: "RESULT", value: "PERFECT" }
+            ],
+            tools: "Everything in our vans and more.",
+            list: ["Diagnosis", "Planning", "Execution", "Review", "Cleanup"]
+        },
+        uniqueBenefits: [
+            "Flexible scope for unusual requests",
+            "Free consultation and upfront quote",
+            "Multi-skill technicians for hybrid jobs",
+            "We find solutions for any problem"
+        ],
+        relatedServices: ["handyman", "cleaning"]
     }
 };

@@ -6,12 +6,14 @@ import { cn } from "../../lib/utils";
 import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import { serviceData } from "../../data/serviceData";
+import { useTransitionContext } from "../../lib/context/TransitionContext";
 
 const links = [
     { href: "/", label: "HOME" },
     { href: "/about", label: "ABOUT" },
     { href: "/services", label: "SERVICES" },
     { href: "/queries", label: "QUERIES" },
+    { href: "/journal", label: "JOURNAL" },
     { href: "/contact", label: "CONTACT" },
 ];
 
@@ -20,6 +22,7 @@ export default function Header() {
     const [mounted, setMounted] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { isLoaded } = useTransitionContext();
 
 
 
@@ -74,28 +77,40 @@ export default function Header() {
         <>
             <header
                 className={cn(
-                    "fixed top-0 left-0 w-full z-50 px-6 md:px-[8vw] flex justify-between items-center transition-all duration-500 will-change-transform",
+                    "fixed top-0 left-0 w-full z-[100] px-6 md:px-[8vw] flex justify-between items-center transition-all duration-500 will-change-transform",
                     scrolled
                         ? "bg-white/80 backdrop-blur-lg py-4 border-b border-black/5"
                         : "bg-transparent py-6"
                 )}
             >
                 {/* Logo */}
-                <Link
-                    href="/"
-                    className="relative z-50 text-3xl font-serif font-bold tracking-tighter text-[#111]"
-                    onClick={() => setIsMenuOpen(false)}
+                <motion.div
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={isLoaded ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                    Dakeek.
-                </Link>
+                    <Link
+                        href="/"
+                        className="relative z-50 text-3xl font-serif font-bold tracking-tighter text-[#111]"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        Dakeek.
+                    </Link>
+                </motion.div>
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
                     <ul className="flex gap-8 text-sm font-medium tracking-wide">
-                        {links.map((link) => {
+                        {links.map((link, i) => {
                             const isActive = mounted && pathname === link.href;
                             return (
-                                <li key={link.href} className="relative group">
+                                <motion.li
+                                    key={link.href}
+                                    className="relative group"
+                                    initial={{ y: -20, opacity: 0 }}
+                                    animate={isLoaded ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.1 + (i * 0.1), ease: "easeOut" }}
+                                >
                                     <Link
                                         href={link.href}
                                         className={cn(
@@ -111,10 +126,18 @@ export default function Header() {
                                             isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                                         )}
                                     />
-                                </li>
+                                </motion.li>
                             );
                         })}
                     </ul>
+
+                    {/* Get App Button (After Contact) */}
+                    <Link
+                        href="#"
+                        className="px-6 py-2 bg-[#111] text-white rounded-full font-mono text-xs uppercase tracking-widest hover:bg-[#A18262] transition-colors border border-transparent hover:border-[#A18262]/20 shadow-lg shadow-black/5"
+                    >
+                        Get App
+                    </Link>
 
 
                 </nav>
@@ -122,7 +145,7 @@ export default function Header() {
 
                 {/* Mobile Menu Toggle (Custom Animated Icon) */}
                 <button
-                    className="md:hidden relative z-50 w-10 h-10 flex flex-col justify-center items-center gap-[6px] group"
+                    className="md:hidden relative z-[200] w-10 h-10 flex flex-col justify-center items-center gap-[6px] group"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     aria-label="Toggle Menu"
                 >
@@ -155,9 +178,9 @@ export default function Header() {
                         animate={{ opacity: 1, y: "0%" }}
                         exit={{ opacity: 0, y: "-100%" }}
                         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                        className="fixed inset-0 z-40 bg-[#FAFAF9] flex flex-col pt-32 px-6 md:hidden"
+                        className="fixed inset-0 z-[90] bg-[#FAFAF9] flex flex-col pt-32 px-6 md:hidden text-center"
                     >
-                        <div className="flex flex-col gap-8">
+                        <div className="flex flex-col gap-8 items-center">
                             {links.map((link, index) => (
                                 <motion.div
                                     key={link.href}
@@ -168,13 +191,27 @@ export default function Header() {
                                     <Link
                                         href={link.href}
                                         onClick={() => setIsMenuOpen(false)}
-                                        className="text-4xl font-serif text-[#111] hover:text-[#A18262] transition-colors"
+                                        className="text-4xl font-serif text-[#111] hover:text-[#A18262] transition-colors text-center w-full block"
                                     >
                                         {link.label}
                                     </Link>
                                 </motion.div>
                             ))}
                         </div>
+
+                        {/* Mobile Get App Button */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.4 }}
+                        >
+                            <Link
+                                href="#"
+                                className="inline-flex px-8 py-3 bg-[#111] text-white rounded-full font-mono text-sm uppercase tracking-widest hover:bg-[#A18262] transition-colors"
+                            >
+                                Get App
+                            </Link>
+                        </motion.div>
 
                         {/* Mobile Footer Info */}
                         <motion.div
@@ -185,7 +222,7 @@ export default function Header() {
                         >
                             <div className="h-[1px] w-full bg-[#E5E5E5] mb-6" />
                             <a
-                                href="https://wa.me/971500000000"
+                                href="https://wa.me/971542472151?text=Hello%20Dakeek%20Residential%20Services%2C%20I%20would%20like%20to%20book%20a%20service."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={() => setIsMenuOpen(false)}

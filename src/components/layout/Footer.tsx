@@ -94,17 +94,29 @@ export default function Footer() {
                             <MapPin size={16} />
                             <span>Anzar Gallery Building, Al Karama, Dubai</span>
                         </a>
-                        <a
-                            href="https://app.invest.dubai.ae/search-license"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`flex items-center gap-2 mt-2 px-3 py-1.5 rounded-full border border-black/5 bg-black/5 hover:bg-black/10 transition-colors cursor-pointer group`}
-                        >
-                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                            <span className={`text-[10px] font-mono uppercase tracking-widest ${theme.mutedText} group-hover:text-black`}>
-                                Official License: 1382290
-                            </span>
-                        </a>
+                        <div className="flex flex-col gap-4 items-start mt-4">
+                            <p className="font-mono text-[10px] uppercase tracking-widest text-[#888]">Download the App</p>
+                            <div className="flex gap-2">
+                                <a href="#" className="block w-32 hover:opacity-80 transition-opacity">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on App Store" className="w-full h-auto" />
+                                </a>
+                                <a href="#" className="block w-32 hover:opacity-80 transition-opacity">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="w-full h-auto" />
+                                </a>
+                            </div>
+
+                            <a
+                                href="https://app.invest.dubai.ae/search-license"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`flex items-center gap-2 mt-4 px-3 py-1.5 rounded-full border border-black/5 bg-black/5 hover:bg-black/10 transition-colors cursor-pointer group`}
+                            >
+                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                                <span className={`text-[10px] font-mono uppercase tracking-widest ${theme.mutedText} group-hover:text-black`}>
+                                    Official License: 1382290
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 

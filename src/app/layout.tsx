@@ -8,6 +8,8 @@ import dynamic from 'next/dynamic';
 import { Toaster } from "sonner";
 
 import ContactHubLoader from "../components/shared/ContactHubLoader";
+import { TransitionProvider } from "../lib/context/TransitionContext";
+import Preloader from "../components/ui/Preloader";
 
 export const viewport: Viewport = {
   themeColor: "#111111",
@@ -111,12 +113,15 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${playfair.variable} antialiased bg-[#FAFAF9] text-[#111]`}
       >
-        <SmoothScroll>
-          <Header />
-          {children}
-          <Footer />
-        </SmoothScroll>
-        <ContactHubLoader />
+        <TransitionProvider>
+          <Preloader />
+          <SmoothScroll>
+            <Header />
+            {children}
+            <Footer />
+          </SmoothScroll>
+          <ContactHubLoader />
+        </TransitionProvider>
         <Toaster richColors position="top-center" closeButton theme="light" />
         <script
           type="application/ld+json"

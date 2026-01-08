@@ -2,7 +2,7 @@
 // HMR Trigger
 
 import { IconAC, IconElectrical, IconPlumbing, IconStoves, IconEmergency, IconCleaning, IconHandyman, IconOther } from "@/components/services/ServiceIcons";
-import { ShieldCheck, HeartHandshake, Sparkles, Award } from "lucide-react";
+import { ShieldCheck, HeartHandshake, Sparkles, Award, Clock, UserCheck, Home } from "lucide-react";
 import Balancer from "react-wrap-balancer";
 
 import Link from "next/link";
@@ -62,8 +62,8 @@ export default function HomePage() {
                     <h1 className="hero-line-1 text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink">
                         <Balancer>Dakeek.</Balancer>
                     </h1>
-                    <p className="hero-line-2 text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12">
-                        <Balancer>The Science of Maintenance.</Balancer>
+                    <p className="hero-line-2 text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12 uppercase tracking-widest">
+                        <Balancer>TECHNICAL SERVICES CO. L.L.C</Balancer>
                     </p>
 
                     <div className="hero-cta flex flex-col md:flex-row gap-4 justify-center items-center">
@@ -91,9 +91,9 @@ export default function HomePage() {
                     {[...Array(4)].map((_, i) => (
                         <div key={i} className="flex gap-12 md:gap-24">
                             <span className="flex items-center gap-3"><ShieldCheck className="w-4 h-4" strokeWidth={1.5} /> PRIVACY GUARANTEED</span>
-                            <span className="flex items-center gap-3"><Award className="w-4 h-4" strokeWidth={1.5} /> TRUSTED BY FAMILIES</span>
-                            <span className="flex items-center gap-3">RESIDENTIAL SPECIALISTS</span>
-                            <span className="flex items-center gap-3">ALWAYS ON TIME</span>
+                            <span className="flex items-center gap-3"><UserCheck className="w-4 h-4" strokeWidth={1.5} /> TRUSTED BY FAMILIES</span>
+                            <span className="flex items-center gap-3"><Home className="w-4 h-4" strokeWidth={1.5} /> RESIDENTIAL SPECIALISTS</span>
+                            <span className="flex items-center gap-3"><Clock className="w-4 h-4" strokeWidth={1.5} /> ALWAYS ON TIME</span>
                         </div>
                     ))}
                 </div>
@@ -107,7 +107,7 @@ export default function HomePage() {
 
                     {/* Right: The Text (Tight & Bold) */}
                     <h2 className="text-2xl md:text-4xl font-serif leading-[1.2] text-[#111] font-light max-w-4xl">
-                        <Balancer>We believe your home is a sanctuary. It is not just about fixing what is broken, but preserving your <span className="italic text-[#A18262]">peace of mind</span>.</Balancer>
+                        <Balancer>A higher standard of living requires a higher standard of care. Licensed professionals, transparent pricing, and guaranteed precision.</Balancer>
                     </h2>
                 </div>
             </section>

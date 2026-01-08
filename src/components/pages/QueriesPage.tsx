@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowRight, Plus, Minus } from "lucide-react";
+import { ArrowRight, Plus, Minus, Search, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import SectionWrapper from "@/components/about/SectionWrapper";
@@ -13,42 +13,62 @@ const HyperHero = dynamic(() => import("@/components/hero/HyperHero"), {
     loading: () => <div className="absolute inset-0 w-full h-full bg-[#F4F4F5]" />,
 });
 
-// Data Structure: Categories of Questions
+// Data Structure: Categories of Questions (Standardized to 6 per category)
 const FAQ_CATEGORIES = [
     {
         id: "essentials",
         title: "The Essentials",
         description: "Booking, timing, and areas.",
-        image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80", // Minimal Clock/Time
+        image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80",
         questions: [
             { q: "How quickly can you arrive?", a: "For emergency requests, our dispatch protocol targets a 60-minute arrival time anywhere in Dubai. For standard scheduled maintenance, we adhere to precise 1-hour windows to respect your schedule." },
-            { q: "What areas do you cover?", a: "We serve all major freehold communities including Emirates Hills, Palm Jumeirah, Arabian Ranches, Dubai Hills, and Downtown Dubai. If you reside in a premium community, we likely cover it." },
+            { q: "What areas do you cover?", a: "We serve all major freehold communities including Emirates Hills, Palm Jumeirah, Arabian Ranches, Dubai Hills, Downtown Dubai, Dubai Marina, JLT, Business Bay, and 30+ other communities." },
             { q: "Is there a call-out fee?", a: "We charge a standard inspection fee of AED 150. This covers the engineer's time and professional diagnosis. Crucially, if you proceed with the quoted repair, this fee is completely waived." },
-            { q: "Do I need to be home?", a: "We recommend being present for the initial diagnosis. However, for established clients in secure properties, we can coordinate access directly with your concierge or security team for seamless service." }
+            { q: "Do I need to be home?", a: "We recommend being present for the initial diagnosis. However, for established clients in secure properties, we can coordinate access directly with your concierge or security team for seamless service." },
+            { q: "Can I book online?", a: "Yes, you can book via our website, WhatsApp, or phone. Our online form is available 24/7, and you'll receive confirmation within 15 minutes during business hours." },
+            { q: "Do you offer same-day service?", a: "Absolutely. Same-day service is available for most requests made before 3 PM. For emergencies, we're available around the clock." }
         ]
     },
     {
         id: "standards",
         title: "Our Standards",
         description: "Quality, vetting, and warranty.",
-        image: "https://images.unsplash.com/photo-1635326444826-06c8f84991a9?auto=format&fit=crop&q=80", // Marble/Statue/Quality
+        image: "https://images.unsplash.com/photo-1635326444826-06c8f84991a9?auto=format&fit=crop&q=80",
         questions: [
             { q: "Who will be entering my home?", a: "We exclusively employ full-time, in-house technicians. By avoiding the variability of the freelance market, we ensure you receive a consistent, vetted, and highly trained professional every single time." },
             { q: "Is the work guaranteed?", a: "Yes. We offer a comprehensive 30-day workmanship warranty. If the issue persists, we return and rectify it at zero cost. We stand by our engineering standards." },
             { q: "Are spare parts included?", a: "Parts are charged separately as per market rates. We use only genuine, high-grade components which carry their own manufacturer warranty (typically 1 year)." },
-            { q: "What if the repair is complex?", a: "Our field technicians are backed by a team of Senior Engineers. If a problem is unusually complex, we escalate it internally for technical review at no additional cost to you." }
+            { q: "What if the repair is complex?", a: "Our field technicians are backed by a team of Senior Engineers. If a problem is unusually complex, we escalate it internally for technical review at no additional cost to you." },
+            { q: "How are your technicians trained?", a: "Every technician completes 500+ hours of in-house training before their first solo job. Training covers technical skills, customer service, and the Dakeek standards of precision." },
+            { q: "Do you use branded parts?", a: "Yes, we use genuine parts from brands like Carrier, Daikin, Bosch, and Grohe. We believe in fixing it once and fixing it right." }
+        ]
+    },
+    {
+        id: "services",
+        title: "Services & Pricing",
+        description: "What we do and what it costs.",
+        image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80",
+        questions: [
+            { q: "What services do you offer?", a: "We specialize in AC maintenance, plumbing, electrical, deep cleaning, stove/oven repair, and general handyman work. We also handle emergencies 24/7." },
+            { q: "How much does AC servicing cost?", a: "Basic AC servicing starts at AED 150 per unit. Deep cleaning with coil wash and gas check ranges from AED 250-350 depending on the unit type (split, window, or central)." },
+            { q: "What is the cost for plumbing repairs?", a: "Plumbing costs vary by task. A simple drain unblocking starts at AED 200, while more complex work like water heater repairs or leak detection is quoted after inspection." },
+            { q: "Do you offer annual maintenance contracts?", a: "Yes, we offer AMC packages for AC, general maintenance, and full-home coverage. Contracts include priority scheduling, discounts, and quarterly preventive visits." },
+            { q: "Is there a minimum charge?", a: "Yes, the minimum service charge is AED 150 for a technician visit and diagnosis. This is waived if you proceed with our repair quote." },
+            { q: "Do you provide move-in/move-out services?", a: "Yes, we offer comprehensive snagging, deep cleaning, and maintenance checks for new tenants or owners to ensure the property is in perfect condition before you move in." }
         ]
     },
     {
         id: "trust",
         title: "Trust & Safety",
         description: "Privacy, insurance, and respect.",
-        image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&q=80", // Handshake/Gentle
+        image: "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&q=80",
         questions: [
             { q: "Are you insured?", a: "Fully. We carry comprehensive liability insurance. Your property is protected against any accidental damage, however unlikely that may be." },
             { q: "What about privacy?", a: "Discretion is paramount. Our teams are trained to work quietly, respect your personal space, and are happy to sign confidentiality agreements for VIP residences." },
             { q: "Do you clean up after the job?", a: "Absolutely. We consider 'leaving no trace' to be part of the repair itself. Your technician carries cleaning equipment and will leave your home exactly as they found it." },
-            { q: "How do I identify the technician?", a: "Security is key. You will receive a digital profile with your technician's photo and name 30 minutes before arrival. All our staff wear distinctive Dakeek uniforms and carry identification." }
+            { q: "How do I identify the technician?", a: "Security is key. You will receive a digital profile with your technician's photo and name 30 minutes before arrival. All our staff wear distinctive Dakeek uniforms and carry identification." },
+            { q: "Are your technicians background-checked?", a: "Yes. Every employee undergoes a full background check, police clearance, and reference verification before joining. We take security seriously." },
+            { q: "Do you offer contactless payment?", a: "Yes, for your convenience and safety, we send a secure digital payment link upon job completion. We also accept cash or card on-site if preferred." }
         ]
     }
 ];
@@ -56,86 +76,144 @@ const FAQ_CATEGORIES = [
 export default function QueriesPage() {
     const [activeCategory, setActiveCategory] = useState(FAQ_CATEGORIES[0].id);
     const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+    const [searchQuery, setSearchQuery] = useState("");
 
     const activeData = FAQ_CATEGORIES.find(c => c.id === activeCategory) || FAQ_CATEGORIES[0];
+
+    // Search filtering
+    const filteredQuestions = useMemo(() => {
+        if (!searchQuery.trim()) {
+            return activeData.questions;
+        }
+        const query = searchQuery.toLowerCase();
+        return FAQ_CATEGORIES.flatMap(cat =>
+            cat.questions.filter(q =>
+                q.q.toLowerCase().includes(query) || q.a.toLowerCase().includes(query)
+            )
+        );
+    }, [searchQuery, activeData.questions]);
+
+    const isSearchMode = searchQuery.trim().length > 0;
 
     return (
         <main className="bg-[#FDFCF8] min-h-screen text-[#1a1a1a] overflow-x-hidden selection:bg-bronze selection:text-white font-sans">
 
-            {/* 1. HERO: The Encyclopedia (From GitHub) */}
+            {/* 1. HERO: Standard HyperHero (Zinc Metallic) */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#F4F4F5] border-b border-structure">
                 <div className="absolute inset-0 z-0">
                     <HyperHero
-                        color1="#A1A1AA" // Zinc 400
-                        color2="#F4F4F5" // Zinc 100
+                        color1="#a1a1aa" // Zinc-400 (Lighter Silver)
+                        color2="#f4f4f5" // Zinc-100 (White Silver)
                         initialColor="#F4F4F5"
                     />
                 </div>
 
                 <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
-                    <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
-                        Knowledge Base
-                    </span>
+                    <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
+                        Answers & Insights
+                    </p>
                     <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 leading-[0.9] text-[#111]">
                         Queries.
                     </h1>
-                    <p className="text-lg md:text-xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#444]">
-                        Everything you need to know about our process, pricing, and promise.
+                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#444] uppercase tracking-widest">
+                        Everything you need to know
                     </p>
                 </div>
             </section>
 
             {/* 2. THE INTERFACE: Split Layout */}
-            <section className="relative px-[5vw] lg:px-[8vw] py-24 min-h-screen">
-                <div className="flex flex-col lg:flex-row gap-20">
+            <section className="relative px-[5vw] lg:px-[8vw] py-16 lg:py-24 min-h-screen">
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
 
                     {/* LEFT: Content & Navigation */}
-                    <div className="lg:w-1/2 relative z-10">
+                    <div className="lg:w-1/2 relative z-10 order-2 lg:order-1">
 
-                        {/* Category Nav */}
-                        <div className="flex gap-8 mb-20 border-b border-black/5 pb-8 overflow-x-auto">
-                            {FAQ_CATEGORIES.map((cat) => (
-                                <button
-                                    key={cat.id}
-                                    onClick={() => { setActiveCategory(cat.id); setOpenQuestion(null); }}
-                                    className={`text-sm font-mono uppercase tracking-widest pb-4 -mb-4 border-b-2 transition-all whitespace-nowrap ${activeCategory === cat.id
-                                        ? "border-bronze text-ink"
-                                        : "border-transparent text-stone-400 hover:text-bronze"
-                                        }`}
-                                >
-                                    {cat.title}
-                                </button>
-                            ))}
+                        {/* Search Input */}
+                        <div className="relative mb-12">
+                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-stone-400" />
+                            <input
+                                type="text"
+                                placeholder="Search all questions..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full pl-16 pr-6 py-5 bg-white border border-black/10 rounded-2xl text-[#111] placeholder:text-stone-400 focus:outline-none focus:ring-1 focus:ring-bronze focus:border-bronze transition-all shadow-sm"
+                            />
                         </div>
 
+                        {/* Mobile Category Nav (Scrollable Cards) */}
+                        {!isSearchMode && (
+                            <div className="lg:hidden mb-12 overflow-x-auto pb-4 -mx-5 px-5 flex gap-4 snap-x">
+                                {FAQ_CATEGORIES.map((cat) => (
+                                    <button
+                                        key={cat.id}
+                                        onClick={() => { setActiveCategory(cat.id); setOpenQuestion(null); }}
+                                        className={`shrink-0 w-64 p-5 rounded-xl border snap-center text-left transition-all ${activeCategory === cat.id
+                                            ? "bg-[#111] text-white border-[#111] shadow-lg"
+                                            : "bg-white text-[#666] border-black/5"
+                                            }`}
+                                    >
+                                        <div className="flex items-center justify-between mb-3">
+                                            <span className="font-mono text-xs uppercase tracking-widest opacity-80">
+                                                {cat.title}
+                                            </span>
+                                            {activeCategory === cat.id && <div className="w-1.5 h-1.5 rounded-full bg-bronze" />}
+                                        </div>
+                                        <p className={`text-xs ${activeCategory === cat.id ? "text-stone-400" : "text-stone-400"}`}>
+                                            {cat.description}
+                                        </p>
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+
+                        {/* Desktop Category Nav */}
+                        {!isSearchMode && (
+                            <div className="hidden lg:flex gap-8 mb-12 border-b border-black/5 pb-0">
+                                {FAQ_CATEGORIES.map((cat) => (
+                                    <button
+                                        key={cat.id}
+                                        onClick={() => { setActiveCategory(cat.id); setOpenQuestion(null); }}
+                                        className={`text-sm font-mono uppercase tracking-widest pb-4 -mb-[1px] border-b-2 transition-all whitespace-nowrap ${activeCategory === cat.id
+                                            ? "border-bronze text-[#111]"
+                                            : "border-transparent text-stone-400 hover:text-bronze"
+                                            }`}
+                                    >
+                                        {cat.title}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+
                         {/* Questions List */}
-                        <div className="space-y-0">
+                        <div className="space-y-4">
                             <AnimatePresence mode="wait">
                                 <motion.div
-                                    key={activeCategory}
-                                    initial={{ opacity: 0, y: 20 }}
+                                    key={isSearchMode ? 'search' : activeCategory}
+                                    initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -20 }}
+                                    exit={{ opacity: 0, y: -10 }}
                                     transition={{ duration: 0.4 }}
                                 >
-                                    {activeData.questions.map((item, idx) => {
+                                    {filteredQuestions.map((item, idx) => {
                                         const isOpen = openQuestion === item.q;
                                         return (
-                                            <div
+                                            <motion.div
                                                 key={idx}
-                                                className="border-b border-black/10 group"
+                                                layout
+                                                onClick={() => setOpenQuestion(isOpen ? null : item.q)}
+                                                className={`group rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden ${isOpen
+                                                    ? "bg-white border-bronze/30 shadow-lg shadow-bronze/5"
+                                                    : "bg-white border-black/5 hover:border-black/10"
+                                                    }`}
                                             >
-                                                <button
-                                                    onClick={() => setOpenQuestion(isOpen ? null : item.q)}
-                                                    className="w-full py-10 flex items-start justify-between gap-8 text-left"
-                                                >
-                                                    <h3 className={`text-2xl md:text-4xl font-serif transition-colors duration-500 ${isOpen ? "text-bronze italic" : "text-[#111] group-hover:text-bronze"}`}>
+                                                <div className="p-6 lg:p-8 flex items-start justify-between gap-6">
+                                                    <h3 className={`text-lg lg:text-xl font-serif leading-tight transition-colors duration-300 w-[90%] ${isOpen ? "text-bronze" : "text-[#111] group-hover:text-[#444]"}`}>
                                                         {item.q}
                                                     </h3>
-                                                    <div className={`mt-2 transition-transform duration-500 ${isOpen ? "rotate-45" : "rotate-0"}`}>
-                                                        <Plus className="w-6 h-6 text-bronze" strokeWidth={1} />
+                                                    <div className={`shrink-0 transition-transform duration-500 mt-1 ${isOpen ? "rotate-45" : "rotate-0"}`}>
+                                                        <Plus className={`w-5 h-5 ${isOpen ? "text-bronze" : "text-stone-300"}`} strokeWidth={1.5} />
                                                     </div>
-                                                </button>
+                                                </div>
 
                                                 <AnimatePresence>
                                                     {isOpen && (
@@ -143,18 +221,17 @@ export default function QueriesPage() {
                                                             initial={{ height: 0, opacity: 0 }}
                                                             animate={{ height: "auto", opacity: 1 }}
                                                             exit={{ height: 0, opacity: 0 }}
-                                                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                                                            className="overflow-hidden"
+                                                            transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
                                                         >
-                                                            <div className="pb-12 pr-12">
-                                                                <p className="text-xl text-stone-500 font-light leading-relaxed">
+                                                            <div className="px-6 lg:px-8 pb-8 pt-0">
+                                                                <p className="text-base text-stone-500 font-light leading-relaxed border-t border-dashed border-black/5 pt-6">
                                                                     {item.a}
                                                                 </p>
                                                             </div>
                                                         </motion.div>
                                                     )}
                                                 </AnimatePresence>
-                                            </div>
+                                            </motion.div>
                                         );
                                     })}
                                 </motion.div>
@@ -163,9 +240,9 @@ export default function QueriesPage() {
 
                     </div>
 
-                    {/* RIGHT: Dynamic Image (Sticky) */}
-                    <div className="lg:w-1/2 lg:h-[80vh] sticky top-32 hidden lg:block">
-                        <div className="relative w-full h-full overflow-hidden rounded-sm bg-stone-100">
+                    {/* RIGHT: Dynamic Image (Sticky Alignment Fix) */}
+                    <div className="lg:w-1/2 lg:h-[calc(100vh-8rem)] lg:sticky lg:top-32 order-1 lg:order-2 mt-0 lg:mt-32">
+                        <div className="relative w-full h-[60vw] lg:h-full overflow-hidden rounded-2xl lg:rounded-3xl bg-stone-100 shadow-2xl shadow-black/5">
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={activeCategory}
@@ -179,25 +256,29 @@ export default function QueriesPage() {
                                         src={activeData.image}
                                         alt={activeData.title}
                                         fill
-                                        className="object-cover grayscale-[20%] sepia-[10%]"
+                                        className="object-cover grayscale-[20%] sepia-[5%]"
                                         priority
                                     />
                                     {/* Overlay for cinematic feel */}
-                                    <div className="absolute inset-0 bg-stone-900/10 mix-blend-multiply" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                                 </motion.div>
                             </AnimatePresence>
 
                             {/* Caption */}
-                            <div className="absolute bottom-8 left-8 right-8 z-10 text-white">
+                            <div className="absolute bottom-6 left-6 right-6 lg:bottom-12 lg:left-12 lg:right-12 z-10 text-white">
                                 <motion.div
                                     key={`text-${activeCategory}`}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2, duration: 0.6 }}
                                 >
-                                    <span className="font-mono text-xs uppercase tracking-widest opacity-80 mb-2 block">Focus</span>
-                                    <h3 className="text-3xl font-serif italic">{activeData.title}</h3>
-                                    <p className="font-light opacity-80 mt-2">{activeData.description}</p>
+                                    <span className="font-mono text-[10px] lg:text-xs uppercase tracking-widest opacity-80 mb-2 lg:mb-3 block bg-white/20 backdrop-blur-md inline-block px-3 py-1 rounded-full border border-white/10">
+                                        Focus Area
+                                    </span>
+                                    <h3 className="text-3xl lg:text-5xl font-serif italic mb-2 lg:mb-4">{activeData.title}</h3>
+                                    <p className="font-light opacity-90 text-sm lg:text-lg leading-relaxed max-w-md text-white/90">
+                                        {activeData.description}
+                                    </p>
                                 </motion.div>
                             </div>
                         </div>
@@ -206,8 +287,8 @@ export default function QueriesPage() {
             </section>
 
             {/* 3. CTA: Simple & Elegant */}
-            <section className="py-32 text-center bg-white border-t border-black/5">
-                <div className="max-w-2xl mx-auto px-6">
+            <section className="py-24 lg:py-32 text-center bg-white border-t border-black/5">
+                <SectionWrapper className="max-w-2xl mx-auto px-6">
                     <h2 className="text-4xl md:text-5xl font-serif mb-8 text-[#111]">
                         Still have questions?
                     </h2>
@@ -221,7 +302,7 @@ export default function QueriesPage() {
                         <span className="font-mono text-xs uppercase tracking-[0.2em]">Contact Concierge</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
-                </div>
+                </SectionWrapper>
             </section>
         </main>
     );

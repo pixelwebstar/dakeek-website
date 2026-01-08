@@ -97,7 +97,7 @@ export default function ContactPage() {
                                 <span className="font-mono text-xs text-stone-600 mt-1">02</span>
                                 <div>
                                     <h3 className="text-white text-xl font-serif mb-2 group-hover:text-bronze transition-colors">Instant Chat</h3>
-                                    <a href="https://wa.me/971542472151" target="_blank" className="text-2xl md:text-3xl font-light text-stone-300 hover:text-white transition-colors block mb-1">
+                                    <a href="https://wa.me/971542472151?text=Hello%20Dakeek%20Residential%20Services%2C%20I%20would%20like%20to%20book%20a%20service." target="_blank" className="text-2xl md:text-3xl font-light text-stone-300 hover:text-white transition-colors block mb-1">
                                         WhatsApp Concierge
                                     </a>
                                     <p className="text-xs font-mono uppercase tracking-wider text-stone-500">Avg. Response: 2 mins</p>

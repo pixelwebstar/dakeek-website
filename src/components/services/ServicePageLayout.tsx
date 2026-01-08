@@ -175,6 +175,86 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
                 theme={pageData.theme}
             />
 
+            {/* 4.5 Why Dakeek for [Service]? */}
+            {pageData.uniqueBenefits && pageData.uniqueBenefits.length > 0 && (
+                <section className="py-24 lg:py-32 px-[5vw] lg:px-[8vw] bg-[#FAFAF9] relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-30 pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
+                    <div className="max-w-4xl mx-auto relative z-10">
+                        <h3 className="text-3xl md:text-4xl font-serif text-[#111] mb-12 text-center">
+                            Why Dakeek for <span className="italic text-[#A18262]">{pageData.hero.title}</span>?
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {pageData.uniqueBenefits.map((benefit, i) => (
+                                <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl border border-black/5 shadow-sm">
+                                    <div className={`w-8 h-8 flex-shrink-0 rounded-full ${pageData.theme.iconBg} flex items-center justify-center`}>
+                                        <span className={`text-sm font-bold ${pageData.theme.primaryText}`}>{i + 1}</span>
+                                    </div>
+                                    <p className="text-[#444] leading-relaxed">{benefit}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
+            {/* 4.6 Service Areas */}
+            <section className="py-24 lg:py-32 px-[5vw] lg:px-[8vw] bg-white border-t border-black/5">
+                <div className="max-w-5xl mx-auto text-center">
+                    <h3 className="text-3xl md:text-4xl font-serif text-[#111] mb-6">
+                        We Cover All of Dubai
+                    </h3>
+                    <p className="text-[#666] mb-12 max-w-2xl mx-auto">
+                        From Palm Jumeirah to Arabian Ranches, our technicians are strategically located to reach you in under 60 minutes.
+                    </p>
+                    <div className="flex flex-wrap justify-center gap-3">
+                        {["Palm Jumeirah", "Dubai Marina", "Downtown Dubai", "Arabian Ranches", "JLT", "Business Bay", "Dubai Hills", "DIFC", "Al Barsha", "Jumeirah"].map((area, i) => (
+                            <Link
+                                key={i}
+                                href={`/areas/${area.toLowerCase().replace(/ /g, '-')}`}
+                                className="px-4 py-2 text-sm bg-[#FAFAF9] text-[#555] rounded-full border border-black/5 hover:bg-[#A18262] hover:text-white hover:border-[#A18262] transition-colors"
+                            >
+                                {area}
+                            </Link>
+                        ))}
+                        <Link
+                            href="/contact"
+                            className="px-4 py-2 text-sm bg-[#111] text-white rounded-full hover:bg-[#A18262] transition-colors"
+                        >
+                            + 27 More Areas
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* 4.7 Related Services */}
+            {pageData.relatedServices && pageData.relatedServices.length > 0 && (
+                <section className="py-24 lg:py-32 px-[5vw] lg:px-[8vw] bg-[#FAFAF9] border-t border-black/5">
+                    <div className="max-w-4xl mx-auto text-center">
+                        <h3 className="text-3xl md:text-4xl font-serif text-[#111] mb-12">
+                            Related Services
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {pageData.relatedServices.map((relatedSlug, i) => {
+                                const related = serviceData[relatedSlug];
+                                if (!related) return null;
+                                return (
+                                    <Link
+                                        key={i}
+                                        href={`/services/${relatedSlug}`}
+                                        className="group p-8 bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-lg transition-shadow text-center"
+                                    >
+                                        <span className="block text-lg font-serif text-[#111] group-hover:text-[#A18262] transition-colors mb-2">
+                                            {related.hero.title}
+                                        </span>
+                                        <span className="text-sm text-[#888]">{related.hero.tag}</span>
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </section>
+            )}
+
             {/* 5. Trust & Promise (Premium White) */}
             <section className={`w-full px-[5vw] lg:px-[8vw] py-24 lg:py-32 relative overflow-hidden bg-white border-t border-structure`}>
                 {/* Noise Texture */}

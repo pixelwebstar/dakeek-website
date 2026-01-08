@@ -1,6 +1,11 @@
 import { MetadataRoute } from 'next'
+import { DUBAI_AREAS } from '@/lib/constants'
+import { blogPosts } from '@/data/blogData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+    const services = ['ac', 'plumbing', 'electrical', 'cleaning', 'stoves', 'handyman', 'other', 'emergency'];
+    const areas = DUBAI_AREAS.map(area => area.toLowerCase().replace(/ /g, "-"));
+
     return [
         {
             url: 'https://dakeek.ae',
@@ -32,28 +37,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'yearly',
             priority: 0.5,
         },
+        {
+            url: 'https://dakeek.ae/blog',
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.7,
+        },
         // Individual Services - High Priority
-        ...[
-            'ac', 'plumbing', 'electrical', 'cleaning',
-            'stoves', 'handyman', 'emergency'
-        ].map((slug) => ({
+        ...services.map((slug) => ({
             url: `https://dakeek.ae/services/${slug}`,
             lastModified: new Date(),
             changeFrequency: 'monthly' as const,
             priority: 0.9,
         })),
-        // Location Pages
-        ...[
-            "palm-jumeirah", "dubai-marina", "jumeirah-lake-towers", "jlt", "downtown-dubai",
-            "business-bay", "arabian-ranches", "emirates-hills", "jumeirah-islands", "the-meadows",
-            "the-springs", "jumeirah-park", "al-barsha", "umm-suqeim", "jumeirah", "mudon",
-            "damac-hills", "dubai-hills-estate", "meydan", "difc", "sheikh-zayed-road",
-            "greens", "views", "victory-heights", "sports-city", "motor-city", "sustainable-city"
-        ].map((slug) => ({
+        // All 37 Location Pages
+        ...areas.map((slug) => ({
             url: `https://dakeek.ae/areas/${slug}`,
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.8,
         })),
+        // Blog Posts
+        ...blogPosts.map((post) => ({
+            url: `https://dakeek.ae/blog/${post.slug}`,
+            lastModified: new Date(post.date),
+            changeFrequency: 'monthly' as const,
+            priority: 0.6,
+        })),
     ]
 }
+
+

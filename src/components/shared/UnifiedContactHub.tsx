@@ -317,11 +317,15 @@ export default function UnifiedContactHub() {
         };
 
         try {
-            await fetch('/api/contact-submit', {
+            const response = await fetch('/api/contact-submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
+
+            if (!response.ok) {
+                throw new Error("Server error");
+            }
 
             let successText = "✅ Request Sent!";
             if (formState.contactMethod === "Call Back") successText = `✅ Request Received! We'll call you at **${detailsInput.contact}** shortly.`;
@@ -539,7 +543,7 @@ const MenuContent = ({ setView }: { setView: any }) => (
                 icon={<MessageCircle className="w-5 h-5 text-green-400" />}
                 title="WhatsApp"
                 subtitle="Fastest response"
-                href="https://wa.me/971542472151"
+                href="https://wa.me/971542472151?text=Hello%20Dakeek%20Residential%20Services%2C%20I%20would%20like%20to%20book%20a%20service."
                 delay={0}
             />
 

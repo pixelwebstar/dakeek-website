@@ -9,10 +9,11 @@ import ProcessTimeline from "@/components/shared/ProcessTimeline";
 import dynamic from "next/dynamic";
 import { serviceData } from "@/data/serviceData";
 import Image from "next/image";
+import ImageWithFallback from "@/components/shared/ImageWithFallback";
 
 const HyperHero = dynamic(() => import("@/components/hero/HyperHero"), {
     ssr: false,
-    loading: () => <div className="absolute inset-0 w-full h-full bg-[#F3F4F6]" />,
+    loading: () => <div className="absolute inset-0 w-full h-full bg-[#FAFAF9]" />,
 });
 
 // Helper to get the first image from details as the "Cover"
@@ -22,59 +23,31 @@ const getServiceImage = (slug: string) => {
     return service?.details?.[0]?.image || "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80";
 };
 
-const PROCESS_STEPS = [
-    {
-        title: "You Book a Slot",
-        desc: "Choose a time that works for you. No 4-hour windows. Precise arrival times.",
-        img: "https://images.unsplash.com/photo-1507914372817-549929d8b761?auto=format&fit=crop&q=80"
-    },
-    {
-        title: "We Assign a Master",
-        desc: "Our system picks the best technician for your specific problem, not just whoever is free.",
-        img: "https://images.unsplash.com/photo-1581092918056-0c4c3acd90f9?auto=format&fit=crop&q=80"
-    },
-    {
-        title: "Identity Verification",
-        desc: "You get a photo and name of who is coming before they knock. No surprises.",
-        img: "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&q=80"
-    },
-    {
-        title: "White-Glove Service",
-        desc: "Shoe covers on. Floor protection down. We explain everything before we start.",
-        img: "https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&q=80"
-    },
-    {
-        title: "The Follow-up",
-        desc: "We don't disappear. We check in to make sure the fix held up.",
-        img: "https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&q=80"
-    }
-];
-
 export default function ServicesHubPage() {
-    // List of services in order
-    const serviceKeys = ["ac", "plumbing", "electrical", "cleaning", "stoves", "handyman", "emergency"];
+    // List of services in order - Included 'other'
+    const serviceKeys = ["ac", "plumbing", "electrical", "cleaning", "stoves", "handyman", "other", "emergency"];
 
     return (
-        <main className="min-h-screen bg-canvas text-ink overflow-x-hidden selection:bg-bronze selection:text-white">
+        <main className="min-h-screen bg-[#FAFAF9] text-[#111] overflow-x-hidden selection:bg-[#A18262] selection:text-white">
 
             {/* 1. HERO: The Standard - PLATINUM/SILVER */}
-            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E2E8F0] border-b border-structure">
+            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E5E5] border-b border-[#D4D4D4]">
                 <HyperHero
-                    color1="#94A3B8" // Slate 400 (Technical/Cool)
-                    color2="#E2E8F0" // Slate 200
-                    initialColor="#E2E8F0"
+                    color1="#a8a29e" // Premium Stone
+                    color2="#d6d3d1"
+                    initialColor="#e7e5e4"
                 />
 
                 <SectionWrapper className="max-w-4xl mx-auto text-center relative z-10 px-6">
-                    <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
+                    <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
                         The Dakeek Standard
                     </span>
-                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink">
+                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-[#111]">
                         Excellence. <br />
-                        <span className="italic text-titanium">Standardized.</span>
+                        <span className="italic text-[#555]">Standardized.</span>
                     </h1>
-                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12">
-                        500 hours of training. Fully employed technicians. 30-day guarantee.
+                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#555] mb-12">
+                        AC, Plumbing, Electrical, and more. One call. One team. One standard.
                     </p>
                 </SectionWrapper>
 
@@ -90,31 +63,32 @@ export default function ServicesHubPage() {
             </section>
 
             {/* 2. THE PROCESS (Peace of Mind) */}
-            <section className="py-24 lg:py-32 px-[5vw] lg:px-[8vw] bg-white border-b border-structure">
-                <div className="max-w-5xl mx-auto">
+            <section className="py-24 lg:py-32 px-[5vw] lg:px-[8vw] bg-[#FAFAF9] border-b border-[#E5E5E0] relative overflow-hidden">
+                <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
+
+                <div className="max-w-5xl mx-auto relative z-10">
                     <SectionWrapper className="text-center mb-16">
-                        <h2 className="text-4xl font-serif text-ink mb-4">Peace of mind, standard.</h2>
-                        <p className="text-titanium font-light max-w-lg mx-auto">
+                        <h2 className="text-4xl font-serif text-[#111] mb-4">Peace of mind, standard.</h2>
+                        <p className="text-[#666] font-light max-w-lg mx-auto">
                             We engineered a process that removes the anxiety of letting a stranger into your home.
                         </p>
                     </SectionWrapper>
 
                     {/* Custom Elegant Process Timeline */}
-                    {/* Custom Elegant Process Timeline */}
-                    <ProcessTimeline steps={PROCESS_STEPS} />
+                    <ProcessTimeline />
                 </div>
             </section>
 
             {/* 3. RICH CATALOG (Cinematic Chapters) */}
-            <div className="flex flex-col bg-stone-50">
+            <div className="flex flex-col bg-[#FAFAF9]">
                 {serviceKeys.map((slug, index) => {
                     // @ts-ignore
                     const service = serviceData[slug];
                     const isEven = index % 2 === 0;
                     const coverImage = getServiceImage(slug);
 
-                    // Refined colors for alternating sections
-                    const bgClass = isEven ? "bg-[#FAFAF9]" : "bg-white";
+                    // Refined colors for alternating sections with Texture
+                    const bgClass = isEven ? "bg-[#FAFAF9]" : "bg-[#F5F5F4]";
 
                     return (
                         <section
@@ -122,7 +96,7 @@ export default function ServicesHubPage() {
                             className={`relative py-24 lg:py-40 px-[5vw] lg:px-[8vw] ${bgClass} overflow-hidden`}
                         >
                             {/* Texture Overlay */}
-                            <div className="absolute inset-0 bg-noise opacity-50 pointer-events-none mix-blend-multiply" />
+                            <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
 
                             <div className="max-w-7xl mx-auto relative z-10">
                                 <SectionWrapper delay={0.1}>
@@ -132,10 +106,10 @@ export default function ServicesHubPage() {
                                         <motion.div
                                             whileHover={{ scale: 1.02 }}
                                             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                                            className="w-full lg:w-1/2 relative h-[400px] lg:h-[600px] rounded-none overflow-hidden shadow-2xl shadow-black/5 group cursor-pointer"
+                                            className="w-full lg:w-1/2 relative h-[400px] lg:h-[600px] rounded-none overflow-hidden shadow-xl shadow-black/5 group cursor-pointer"
                                         >
                                             <Link href={`/services/${slug}`} className="block w-full h-full relative">
-                                                <Image
+                                                <ImageWithFallback
                                                     src={coverImage}
                                                     alt={service.hero.title}
                                                     fill
@@ -155,7 +129,7 @@ export default function ServicesHubPage() {
 
                                                 {/* Bottom Floating Title for Impact */}
                                                 <div className="absolute bottom-8 left-8 right-8 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                                                    <span className="text-white font-mono text-xs uppercase tracking-[0.2em] border-b border-bronze pb-1">
+                                                    <span className="text-white font-mono text-xs uppercase tracking-[0.2em] border-b border-[#A18262] pb-1">
                                                         Discover {service.hero.title}
                                                     </span>
                                                 </div>
@@ -166,45 +140,86 @@ export default function ServicesHubPage() {
                                         <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-10">
                                             <div>
                                                 <div className="flex items-center gap-4 mb-6">
-                                                    <span className="h-[1px] w-12 bg-bronze"></span>
-                                                    <span className="font-mono text-xs uppercase tracking-[0.3em] text-bronze">
+                                                    <span className="h-[1px] w-12 bg-[#A18262]"></span>
+                                                    <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#A18262]">
                                                         {service.hero.tag}
                                                     </span>
                                                 </div>
 
                                                 {/* TITLE - CLICKABLE */}
                                                 <Link href={`/services/${slug}`} className="block group/text">
-                                                    <h2 className="text-5xl lg:text-7xl font-serif text-ink mb-6 leading-[0.9] group-hover/text:text-bronze transition-colors duration-500">
+                                                    <h2 className="text-5xl lg:text-7xl font-serif text-[#111] mb-6 leading-[0.9] group-hover/text:text-[#A18262] transition-colors duration-500">
                                                         {service.hero.title}
                                                     </h2>
                                                 </Link>
 
-                                                <p className="text-titanium text-lg lg:text-xl font-light leading-relaxed max-w-md">
+                                                <p className="text-[#666] text-lg lg:text-xl font-light leading-relaxed max-w-md">
                                                     {service.intro.heading}
                                                 </p>
                                             </div>
 
-                                            {/* Feature List (Elegant) */}
-                                            <div className="space-y-6 pt-8 border-t border-black/5">
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                                    <div className="space-y-2">
-                                                        <h4 className="font-mono text-xs uppercase tracking-wider text-black/40">The Issue</h4>
-                                                        <p className="text-sm text-stone-600 font-serif italic">
-                                                            {slug === 'ac' ? "Leaks, noise, warm air." :
-                                                                slug === 'plumbing' ? "Hidden leaks, pressure loss." :
-                                                                    slug === 'electrical' ? "Tripping, sparking hazards." :
-                                                                        slug === 'cleaning' ? "Dust, allergens, grime." :
-                                                                            slug === 'stoves' ? "Uneven heat, burner failure." :
-                                                                                slug === 'emergency' ? "Floods, power failures." :
-                                                                                    "Broken parts, assembly needs."}
-                                                        </p>
+                                            {/* Feature List (Rich & Dense) */}
+                                            <div className="space-y-8 pt-8 border-t border-black/5 pb-12">
+                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                                    <div className="space-y-4">
+                                                        <h4 className="font-mono text-xs uppercase tracking-wider text-black/40 flex items-center gap-2">
+                                                            <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                                                            Common Issues
+                                                        </h4>
+                                                        <ul className="space-y-3">
+                                                            {(slug === 'ac' ? [
+                                                                "Warm air blowing", "Water leakage & drips", "Strange noises/rattling", "Bad odors/smells", "High energy bills"
+                                                            ] : slug === 'plumbing' ? [
+                                                                "Hidden leaks", "Low water pressure", "Blocked drains", "Water heater failure", "Burst pipes"
+                                                            ] : slug === 'electrical' ? [
+                                                                "Frequent tripping", "Sparking outlets", "flickering lights", "Power failure", "Faulty wiring"
+                                                            ] : slug === 'cleaning' ? [
+                                                                "Dust accumulation", "Mold & allergens", "Post-renovation mess", "Stained uptime", "Grease buildup"
+                                                            ] : slug === 'stoves' ? [
+                                                                "Uneven heating", "Burner not lighting", "Gas smell (Urgent)", "Oven not heating", "Broken knobs"
+                                                            ] : slug === 'handyman' ? [
+                                                                "Furniture assembly", "TV mounting", "Curtain installation", "Picture hanging", "Door alignment"
+                                                            ] : slug === 'emergency' ? [
+                                                                "Major floods", "Total blackout", "AC failure (Summer)", "Gas leaks", "Lockouts"
+                                                            ] : [
+                                                                "Custom projects", "Complex installations", "Unique repairs", "Renovations", "Special requests"
+                                                            ]).map((issue, i) => (
+                                                                <li key={i} className="text-sm text-[#555] font-serif italic flex items-start gap-2">
+                                                                    <span className="text-xs text-red-300 mt-1">•</span> {issue}
+                                                                </li>
+                                                            ))}
+                                                        </ul>
                                                     </div>
-                                                    <div className="space-y-2">
-                                                        <h4 className="font-mono text-xs uppercase tracking-wider text-black/40">The Fix</h4>
-                                                        <p className="text-sm text-ink flex items-start gap-2">
-                                                            <Check className="w-4 h-4 text-bronze shrink-0 mt-0.5" />
-                                                            {service.hero.description}
-                                                        </p>
+
+                                                    <div className="space-y-4 md:border-l md:border-black/5 md:pl-8 pt-8 md:pt-0 border-t border-black/5 md:border-t-0">
+                                                        <h4 className="font-mono text-xs uppercase tracking-wider text-black/40 flex items-center gap-2">
+                                                            <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                                                            The Dakeek Fix
+                                                        </h4>
+                                                        <ul className="space-y-3">
+                                                            {(slug === 'ac' ? [
+                                                                "Coil chemical cleaning", "Gas top-up (Freon)", "Drain line flushing", "Thermostat calibration", "Duct sanitization"
+                                                            ] : slug === 'plumbing' ? [
+                                                                "Ultrasonic leak detect", "Pipe replacement", "Drain hydro-jetting", "Heater repair", "Pressure balancing"
+                                                            ] : slug === 'electrical' ? [
+                                                                "Circuit tracing", "Breaker replacement", "Load balancing", "Rewiring safety", "Socket upgrading"
+                                                            ] : slug === 'cleaning' ? [
+                                                                "Deep steam cleaning", "Anti-bacterial mist", "Grout scrubbing", "Tank sanitization", "Upholstery revival"
+                                                            ] : slug === 'stoves' ? [
+                                                                "Jet cleaning", "Igniter replacement", "Valve safety check", "Element replacement", "Thermostat fix"
+                                                            ] : slug === 'handyman' ? [
+                                                                "Precision mounting", "IKEA expert assembly", "Drilling & fixing", "Carpentry repairs", "Hardware install"
+                                                            ] : slug === 'emergency' ? [
+                                                                "60-min response", "Water extraction", "Power restoration", "Leak isolation", "Emergency secure"
+                                                            ] : [
+                                                                "Tailored solutions", "Project planning", "Specialist sourcing", "Custom fabrication", "End-to-end manage"
+                                                            ]).map((fix, i) => (
+                                                                <li key={i} className="text-sm text-[#111] font-medium flex items-start gap-2">
+                                                                    <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                                                                    {fix}
+                                                                </li>
+                                                            ))}
+                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>
@@ -215,10 +230,10 @@ export default function ServicesHubPage() {
                                                     href={`/services/${slug}`}
                                                     className="inline-flex items-center gap-3 group/btn"
                                                 >
-                                                    <div className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center group-hover/btn:bg-ink group-hover/btn:border-ink transition-all duration-300">
-                                                        <ArrowRight className="w-5 h-5 text-ink group-hover/btn:text-white transition-colors" strokeWidth={1} />
+                                                    <div className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center group-hover/btn:bg-[#111] group-hover/btn:border-[#111] transition-all duration-300">
+                                                        <ArrowRight className="w-5 h-5 text-[#111] group-hover/btn:text-white transition-colors" strokeWidth={1} />
                                                     </div>
-                                                    <span className="font-mono text-xs uppercase tracking-widest text-ink group-hover/btn:text-bronze transition-colors">
+                                                    <span className="font-mono text-xs uppercase tracking-widest text-[#111] group-hover/btn:text-[#A18262] transition-colors">
                                                         View Details
                                                     </span>
                                                 </Link>
@@ -234,14 +249,14 @@ export default function ServicesHubPage() {
             </div>
 
             {/* 4. FOOTER CTA */}
-            <section className="py-24 lg:py-32 bg-ink text-white text-center">
+            <section className="py-24 lg:py-32 bg-[#111] text-white text-center">
                 <SectionWrapper>
                     <h2 className="text-4xl lg:text-6xl font-serif italic mb-8">
                         Ready to experience the standard?
                     </h2>
-                    <Link href="/contact" className="group relative px-12 py-4 bg-white text-ink overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl inline-block text-left">
+                    <Link href="/contact" className="group relative px-12 py-4 bg-white text-[#111] overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl inline-block text-left">
                         <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Book a Service Now</span>
-                        <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                        <div className="absolute inset-0 bg-[#A18262] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                     </Link>
                 </SectionWrapper>
             </section>
