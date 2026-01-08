@@ -16,8 +16,7 @@ export const viewport: Viewport = {
   themeColor: "#111111",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  // Removed maximumScale and userScalable for accessibility compliance
 };
 
 const geistSans = Geist({
@@ -100,6 +99,7 @@ export default function RootLayout({
         {/* Preconnect to critical origins for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://grainy-gradients.vercel.app" />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0c0a09" />

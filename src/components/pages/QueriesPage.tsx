@@ -2,8 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowRight, Plus, Minus, Search, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Plus, Search } from "lucide-react";
 import Image from "next/image";
 import SectionWrapper from "@/components/about/SectionWrapper";
 import GradientHero from "@/components/hero/GradientHero";
@@ -93,7 +92,7 @@ export default function QueriesPage() {
     return (
         <main className="bg-[#FDFCF8] min-h-screen text-[#1a1a1a] overflow-x-hidden selection:bg-bronze selection:text-white font-sans">
 
-            {/* 1. HERO: Standard HyperHero (Zinc Metallic) */}
+            {/* 1. HERO */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#F4F4F5] border-b border-structure">
                 <div className="absolute inset-0 z-0">
                     <GradientHero
@@ -135,7 +134,7 @@ export default function QueriesPage() {
                             />
                         </div>
 
-                        {/* Mobile Category Nav (Scrollable Cards) */}
+                        {/* Mobile Category Nav */}
                         {!isSearchMode && (
                             <div className="lg:hidden mb-12 overflow-x-auto pb-4 -mx-5 px-5 flex gap-4 snap-x">
                                 {FAQ_CATEGORIES.map((cat) => (
@@ -153,7 +152,7 @@ export default function QueriesPage() {
                                             </span>
                                             {activeCategory === cat.id && <div className="w-1.5 h-1.5 rounded-full bg-bronze" />}
                                         </div>
-                                        <p className={`text-xs ${activeCategory === cat.id ? "text-stone-400" : "text-stone-400"}`}>
+                                        <p className="text-xs text-stone-400">
                                             {cat.description}
                                         </p>
                                     </button>
@@ -179,109 +178,73 @@ export default function QueriesPage() {
                             </div>
                         )}
 
-                        {/* Questions List */}
+                        {/* Questions List - Pure CSS Accordion */}
                         <div className="space-y-4">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={isSearchMode ? 'search' : activeCategory}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                    transition={{ duration: 0.4 }}
-                                >
-                                    {filteredQuestions.map((item, idx) => {
-                                        const isOpen = openQuestion === item.q;
-                                        return (
-                                            <motion.div
-                                                key={idx}
-                                                layout
-                                                onClick={() => setOpenQuestion(isOpen ? null : item.q)}
-                                                className={`group rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden ${isOpen
-                                                    ? "bg-white border-bronze/30 shadow-lg shadow-bronze/5"
-                                                    : "bg-white border-black/5 hover:border-black/10"
-                                                    }`}
-                                            >
-                                                <div className="p-6 lg:p-8 flex items-start justify-between gap-6">
-                                                    <h3 className={`text-lg lg:text-xl font-serif leading-tight transition-colors duration-300 w-[90%] ${isOpen ? "text-bronze" : "text-[#111] group-hover:text-[#444]"}`}>
-                                                        {item.q}
-                                                    </h3>
-                                                    <div className={`shrink-0 transition-transform duration-500 mt-1 ${isOpen ? "rotate-45" : "rotate-0"}`}>
-                                                        <Plus className={`w-5 h-5 ${isOpen ? "text-bronze" : "text-stone-300"}`} strokeWidth={1.5} />
-                                                    </div>
-                                                </div>
+                            {filteredQuestions.map((item, idx) => {
+                                const isOpen = openQuestion === item.q;
+                                return (
+                                    <div
+                                        key={idx}
+                                        onClick={() => setOpenQuestion(isOpen ? null : item.q)}
+                                        className={`group rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden ${isOpen
+                                            ? "bg-white border-bronze/30 shadow-lg shadow-bronze/5"
+                                            : "bg-white border-black/5 hover:border-black/10"
+                                            }`}
+                                    >
+                                        <div className="p-6 lg:p-8 flex items-start justify-between gap-6">
+                                            <h3 className={`text-lg lg:text-xl font-serif leading-tight transition-colors duration-300 w-[90%] ${isOpen ? "text-bronze" : "text-[#111] group-hover:text-[#444]"}`}>
+                                                {item.q}
+                                            </h3>
+                                            <div className={`shrink-0 transition-transform duration-300 mt-1 ${isOpen ? "rotate-45" : "rotate-0"}`}>
+                                                <Plus className={`w-5 h-5 ${isOpen ? "text-bronze" : "text-stone-300"}`} strokeWidth={1.5} />
+                                            </div>
+                                        </div>
 
-                                                <AnimatePresence>
-                                                    {isOpen && (
-                                                        <motion.div
-                                                            initial={{ height: 0, opacity: 0 }}
-                                                            animate={{ height: "auto", opacity: 1 }}
-                                                            exit={{ height: 0, opacity: 0 }}
-                                                            transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-                                                        >
-                                                            <div className="px-6 lg:px-8 pb-8 pt-0">
-                                                                <p className="text-base text-stone-500 font-light leading-relaxed border-t border-dashed border-black/5 pt-6">
-                                                                    {item.a}
-                                                                </p>
-                                                            </div>
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
-                                            </motion.div>
-                                        );
-                                    })}
-                                </motion.div>
-                            </AnimatePresence>
+                                        {/* Answer - CSS transition */}
+                                        <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+                                            <div className="overflow-hidden">
+                                                <div className="px-6 lg:px-8 pb-8 pt-0">
+                                                    <p className="text-base text-stone-500 font-light leading-relaxed border-t border-dashed border-black/5 pt-6">
+                                                        {item.a}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
                         </div>
 
                     </div>
 
-                    {/* RIGHT: Dynamic Image (Sticky Alignment Fix) */}
+                    {/* RIGHT: Dynamic Image */}
                     <div className="lg:w-1/2 lg:h-[calc(100vh-8rem)] lg:sticky lg:top-32 order-1 lg:order-2 mt-0 lg:mt-32">
                         <div className="relative w-full h-[60vw] lg:h-full overflow-hidden rounded-2xl lg:rounded-3xl bg-stone-100 shadow-2xl shadow-black/5">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={activeCategory}
-                                    initial={{ opacity: 0, scale: 1.1 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                                    className="absolute inset-0"
-                                >
-                                    <Image
-                                        src={activeData.image}
-                                        alt={activeData.title}
-                                        fill
-                                        className="object-cover grayscale-[20%] sepia-[5%]"
-                                        priority
-                                    />
-                                    {/* Overlay for cinematic feel */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                                </motion.div>
-                            </AnimatePresence>
+                            <Image
+                                src={activeData.image}
+                                alt={activeData.title}
+                                fill
+                                className="object-cover grayscale-[20%] sepia-[5%]"
+                                priority
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                             {/* Caption */}
                             <div className="absolute bottom-6 left-6 right-6 lg:bottom-12 lg:left-12 lg:right-12 z-10 text-white">
-                                <motion.div
-                                    key={`text-${activeCategory}`}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.2, duration: 0.6 }}
-                                >
-                                    <span className="font-mono text-[10px] lg:text-xs uppercase tracking-widest opacity-80 mb-2 lg:mb-3 block bg-white/20 backdrop-blur-md inline-block px-3 py-1 rounded-full border border-white/10">
-                                        Focus Area
-                                    </span>
-                                    <h3 className="text-3xl lg:text-5xl font-serif italic mb-2 lg:mb-4">{activeData.title}</h3>
-                                    <p className="font-light opacity-90 text-sm lg:text-lg leading-relaxed max-w-md text-white/90">
-                                        {activeData.description}
-                                    </p>
-                                </motion.div>
+                                <span className="font-mono text-[10px] lg:text-xs uppercase tracking-widest opacity-80 mb-2 lg:mb-3 block bg-white/20 backdrop-blur-md inline-block px-3 py-1 rounded-full border border-white/10">
+                                    Focus Area
+                                </span>
+                                <h3 className="text-3xl lg:text-5xl font-serif italic mb-2 lg:mb-4">{activeData.title}</h3>
+                                <p className="font-light opacity-90 text-sm lg:text-lg leading-relaxed max-w-md text-white/90">
+                                    {activeData.description}
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* 3. CTA: Simple & Elegant */}
+            {/* 3. CTA */}
             <section className="py-24 lg:py-32 text-center bg-white border-t border-black/5">
                 <SectionWrapper className="max-w-2xl mx-auto px-6">
                     <h2 className="text-4xl md:text-5xl font-serif mb-8 text-[#111]">

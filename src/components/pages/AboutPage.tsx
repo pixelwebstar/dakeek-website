@@ -1,31 +1,16 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Star, Shield, Heart, Clock, PenTool, Check, Phone, MessageCircle } from "lucide-react";
-import dynamic from "next/dynamic";
 import SectionWrapper from "@/components/about/SectionWrapper";
 import ImageWithFallback from "@/components/shared/ImageWithFallback";
 import GradientHero from "@/components/hero/GradientHero";
 
 export default function AboutPage() {
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"]
-    });
-
-    // Parallax & Opacity transforms
-    const heroOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
-    const heroScale = useTransform(scrollYProgress, [0, 0.1], [1, 1.1]);
-
-    const storyY = useTransform(scrollYProgress, [0.1, 0.3], [100, 0]);
-    const storyOpacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
-
     return (
-        <main ref={containerRef} className="bg-[#0c0c0c] min-h-screen text-white overflow-x-hidden selection:bg-bronze selection:text-white">
+        <main className="bg-[#0c0c0c] min-h-screen text-white overflow-x-hidden selection:bg-bronze selection:text-white">
 
             {/* SECTION 1: HERO (Hyper Metal - From GitHub) */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E7E5E4] border-b border-structure text-[#111]">
@@ -75,11 +60,7 @@ export default function AboutPage() {
             </section>
 
             {/* 2. THE CONFLICT: "The Intruder" (Text Reveal) */}
-            <motion.section
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+            <section
                 className="relative py-32 px-[5vw] md:px-[10vw] max-w-4xl mx-auto"
             >
                 <p className="text-3xl md:text-5xl font-serif text-stone-300 leading-snug">
@@ -90,7 +71,7 @@ export default function AboutPage() {
                     We know the anxiety that follows. The frantic calls. The 4-hour windows. The stranger walking through your door with muddy boots.
                     It feels like an invasion.
                 </p>
-            </motion.section>
+            </section>
 
             {/* 2b. THE ORIGIN: "It Started with a Leak" (New Content) */}
             <section className="relative py-32 border-t border-white/5 bg-[#0a0a0a]">
@@ -211,23 +192,22 @@ export default function AboutPage() {
                             {
                                 title: "Transparency",
                                 desc: "No hidden costs. No 'we'll see'. You know the name, face, and price before we arrive.",
-                                image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80" // Clarity
+                                image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80"
                             },
                             {
                                 title: "Empathy",
                                 desc: "We understand that a broken home is stressful. We arrive calm, prepared, and ready to listen.",
-                                image: "https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&q=80" // Connection
+                                image: "https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&q=80"
                             },
                             {
                                 title: "Mastery",
                                 desc: "We don't guess. We diagnose with engineering precision. If we fix it, it stays fixed.",
-                                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80" // Technical
+                                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80"
                             }
                         ].map((item, i) => (
-                            <motion.div
+                            <div
                                 key={i}
-                                whileHover={{ y: -10 }}
-                                className="relative h-[500px] overflow-hidden rounded-sm group bg-stone-900"
+                                className="relative h-[500px] overflow-hidden rounded-sm group bg-stone-900 hover:-translate-y-2 transition-transform duration-300"
                             >
                                 <Image
                                     src={item.image}
@@ -241,7 +221,7 @@ export default function AboutPage() {
                                         {item.desc}
                                     </p>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -259,9 +239,8 @@ export default function AboutPage() {
                     </p>
 
                     {/* License Card */}
-                    <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        className="bg-gradient-to-br from-stone-900 to-stone-950 border border-stone-800 rounded-2xl p-10 md:p-14 mb-10 max-w-xl mx-auto"
+                    <div
+                        className="bg-gradient-to-br from-stone-900 to-stone-950 border border-stone-800 rounded-2xl p-10 md:p-14 mb-10 max-w-xl mx-auto hover:scale-[1.02] transition-transform duration-300"
                     >
                         <div className="flex flex-col items-center gap-6">
                             <div className="w-20 h-20 rounded-full bg-bronze/10 flex items-center justify-center">
@@ -275,7 +254,7 @@ export default function AboutPage() {
                                 Dakeek Technical Services L.L.C
                             </p>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Verify Button */}
                     <a

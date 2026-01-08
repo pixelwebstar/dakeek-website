@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Clock, MessageCircle, Bot } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 import GradientHero from "@/components/hero/GradientHero";
 import dynamic from "next/dynamic";
@@ -203,10 +202,7 @@ export default function ContactPage() {
 
                 {/* Location Card (Side) */}
                 <div className="absolute z-20 bottom-8 left-4 md:bottom-12 md:left-12 w-full max-w-xs pointer-events-none">
-                    <motion.div
-                        initial={{ x: -20, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
+                    <div
                         className="bg-black/90 backdrop-blur-md border border-white/10 p-6 rounded-2xl pointer-events-auto shadow-2xl relative overflow-hidden"
                     >
                         {/* Decorative Corner */}
@@ -232,7 +228,7 @@ export default function ContactPage() {
                                 </a>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
         </main>
