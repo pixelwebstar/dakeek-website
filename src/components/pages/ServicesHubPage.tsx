@@ -10,11 +10,7 @@ import dynamic from "next/dynamic";
 import { serviceData } from "@/data/serviceData";
 import Image from "next/image";
 import ImageWithFallback from "@/components/shared/ImageWithFallback";
-
-const HyperHero = dynamic(() => import("@/components/hero/HyperHero"), {
-    ssr: false,
-    loading: () => <div className="absolute inset-0 w-full h-full bg-[#FAFAF9]" />,
-});
+import GradientHero from "@/components/hero/GradientHero";
 
 // Helper to get the first image from details as the "Cover"
 const getServiceImage = (slug: string) => {
@@ -32,8 +28,8 @@ export default function ServicesHubPage() {
 
             {/* 1. HERO: The Standard - PLATINUM/SILVER */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E5E5] border-b border-[#D4D4D4]">
-                <HyperHero
-                    color1="#a8a29e" // Premium Stone
+                <GradientHero
+                    color1="#a8a29e"
                     color2="#d6d3d1"
                     initialColor="#e7e5e4"
                 />

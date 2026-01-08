@@ -35,17 +35,17 @@ export default function Preloader() {
                     clearInterval(interval);
                 }
 
-                iteration += 1 / 3; // Speed control
-            }, 30);
+                iteration += 1 / 2; // Speed control (faster)
+            }, 25);
         };
 
         // Start almost immediately
-        setTimeout(startScramble, 100);
+        setTimeout(startScramble, 50);
 
-        // 2. Exit Timer (Fast: 1.2s total)
+        // 2. Exit Timer (Faster: 600ms total)
         const timer = setTimeout(() => {
             setIsPresent(false);
-        }, 1200);
+        }, 600);
 
         return () => {
             clearTimeout(timer);

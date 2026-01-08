@@ -8,11 +8,7 @@ import { ArrowRight, Star, Shield, Heart, Clock, PenTool, Check, Phone, MessageC
 import dynamic from "next/dynamic";
 import SectionWrapper from "@/components/about/SectionWrapper";
 import ImageWithFallback from "@/components/shared/ImageWithFallback";
-
-const HyperHero = dynamic(() => import("@/components/hero/HyperHero"), {
-    ssr: false,
-    loading: () => <div className="absolute inset-0 w-full h-full bg-[#E7E5E4]" />,
-});
+import GradientHero from "@/components/hero/GradientHero";
 
 export default function AboutPage() {
     const containerRef = useRef(null);
@@ -34,9 +30,9 @@ export default function AboutPage() {
             {/* SECTION 1: HERO (Hyper Metal - From GitHub) */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E7E5E4] border-b border-structure text-[#111]">
                 <div className="absolute inset-0 z-0">
-                    <HyperHero
-                        color1="#A8A29E" // Stone 400 (Human/Warm)
-                        color2="#E7E5E4" // Stone 200
+                    <GradientHero
+                        color1="#A8A29E"
+                        color2="#E7E5E4"
                         initialColor="#E7E5E4"
                     />
                 </div>

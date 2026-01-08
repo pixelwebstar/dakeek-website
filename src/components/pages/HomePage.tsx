@@ -14,10 +14,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 import dynamic from "next/dynamic";
-const HyperHero = dynamic(() => import("@/components/hero/HyperHero"), {
-    ssr: false,
-    loading: () => <div className="absolute inset-0 w-full h-full bg-[#E5E7EB]" />,
-}); // The 2026 Edition
+import GradientHero from "@/components/hero/GradientHero";
 import ServiceCard from "@/components/services/ServiceCard";
 
 
@@ -49,9 +46,9 @@ export default function HomePage() {
         <main ref={container} className="relative min-h-screen w-full selection:bg-bronze selection:text-white premium-bg text-ink overflow-x-hidden">
 
             <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-canvas">
-                <HyperHero
-                    color1="#9CA3AF" // Aluminium
-                    color2="#E5E7EB" // Cool Grey
+                <GradientHero
+                    color1="#9CA3AF"
+                    color2="#E5E7EB"
                     initialColor="#E5E7EB"
                 />
 
