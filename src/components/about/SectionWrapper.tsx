@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface SectionWrapperProps {
@@ -9,16 +8,11 @@ interface SectionWrapperProps {
     delay?: number;
 }
 
-export default function SectionWrapper({ children, className = "", delay = 0 }: SectionWrapperProps) {
+// Ultra-lightweight wrapper - no animation library, pure CSS
+export default function SectionWrapper({ children, className = "" }: SectionWrapperProps) {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.25 }}
-            transition={{ duration: 0.8, delay, ease: "easeOut" }}
-            className={className}
-        >
+        <div className={className}>
             {children}
-        </motion.div>
+        </div>
     );
 }

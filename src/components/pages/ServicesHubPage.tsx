@@ -2,11 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Check, ArrowRight, ChevronDown } from "lucide-react";
 import SectionWrapper from "@/components/about/SectionWrapper";
 import ProcessTimeline from "@/components/shared/ProcessTimeline";
-import dynamic from "next/dynamic";
 import { serviceData } from "@/data/serviceData";
 import Image from "next/image";
 import ImageWithFallback from "@/components/shared/ImageWithFallback";
@@ -47,15 +45,12 @@ export default function ServicesHubPage() {
                     </p>
                 </SectionWrapper>
 
-                {/* Scroll Indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1, y: [0, 10, 0] }}
-                    transition={{ delay: 1, duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-12 left-1/2 -translate-x-1/2 text-[#111]/30"
+                {/* Scroll Indicator - CSS animation */}
+                <div
+                    className="absolute bottom-12 left-1/2 -translate-x-1/2 text-[#111]/30 animate-bounce"
                 >
                     <ChevronDown size={32} strokeWidth={1.5} />
-                </motion.div>
+                </div>
             </section>
 
             {/* 2. THE PROCESS (Peace of Mind) */}
@@ -99,11 +94,8 @@ export default function ServicesHubPage() {
                                     <div className={`flex flex-col lg:flex-row items-stretch gap-12 lg:gap-24 ${isEven ? '' : 'lg:flex-row-reverse'}`}>
 
                                         {/* VISUAL - Cinematic Card */}
-                                        <motion.div
-                                            whileHover={{ scale: 1.02 }}
-                                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                                            className="w-full lg:w-1/2 relative h-[400px] lg:h-[600px] rounded-none overflow-hidden shadow-xl shadow-black/5 group cursor-pointer"
-                                        >
+                                        <div
+                                            className="w-full lg:w-1/2 relative h-[400px] lg:h-[600px] rounded-none overflow-hidden shadow-xl shadow-black/5 group cursor-pointer hover:scale-[1.02] transition-transform duration-700">
                                             <Link href={`/services/${slug}`} className="block w-full h-full relative">
                                                 <ImageWithFallback
                                                     src={coverImage}
@@ -130,7 +122,7 @@ export default function ServicesHubPage() {
                                                     </span>
                                                 </div>
                                             </Link>
-                                        </motion.div>
+                                        </div>
 
                                         {/* CONTENT - Editorial Layout */}
                                         <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-10">

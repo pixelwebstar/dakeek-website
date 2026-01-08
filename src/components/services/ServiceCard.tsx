@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 
 interface ServiceCardProps {
   title: string;
@@ -12,6 +11,7 @@ interface ServiceCardProps {
   icon?: React.ElementType<{ className?: string }>;
   features: string[];
   variant?: "default" | "emergency" | "other";
+  priority?: boolean;
 }
 
 export default function ServiceCard({
@@ -21,29 +21,27 @@ export default function ServiceCard({
   icon: Icon,
   features,
   variant = "default",
+  priority = false,
 }: ServiceCardProps) {
   const isEmergency = variant === "emergency";
   const isOther = variant === "other";
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-    >
+    <div>
       <Link
         href={href}
         className={`group relative block h-[480px] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl
           ${isEmergency ? "rounded-2xl" : "rounded-2xl"}`}
       >
-        {/* Background Image */}
+        {/* Background Image - Optimized */}
         <div className="absolute inset-0">
           <Image
             src={image}
             alt={title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
+            priority={priority}
           />
           {/* Gradient Overlay */}
           <div className={`absolute inset-0 transition-opacity duration-500
@@ -112,6 +110,6 @@ export default function ServiceCard({
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }
