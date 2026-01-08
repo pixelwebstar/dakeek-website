@@ -20,8 +20,8 @@
 
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
-  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
   --font-playfair: var(--font-playfair), ui-serif, Georgia, serif;
 
   --color-canvas: var(--color-canvas);

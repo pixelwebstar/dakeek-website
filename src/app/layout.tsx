@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Cormorant_Garamond, Playfair_Display } from "next/font/google";
+import { Geist, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { SmoothScroll } from "../components/layout/SmoothScroll";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import dynamic from 'next/dynamic';
@@ -9,8 +8,8 @@ import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import ContactHubLoader from "../components/shared/ContactHubLoader";
 import { TransitionProvider } from "../lib/context/TransitionContext";
+import ContactHubLoader from "../components/shared/ContactHubLoader";
 import Preloader from "../components/ui/Preloader";
 
 export const viewport: Viewport = {
@@ -18,7 +17,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  userScalable: false, // App-like feel
+  userScalable: false,
 };
 
 const geistSans = Geist({
@@ -27,24 +26,10 @@ const geistSans = Geist({
   display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: 'swap',
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  display: 'swap',
-});
-
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "700"],
   style: ["normal", "italic"],
   display: 'swap',
 });
@@ -117,20 +102,18 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${playfair.variable} antialiased bg-[#FAFAF9] text-[#111]`}
+        className={`${geistSans.variable} ${playfair.variable} antialiased bg-[#FAFAF9] text-[#111]`}
       >
         <TransitionProvider>
           <Preloader />
-          <SmoothScroll>
-            <Header />
-            {children}
-            <Footer />
-          </SmoothScroll>
+          <Header />
+          {children}
+          <Footer />
           <ContactHubLoader />
         </TransitionProvider>
         <Toaster richColors position="top-center" closeButton theme="light" />
-                <Analytics />
-                <SpeedInsights />
+        <Analytics />
+        <SpeedInsights />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
