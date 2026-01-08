@@ -6,12 +6,7 @@ import Image from "next/image";
 import { blogPosts, BLOG_CATEGORIES } from "@/data/blogData";
 import { ArrowRight, Clock, ChevronRight, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import dynamic from "next/dynamic";
-
-const HyperHero = dynamic(() => import("@/components/hero/HyperHero"), {
-    ssr: false,
-    loading: () => <div className="absolute inset-0 w-full h-full bg-[#E7E5E4]" />, // Warm Stone Loading
-});
+import GradientHero from "@/components/hero/GradientHero";
 
 export default function JournalHubPage() {
     const [activeCategory, setActiveCategory] = useState("all");
@@ -31,9 +26,9 @@ export default function JournalHubPage() {
             {/* 1. HERO: The Journal (Warm Stone / Silver Metallic) */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#F5F5F4] border-b border-[#E7E5E4]">
                 <div className="absolute inset-0 z-0">
-                    <HyperHero
-                        color1="#d6d3d1" // Stone-300 (Lighter Warm Silver)
-                        color2="#fafaf9" // Stone-50 (Very Light Stone)
+                    <GradientHero
+                        color1="#d6d3d1"
+                        color2="#fafaf9"
                         initialColor="#F5F5F4"
                     />
                 </div>

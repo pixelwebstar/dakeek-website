@@ -7,40 +7,14 @@ import Balancer from "react-wrap-balancer";
 
 import Link from "next/link";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 
-import dynamic from "next/dynamic";
 import GradientHero from "@/components/hero/GradientHero";
 import ServiceCard from "@/components/services/ServiceCard";
 
 
 export default function HomePage() {
     const container = useRef(null);
-    const tl = useRef<gsap.core.Timeline | null>(null);
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    useGSAP(() => {
-        // Hero Animation Sequence - Relies on Global Defaults (Slow/Heavy)
-        tl.current = gsap.timeline()
-            .from(".hero-line-1", { y: 100, opacity: 0, delay: 0.2 })
-            .from(".hero-line-2", { y: 100, opacity: 0 }, "-=0.8") // Overlap
-            .from(".hero-sub", { y: 30, opacity: 0 }, "-=0.8")
-            .from(".hero-cta", { y: 20, opacity: 0 }, "-=0.8");
-
-        // Ticker Animation
-        gsap.to(".ticker-track", {
-            xPercent: -50,
-            ease: "none",
-            duration: 30,
-            repeat: -1
-        });
-
-    }, { scope: container });
 
     return (
         <main ref={container} className="relative min-h-screen w-full selection:bg-bronze selection:text-white premium-bg text-ink overflow-x-hidden">
@@ -56,14 +30,14 @@ export default function HomePage() {
                     <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
                         Precision Home Services
                     </p>
-                    <h1 className="hero-line-1 text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink">
+                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade" style={{ animationDelay: '0.1s' }}>
                         <Balancer>Dakeek.</Balancer>
                     </h1>
-                    <p className="hero-line-2 text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12 uppercase tracking-widest">
+                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12 uppercase tracking-widest animate-hero-fade" style={{ animationDelay: '0.3s' }}>
                         <Balancer>TECHNICAL SERVICES CO. L.L.C</Balancer>
                     </p>
 
-                    <div className="hero-cta flex flex-col md:flex-row gap-4 justify-center items-center">
+                    <div className="flex flex-col md:flex-row gap-4 justify-center items-center animate-hero-fade" style={{ animationDelay: '0.5s' }}>
                         <Link href="/contact" className="group relative px-12 py-4 bg-ink text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
                             <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Book Now</span>
                             <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
@@ -84,7 +58,7 @@ export default function HomePage() {
 
             {/* 2. SOCIAL PROOF: General Trust */}
             <section className="w-full border-b border-structure bg-white py-6 overflow-hidden flex items-center">
-                <div className="ticker-track flex gap-12 md:gap-24 whitespace-nowrap font-mono text-xs uppercase tracking-widest text-bronze opacity-90">
+                <div className="flex gap-12 md:gap-24 whitespace-nowrap font-mono text-xs uppercase tracking-widest text-bronze opacity-90 animate-ticker">
                     {[...Array(4)].map((_, i) => (
                         <div key={i} className="flex gap-12 md:gap-24">
                             <span className="flex items-center gap-3"><ShieldCheck className="w-4 h-4" strokeWidth={1.5} /> PRIVACY GUARANTEED</span>

@@ -3,12 +3,8 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, MessageCircle, Bot } from "lucide-react";
 
+import GradientHero from "@/components/hero/GradientHero";
 import dynamic from "next/dynamic";
-
-const HyperHero = dynamic(() => import("@/components/hero/HyperHero"), {
-    ssr: false,
-    loading: () => <div className="absolute inset-0 w-full h-full bg-[#D1D5DB]" />,
-});
 // @ts-ignore
 const TrustIndicators = dynamic(() => import("@/components/shared/TrustIndicators").then(mod => mod.TrustIndicators));
 import { SmartForm } from "@/components/contact/SmartForm";
@@ -34,9 +30,9 @@ export default function ContactPage() {
 
             {/* SECTION 1: HERO (Hyper Metal) */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
-                <HyperHero
-                    color1="#D1D5DB" // Platinum
-                    color2="#F3F4F6" // Silver Mist
+                <GradientHero
+                    color1="#D1D5DB"
+                    color2="#F3F4F6"
                     initialColor="#D1D5DB"
                 />
 

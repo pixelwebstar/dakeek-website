@@ -6,12 +6,7 @@ import { ArrowRight, Plus, Minus, Search, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import SectionWrapper from "@/components/about/SectionWrapper";
-import dynamic from "next/dynamic";
-
-const HyperHero = dynamic(() => import("@/components/hero/HyperHero"), {
-    ssr: false,
-    loading: () => <div className="absolute inset-0 w-full h-full bg-[#F4F4F5]" />,
-});
+import GradientHero from "@/components/hero/GradientHero";
 
 // Data Structure: Categories of Questions (Standardized to 6 per category)
 const FAQ_CATEGORIES = [
@@ -101,9 +96,9 @@ export default function QueriesPage() {
             {/* 1. HERO: Standard HyperHero (Zinc Metallic) */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#F4F4F5] border-b border-structure">
                 <div className="absolute inset-0 z-0">
-                    <HyperHero
-                        color1="#a1a1aa" // Zinc-400 (Lighter Silver)
-                        color2="#f4f4f5" // Zinc-100 (White Silver)
+                    <GradientHero
+                        color1="#a1a1aa"
+                        color2="#f4f4f5"
                         initialColor="#F4F4F5"
                     />
                 </div>

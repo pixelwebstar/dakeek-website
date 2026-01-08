@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import dynamic from "next/dynamic";
-const HyperHero = dynamic(() => import("../hero/HyperHero"), { ssr: false });
+import GradientHero from "../hero/GradientHero";
 import TechSpecs from "./TechSpecs";
 import ServiceNavigation from "./ServiceNavigation";
 import Link from "next/link";
@@ -79,10 +78,10 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
 
             {/* 1. Custom Hero */}
             <section className={`relative h-screen w-full flex items-center justify-center overflow-hidden ${pageData.theme.secondaryBg}`}>
-                <HyperHero
+                <GradientHero
                     color1={pageData.theme.hero1}
                     color2={pageData.theme.hero2}
-                    initialColor={pageData.theme.hero2} // Match the shader's base color instantly
+                    initialColor={pageData.theme.hero2}
                 />
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
