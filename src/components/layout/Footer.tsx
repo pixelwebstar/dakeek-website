@@ -6,9 +6,22 @@ import { usePathname } from "next/navigation";
 import { MapPin } from "lucide-react";
 import StaticFooterWatermark from "./StaticFooterWatermark";
 import { serviceData } from "../../data/serviceData";
+import { useState } from "react";
+import { usePWAInstall } from "../../hooks/usePWAInstall";
+import InstallModal from "../shared/InstallModal";
 
 export default function Footer() {
     const pathname = usePathname();
+    const { install, isIOS } = usePWAInstall();
+    const [showInstallModal, setShowInstallModal] = useState(false);
+
+    const handleInstallClick = async (e: React.MouseEvent) => {
+        e.preventDefault();
+        const outcome = await install();
+        if (outcome === "IOS_INSTRUCTION_NEEDED") {
+            setShowInstallModal(true);
+        }
+    };
 
     // Dynamic Theme Logic
     const theme = useMemo(() => {
@@ -69,7 +82,7 @@ export default function Footer() {
     ];
 
     return (
-        <footer className={`w-full px-[5vw] lg:px-[8vw] pt-24 pb-8 ${theme.bg} ${theme.text} relative overflow-hidden flex flex-col items-center justify-between border-t ${theme.border} min-h-[50vh]`}>
+        <footer id="footer" className={`w-full px-[5vw] lg:px-[8vw] pt-24 pb-8 ${theme.bg} ${theme.text} relative overflow-hidden flex flex-col items-center justify-between border-t ${theme.border} min-h-[50vh]`}>
 
             {/* 1. LAYER 0: The Watermark (Static) */}
             <StaticFooterWatermark color={getWatermarkColor()} />
@@ -97,12 +110,17 @@ export default function Footer() {
                         <div className="flex flex-col gap-4 items-start mt-4">
                             <p className="font-mono text-[10px] uppercase tracking-widest text-[#888]">Download the App</p>
                             <div className="flex gap-2">
-                                <a href="#" className="block w-32 hover:opacity-80 transition-opacity">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on App Store" className="w-full h-auto" />
-                                </a>
-                                <a href="#" className="block w-32 hover:opacity-80 transition-opacity">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" className="w-full h-auto" />
-                                </a>
+                                <button
+                                    onClick={handleInstallClick}
+                                    className={`px-4 py-2 border ${theme.border} ${theme.secondaryText} hover:bg-black hover:text-white transition-colors text-[10px] uppercase tracking-widest font-mono flex items-center gap-2 rounded-sm`}
+                                >
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                        <polyline points="7 10 12 15 17 10" />
+                                        <line x1="12" y1="15" x2="12" y2="3" />
+                                    </svg>
+                                    Install Web App
+                                </button>
                             </div>
 
                             <a
@@ -183,6 +201,12 @@ export default function Footer() {
                     © {new Date().getFullYear()} Dakeek Technical Services LLC.
                 </p>
             </div>
+
+            <InstallModal
+                isOpen={showInstallModal}
+                onClose={() => setShowInstallModal(false)}
+                isIOS={isIOS}
+            />
         </footer>
     );
 }

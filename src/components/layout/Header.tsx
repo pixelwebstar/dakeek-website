@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import { serviceData } from "../../data/serviceData";
 import { useTransitionContext } from "../../lib/context/TransitionContext";
+import { usePWAInstall } from "../../hooks/usePWAInstall";
+import InstallModal from "../shared/InstallModal";
 
 const links = [
     { href: "/", label: "HOME" },
@@ -23,8 +25,8 @@ export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const { isLoaded } = useTransitionContext();
-
-
+    const { install, isIOS } = usePWAInstall();
+    const [showInstallModal, setShowInstallModal] = useState(false);
 
     const { scrollYProgress } = useScroll();
     const scaleX = useSpring(scrollYProgress, {
@@ -34,10 +36,8 @@ export default function Header() {
     });
 
     useEffect(() => {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
         if ("scrollRestoration" in history) {
-
             history.scrollRestoration = "manual";
         }
         window.scrollTo(0, 0);
@@ -49,7 +49,6 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Lock body scroll when menu is open
     useEffect(() => {
         if (isMenuOpen) {
             document.body.style.overflow = "hidden";
@@ -58,17 +57,19 @@ export default function Header() {
         }
     }, [isMenuOpen]);
 
-    // Dynamic Theme Logic for Progress Bar
-    // Dynamic Theme Logic for Progress Bar
+    const handleInstallClick = async (e: React.MouseEvent) => {
+        e.preventDefault();
+        const outcome = await install();
+        if (outcome === "IOS_INSTRUCTION_NEEDED") {
+            setShowInstallModal(true);
+        }
+    };
+
     const progressBarColor = (() => {
         const pathParts = pathname?.split('/') || [];
         if (pathParts[1] === 'services' && pathParts[2]) {
-            // We need to import serviceData to use this.
-            // But Header is a client component.
-            // We can lazy load or just rely on the path mapping if we imported it.
-            // Let's assume we import serviceData at the top.
             const service = serviceData[pathParts[2]];
-            if (service) return service.theme.hero1; // Use the primary hero color
+            if (service) return service.theme.hero1;
         }
         return "#A18262";
     })();
@@ -131,37 +132,45 @@ export default function Header() {
                         })}
                     </ul>
 
-                    {/* Get App Button (After Contact) */}
-                    <Link
-                        href="#"
+                    {/* Get App Button (Desktop) */}
+                    <button
+                        onClick={handleInstallClick}
                         className="px-6 py-2 bg-[#111] text-white rounded-full font-mono text-xs uppercase tracking-widest hover:bg-[#A18262] transition-colors border border-transparent hover:border-[#A18262]/20 shadow-lg shadow-black/5"
                     >
                         Get App
-                    </Link>
-
-
+                    </button>
                 </nav>
 
 
-                {/* Mobile Menu Toggle (Custom Animated Icon) */}
-                <button
-                    className="md:hidden relative z-[200] w-10 h-10 flex flex-col justify-center items-center gap-[6px] group"
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    aria-label="Toggle Menu"
-                >
-                    <motion.span
-                        animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                        className="w-8 h-[2px] bg-[#111] block rounded-full"
-                    />
-                    <motion.span
-                        animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                        className="w-8 h-[2px] bg-[#111] block rounded-full"
-                    />
-                    <motion.span
-                        animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                        className="w-8 h-[2px] bg-[#111] block rounded-full"
-                    />
-                </button>
+                <div className="flex items-center gap-4 md:hidden">
+                    {/* Mobile Get App Button (Visible on Navbar) */}
+                    <button
+                        onClick={handleInstallClick}
+                        className="px-4 py-2 bg-[#111] text-white rounded-full font-mono text-[10px] uppercase tracking-widest hover:bg-[#A18262] transition-colors border border-transparent shadow-md whitespace-nowrap"
+                    >
+                        Get App
+                    </button>
+
+                    {/* Mobile Menu Toggle (Custom Animated Icon) */}
+                    <button
+                        className="relative z-[200] w-10 h-10 flex flex-col justify-center items-center gap-[6px] group"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        aria-label="Toggle Menu"
+                    >
+                        <motion.span
+                            animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                            className="w-8 h-[2px] bg-[#111] block rounded-full"
+                        />
+                        <motion.span
+                            animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+                            className="w-8 h-[2px] bg-[#111] block rounded-full"
+                        />
+                        <motion.span
+                            animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                            className="w-8 h-[2px] bg-[#111] block rounded-full"
+                        />
+                    </button>
+                </div>
 
                 {/* Mobile Scroller */}
                 <motion.div
@@ -199,20 +208,6 @@ export default function Header() {
                             ))}
                         </div>
 
-                        {/* Mobile Get App Button */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.4 }}
-                        >
-                            <Link
-                                href="#"
-                                className="inline-flex px-8 py-3 bg-[#111] text-white rounded-full font-mono text-sm uppercase tracking-widest hover:bg-[#A18262] transition-colors"
-                            >
-                                Get App
-                            </Link>
-                        </motion.div>
-
                         {/* Mobile Footer Info */}
                         <motion.div
                             initial={{ opacity: 0 }}
@@ -234,7 +229,14 @@ export default function Header() {
                         </motion.div>
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence >
+
+            {/* PWA Install Modal */}
+            <InstallModal
+                isOpen={showInstallModal}
+                onClose={() => setShowInstallModal(false)}
+                isIOS={isIOS}
+            />
         </>
     );
 }
