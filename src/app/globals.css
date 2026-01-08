@@ -179,6 +179,35 @@ html {
   animation: progress-bar 0.5s ease-out forwards;
 }
 
+/* Ultra-fast preloader */
+@keyframes preloader-exit {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes preloader-progress {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.animate-preloader-exit {
+  animation: preloader-exit 0.2s ease-in forwards;
+}
+
+.animate-preloader-progress {
+  animation: preloader-progress 0.2s ease-out forwards;
+}
+
 /* Hero staggered fade-in animation */
 @keyframes hero-fade {
   from {
@@ -210,4 +239,72 @@ html {
 
 .animate-ticker {
   animation: ticker-scroll 30s linear infinite;
+}
+
+/* Page fade-in - instant, no JS blocking */
+@keyframes page-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-page-fade {
+  animation: page-fade 0.2s ease-out forwards;
+}
+
+/* Header animations */
+@keyframes header-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-header-fade {
+  opacity: 0;
+  animation: header-fade 0.4s ease-out forwards;
+}
+
+/* Mobile menu slide */
+@keyframes menu-slide {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-slide {
+  animation: menu-slide 0.3s ease-out forwards;
+}
+
+/* Menu item stagger */
+@keyframes menu-item {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-menu-item {
+  opacity: 0;
+  animation: menu-item 0.3s ease-out forwards;
 }

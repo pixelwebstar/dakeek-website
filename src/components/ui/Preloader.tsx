@@ -4,49 +4,40 @@ import { useEffect, useState } from "react";
 import { useTransitionContext } from "../../lib/context/TransitionContext";
 
 /**
- * Ultra-optimized Preloader using CSS animations only.
- * No Framer Motion - pure CSS for maximum performance.
+ * Ultra-fast Preloader - 300ms total, CSS only
  */
 export default function Preloader() {
     const { setLoaded } = useTransitionContext();
-    const [isVisible, setIsVisible] = useState(true);
+    const [phase, setPhase] = useState<'show' | 'exit' | 'done'>('show');
 
     useEffect(() => {
-        // Fast exit - 500ms total
-        const timer = setTimeout(() => {
-            setIsVisible(false);
-            // Allow exit animation to complete
-            setTimeout(() => setLoaded(true), 400);
-        }, 500);
+        // Show for 200ms then exit
+        const showTimer = setTimeout(() => setPhase('exit'), 200);
 
-        return () => clearTimeout(timer);
+        // Remove completely after exit animation
+        const exitTimer = setTimeout(() => {
+            setPhase('done');
+            setLoaded(true);
+        }, 400);
+
+        return () => {
+            clearTimeout(showTimer);
+            clearTimeout(exitTimer);
+        };
     }, [setLoaded]);
 
-    if (!isVisible) {
-        return (
-            <div
-                className="fixed inset-0 z-[9999] bg-[#0c0a09] animate-slide-up pointer-events-none"
-                style={{ animationDuration: '0.4s', animationFillMode: 'forwards' }}
-            />
-        );
-    }
+    if (phase === 'done') return null;
 
     return (
-        <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0c0a09]">
-            {/* Logo text with CSS animation */}
-            <h1
-                className="text-6xl md:text-9xl font-mono font-bold tracking-tighter text-[#E7E5E4] animate-fade-in"
-                style={{ animationDuration: '0.3s' }}
-            >
+        <div
+            className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#0c0a09] ${phase === 'exit' ? 'animate-preloader-exit' : ''
+                }`}
+        >
+            <h1 className="text-5xl md:text-7xl font-mono font-bold tracking-tighter text-[#E7E5E4]">
                 DAKEEK
             </h1>
-
-            {/* Progress bar - CSS only */}
             <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#333]">
-                <div
-                    className="h-full bg-[#A18262] animate-progress-bar"
-                    style={{ animationDuration: '0.5s', animationFillMode: 'forwards' }}
-                />
+                <div className="h-full bg-[#A18262] animate-preloader-progress" />
             </div>
         </div>
     );

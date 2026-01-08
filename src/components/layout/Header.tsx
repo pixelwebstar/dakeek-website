@@ -4,9 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "../../lib/utils";
 import { useEffect, useState } from "react";
-import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import { serviceData } from "../../data/serviceData";
-import { useTransitionContext } from "../../lib/context/TransitionContext";
 import { usePWAInstall } from "../../hooks/usePWAInstall";
 import InstallModal from "../shared/InstallModal";
 
@@ -24,16 +22,9 @@ export default function Header() {
     const [mounted, setMounted] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const { isLoaded } = useTransitionContext();
+    const [scrollProgress, setScrollProgress] = useState(0);
     const { install, isIOS } = usePWAInstall();
     const [showInstallModal, setShowInstallModal] = useState(false);
-
-    const { scrollYProgress } = useScroll();
-    const scaleX = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-    });
 
     useEffect(() => {
         setMounted(true);
@@ -44,6 +35,10 @@ export default function Header() {
 
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
+            // Calculate scroll progress
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? window.scrollY / docHeight : 0;
+            setScrollProgress(progress);
         };
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
@@ -84,12 +79,8 @@ export default function Header() {
                         : "bg-transparent py-6"
                 )}
             >
-                {/* Logo */}
-                <motion.div
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={isLoaded ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                >
+                {/* Logo - CSS animation */}
+                <div className="animate-header-fade" style={{ animationDelay: '0s' }}>
                     <Link
                         href="/"
                         className="relative z-50 text-3xl font-serif font-bold tracking-tighter text-[#111]"
@@ -97,7 +88,7 @@ export default function Header() {
                     >
                         Dakeek.
                     </Link>
-                </motion.div>
+                </div>
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
@@ -105,12 +96,10 @@ export default function Header() {
                         {links.map((link, i) => {
                             const isActive = mounted && pathname === link.href;
                             return (
-                                <motion.li
+                                <li
                                     key={link.href}
-                                    className="relative group"
-                                    initial={{ y: -20, opacity: 0 }}
-                                    animate={isLoaded ? { y: 0, opacity: 1 } : { y: -20, opacity: 0 }}
-                                    transition={{ duration: 0.5, delay: 0.1 + (i * 0.1), ease: "easeOut" }}
+                                    className="relative group animate-header-fade"
+                                    style={{ animationDelay: `${0.05 + i * 0.05}s` }}
                                 >
                                     <Link
                                         href={link.href}
@@ -127,7 +116,7 @@ export default function Header() {
                                             isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                                         )}
                                     />
-                                </motion.li>
+                                </li>
                             );
                         })}
                     </ul>
@@ -151,85 +140,82 @@ export default function Header() {
                         Get App
                     </button>
 
-                    {/* Mobile Menu Toggle (Custom Animated Icon) */}
+                    {/* Mobile Menu Toggle (CSS only) */}
                     <button
                         className="relative z-[200] w-10 h-10 flex flex-col justify-center items-center gap-[6px] group"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         aria-label="Toggle Menu"
                     >
-                        <motion.span
-                            animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                            className="w-8 h-[2px] bg-[#111] block rounded-full"
+                        <span
+                            className={cn(
+                                "w-8 h-[2px] bg-[#111] block rounded-full transition-transform duration-300",
+                                isMenuOpen && "rotate-45 translate-y-2"
+                            )}
                         />
-                        <motion.span
-                            animate={isMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-                            className="w-8 h-[2px] bg-[#111] block rounded-full"
+                        <span
+                            className={cn(
+                                "w-8 h-[2px] bg-[#111] block rounded-full transition-opacity duration-300",
+                                isMenuOpen && "opacity-0"
+                            )}
                         />
-                        <motion.span
-                            animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                            className="w-8 h-[2px] bg-[#111] block rounded-full"
+                        <span
+                            className={cn(
+                                "w-8 h-[2px] bg-[#111] block rounded-full transition-transform duration-300",
+                                isMenuOpen && "-rotate-45 -translate-y-2"
+                            )}
                         />
                     </button>
                 </div>
 
-                {/* Mobile Scroller */}
-                <motion.div
-                    className="absolute bottom-0 left-0 h-[3px] origin-left z-50"
-                    style={{ scaleX, width: "100%", backgroundColor: progressBarColor }}
+                {/* Progress Bar - CSS only */}
+                <div
+                    className="absolute bottom-0 left-0 h-[3px] origin-left z-50 transition-transform duration-100"
+                    style={{
+                        width: "100%",
+                        backgroundColor: progressBarColor,
+                        transform: `scaleX(${scrollProgress})`
+                    }}
                 />
             </header>
 
-            {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {isMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: "-100%" }}
-                        animate={{ opacity: 1, y: "0%" }}
-                        exit={{ opacity: 0, y: "-100%" }}
-                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                        className="fixed inset-0 z-[90] bg-[#FAFAF9] flex flex-col pt-32 px-6 md:hidden text-center"
-                    >
-                        <div className="flex flex-col gap-8 items-center">
-                            {links.map((link, index) => (
-                                <motion.div
-                                    key={link.href}
-                                    initial={{ opacity: 0, x: -20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: 0.1 + index * 0.05 }}
-                                >
-                                    <Link
-                                        href={link.href}
-                                        onClick={() => setIsMenuOpen(false)}
-                                        className="text-4xl font-serif text-[#111] hover:text-[#A18262] transition-colors text-center w-full block"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        {/* Mobile Footer Info */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                            className="mt-auto pb-12 space-y-4"
-                        >
-                            <div className="h-[1px] w-full bg-[#E5E5E5] mb-6" />
-                            <a
-                                href="https://wa.me/971542472151?text=Hello%20Dakeek%20Residential%20Services%2C%20I%20would%20like%20to%20book%20a%20service."
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={() => setIsMenuOpen(false)}
-                                className="block w-full py-4 bg-[#25D366] text-white text-center font-bold uppercase tracking-widest mt-4"
+            {/* Mobile Menu Overlay - CSS animation */}
+            {isMenuOpen && (
+                <div
+                    className="fixed inset-0 z-[90] bg-[#FAFAF9] flex flex-col pt-32 px-6 md:hidden text-center animate-menu-slide"
+                >
+                    <div className="flex flex-col gap-8 items-center">
+                        {links.map((link, index) => (
+                            <div
+                                key={link.href}
+                                className="animate-menu-item"
+                                style={{ animationDelay: `${0.05 + index * 0.03}s` }}
                             >
-                                WhatsApp Now
-                            </a>
+                                <Link
+                                    href={link.href}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className="text-4xl font-serif text-[#111] hover:text-[#A18262] transition-colors text-center w-full block"
+                                >
+                                    {link.label}
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
 
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence >
+                    {/* Mobile Footer Info */}
+                    <div className="mt-auto pb-12 space-y-4">
+                        <div className="h-[1px] w-full bg-[#E5E5E5] mb-6" />
+                        <a
+                            href="https://wa.me/971542472151?text=Hello%20Dakeek%20Residential%20Services%2C%20I%20would%20like%20to%20book%20a%20service."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setIsMenuOpen(false)}
+                            className="block w-full py-4 bg-[#25D366] text-white text-center font-bold uppercase tracking-widest mt-4"
+                        >
+                            WhatsApp Now
+                        </a>
+                    </div>
+                </div>
+            )}
 
             {/* PWA Install Modal */}
             <InstallModal
