@@ -1,3 +1,4 @@
+import React from "react";
 import { serviceData } from "@/data/serviceData";
 import { DUBAI_AREAS } from "@/lib/constants";
 import { getAreaDataBySlug, AREA_DATA } from "@/data/areaData";
