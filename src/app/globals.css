@@ -59,7 +59,7 @@
     background-color: #FAFAF9;
     background-image:
       radial-gradient(at 50% 0%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
-      url("https://grainy-gradients.vercel.app/noise.svg");
+      url("/images/noise.svg");
     background-repeat: no-repeat, repeat;
     background-size: 100% 100vh, auto;
     /* Careful with blend modes, keep it simple for readability */
@@ -311,4 +311,20 @@ html {
 .animate-menu-item {
   opacity: 0;
   animation: menu-item 0.3s ease-out forwards;
+}
+
+/* FORCED ACCESSIBILITY OVERRIDES */
+.text-gray-400,
+.text-gray-500,
+.text-gray-600,
+.text-stone-400,
+.text-stone-500,
+.text-neutral-400,
+.text-neutral-500 {
+  color: #171717 !important;
+}
+
+nav a,
+.nav-link {
+  color: #0a0a0a !important;
 }

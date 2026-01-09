@@ -20,7 +20,6 @@ const nextConfig: NextConfig = {
   // Enable experimental optimizations - DISABLING optimizeCss as it caused TBT regression
   experimental: {
     optimizeCss: false,
-    optimizePackageImports: ['lucide-react', 'date-fns', 'lodash'],
   },
   // Compiler optimizations
   compiler: {

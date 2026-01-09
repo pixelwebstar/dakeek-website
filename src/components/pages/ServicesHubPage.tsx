@@ -55,7 +55,7 @@ export default function ServicesHubPage() {
 
             {/* 2. THE PROCESS (Peace of Mind) */}
             <section className="py-24 lg:py-32 px-[5vw] lg:px-[8vw] bg-[#FAFAF9] border-b border-[#E5E5E0] relative overflow-hidden">
-                <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
+                <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply bg-[url('/images/noise.svg')] bg-repeat" />
 
                 <div className="max-w-5xl mx-auto relative z-10">
                     <SectionWrapper className="text-center mb-16">
@@ -87,7 +87,7 @@ export default function ServicesHubPage() {
                             className={`relative py-24 lg:py-40 px-[5vw] lg:px-[8vw] ${bgClass} overflow-hidden`}
                         >
                             {/* Texture Overlay */}
-                            <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
+                            <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply bg-[url('/images/noise.svg')] bg-repeat" />
 
                             <div className="max-w-7xl mx-auto relative z-10">
                                 <SectionWrapper delay={0.1}>

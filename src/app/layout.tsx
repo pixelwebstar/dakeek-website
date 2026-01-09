@@ -99,8 +99,7 @@ export default function RootLayout({
         {/* Preconnect to critical origins for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://grainy-gradients.vercel.app" />
-        <link rel="dns-prefetch" href="https://grainy-gradients.vercel.app" />
+        <link rel="preload" href="/images/noise.svg" as="image" />
         <style dangerouslySetInnerHTML={{
           __html: `
           body{margin:0;background-color:#FAFAF9;color:#111;font-family:var(--font-geist-sans),ui-sans-serif,system-ui,sans-serif}

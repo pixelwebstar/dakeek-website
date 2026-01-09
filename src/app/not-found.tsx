@@ -6,7 +6,7 @@ export default function NotFound() {
         <div className="h-screen w-full flex flex-col items-center justify-center bg-[#111] text-white overflow-hidden p-6 relative">
 
             {/* Ambient Noise / Glitch Overlay */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }}></div>
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("/images/noise.svg")' }}></div>
 
             {/* Top Status Bar */}
             <div className="absolute top-8 left-8 flex items-center gap-2 font-mono text-xs text-[#333] tracking-widest uppercase">

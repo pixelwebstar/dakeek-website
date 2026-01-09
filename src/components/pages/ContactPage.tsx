@@ -127,7 +127,7 @@ export default function ContactPage() {
                 <div className="relative h-full flex items-center justify-center p-6 lg:p-24 bg-[#0a0a0a]">
 
                     {/* Background Noise/Gradient */}
-                    <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] animate-grain"></div>
+                    <div className="absolute inset-0 bg-[url('/images/noise.svg')] opacity-[0.03] animate-grain"></div>
                     <div className="absolute inset-0 bg-gradient-to-br from-[#0c0c0c] via-[#111] to-[#0c0c0c] z-0"></div>
 
                     <div className="w-full max-w-xl relative z-10">

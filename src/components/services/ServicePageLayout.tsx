@@ -177,7 +177,7 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
             {/* 4.5 Why Dakeek for [Service]? */}
             {pageData.uniqueBenefits && pageData.uniqueBenefits.length > 0 && (
                 <section className="py-24 lg:py-32 px-[5vw] lg:px-[8vw] bg-[#FAFAF9] relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-30 pointer-events-none mix-blend-multiply bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat" />
+                    <div className="absolute inset-0 opacity-30 pointer-events-none mix-blend-multiply bg-[url('/images/noise.svg')] bg-repeat" />
                     <div className="max-w-4xl mx-auto relative z-10">
                         <h3 className="text-3xl md:text-4xl font-serif text-[#111] mb-12 text-center">
                             Why Dakeek for <span className="italic text-[#A18262]">{pageData.hero.title}</span>?
@@ -257,7 +257,7 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
             {/* 5. Trust & Promise (Premium White) */}
             <section className={`w-full px-[5vw] lg:px-[8vw] py-24 lg:py-32 relative overflow-hidden bg-white border-t border-structure`}>
                 {/* Noise Texture */}
-                <div className="absolute inset-0 w-full h-full opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none mix-blend-multiply"></div>
+                <div className="absolute inset-0 w-full h-full opacity-[0.03] bg-[url('/images/noise.svg')] pointer-events-none mix-blend-multiply"></div>
 
                 <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10">
                     <div className={`p-4 rounded-full bg-white border border-black/5 mb-8 shadow-xl`}>
