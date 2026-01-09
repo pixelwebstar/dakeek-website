@@ -1,6 +1,8 @@
-# Browsers that have native support for modern JS features
-# This eliminates polyfills for Array.prototype.at, flat, flatMap, etc.
-# Saves ~14KB of legacy JavaScript
-
-defaults and supports es6-module
-maintained node versions
+chrome >= 90
+firefox >= 90
+edge >= 90
+safari >= 15
+ios >= 15
+not dead
+not ie 11
+not op_mini all

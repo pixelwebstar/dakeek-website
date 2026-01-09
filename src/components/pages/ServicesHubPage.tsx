@@ -33,7 +33,7 @@ export default function ServicesHubPage() {
                 />
 
                 <SectionWrapper className="max-w-4xl mx-auto text-center relative z-10 px-6">
-                    <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
+                    <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#555] bg-white/50">
                         The Dakeek Standard
                     </span>
                     <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-[#111]">
@@ -60,7 +60,7 @@ export default function ServicesHubPage() {
                 <div className="max-w-5xl mx-auto relative z-10">
                     <SectionWrapper className="text-center mb-16">
                         <h2 className="text-4xl font-serif text-[#111] mb-4">Peace of mind, standard.</h2>
-                        <p className="text-[#666] font-light max-w-lg mx-auto">
+                        <p className="text-[#555] font-light max-w-lg mx-auto">
                             We engineered a process that removes the anxiety of letting a stranger into your home.
                         </p>
                     </SectionWrapper>
@@ -141,7 +141,7 @@ export default function ServicesHubPage() {
                                                     </h2>
                                                 </Link>
 
-                                                <p className="text-[#666] text-lg lg:text-xl font-light leading-relaxed max-w-md">
+                                                <p className="text-[#555] text-lg lg:text-xl font-light leading-relaxed max-w-md">
                                                     {service.intro.heading}
                                                 </p>
                                             </div>
@@ -150,10 +150,10 @@ export default function ServicesHubPage() {
                                             <div className="space-y-8 pt-8 border-t border-black/5 pb-12">
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                                     <div className="space-y-4">
-                                                        <h4 className="font-mono text-xs uppercase tracking-wider text-black/40 flex items-center gap-2">
+                                                        <h3 className="font-mono text-xs uppercase tracking-wider text-[#555] flex items-center gap-2">
                                                             <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
                                                             Common Issues
-                                                        </h4>
+                                                        </h3>
                                                         <ul className="space-y-3">
                                                             {(slug === 'ac' ? [
                                                                 "Warm air blowing", "Water leakage & drips", "Strange noises/rattling", "Bad odors/smells", "High energy bills"
@@ -180,10 +180,10 @@ export default function ServicesHubPage() {
                                                     </div>
 
                                                     <div className="space-y-4 md:border-l md:border-black/5 md:pl-8 pt-8 md:pt-0 border-t border-black/5 md:border-t-0">
-                                                        <h4 className="font-mono text-xs uppercase tracking-wider text-black/40 flex items-center gap-2">
+                                                        <h3 className="font-mono text-xs uppercase tracking-wider text-[#555] flex items-center gap-2">
                                                             <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                                                             The Dakeek Fix
-                                                        </h4>
+                                                        </h3>
                                                         <ul className="space-y-3">
                                                             {(slug === 'ac' ? [
                                                                 "Coil chemical cleaning", "Gas top-up (Freon)", "Drain line flushing", "Thermostat calibration", "Duct sanitization"

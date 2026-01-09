@@ -33,15 +33,34 @@ export default function Header() {
         }
         window.scrollTo(0, 0);
 
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-            // Calculate scroll progress
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = docHeight > 0 ? window.scrollY / docHeight : 0;
-            setScrollProgress(progress);
+        let rafId: number;
+        let docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+        const handleResize = () => {
+            docHeight = document.documentElement.scrollHeight - window.innerHeight;
         };
+
+        const handleScroll = () => {
+            if (rafId) return;
+            rafId = requestAnimationFrame(() => {
+                setScrolled(window.scrollY > 20);
+                // Calculate scroll progress optimized
+                const progress = docHeight > 0 ? window.scrollY / docHeight : 0;
+                setScrollProgress(progress);
+                rafId = 0;
+            });
+        };
+
         window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
+        window.addEventListener("resize", handleResize, { passive: true });
+        // Initial calc
+        handleResize();
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("resize", handleResize);
+            if (rafId) cancelAnimationFrame(rafId);
+        };
     }, []);
 
     useEffect(() => {

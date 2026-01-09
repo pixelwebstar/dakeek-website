@@ -16,9 +16,10 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
-  // Enable experimental optimizations
+  // Enable experimental optimizations - DISABLING optimizeCss as it caused TBT regression
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
+    optimizePackageImports: ['lucide-react', 'date-fns', 'lodash'],
   },
   // Compiler optimizations
   compiler: {
