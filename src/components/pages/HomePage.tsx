@@ -90,7 +90,7 @@ export default function HomePage() {
                         <span className="block font-mono text-xs text-[#A18262] uppercase tracking-[0.2em] mb-4">The Scope</span>
                         <h2 className="text-4xl font-serif italic text-[#111]">Our Services</h2>
                     </div>
-                    <Link href="/services" className="text-xs font-mono text-[#555] hover:text-[#111] transition-colors uppercase tracking-widest">Full Specifications</Link>
+                    <Link href="/services" className="text-xs font-mono text-[#333] hover:text-[#111] transition-colors uppercase tracking-widest">Full Specifications</Link>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -211,7 +211,7 @@ export default function HomePage() {
                         <h2 className="text-5xl md:text-7xl font-serif italic font-light mb-12">
                             Simply <br /> Better.
                         </h2>
-                        <p className="text-[#555] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+                        <p className="text-[#333] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
                             We understand that inviting someone into your home is a matter of trust.
                             That is why we focus on being respectful, clean, and invisible. We fix the problem, and then we disappear.
                         </p>
@@ -266,7 +266,7 @@ export default function HomePage() {
             <section className="w-full bg-[#FAFAF9] px-[5vw] lg:px-[8vw] py-24 lg:py-32 flex flex-col md:flex-row items-center justify-between gap-16">
                 <div className="max-w-2xl">
                     <h2 className="text-4xl md:text-5xl font-serif italic mb-6">The Dakeek Promise.</h2>
-                    <p className="text-xl font-light text-[#555] mb-8">
+                    <p className="text-xl font-light text-[#333] mb-8">
                         If the issue returns within 30 days, so do we. <br />
                         <span className="text-[#A18262] font-medium">Free of charge.</span> No questions asked.
                     </p>

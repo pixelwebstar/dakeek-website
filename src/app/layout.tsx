@@ -101,6 +101,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://grainy-gradients.vercel.app" />
         <link rel="dns-prefetch" href="https://grainy-gradients.vercel.app" />
+        <style dangerouslySetInnerHTML={{
+          __html: `
+          body{margin:0;background-color:#FAFAF9;color:#111;font-family:var(--font-geist-sans),ui-sans-serif,system-ui,sans-serif}
+          .hero{contain:layout paint;content-visibility:auto}
+        `
+        }} />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0c0a09" />

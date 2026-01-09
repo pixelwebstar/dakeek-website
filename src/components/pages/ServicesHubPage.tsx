@@ -33,14 +33,14 @@ export default function ServicesHubPage() {
                 />
 
                 <SectionWrapper className="max-w-4xl mx-auto text-center relative z-10 px-6">
-                    <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#555] bg-white/50">
+                    <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#333] bg-white/50">
                         The Dakeek Standard
                     </span>
                     <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-[#111]">
                         Excellence. <br />
-                        <span className="italic text-[#555]">Standardized.</span>
+                        <span className="italic text-[#333]">Standardized.</span>
                     </h1>
-                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#555] mb-12">
+                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#333] mb-12">
                         AC, Plumbing, Electrical, and more. One call. One team. One standard.
                     </p>
                 </SectionWrapper>
@@ -60,7 +60,7 @@ export default function ServicesHubPage() {
                 <div className="max-w-5xl mx-auto relative z-10">
                     <SectionWrapper className="text-center mb-16">
                         <h2 className="text-4xl font-serif text-[#111] mb-4">Peace of mind, standard.</h2>
-                        <p className="text-[#555] font-light max-w-lg mx-auto">
+                        <p className="text-[#333] font-light max-w-lg mx-auto">
                             We engineered a process that removes the anxiety of letting a stranger into your home.
                         </p>
                     </SectionWrapper>
@@ -141,7 +141,7 @@ export default function ServicesHubPage() {
                                                     </h2>
                                                 </Link>
 
-                                                <p className="text-[#555] text-lg lg:text-xl font-light leading-relaxed max-w-md">
+                                                <p className="text-[#333] text-lg lg:text-xl font-light leading-relaxed max-w-md">
                                                     {service.intro.heading}
                                                 </p>
                                             </div>
@@ -150,7 +150,7 @@ export default function ServicesHubPage() {
                                             <div className="space-y-8 pt-8 border-t border-black/5 pb-12">
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                                     <div className="space-y-4">
-                                                        <h3 className="font-mono text-xs uppercase tracking-wider text-[#555] flex items-center gap-2">
+                                                        <h3 className="font-mono text-xs uppercase tracking-wider text-[#333] flex items-center gap-2">
                                                             <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
                                                             Common Issues
                                                         </h3>
@@ -172,7 +172,7 @@ export default function ServicesHubPage() {
                                                             ] : [
                                                                 "Custom projects", "Complex installations", "Unique repairs", "Renovations", "Special requests"
                                                             ]).map((issue, i) => (
-                                                                <li key={i} className="text-sm text-[#555] font-serif italic flex items-start gap-2">
+                                                                <li key={i} className="text-sm text-[#333] font-serif italic flex items-start gap-2">
                                                                     <span className="text-xs text-red-300 mt-1">•</span> {issue}
                                                                 </li>
                                                             ))}
@@ -180,7 +180,7 @@ export default function ServicesHubPage() {
                                                     </div>
 
                                                     <div className="space-y-4 md:border-l md:border-black/5 md:pl-8 pt-8 md:pt-0 border-t border-black/5 md:border-t-0">
-                                                        <h3 className="font-mono text-xs uppercase tracking-wider text-[#555] flex items-center gap-2">
+                                                        <h3 className="font-mono text-xs uppercase tracking-wider text-[#333] flex items-center gap-2">
                                                             <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                                                             The Dakeek Fix
                                                         </h3>
