@@ -87,7 +87,7 @@ export default function HomePage() {
             <section id="services" className="w-full px-[5vw] lg:px-[8vw] py-16 lg:py-32 space-y-16 bg-[#FAFAF9]">
                 <div className="flex justify-between items-end border-b border-[#E5E5E5] pb-8">
                     <div>
-                        <span className="block font-mono text-xs text-[#A18262] uppercase tracking-[0.2em] mb-4">The Scope</span>
+                        <span className="block font-mono text-xs text-[#6B5344] uppercase tracking-[0.2em] mb-4">The Scope</span>
                         <h2 className="text-4xl font-serif italic text-[#111]">Our Services</h2>
                     </div>
                     <Link href="/services" className="text-xs font-mono text-[#333] hover:text-[#111] transition-colors uppercase tracking-widest">Full Specifications</Link>
@@ -171,7 +171,7 @@ export default function HomePage() {
             {/* 6. HOW IT WORKS (Human Process) - Compact Revamp */}
             <section className="w-full bg-[#FAFAF9] pt-0 pb-24 lg:pb-32 border-b border-[#E5E5E5] overflow-hidden">
                 <div className="px-[8vw] mb-12 text-center">
-                    <span className="block font-mono text-xs text-[#A18262] uppercase tracking-[0.2em] mb-4">How it Works</span>
+                    <span className="block font-mono text-xs text-[#6B5344] uppercase tracking-[0.2em] mb-4">How it Works</span>
                     <h2 className="text-5xl font-serif text-[#111]">Simplicity Itself.</h2>
                 </div>
 
