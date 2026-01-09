@@ -143,7 +143,7 @@ export default function QueriesPage() {
                                         onClick={() => { setActiveCategory(cat.id); setOpenQuestion(null); }}
                                         className={`shrink-0 w-64 p-5 rounded-xl border snap-center text-left transition-all ${activeCategory === cat.id
                                             ? "bg-[#111] text-white border-[#111] shadow-lg"
-                                            : "bg-white text-[#666] border-black/5"
+                                            : "bg-white text-[#555] border-black/5"
                                             }`}
                                     >
                                         <div className="flex items-center justify-between mb-3">
@@ -152,7 +152,7 @@ export default function QueriesPage() {
                                             </span>
                                             {activeCategory === cat.id && <div className="w-1.5 h-1.5 rounded-full bg-bronze" />}
                                         </div>
-                                        <p className="text-xs text-stone-400">
+                                        <p className={`text-xs transition-colors ${activeCategory === cat.id ? "text-stone-400" : "text-[#777]"}`}>
                                             {cat.description}
                                         </p>
                                     </button>
