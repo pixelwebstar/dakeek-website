@@ -101,14 +101,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preload" href="/images/noise.svg" as="image" />
-        <style dangerouslySetInnerHTML={{
-          __html: `
-          /* Critical above-fold styles */
-          body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
-          .hero-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-          .get-app-button { display: inline-block; padding: 0.75rem 2rem; background: #000; color: #fff; border-radius: 9999px; text-decoration: none; }
-        `
-        }} />
+
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0c0a09" />
