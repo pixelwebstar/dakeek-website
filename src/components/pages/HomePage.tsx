@@ -98,7 +98,7 @@ export default function HomePage() {
                             title: "AC",
                             href: "/services/ac",
                             icon: IconAC,
-                            image: "/images/services/ac.jpg",
+                            image: "/images/services/ac.png",
                             features: ["Precision Cooling", "Install & Repair", "Split / Central"]
                         },
                         {

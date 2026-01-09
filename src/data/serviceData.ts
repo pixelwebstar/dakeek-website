@@ -135,7 +135,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "A flawless installation is the foundation of a decade of comfort. We calculate load, optimize placement, and calibrate airflow.",
                 icon: Wind,
                 details: ["Load Calculation", "Ductwork Design", "Efficiency Audits", "Smart Thermostats"],
-                image: "/images/services/ac.jpg" // Using reliable local asset
+                image: "/images/services/ac.png" // Using reliable local asset
             },
             {
                 id: "maintenance",
