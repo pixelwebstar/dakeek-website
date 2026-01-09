@@ -17,7 +17,7 @@ export function PhoneInput({ value, onChange, placeholder = "50 123 4567", error
                 flex items-center bg-slate-50/50 border rounded-xl overflow-hidden transition-all w-full
                 ${error
                     ? "border-red-200 bg-red-50/10 focus-within:ring-red-100 ring-1 ring-red-100"
-                    : "border-slate-200 focus-within:ring-2 focus-within:ring-slate-100 focus-within:border-[#A18262]"}
+                    : "border-slate-200 focus-within:ring-2 focus-within:ring-slate-100 focus-within:border-[#5A4A32]"}
             `}>
                 <PhoneInputFromLib
                     international

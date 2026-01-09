@@ -278,7 +278,7 @@ export default function AboutPage() {
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#E5E5E5]/50 to-transparent pointer-events-none" />
                 <div className="max-w-6xl mx-auto px-[5vw] lg:px-[8vw] flex flex-col md:flex-row items-center gap-16 relative z-10">
                     <div className="flex-1">
-                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#A18262] mb-6 block">The Dakeek App</span>
+                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#5A4A32] mb-6 block">The Dakeek App</span>
                         <h2 className="text-4xl md:text-6xl font-serif text-[#111] mb-6 leading-tight">
                             Your Home.<br />
                             <span className="italic text-[#666]">In your pocket.</span>

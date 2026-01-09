@@ -164,7 +164,7 @@ export default function ContactPage() {
                             <div className="absolute h-full w-[1px] bg-white/20"></div>
 
                             {/* Central Dot */}
-                            <div className="w-1.5 h-1.5 bg-[#A18262] rounded-full shadow-[0_0_10px_#A18262]"></div>
+                            <div className="w-1.5 h-1.5 bg-[#5A4A32] rounded-full shadow-[0_0_10px_#5A4A32]"></div>
                         </div>
                     </div>
                 </div>
@@ -186,14 +186,14 @@ export default function ContactPage() {
                 <div className="absolute top-1/2 right-4 -translate-y-1/2 flex flex-col gap-2 z-30">
                     <button
                         onClick={() => setZoom(prev => Math.min(prev + 1, 20))}
-                        className="w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-[#A18262] transition-colors shadow-lg active:scale-95"
+                        className="w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-[#5A4A32] transition-colors shadow-lg active:scale-95"
                         aria-label="Zoom In"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
                     </button>
                     <button
                         onClick={() => setZoom(prev => Math.max(prev - 1, 1))}
-                        className="w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-[#A18262] transition-colors shadow-lg active:scale-95"
+                        className="w-10 h-10 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-[#5A4A32] transition-colors shadow-lg active:scale-95"
                         aria-label="Zoom Out"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" /></svg>
@@ -206,10 +206,10 @@ export default function ContactPage() {
                         className="bg-black/90 backdrop-blur-md border border-white/10 p-6 rounded-2xl pointer-events-auto shadow-2xl relative overflow-hidden"
                     >
                         {/* Decorative Corner */}
-                        <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#A18262]/20 to-transparent rounded-bl-3xl"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#5A4A32]/20 to-transparent rounded-bl-3xl"></div>
 
                         <div className="flex items-start gap-4">
-                            <div className="mt-1 w-10 h-10 rounded-full bg-[#A18262] text-white flex items-center justify-center shrink-0 shadow-lg">
+                            <div className="mt-1 w-10 h-10 rounded-full bg-[#5A4A32] text-white flex items-center justify-center shrink-0 shadow-lg">
                                 <MapPin className="w-5 h-5" />
                             </div>
                             <div>
@@ -222,7 +222,7 @@ export default function ContactPage() {
                                     href="https://maps.app.goo.gl/kXjXjXjXjXjXjXjX"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-[#A18262] hover:text-white transition-colors text-xs font-bold uppercase tracking-widest group/link"
+                                    className="inline-flex items-center gap-2 text-[#5A4A32] hover:text-white transition-colors text-xs font-bold uppercase tracking-widest group/link"
                                 >
                                     Get Directions <span className="group-hover/link:translate-x-1 transition-transform">→</span>
                                 </a>

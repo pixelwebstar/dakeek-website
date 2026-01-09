@@ -180,7 +180,7 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
                     <div className="absolute inset-0 opacity-30 pointer-events-none mix-blend-multiply bg-[url('/images/noise.svg')] bg-repeat" />
                     <div className="max-w-4xl mx-auto relative z-10">
                         <h3 className="text-3xl md:text-4xl font-serif text-[#111] mb-12 text-center">
-                            Why Dakeek for <span className="italic text-[#A18262]">{pageData.hero.title}</span>?
+                            Why Dakeek for <span className="italic text-[#5A4A32]">{pageData.hero.title}</span>?
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             {pageData.uniqueBenefits.map((benefit, i) => (
@@ -210,14 +210,14 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
                             <Link
                                 key={i}
                                 href={`/areas/${area.toLowerCase().replace(/ /g, '-')}`}
-                                className="px-4 py-2 text-sm bg-[#FAFAF9] text-[#555] rounded-full border border-black/5 hover:bg-[#A18262] hover:text-white hover:border-[#A18262] transition-colors"
+                                className="px-4 py-2 text-sm bg-[#FAFAF9] text-[#555] rounded-full border border-black/5 hover:bg-[#5A4A32] hover:text-white hover:border-[#5A4A32] transition-colors"
                             >
                                 {area}
                             </Link>
                         ))}
                         <Link
                             href="/contact"
-                            className="px-4 py-2 text-sm bg-[#111] text-white rounded-full hover:bg-[#A18262] transition-colors"
+                            className="px-4 py-2 text-sm bg-[#111] text-white rounded-full hover:bg-[#5A4A32] transition-colors"
                         >
                             + 27 More Areas
                         </Link>
@@ -242,7 +242,7 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
                                         href={`/services/${relatedSlug}`}
                                         className="group p-8 bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-lg transition-shadow text-center"
                                     >
-                                        <span className="block text-lg font-serif text-[#111] group-hover:text-[#A18262] transition-colors mb-2">
+                                        <span className="block text-lg font-serif text-[#111] group-hover:text-[#5A4A32] transition-colors mb-2">
                                             {related.hero.title}
                                         </span>
                                         <span className="text-sm text-[#888]">{related.hero.tag}</span>

@@ -39,9 +39,9 @@ export function TrustIndicators() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="bg-white border border-[#E5E5E5] rounded-xl p-6 text-center hover:border-[#A18262] hover:shadow-lg transition-all group"
+                className="bg-white border border-[#E5E5E5] rounded-xl p-6 text-center hover:border-[#5A4A32] hover:shadow-lg transition-all group"
             >
-                <Shield className="w-8 h-8 text-[#A18262] mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <Shield className="w-8 h-8 text-[#5A4A32] mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <p className="text-2xl font-serif font-bold text-[#111] mb-1">Licensed</p>
                 <p className="text-xs text-gray-500 font-mono uppercase tracking-wider">Fully Certified</p>
             </motion.div>
@@ -52,11 +52,11 @@ export function TrustIndicators() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="bg-white border border-[#E5E5E5] rounded-xl p-6 text-center hover:border-[#A18262] hover:shadow-lg transition-all group"
+                className="bg-white border border-[#E5E5E5] rounded-xl p-6 text-center hover:border-[#5A4A32] hover:shadow-lg transition-all group"
             >
                 <div className="flex justify-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-[#A18262] text-[#A18262]" />
+                        <Star key={i} className="w-4 h-4 fill-[#5A4A32] text-[#5A4A32]" />
                     ))}
                 </div>
                 <p className="text-2xl font-serif font-bold text-[#111] mb-1">
@@ -71,9 +71,9 @@ export function TrustIndicators() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-white border border-[#E5E5E5] rounded-xl p-6 text-center hover:border-[#A18262] hover:shadow-lg transition-all group"
+                className="bg-white border border-[#E5E5E5] rounded-xl p-6 text-center hover:border-[#5A4A32] hover:shadow-lg transition-all group"
             >
-                <Users className="w-8 h-8 text-[#A18262] mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <Users className="w-8 h-8 text-[#5A4A32] mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <p className="text-2xl font-serif font-bold text-[#111] mb-1">
                     <AnimatedCounter target={50} />
                 </p>
@@ -86,9 +86,9 @@ export function TrustIndicators() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="bg-white border border-[#E5E5E5] rounded-xl p-6 text-center hover:border-[#A18262] hover:shadow-lg transition-all group"
+                className="bg-white border border-[#E5E5E5] rounded-xl p-6 text-center hover:border-[#5A4A32] hover:shadow-lg transition-all group"
             >
-                <Award className="w-8 h-8 text-[#A18262] mx-auto mb-3 group-hover:scale-110 transition-transform" />
+                <Award className="w-8 h-8 text-[#5A4A32] mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <p className="text-2xl font-serif font-bold text-[#111] mb-1">99%</p>
                 <p className="text-xs text-gray-500 font-mono uppercase tracking-wider">Satisfaction</p>
             </motion.div>

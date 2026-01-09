@@ -37,7 +37,7 @@ export default function Preloader() {
                 DAKEEK
             </h1>
             <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#333]">
-                <div className="h-full bg-[#A18262] animate-preloader-progress" />
+                <div className="h-full bg-[#5A4A32] animate-preloader-progress" />
             </div>
         </div>
     );

@@ -156,7 +156,7 @@ export function SmartForm() {
                                 list="dubai-areas"
                                 placeholder="Location (Select or Type Area)"
                                 className={`w-full bg-slate-50/50 border rounded-xl px-4 py-4 text-sm focus:outline-none focus:bg-white focus:ring-2 transition-all placeholder:text-slate-400 text-slate-900
-                                    ${errors.location ? "border-red-200 bg-red-50/10 focus:ring-red-100" : "border-slate-200 focus:ring-slate-100 focus:border-[#A18262]"}
+                                    ${errors.location ? "border-red-200 bg-red-50/10 focus:ring-red-100" : "border-slate-200 focus:ring-slate-100 focus:border-[#5A4A32]"}
                                 `}
                             />
                             <datalist id="dubai-areas">
@@ -171,7 +171,7 @@ export function SmartForm() {
                                 {...register("name")}
                                 placeholder="Your Name"
                                 className={`w-full bg-slate-50/50 border rounded-xl px-4 py-4 text-sm focus:outline-none focus:bg-white focus:ring-2 transition-all placeholder:text-slate-400 text-slate-900
-                                    ${errors.name ? "border-red-200 bg-red-50/10 focus:ring-red-100" : "border-slate-200 focus:ring-slate-100 focus:border-[#A18262]"}
+                                    ${errors.name ? "border-red-200 bg-red-50/10 focus:ring-red-100" : "border-slate-200 focus:ring-slate-100 focus:border-[#5A4A32]"}
                                 `}
                             />
                             {errors.name && <span className="text-red-500 text-[10px] absolute -bottom-4 left-2">{errors.name.message}</span>}
@@ -199,7 +199,7 @@ export function SmartForm() {
                                 type="email"
                                 placeholder="Email Address (Optional)"
                                 className={`w-full bg-slate-50/50 border rounded-xl px-4 py-4 text-sm focus:outline-none focus:bg-white focus:ring-2 transition-all placeholder:text-slate-400 text-slate-900
-                                    ${errors.email ? "border-red-200 bg-red-50/10 focus:ring-red-100" : "border-slate-200 focus:ring-slate-100 focus:border-[#A18262]"}
+                                    ${errors.email ? "border-red-200 bg-red-50/10 focus:ring-red-100" : "border-slate-200 focus:ring-slate-100 focus:border-[#5A4A32]"}
                                 `}
                             />
                             {errors.email && <span className="text-red-500 text-[10px] absolute -bottom-4 left-2">{errors.email.message}</span>}

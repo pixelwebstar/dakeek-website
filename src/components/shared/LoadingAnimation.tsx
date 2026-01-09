@@ -67,7 +67,7 @@ export default function LoadingAnimation({ onComplete }: { onComplete?: () => vo
                                 height="80"
                                 viewBox="0 0 24 24"
                                 fill="none"
-                                stroke="#A18262"
+                                stroke="#5A4A32"
                                 strokeWidth="1"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -89,7 +89,7 @@ export default function LoadingAnimation({ onComplete }: { onComplete?: () => vo
                             className="text-4xl md:text-5xl font-serif text-white tracking-tight"
                         >
                             Dakeek
-                            <span className="text-[#A18262]">.</span>
+                            <span className="text-[#5A4A32]">.</span>
                         </motion.h1>
 
                         {/* Tagline */}
@@ -113,7 +113,7 @@ export default function LoadingAnimation({ onComplete }: { onComplete?: () => vo
                                 initial={{ x: "-100%" }}
                                 animate={{ x: "100%" }}
                                 transition={{ duration: 1, ease: "easeInOut", repeat: Infinity }}
-                                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#A18262] to-transparent"
+                                className="absolute inset-0 bg-gradient-to-r from-transparent via-[#5A4A32] to-transparent"
                             />
                         </motion.div>
                     </motion.div>

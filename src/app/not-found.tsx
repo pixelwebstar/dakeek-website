@@ -32,7 +32,7 @@ export default function NotFound() {
                     Return to base immediately.
                 </p>
 
-                <Link href="/" className="group inline-flex items-center gap-3 px-8 py-4 bg-[#FAFAF9] text-[#111] rounded-sm hover:bg-[#A18262] transition-colors duration-500">
+                <Link href="/" className="group inline-flex items-center gap-3 px-8 py-4 bg-[#FAFAF9] text-[#111] rounded-sm hover:bg-[#5A4A32] transition-colors duration-500">
                     <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                     <span className="font-mono text-xs uppercase tracking-widest">Return to Base</span>
                 </Link>

@@ -22,7 +22,7 @@ export default function ServicesHubPage() {
     const serviceKeys = ["ac", "plumbing", "electrical", "cleaning", "stoves", "handyman", "other", "emergency"];
 
     return (
-        <main className="min-h-screen bg-[#FAFAF9] text-[#111] overflow-x-hidden selection:bg-[#A18262] selection:text-white">
+        <main className="min-h-screen bg-[#FAFAF9] text-[#111] overflow-x-hidden selection:bg-[#5A4A32] selection:text-white">
 
             {/* 1. HERO: The Standard - PLATINUM/SILVER */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E5E5] border-b border-[#D4D4D4]">
@@ -117,7 +117,7 @@ export default function ServicesHubPage() {
 
                                                 {/* Bottom Floating Title for Impact */}
                                                 <div className="absolute bottom-8 left-8 right-8 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                                                    <span className="text-white font-mono text-xs uppercase tracking-[0.2em] border-b border-[#A18262] pb-1">
+                                                    <span className="text-white font-mono text-xs uppercase tracking-[0.2em] border-b border-[#5A4A32] pb-1">
                                                         Discover {service.hero.title}
                                                     </span>
                                                 </div>
@@ -128,15 +128,15 @@ export default function ServicesHubPage() {
                                         <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-10">
                                             <div>
                                                 <div className="flex items-center gap-4 mb-6">
-                                                    <span className="h-[1px] w-12 bg-[#A18262]"></span>
-                                                    <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#A18262]">
+                                                    <span className="h-[1px] w-12 bg-[#5A4A32]"></span>
+                                                    <span className="font-mono text-xs uppercase tracking-[0.3em] text-[#5A4A32]">
                                                         {service.hero.tag}
                                                     </span>
                                                 </div>
 
                                                 {/* TITLE - CLICKABLE */}
                                                 <Link href={`/services/${slug}`} className="block group/text">
-                                                    <h2 className="text-5xl lg:text-7xl font-serif text-[#111] mb-6 leading-[0.9] group-hover/text:text-[#A18262] transition-colors duration-500">
+                                                    <h2 className="text-5xl lg:text-7xl font-serif text-[#111] mb-6 leading-[0.9] group-hover/text:text-[#5A4A32] transition-colors duration-500">
                                                         {service.hero.title}
                                                     </h2>
                                                 </Link>
@@ -221,7 +221,7 @@ export default function ServicesHubPage() {
                                                     <div className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center group-hover/btn:bg-[#111] group-hover/btn:border-[#111] transition-all duration-300">
                                                         <ArrowRight className="w-5 h-5 text-[#111] group-hover/btn:text-white transition-colors" strokeWidth={1} />
                                                     </div>
-                                                    <span className="font-mono text-xs uppercase tracking-widest text-[#111] group-hover/btn:text-[#A18262] transition-colors">
+                                                    <span className="font-mono text-xs uppercase tracking-widest text-[#111] group-hover/btn:text-[#5A4A32] transition-colors">
                                                         View Details
                                                     </span>
                                                 </Link>
@@ -244,7 +244,7 @@ export default function ServicesHubPage() {
                     </h2>
                     <Link href="/contact" className="group relative px-12 py-4 bg-white text-[#111] overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl inline-block text-left">
                         <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Book a Service Now</span>
-                        <div className="absolute inset-0 bg-[#A18262] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                        <div className="absolute inset-0 bg-[#5A4A32] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                     </Link>
                 </SectionWrapper>
             </section>

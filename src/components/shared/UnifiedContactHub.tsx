@@ -430,7 +430,7 @@ export default function UnifiedContactHub() {
                                                                 <button
                                                                     key={opt}
                                                                     onClick={() => handleOptionClick(opt, msg.isMultiSelect)}
-                                                                    className={`px-4 py-3 rounded-xl border text-xs font-medium transition-all text-left flex items-center justify-between group ${isSelected && msg.isMultiSelect ? 'bg-[#A18262] border-[#A18262] text-white shadow-lg' : 'bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/20'}`}
+                                                                    className={`px-4 py-3 rounded-xl border text-xs font-medium transition-all text-left flex items-center justify-between group ${isSelected && msg.isMultiSelect ? 'bg-[#5A4A32] border-[#5A4A32] text-white shadow-lg' : 'bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-white/20'}`}
                                                                 >
                                                                     {opt}
                                                                     {msg.isMultiSelect ? (
@@ -453,14 +453,14 @@ export default function UnifiedContactHub() {
                                             )}
                                             {msg.type === 'form' && (
                                                 <div className="w-full max-w-[85%] mt-2 p-3 bg-white/5 border border-white/10 rounded-xl space-y-2">
-                                                    <input type="text" placeholder="Full Name" className={`w-full bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`} value={detailsInput.name} onChange={e => { setDetailsInput({ ...detailsInput, name: e.target.value }); if (errors.name) setErrors({ ...errors, name: '' }); }} />
+                                                    <input type="text" placeholder="Full Name" className={`w-full bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#5A4A32] focus:ring-1 focus:ring-[#5A4A32] outline-none transition-all`} value={detailsInput.name} onChange={e => { setDetailsInput({ ...detailsInput, name: e.target.value }); if (errors.name) setErrors({ ...errors, name: '' }); }} />
                                                     {errors.name && <span className="text-[10px] text-red-500 block">{errors.name}</span>}
                                                     {formState.contactMethod === 'Email' ? (
                                                         <div className="flex gap-2">
                                                             <input
                                                                 type="email"
                                                                 placeholder="Email Address"
-                                                                className={`w-full bg-white/5 border ${errors.contact ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`}
+                                                                className={`w-full bg-white/5 border ${errors.contact ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#5A4A32] focus:ring-1 focus:ring-[#5A4A32] outline-none transition-all`}
                                                                 value={detailsInput.contact}
                                                                 onChange={(e) => {
                                                                     setDetailsInput({ ...detailsInput, contact: e.target.value });
@@ -489,7 +489,7 @@ export default function UnifiedContactHub() {
                                                             <input
                                                                 type="text"
                                                                 placeholder="Email for confirmation (Optional)"
-                                                                className={`w-full bg-white/5 border ${errors.confirmationEmail ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#A18262] focus:ring-1 focus:ring-[#A18262] outline-none transition-all`}
+                                                                className={`w-full bg-white/5 border ${errors.confirmationEmail ? 'border-red-500' : 'border-white/10'} rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 focus:border-[#5A4A32] focus:ring-1 focus:ring-[#5A4A32] outline-none transition-all`}
                                                                 value={detailsInput.confirmationEmail}
                                                                 onChange={e => {
                                                                     setDetailsInput({ ...detailsInput, confirmationEmail: e.target.value });
@@ -500,7 +500,7 @@ export default function UnifiedContactHub() {
                                                         </div>
                                                     )}
 
-                                                    <button onClick={handleFormSubmit} className="w-full py-3 bg-[#A18262] hover:bg-[#B09476] text-white rounded-lg text-sm font-medium transition-all shadow-lg hover:shadow-xl active:scale-[0.98]">Submit Request</button>
+                                                    <button onClick={handleFormSubmit} className="w-full py-3 bg-[#5A4A32] hover:bg-[#B09476] text-white rounded-lg text-sm font-medium transition-all shadow-lg hover:shadow-xl active:scale-[0.98]">Submit Request</button>
                                                 </div>
                                             )}
                                         </div>
@@ -513,7 +513,7 @@ export default function UnifiedContactHub() {
                                     <div className="p-3 bg-[#0a0a0a] border-t border-white/5">
                                         <div className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-1.5 py-1.5">
                                             <input type="text" value={inputText} onChange={(e) => setInputText(e.target.value)} onKeyDown={(e) => e.key === "Enter" && handleTextInput(inputText)} placeholder="Describe your issue..." className="flex-1 bg-transparent px-3 py-1 text-sm text-white placeholder-white/30 focus:outline-none" />
-                                            <button onClick={() => handleTextInput(inputText)} disabled={!inputText.trim()} className="w-8 h-8 bg-[#A18262] text-white rounded-full flex items-center justify-center hover:scale-105 transition-all disabled:opacity-50"><Send className="w-3.5 h-3.5" /></button>
+                                            <button onClick={() => handleTextInput(inputText)} disabled={!inputText.trim()} className="w-8 h-8 bg-[#5A4A32] text-white rounded-full flex items-center justify-center hover:scale-105 transition-all disabled:opacity-50"><Send className="w-3.5 h-3.5" /></button>
                                         </div>
                                     </div>
                                 )}
@@ -530,11 +530,11 @@ export default function UnifiedContactHub() {
 const MenuContent = ({ setView }: { setView: any }) => (
     <>
         <div className="mb-8 relative z-10">
-            <span className="inline-block px-3 py-1 rounded-full bg-[#A18262]/10 border border-[#A18262]/30 text-[#A18262] text-[10px] font-bold tracking-widest uppercase mb-3 backdrop-blur-md">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#5A4A32]/10 border border-[#5A4A32]/30 text-[#5A4A32] text-[10px] font-bold tracking-widest uppercase mb-3 backdrop-blur-md">
                 Support
             </span>
             <h3 className="text-2xl font-sans text-white font-light tracking-tight leading-snug">
-                How can we <br /><span className="text-[#A18262] font-serif italic">help</span> you?
+                How can we <br /><span className="text-[#5A4A32] font-serif italic">help</span> you?
             </h3>
         </div>
 
@@ -580,14 +580,14 @@ const MenuButton = ({ icon, title, subtitle, href, delay, isButton }: any) => {
                 transition={{ delay }}
                 className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 transition-all cursor-pointer group-hover:translate-x-1"
             >
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-300 group-hover:bg-[#A18262]/20">
+                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shadow-inner group-hover:scale-110 transition-transform duration-300 group-hover:bg-[#5A4A32]/20">
                     {icon}
                 </div>
                 <div>
                     <p className="font-medium text-gray-200 group-hover:text-white transition-colors">{title}</p>
                     <p className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">{subtitle}</p>
                 </div>
-                <ChevronRight className="w-4 h-4 ml-auto text-gray-600 group-hover:text-[#A18262] transition-colors" />
+                <ChevronRight className="w-4 h-4 ml-auto text-gray-600 group-hover:text-[#5A4A32] transition-colors" />
             </motion.div>
         </Wrapper>
     );

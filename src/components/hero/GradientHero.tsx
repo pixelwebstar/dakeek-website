@@ -13,7 +13,7 @@ interface GradientHeroProps {
  * Replaces HyperHero WebGL for better LCP and INP.
  */
 function GradientHero({
-    color1 = "#A18262",
+    color1 = "#5A4A32",
     color2 = "#E7E5E4",
     initialColor
 }: GradientHeroProps) {

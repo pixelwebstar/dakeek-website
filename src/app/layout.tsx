@@ -103,10 +103,10 @@ export default function RootLayout({
         <link rel="preload" href="/images/noise.svg" as="image" />
         <style dangerouslySetInnerHTML={{
           __html: `
-          body{margin:0;background-color:#FAFAF9;color:#111;font-family:var(--font-geist-sans),ui-sans-serif,system-ui,sans-serif}
-          .hero{contain:layout paint;content-visibility:auto}
-          .hero-section { display: flex; min-height: 100vh; }
-          .get-app-button { display: inline-block; padding: 1rem 2rem; background: #000; color: #fff; content-visibility: auto; contain: paint; }
+          /* Critical above-fold styles */
+          body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
+          .hero-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+          .get-app-button { display: inline-block; padding: 0.75rem 2rem; background: #000; color: #fff; border-radius: 9999px; text-decoration: none; }
         `
         }} />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />

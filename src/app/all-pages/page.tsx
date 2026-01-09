@@ -11,22 +11,22 @@ export default function HTMLSitemap() {
                     {/* Main & Services */}
                     <div className="space-y-12">
                         <section>
-                            <h2 className="text-xl font-mono uppercase tracking-widest text-[#A18262] mb-6">Main Navigation</h2>
+                            <h2 className="text-xl font-mono uppercase tracking-widest text-[#5A4A32] mb-6">Main Navigation</h2>
                             <ul className="space-y-3">
-                                <li><Link href="/" className="hover:text-[#A18262] transition-colors">Home</Link></li>
-                                <li><Link href="/about" className="hover:text-[#A18262] transition-colors">About Us</Link></li>
-                                <li><Link href="/services" className="hover:text-[#A18262] transition-colors">Services Hub</Link></li>
-                                <li><Link href="/queries" className="hover:text-[#A18262] transition-colors">Queries (FAQ)</Link></li>
-                                <li><Link href="/contact" className="hover:text-[#A18262] transition-colors">Contact</Link></li>
+                                <li><Link href="/" className="hover:text-[#5A4A32] transition-colors">Home</Link></li>
+                                <li><Link href="/about" className="hover:text-[#5A4A32] transition-colors">About Us</Link></li>
+                                <li><Link href="/services" className="hover:text-[#5A4A32] transition-colors">Services Hub</Link></li>
+                                <li><Link href="/queries" className="hover:text-[#5A4A32] transition-colors">Queries (FAQ)</Link></li>
+                                <li><Link href="/contact" className="hover:text-[#5A4A32] transition-colors">Contact</Link></li>
                             </ul>
                         </section>
 
                         <section>
-                            <h2 className="text-xl font-mono uppercase tracking-widest text-[#A18262] mb-6">Our Services</h2>
+                            <h2 className="text-xl font-mono uppercase tracking-widest text-[#5A4A32] mb-6">Our Services</h2>
                             <ul className="space-y-3">
                                 {Object.values(serviceData).map((service) => (
                                     <li key={service.id}>
-                                        <Link href={`/services/${service.slug}`} className="hover:text-[#A18262] transition-colors">
+                                        <Link href={`/services/${service.slug}`} className="hover:text-[#5A4A32] transition-colors">
                                             {service.hero.title}
                                         </Link>
                                     </li>
@@ -38,13 +38,13 @@ export default function HTMLSitemap() {
                     {/* Location Pages */}
                     <div className="space-y-12">
                         <section>
-                            <h2 className="text-xl font-mono uppercase tracking-widest text-[#A18262] mb-6">Service Area Pages ({DUBAI_AREAS.length})</h2>
+                            <h2 className="text-xl font-mono uppercase tracking-widest text-[#5A4A32] mb-6">Service Area Pages ({DUBAI_AREAS.length})</h2>
                             <ul className="grid grid-cols-1 gap-2 text-sm text-[#666]">
                                 {DUBAI_AREAS.map((area) => {
                                     const slug = area.toLowerCase().replace(/ /g, "-");
                                     return (
                                         <li key={slug}>
-                                            <Link href={`/areas/${slug}`} className="hover:text-[#A18262] transition-colors block py-1 border-b border-black/5">
+                                            <Link href={`/areas/${slug}`} className="hover:text-[#5A4A32] transition-colors block py-1 border-b border-black/5">
                                                 Home Maintenance in {area}
                                             </Link>
                                         </li>

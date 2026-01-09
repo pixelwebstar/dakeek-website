@@ -51,22 +51,22 @@ export async function POST(req: Request) {
                 <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
                     
                     <!-- Header -->
-                    <div style="background: #18181b; padding: 30px; text-align: center; border-bottom: 4px solid #A18262;">
-                        <h1 style="color: #A18262; margin: 0; font-size: 24px; letter-spacing: 1px;">DAKEEK</h1>
+                    <div style="background: #18181b; padding: 30px; text-align: center; border-bottom: 4px solid #5A4A32;">
+                        <h1 style="color: #5A4A32; margin: 0; font-size: 24px; letter-spacing: 1px;">DAKEEK</h1>
                         <p style="color: #a1a1aa; margin: 5px 0 0; font-size: 14px; text-transform: uppercase; letter-spacing: 2px;">Service Intelligence</p>
                     </div>
 
                     <!-- Content -->
                     <div style="padding: 40px 30px;">
                         <div style="margin-bottom: 30px;">
-                            <h2 style="color: #18181b; font-size: 20px; font-weight: 700; margin: 0 0 10px;">New Request: <span style="color: #A18262;">${servicesList}</span></h2>
+                            <h2 style="color: #18181b; font-size: 20px; font-weight: 700; margin: 0 0 10px;">New Request: <span style="color: #5A4A32;">${servicesList}</span></h2>
                             <p style="color: #52525b; font-size: 16px; margin: 0; line-height: 1.5;">
                                 <strong>${name}</strong> is requesting assistance via ${contactMethod || 'Website Form'}.
                             </p>
                         </div>
 
                         <!-- Key Details Card -->
-                        <div style="background: #f4f4f5; border-radius: 12px; padding: 20px; margin-bottom: 30px; border-left: 4px solid #A18262;">
+                        <div style="background: #f4f4f5; border-radius: 12px; padding: 20px; margin-bottom: 30px; border-left: 4px solid #5A4A32;">
                             <table style="width: 100%; border-collapse: collapse;">
                                 <tr>
                                     <td style="padding: 8px 0; color: #71717a; font-size: 14px;">CLIENT NAME</td>

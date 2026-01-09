@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import React from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
@@ -39,8 +40,9 @@ export default function ServiceCard({
             src={image}
             alt={title}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            sizes="(max-width: 768px) 100vw, 480px"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
+            quality={90}
             priority={priority}
           />
           {/* Gradient Overlay */}
@@ -55,7 +57,7 @@ export default function ServiceCard({
 
         {/* Glowing Border on Hover */}
         <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-2
-          ${isEmergency ? "border-red-500/50" : isOther ? "border-teal-500/50" : "border-[#A18262]/50"}`}
+          ${isEmergency ? "border-red-500/50" : isOther ? "border-teal-500/50" : "border-[#5A4A32]/50"}`}
         />
 
         {/* Content */}
@@ -103,7 +105,7 @@ export default function ServiceCard({
 
           {/* CTA */}
           <div className={`flex items-center gap-2 text-sm font-medium transition-all duration-300 group-hover:gap-3
-            ${isEmergency ? "text-red-400" : isOther ? "text-teal-400" : "text-[#A18262]"}`}
+            ${isEmergency ? "text-red-400" : isOther ? "text-teal-400" : "text-[#5A4A32]"}`}
           >
             View Service
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

@@ -249,7 +249,7 @@ export default function HomePage() {
                         </div>
                         {/* Quality */}
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
-                            <Award className="w-8 h-8 text-[#A18262]" />
+                            <Award className="w-8 h-8 text-[#5A4A32]" />
                             <div>
                                 <h3 className="font-serif italic text-2xl mb-2">Quality</h3>
                                 <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">
@@ -267,13 +267,13 @@ export default function HomePage() {
                     <h2 className="text-4xl md:text-5xl font-serif italic mb-6">The Dakeek Promise.</h2>
                     <p className="text-xl font-light text-[#333] mb-8">
                         If the issue returns within 30 days, so do we. <br />
-                        <span className="text-[#A18262] font-medium">Free of charge.</span> No questions asked.
+                        <span className="text-[#5A4A32] font-medium">Free of charge.</span> No questions asked.
                     </p>
                 </div>
 
                 <Link href="/contact" className="group relative px-12 py-4 bg-[#111] text-white overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95 shadow-2xl">
                     <span className="relative z-10 font-mono text-xs uppercase tracking-[0.2em]">Book Now</span>
-                    <div className="absolute inset-0 bg-[#A18262] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                    <div className="absolute inset-0 bg-[#5A4A32] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                 </Link>
             </section>
 

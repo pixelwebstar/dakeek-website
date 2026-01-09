@@ -49,7 +49,7 @@ export default async function LocationPage(props: { params: Promise<{ location: 
     }
 
     // Default theme fallback
-    const accentColor = areaData?.theme.accentColor || "#A18262";
+    const accentColor = areaData?.theme.accentColor || "#5A4A32";
 
     return (
         <>
