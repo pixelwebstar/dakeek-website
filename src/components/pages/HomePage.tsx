@@ -6,8 +6,7 @@ import { ShieldCheck, HeartHandshake, Sparkles, Award, Clock, UserCheck, Home } 
 import Balancer from "react-wrap-balancer";
 
 import Link from "next/link";
-
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 import GradientHero from "@/components/hero/GradientHero";
 import ServiceCard from "@/components/services/ServiceCard";
@@ -178,7 +177,7 @@ export default function HomePage() {
                 <div className="px-[8vw] grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-b border-[#E5E5E5]">
                     {/* Step 01 */}
                     <div className="py-10 px-8 border-b md:border-b-0 md:border-r border-[#E5E5E5] group text-center">
-                        <span className="block text-5xl font-serif text-[#E5E5E5] group-hover:text-[#A18262] transition-colors duration-500 mb-4">01</span>
+                        <span className="block text-5xl font-serif text-[#666666] group-hover:text-[#5A4A32] transition-colors duration-500 mb-4">01</span>
                         <h3 className="text-lg font-bold tracking-tight mb-2">Connect</h3>
                         <p className="text-[#666] text-sm font-light leading-relaxed max-w-xs mx-auto">
                             Tell us what you need. A dedicated coordinator will listen and arrange everything clearly.
@@ -186,7 +185,7 @@ export default function HomePage() {
                     </div>
                     {/* Step 02 */}
                     <div className="py-10 px-8 border-b md:border-b-0 md:border-r border-[#E5E5E5] group text-center">
-                        <span className="block text-5xl font-serif text-[#E5E5E5] group-hover:text-[#A18262] transition-colors duration-500 mb-4">02</span>
+                        <span className="block text-5xl font-serif text-[#666666] group-hover:text-[#5A4A32] transition-colors duration-500 mb-4">02</span>
                         <h3 className="text-lg font-bold tracking-tight mb-2">Restore</h3>
                         <p className="text-[#666] text-sm font-light leading-relaxed max-w-xs mx-auto">
                             We arrive on time, fix the issue quietly, and clean up afterwards.
@@ -194,7 +193,7 @@ export default function HomePage() {
                     </div>
                     {/* Step 03 */}
                     <div className="py-10 px-8 group text-center">
-                        <span className="block text-5xl font-serif text-[#E5E5E5] group-hover:text-[#A18262] transition-colors duration-500 mb-4">03</span>
+                        <span className="block text-5xl font-serif text-[#666666] group-hover:text-[#5A4A32] transition-colors duration-500 mb-4">03</span>
                         <h3 className="text-lg font-bold tracking-tight mb-2">Relax</h3>
                         <p className="text-[#666] text-sm font-light leading-relaxed max-w-xs mx-auto">
                             Your home is back to normal. We provide a full report so you can have complete peace of mind.
@@ -207,7 +206,7 @@ export default function HomePage() {
             <section className="w-full bg-[#111] text-[#FAFAF9] py-24 lg:py-32 px-[5vw] lg:px-[8vw] border-b border-[#333]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                     <div className="text-center lg:text-left">
-                        <span className="block font-mono text-xs text-[#A18262] uppercase tracking-[0.2em] mb-6">The Experience</span>
+                        <span className="block font-mono text-xs text-[#5A4A32] uppercase tracking-[0.2em] mb-6">The Experience</span>
                         <h2 className="text-5xl md:text-7xl font-serif italic font-light mb-12">
                             Simply <br /> Better.
                         </h2>
@@ -220,7 +219,7 @@ export default function HomePage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#333] border border-[#333]">
                         {/* Respect */}
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
-                            <HeartHandshake className="w-8 h-8 text-[#A18262]" />
+                            <HeartHandshake className="w-8 h-8 text-[#5A4A32]" />
                             <div>
                                 <h3 className="font-serif italic text-2xl mb-2">Respect</h3>
                                 <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">
@@ -230,7 +229,7 @@ export default function HomePage() {
                         </div>
                         {/* Privacy */}
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
-                            <ShieldCheck className="w-8 h-8 text-[#A18262]" />
+                            <ShieldCheck className="w-8 h-8 text-[#5A4A32]" />
                             <div>
                                 <h3 className="font-serif italic text-2xl mb-2">Privacy</h3>
                                 <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">
@@ -240,7 +239,7 @@ export default function HomePage() {
                         </div>
                         {/* Cleanliness */}
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
-                            <Sparkles className="w-8 h-8 text-[#A18262]" />
+                            <Sparkles className="w-8 h-8 text-[#5A4A32]" />
                             <div>
                                 <h3 className="font-serif italic text-2xl mb-2">Cleanliness</h3>
                                 <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">

@@ -17,9 +17,9 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
     minimumCacheTTL: 31536000,
   },
-  // Enable experimental optimizations - DISABLING optimizeCss as it caused TBT regression
+  // Enable experimental optimizations - ENABLED optimizeCss per user request
   experimental: {
-    optimizeCss: false,
+    optimizeCss: true,
   },
   // Compiler optimizations
   compiler: {

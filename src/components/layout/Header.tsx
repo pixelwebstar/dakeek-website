@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "../../lib/utils";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { serviceData } from "../../data/serviceData";
 import { usePWAInstall } from "../../hooks/usePWAInstall";
 import InstallModal from "../shared/InstallModal";
@@ -143,7 +143,7 @@ export default function Header() {
                     {/* Get App Button (Desktop) */}
                     <button
                         onClick={handleInstallClick}
-                        className="px-6 py-2 bg-[#111] text-white rounded-full font-mono text-xs uppercase tracking-widest hover:bg-[#A18262] transition-colors border border-transparent hover:border-[#A18262]/20 shadow-lg shadow-black/5"
+                        className="get-app-button px-6 py-2 bg-[#111] text-white rounded-full font-mono text-xs uppercase tracking-widest hover:bg-[#A18262] transition-colors border border-transparent hover:border-[#A18262]/20 shadow-lg shadow-black/5"
                     >
                         Get App
                     </button>
@@ -154,7 +154,7 @@ export default function Header() {
                     {/* Mobile Get App Button (Visible on Navbar) */}
                     <button
                         onClick={handleInstallClick}
-                        className="px-4 py-2 bg-[#111] text-white rounded-full font-mono text-[10px] uppercase tracking-widest hover:bg-[#A18262] transition-colors border border-transparent shadow-md whitespace-nowrap"
+                        className="get-app-button px-4 py-2 bg-[#111] text-white rounded-full font-mono text-[10px] uppercase tracking-widest hover:bg-[#A18262] transition-colors border border-transparent shadow-md whitespace-nowrap"
                     >
                         Get App
                     </button>

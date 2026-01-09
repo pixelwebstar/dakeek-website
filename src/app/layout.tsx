@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import React from "react";
 import { Geist, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "../components/layout/Header";
@@ -104,6 +105,8 @@ export default function RootLayout({
           __html: `
           body{margin:0;background-color:#FAFAF9;color:#111;font-family:var(--font-geist-sans),ui-sans-serif,system-ui,sans-serif}
           .hero{contain:layout paint;content-visibility:auto}
+          .hero-section { display: flex; min-height: 100vh; }
+          .get-app-button { display: inline-block; padding: 1rem 2rem; background: #000; color: #fff; content-visibility: auto; contain: paint; }
         `
         }} />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
