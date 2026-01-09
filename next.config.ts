@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  productionBrowserSourceMaps: false,
   compress: true,
   poweredByHeader: false,
   // Force SWC minification (default in Next 13+, explicit here)

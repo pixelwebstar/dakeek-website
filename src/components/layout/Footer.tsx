@@ -70,7 +70,7 @@ export default function Footer() {
             const service = serviceData[pathParts[2]];
             if (service) return service.theme.hero1;
         }
-        return "#E5E5E5"; // Default grey structure
+        return "#CCCCCC"; // Default grey structure (Darkened from #E5E5E5 for contrast)
     };
 
     const socialLinks = [
@@ -168,7 +168,7 @@ export default function Footer() {
                         <Link href="/services/emergency" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header}`}>
                             Emergency (24/7)
                         </Link>
-                        <Link href="/all-pages" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header} opacity-50`}>
+                        <Link href="/all-pages" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header} opacity-100`}>
                             All Pages (Temp)
                         </Link>
                     </div>

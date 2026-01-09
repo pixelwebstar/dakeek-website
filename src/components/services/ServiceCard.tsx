@@ -40,7 +40,7 @@ export default function ServiceCard({
             src={image}
             alt={title}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            sizes="(max-width: 480px) 480px, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
             quality={90}
             priority={priority}
