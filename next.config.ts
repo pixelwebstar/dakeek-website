@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  compress: true,
+  poweredByHeader: false,
+  // Force SWC minification (default in Next 13+, explicit here)
+  // swcMinify: true, // Removed due to type error in Next 15+
   // Critical: Optimize CSS delivery
   experimental: {
     optimizeCss: true, // Inline critical CSS

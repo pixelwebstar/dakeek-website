@@ -33,7 +33,8 @@
   --color-ink: #111111;
   /* Darkened Titanium for WCAG AA+ contrast (7:1 on white) */
   --color-titanium: #555558;
-  --color-bronze: #A18262;
+  --color-bronze: #5A4A32;
+  --color-bronze-light: #D4B483;
   /* Darkened Stone for readability - WCAG AA Compliant */
   --color-stone: #78716c;
   --color-structure: #E5E5E5;
@@ -51,6 +52,7 @@
   --color-ink: var(--color-ink);
   --color-titanium: var(--color-titanium);
   --color-bronze: var(--color-bronze);
+  --color-bronze-light: var(--color-bronze-light);
   --color-stone: var(--color-stone);
   --color-structure: var(--color-structure);
   --color-signal: var(--color-signal);

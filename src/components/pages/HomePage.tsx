@@ -206,11 +206,11 @@ export default function HomePage() {
             <section className="w-full bg-[#111] text-[#FAFAF9] py-24 lg:py-32 px-[5vw] lg:px-[8vw] border-b border-[#333]">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                     <div className="text-center lg:text-left">
-                        <span className="block font-mono text-xs text-[#5A4A32] uppercase tracking-[0.2em] mb-6">The Experience</span>
+                        <span className="block font-mono text-xs text-[var(--color-bronze-light)] uppercase tracking-[0.2em] mb-6">The Experience</span>
                         <h2 className="text-5xl md:text-7xl font-serif italic font-light mb-12">
                             Simply <br /> Better.
                         </h2>
-                        <p className="text-[#333] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
+                        <p className="text-[#CCC] text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
                             We understand that inviting someone into your home is a matter of trust.
                             That is why we focus on being respectful, clean, and invisible. We fix the problem, and then we disappear.
                         </p>
@@ -219,7 +219,7 @@ export default function HomePage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#333] border border-[#333]">
                         {/* Respect */}
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
-                            <HeartHandshake className="w-8 h-8 text-[#5A4A32]" />
+                            <HeartHandshake className="w-8 h-8 text-[var(--color-bronze-light)]" />
                             <div>
                                 <h3 className="font-serif italic text-2xl mb-2">Respect</h3>
                                 <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">
@@ -229,7 +229,7 @@ export default function HomePage() {
                         </div>
                         {/* Privacy */}
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
-                            <ShieldCheck className="w-8 h-8 text-[#5A4A32]" />
+                            <ShieldCheck className="w-8 h-8 text-[var(--color-bronze-light)]" />
                             <div>
                                 <h3 className="font-serif italic text-2xl mb-2">Privacy</h3>
                                 <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">
@@ -239,7 +239,7 @@ export default function HomePage() {
                         </div>
                         {/* Cleanliness */}
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
-                            <Sparkles className="w-8 h-8 text-[#5A4A32]" />
+                            <Sparkles className="w-8 h-8 text-[var(--color-bronze-light)]" />
                             <div>
                                 <h3 className="font-serif italic text-2xl mb-2">Cleanliness</h3>
                                 <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">
@@ -249,7 +249,7 @@ export default function HomePage() {
                         </div>
                         {/* Quality */}
                         <div className="bg-[#1A1A1A] p-10 space-y-6 hover:bg-[#222] transition-colors text-center flex flex-col items-center">
-                            <Award className="w-8 h-8 text-[#5A4A32]" />
+                            <Award className="w-8 h-8 text-[var(--color-bronze-light)]" />
                             <div>
                                 <h3 className="font-serif italic text-2xl mb-2">Quality</h3>
                                 <p className="text-xs font-mono text-[#999] uppercase tracking-widest leading-relaxed">
@@ -267,7 +267,7 @@ export default function HomePage() {
                     <h2 className="text-4xl md:text-5xl font-serif italic mb-6">The Dakeek Promise.</h2>
                     <p className="text-xl font-light text-[#333] mb-8">
                         If the issue returns within 30 days, so do we. <br />
-                        <span className="text-[#5A4A32] font-medium">Free of charge.</span> No questions asked.
+                        <span className="text-[var(--color-bronze)] font-medium">Free of charge.</span> No questions asked.
                     </p>
                 </div>
 

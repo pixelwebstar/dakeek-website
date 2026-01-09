@@ -108,7 +108,7 @@ export default function Footer() {
                             <span>Anzar Gallery Building, Al Karama, Dubai</span>
                         </a>
                         <div className="flex flex-col gap-4 items-start mt-4">
-                            <p className="font-mono text-[10px] uppercase tracking-widest text-[#888]">Download the App</p>
+                            <p className="font-mono text-[10px] uppercase tracking-widest text-[#666]">Download the App</p>
                             <div className="flex gap-2">
                                 <button
                                     onClick={handleInstallClick}
