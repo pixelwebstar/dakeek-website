@@ -119,8 +119,8 @@ export default function HomePage() {
                                 &quot;Dakeek&quot; means precise in Arabic. We diagnose accurately, quote fairly, and execute flawlessly. No guesswork. No surprises.
                             </p>
                             <div className="flex gap-2">
-                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#666] px-2 py-1 border border-[#333]">Accurate</span>
-                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#666] px-2 py-1 border border-[#333]">Exact</span>
+                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF] px-2 py-1 border border-[#333]">Accurate</span>
+                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF] px-2 py-1 border border-[#333]">Exact</span>
                             </div>
                         </div>
 
@@ -135,8 +135,8 @@ export default function HomePage() {
                                 We respect your home and your privacy. Our technicians arrive on time, work quietly, and clean up before they leave.
                             </p>
                             <div className="flex gap-2">
-                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#666] px-2 py-1 border border-[#333]">Private</span>
-                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#666] px-2 py-1 border border-[#333]">Respectful</span>
+                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF] px-2 py-1 border border-[#333]">Private</span>
+                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF] px-2 py-1 border border-[#333]">Respectful</span>
                             </div>
                         </div>
 
@@ -151,15 +151,15 @@ export default function HomePage() {
                                 Our licensed technicians use quality materials and proven methods. We get it right the first time, so you don&apos;t have to call twice.
                             </p>
                             <div className="flex gap-2">
-                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#666] px-2 py-1 border border-[#333]">Quality</span>
-                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#666] px-2 py-1 border border-[#333]">Premium</span>
+                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF] px-2 py-1 border border-[#333]">Quality</span>
+                                <span className="text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF] px-2 py-1 border border-[#333]">Premium</span>
                             </div>
                         </div>
                     </div>
 
                     {/* Bottom Statement */}
                     <div className="text-center pt-8 border-t border-[#333]">
-                        <p className="font-mono text-xs text-[#666] uppercase tracking-[0.2em] mb-4">Our Commitment</p>
+                        <p className="font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">Our Commitment</p>
                         <p className="text-lg md:text-xl text-[#CCC] font-light max-w-2xl mx-auto leading-relaxed">
                             Licensed professionals, transparent pricing, and guaranteed precision. This is the Dakeek standard.
                         </p>
@@ -400,7 +400,7 @@ export default function HomePage() {
                                 </button>
                             </form>
 
-                            <p className="text-[10px] text-[#444] font-mono uppercase tracking-widest text-center">
+                            <p className="text-[10px] text-[#9CA3AF] font-mono uppercase tracking-widest text-center">
                                 Join 2,000+ Dubai Residents
                             </p>
                         </div>

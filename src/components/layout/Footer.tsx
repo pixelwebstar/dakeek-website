@@ -64,7 +64,7 @@ export default function Footer() {
             border: "border-black/5",
             mutedText: "text-[#555]",
             hoverText: "hover:text-[#5A4A32]",
-            copyright: "text-[#777]",
+            copyright: "text-[#555]",
         };
     }, [pathname]);
 
