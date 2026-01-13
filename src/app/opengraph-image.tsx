@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'edge'
+// export const runtime = 'edge'
 
 export const alt = 'DAKEEK | Precision Technical Services'
 export const size = {
