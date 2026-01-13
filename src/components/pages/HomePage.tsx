@@ -93,7 +93,7 @@ export default function HomePage() {
                 <div className="relative z-10 max-w-7xl mx-auto">
                     {/* Header with Typewriter Effect */}
                     <div className="text-center mb-16">
-                        <span className="inline-block font-mono text-xs text-[#5A4A32] uppercase tracking-[0.3em] mb-6">
+                        <span className="inline-block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.3em] mb-6">
                             Who We Are
                         </span>
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif italic font-light leading-tight max-w-4xl mx-auto mb-8">
@@ -113,7 +113,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 w-12 h-px bg-[#5A4A32] group-hover:w-full transition-all duration-700" />
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
-                            <span className="block font-mono text-xs text-[#5A4A32] uppercase tracking-[0.2em] mb-4">01</span>
+                            <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">01</span>
                             <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Precision</h3>
                             <p className="text-[#999] text-sm leading-relaxed mb-6">
                                 &quot;Dakeek&quot; means precise in Arabic. We diagnose accurately, quote fairly, and execute flawlessly. No guesswork. No surprises.
@@ -129,7 +129,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 w-12 h-px bg-[#5A4A32] group-hover:w-full transition-all duration-700" />
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
-                            <span className="block font-mono text-xs text-[#5A4A32] uppercase tracking-[0.2em] mb-4">02</span>
+                            <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">02</span>
                             <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Respect</h3>
                             <p className="text-[#999] text-sm leading-relaxed mb-6">
                                 We respect your home and your privacy. Our technicians arrive on time, work quietly, and clean up before they leave.
@@ -145,7 +145,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 w-12 h-px bg-[#5A4A32] group-hover:w-full transition-all duration-700" />
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
-                            <span className="block font-mono text-xs text-[#5A4A32] uppercase tracking-[0.2em] mb-4">03</span>
+                            <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">03</span>
                             <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Excellence</h3>
                             <p className="text-[#999] text-sm leading-relaxed mb-6">
                                 Our licensed technicians use quality materials and proven methods. We get it right the first time, so you don&apos;t have to call twice.
@@ -271,7 +271,7 @@ export default function HomePage() {
                 <div className="relative z-10 max-w-7xl mx-auto px-[5vw] lg:px-[8vw]">
                     {/* Header */}
                     <div className="text-center mb-10">
-                        <span className="inline-block font-mono text-xs text-[#5A4A32] uppercase tracking-[0.3em] mb-6">
+                        <span className="inline-block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.3em] mb-6">
                             How it Works
                         </span>
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif italic font-light">
@@ -286,7 +286,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 w-12 h-px bg-[#5A4A32] group-hover:w-full transition-all duration-700" />
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
-                            <span className="block font-mono text-xs text-[#5A4A32] uppercase tracking-[0.2em] mb-4">01</span>
+                            <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">01</span>
                             <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Connect</h3>
                             <p className="text-[#999] text-sm leading-relaxed">
                                 Tell us what you need. A dedicated coordinator will listen and arrange everything clearly.
@@ -298,7 +298,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 w-12 h-px bg-[#5A4A32] group-hover:w-full transition-all duration-700" />
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
-                            <span className="block font-mono text-xs text-[#5A4A32] uppercase tracking-[0.2em] mb-4">02</span>
+                            <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">02</span>
                             <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Restore</h3>
                             <p className="text-[#999] text-sm leading-relaxed">
                                 We arrive on time, fix the issue quietly, and clean up afterwards.
@@ -310,7 +310,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 w-12 h-px bg-[#5A4A32] group-hover:w-full transition-all duration-700" />
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
-                            <span className="block font-mono text-xs text-[#5A4A32] uppercase tracking-[0.2em] mb-4">03</span>
+                            <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">03</span>
                             <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Relax</h3>
                             <p className="text-[#999] text-sm leading-relaxed">
                                 Your home is back to normal. We provide a full report so you can have complete peace of mind.
@@ -347,7 +347,7 @@ export default function HomePage() {
                     {/* Left: The App (Value Proposition) */}
                     <div className="space-y-8">
                         <div>
-                            <span className="inline-block font-mono text-xs text-[#5A4A32] uppercase tracking-[0.3em] mb-4">
+                            <span className="inline-block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.3em] mb-4">
                                 Intelligent Living
                             </span>
                             <h2 className="text-3xl md:text-5xl font-serif italic font-light leading-tight mb-6">

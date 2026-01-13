@@ -535,7 +535,7 @@ export default function UnifiedContactHub() {
 const MenuContent = ({ setView }: { setView: (view: "menu" | "chat") => void }) => (
     <>
         <div className="mb-8 relative z-10">
-            <span className="inline-block px-3 py-1 rounded-full bg-[#5A4A32]/10 border border-[#5A4A32]/30 text-[#5A4A32] text-[10px] font-bold tracking-widest uppercase mb-3 backdrop-blur-md">
+            <span className="inline-block px-3 py-1 rounded-full bg-[#C4A67C]/10 border border-[#C4A67C]/30 text-[#C4A67C] text-[10px] font-bold tracking-widest uppercase mb-3 backdrop-blur-md">
                 Support
             </span>
             <h3 className="text-2xl font-sans text-white font-light tracking-tight leading-snug">
