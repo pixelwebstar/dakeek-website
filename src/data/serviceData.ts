@@ -119,7 +119,7 @@ export const serviceData: Record<string, ServicePageData> = {
             ]
         },
         intro: {
-            heading: "Excellence shouldn&apos;t have an entry fee. That&apos;s why we start with a free inspection and finish with a guaranteed warranty.",
+            heading: "Excellence shouldn't have an entry fee. That's why we start with a free inspection and finish with a guaranteed warranty.",
             stats: [
                 { value: "Free", label: "Inspection", sub: "Diagnosis" },
                 { value: "179 AED", label: "Starts at", sub: "Service" },
@@ -135,7 +135,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "A flawless installation is the foundation of a decade of comfort. We calculate load, optimize placement, and calibrate airflow.",
                 icon: Wind,
                 details: ["Load Calculation", "Ductwork Design", "Efficiency Audits", "Smart Thermostats"],
-                image: "/images/services/ac.png" // Using reliable local asset
+                image: "/images/services/ac.webp" // Using reliable local asset
             },
             {
                 id: "maintenance",
@@ -221,7 +221,7 @@ export const serviceData: Record<string, ServicePageData> = {
             ]
         },
         intro: {
-            heading: "Water belongs in pipes, not on your floor. We use ultrasonic detection to find leaks you can&apos;t see.",
+            heading: "Water belongs in pipes, not on your floor. We use ultrasonic detection to find leaks you can't see.",
             stats: [
                 { value: "Free", label: "Detection", sub: "With Repair" },
                 { value: "129 AED", label: "Starts at", sub: "Service" },
@@ -237,7 +237,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Hidden leaks ruin foundations. We find them without tearing up your walls using thermal and acoustic sensors.",
                 icon: Search,
                 details: ["Ultrasonic Detection", "Thermal Imaging", "Pressure Testing", "Non-Invasive"],
-                image: "/images/services/plumbing.png"
+                image: "/images/services/plumbing.webp"
             },
             {
                 id: "heaters",
@@ -245,7 +245,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 subtitle: "Thermodynamics",
                 description: "Cold showers are a choice. We repair and install all major brands of electric and gas water heaters.",
                 icon: Flame,
-                details: ["Element Replacement", "Tank Flushing", "Thermostat Calib", "Safety Valves"],
+                details: ["Element Replacement", "Tank Flushing", "Thermostat Calibration", "Safety Valves"],
                 image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80" // Water Heater / Boiler (Residential)
             },
             {
@@ -316,7 +316,7 @@ export const serviceData: Record<string, ServicePageData> = {
             ]
         },
         intro: {
-            heading: "Electricity is dangerous. Don&apos;t risk it. Our certified technicians ensure your home is wired for safety and efficiency.",
+            heading: "Electricity is dangerous. Don't risk it. Our certified technicians ensure your home is wired for safety and efficiency.",
             stats: [
                 { value: "Free", label: "Safety", sub: "Check" },
                 { value: "179 AED", label: "Starts at", sub: "Service" },
@@ -332,7 +332,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Old wiring is a fire hazard. We inspect, upgrade, and organize your distribution boards for maximum safety.",
                 icon: Zap,
                 details: ["Load Balancing", "Breaker Testing", "Short Circuit Fix", "Rewiring"],
-                image: "/images/services/electrical.png"
+                image: "/images/services/electrical.webp"
             },
             {
                 id: "lights",
@@ -428,7 +428,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Complete home sanitization for move-ins or spring cleaning. Floors, windows, and surfaces.",
                 icon: Sparkles,
                 details: ["Floor Scrubbing", "Window Cleaning", "Kitchen Degreasing", "Bathroom Sanitize"],
-                image: "/images/services/cleaning.png"
+                image: "/images/services/cleaning.webp"
             },
             {
                 id: "tanks",
@@ -526,7 +526,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Yellow flame? Soot? We clean nozzles and adjust air mixers for a perfect, hot blue flame.",
                 icon: Flame,
                 details: ["Nozzle Cleaning", "Air Mix Adjust", "Igniter Fix", "Grate Cleaning"],
-                image: "/images/services/stoves.png"
+                image: "/images/services/stoves.webp"
             },
             {
                 id: "oven",
@@ -623,7 +623,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "TVs, mirrors, curtains, and art. We use laser levels and proper anchors so nothing ever falls.",
                 icon: Wrench, // Reusing generic tool icon
                 details: ["TV Mounting", "Curtain Rods", "Shelving", "Art Installation"],
-                image: "/images/services/handyman.png" // Drill/Wall
+                image: "/images/services/handyman.webp" // Drill/Wall
             },
             {
                 id: "assembly",
@@ -638,7 +638,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "repair",
                 title: "General Repairs",
                 subtitle: "Fix It All",
-                description: "Door handles, hinges, drawer slides, and minor touch-ups. If it&apos;s broken, we probably fix it.",
+                description: "Door handles, hinges, drawer slides, and minor touch-ups. If it's broken, we probably fix it.",
                 icon: Wrench,
                 details: ["Door Hinges", "Cabinet Handles", "Drawer Slides", "Caulking"],
                 image: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80" // Toolbox
@@ -702,7 +702,7 @@ export const serviceData: Record<string, ServicePageData> = {
             ]
         },
         intro: {
-            heading: "Disasters don&apos;t keep office hours. Neither do we. If there is water flooding or power out, we deploy immediately.",
+            heading: "Disasters don't keep office hours. Neither do we. If there is water flooding or power out, we deploy immediately.",
             stats: [
                 { value: "<60", label: "Mins", sub: "Arrival" },
                 { value: "24/7", label: "Open", sub: "Always" },
@@ -718,7 +718,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "Burst pipe? Heater leak? We extract water and stop the flow immediately to protect your furniture.",
                 icon: Droplet,
                 details: ["Valve Shutoff", "Water Vac", "Pipe Repair", "Damage Control"],
-                image: "/images/services/emergency.png" // Flooded floor/water
+                image: "/images/services/emergency.webp" // Flooded floor/water
             },
             {
                 id: "power",
@@ -779,14 +779,14 @@ export const serviceData: Record<string, ServicePageData> = {
         seo: {
             title: "Custom Home Maintenance Services Dubai | Special Projects | Dakeek",
             keywords: [
-                "Custom Home Repairs Dubai", "Special Manitenance Projects", "Villa Renovation Minor", "Home Improvement Dubai",
+                "Custom Home Repairs Dubai", "Special Maintenance Projects", "Villa Renovation Minor", "Home Improvement Dubai",
                 "Odd Jobs Service", "Custom Carpentry", "General Fixes Dubai"
             ],
             schemaType: "GeneralContractor",
             qna: []
         },
         intro: {
-            heading: "Not every problem fits a category. If it&apos;s broken, tricky, or unusual, let us take a look.",
+            heading: "Not every problem fits a category. If it's broken, tricky, or unusual, let us take a look.",
             stats: [
                 { value: "Custom", label: "Scope", sub: "Defined" },
                 { value: "Flex", label: "Team", sub: "Adapted" },

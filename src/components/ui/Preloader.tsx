@@ -31,7 +31,12 @@ export default function Preloader() {
     return (
         <div
             className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#0c0a09] ${phase === 'exit' ? 'animate-preloader-exit' : ''
-                }`}
+                } css-fallback-hide`
+            }
+            style={{
+                // CSS Safety Valve: Force hide after 1.5s regardless of JS
+                animation: 'fade-out-visibility 0.1s forwards 1.5s'
+            }}
         >
             <h1 className="text-5xl md:text-7xl font-mono font-bold tracking-tighter text-[#E7E5E4]">
                 DAKEEK

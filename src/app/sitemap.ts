@@ -57,12 +57,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.9,
         })),
         // All 37 Location Pages
+
         ...areas.map((slug) => ({
             url: `https://dakeek.ae/areas/${slug}`,
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.8,
         })),
+        // [SEO NUKE] Service + Area Combinations (~300 Pages)
+        ...services.flatMap(service =>
+            areas.map(area => ({
+                url: `https://dakeek.ae/services/${service}/${area}`,
+                lastModified: new Date(),
+                changeFrequency: 'weekly' as const,
+                priority: 0.85, // Higher than generic area pages
+            }))
+        ),
         // Blog Posts
         ...blogPosts.map((post) => ({
             url: `https://dakeek.ae/journal/${post.slug}`,

@@ -78,7 +78,7 @@ export default async function LocationPage(props: { params: Promise<{ location: 
                             <span className="font-mono text-xs uppercase tracking-widest text-white/70">Service Area</span>
                         </div>
                         <h1 className="text-4xl md:text-7xl font-serif font-medium mb-6">
-                            Home Maintenance in <span className="italic" style={{ color: accentColor }}>{areaName}</span>
+                            Home Maintenance in <span className="italic text-[#C4A67C]">{areaName}</span>
                         </h1>
                         {areaData?.tagline && (
                             <p className="text-2xl font-light text-white/80 mb-6">{areaData.tagline}</p>
@@ -131,15 +131,31 @@ export default async function LocationPage(props: { params: Promise<{ location: 
                             Our Services in <span className="italic" style={{ color: accentColor }}>{areaName}</span>
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {Object.values(serviceData).map((service) => (
-                                <ServiceCard
-                                    key={service.id}
-                                    title={service.hero.title}
-                                    href={`/services/${service.slug}`}
-                                    features={service.details.flatMap(d => d.details).slice(0, 3)}
-                                    image={service.details[0].image}
-                                />
-                            ))}
+                            {Object.values(serviceData)
+                                .sort((a, b) => {
+                                    // Custom Sort Order based on Area Priority
+                                    const priorities = areaData?.priorityServices || [];
+                                    const indexA = priorities.indexOf(a.slug);
+                                    const indexB = priorities.indexOf(b.slug);
+
+                                    // If both are prioritized, sort by priority index
+                                    if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+                                    // If only A is prioritized, it comes first
+                                    if (indexA !== -1) return -1;
+                                    // If only B is prioritized, it comes first
+                                    if (indexB !== -1) return 1;
+                                    // Default sort
+                                    return 0;
+                                })
+                                .map((service) => (
+                                    <ServiceCard
+                                        key={service.id}
+                                        title={service.hero.title}
+                                        href={`/services/${service.slug}`}
+                                        features={service.details.flatMap(d => d.details).slice(0, 3)}
+                                        image={service.details[0].image}
+                                    />
+                                ))}
                         </div>
                     </section>
 

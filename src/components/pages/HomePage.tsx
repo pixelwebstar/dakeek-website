@@ -60,12 +60,13 @@ export default function HomePage() {
                     </div>
                 </div>
 
-                {/* Scroll Indicator */}
                 <div className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 text-[#999] animate-bounce">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M6 9l6 6 6-6" />
                     </svg>
                 </div>
+
+
             </section>
 
             {/* 2. SOCIAL PROOF: General Trust */}

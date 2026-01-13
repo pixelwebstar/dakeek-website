@@ -6,24 +6,40 @@ import TechSpecs from "./TechSpecs";
 import ServiceNavigation from "./ServiceNavigation";
 import Link from "next/link";
 import Image from "next/image";
-
 import { useRouter } from "next/navigation";
 import { ArrowRight, ShieldCheck, ChevronDown, Wind } from "lucide-react";
 import { motion } from "framer-motion";
 import { ServicePageData, serviceData } from "../../data/serviceData";
 import ServiceDetailSection from "./ServiceDetailSection";
 
-export default function ServicePageLayout({ data, slug }: { data?: ServicePageData; slug?: string }) {
+interface ServiceLayoutProps {
+    data?: ServicePageData;
+    slug?: string;
+}
+
+export default function ServiceLayout({ data, slug }: ServiceLayoutProps) {
     const router = useRouter();
 
     // Resolve Data (Client Side to avoid serialization issues)
-    const pageData = data || (slug ? serviceData[slug] : null);
+    let pageData = data || (slug ? serviceData[slug] : null);
 
+    // CRITICAL RESTORE: If data came from server (programmatic), it lacks icons (stripped for serialization).
+    // We restore them here from the local serviceData bundle using the internal slug.
+    const effectiveSlug = pageData?.slug || slug;
 
+    if (pageData && effectiveSlug && serviceData[effectiveSlug]) {
+        const original = serviceData[effectiveSlug];
+        pageData = {
+            ...pageData,
+            details: pageData.details.map((d, i) => ({
+                ...d,
+                icon: d.icon || original.details[i]?.icon // Fallback to original icon
+            }))
+        };
+    }
 
     // Calculate Prev/Next
     const serviceKeys = Object.keys(serviceData);
-    // Default values if pageData is missing
     let prevKey = "";
     let nextKey = "";
 
@@ -56,15 +72,12 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
 
         const handleSwipe = () => {
             if (touchEndX < touchStartX - 150) {
-                // Swipe Left -> Next
                 router.push(`/services/${nextKey}`);
             }
             if (touchEndX > touchStartX + 150) {
-                // Swipe Right -> Previous
                 router.push(`/services/${prevKey}`);
             }
         };
-
 
         window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('touchstart', handleTouchStart);
@@ -87,7 +100,7 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
     return (
         <main className={`min-h-screen overflow-x-hidden selection:bg-black selection:text-white ${pageData.theme.secondaryBg}`}>
 
-            {/* 1. Custom Hero */}
+            {/* 1. Custom Hero - Full Height, Premium Typography */}
             <section className={`relative h-screen w-full flex items-center justify-center overflow-hidden ${pageData.theme.secondaryBg}`}>
                 <GradientHero
                     color1={pageData.theme.hero1}
@@ -95,16 +108,22 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
                     initialColor={pageData.theme.hero2}
                 />
 
-                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-                    <p className={`font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 ${pageData.theme.primaryText} bg-white/50`}>
-                        {pageData.hero.tag}
-                    </p>
-                    <h1 className={`text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-slate-900`}>
-                        {pageData.hero.title}
-                    </h1>
-                    <p className={`text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-slate-700`}>
-                        {pageData.hero.description}
-                    </p>
+                <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <p className={`font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-6 md:mb-8 backdrop-blur-sm inline-block px-6 py-2 rounded-full border border-black/5 ${pageData.theme.primaryText} bg-white/40 shadow-sm`}>
+                            {pageData.hero.tag}
+                        </p>
+                        <h1 className={`text-6xl md:text-9xl font-serif font-medium tracking-tight mb-8 leading-[0.9] text-slate-900 drop-shadow-sm`}>
+                            {pageData.hero.title}
+                        </h1>
+                        <p className={`text-xl md:text-3xl font-light max-w-2xl mx-auto leading-relaxed text-slate-700`}>
+                            {pageData.hero.description}
+                        </p>
+                    </motion.div>
                 </div>
 
                 {/* Scroll Indicator */}
@@ -118,20 +137,24 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
                 </motion.div>
             </section>
 
-            {/* 2. Introduction */}
-            <section className={`w-full px-[5vw] lg:px-[8vw] py-24 lg:py-32 bg-white/50`}>
-                <div className="max-w-4xl mx-auto text-center">
-                    <p className={`font-mono text-xs uppercase tracking-[0.3em] mb-8 ${pageData.theme.primaryText}`}>
+            {/* 2. Introduction & Stats - Improved Spacing & Typography */}
+            <section className={`w-full px-[5vw] lg:px-[8vw] py-24 lg:py-32 bg-white/60 backdrop-blur-3xl`}>
+                <div className="max-w-5xl mx-auto text-center">
+                    <p className={`font-mono text-xs uppercase tracking-[0.3em] mb-8 ${pageData.theme.primaryText} opacity-70`}>
                         Why Choose Us
                     </p>
-                    <h2 className="text-3xl md:text-5xl font-serif text-slate-900 mb-6 leading-tight">
+                    <h2 className="text-3xl md:text-5xl font-serif text-slate-900 mb-16 leading-tight max-w-4xl mx-auto">
                         {pageData.intro.heading}
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-black/5">
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 pt-12 border-t border-black/5">
                         {pageData.intro.stats.map((stat, i) => (
-                            <div key={i}>
-                                <div className={`text-3xl font-bold mb-2 ${pageData.theme.primaryText}`}>{stat.value}</div>
-                                <div className="text-sm uppercase tracking-wide text-slate-500">{stat.label}</div>
+                            <div key={i} className="group">
+                                <div className={`text-4xl md:text-5xl font-serif font-medium mb-3 ${pageData.theme.primaryText}`}>
+                                    {stat.value}
+                                </div>
+                                <div className="text-sm font-bold uppercase tracking-widest text-slate-800 mb-1">{stat.label}</div>
+                                <div className="text-xs font-mono uppercase tracking-widest text-slate-400">{stat.sub}</div>
                             </div>
                         ))}
                     </div>
@@ -144,26 +167,26 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
             {/* 3.5 Add-On Service (Optional) */}
             {pageData.addOn && (
                 <section className={`py-24 lg:py-32 px-[5vw] lg:px-[8vw] ${pageData.theme.secondaryBg} relative`}>
-                    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                        <div>
+                    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center">
+                        <div className="order-2 md:order-1">
                             <div className={`inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-wider mb-8 border border-white shadow-sm ${pageData.theme.primaryText}`}>
                                 <Wind className="w-4 h-4" strokeWidth={1.5} />
                                 <span>{pageData.addOn.tag}</span>
                             </div>
-                            <h3 className="text-4xl font-serif text-slate-900 mb-6">{pageData.addOn.title}</h3>
-                            <p className="text-lg text-slate-600 leading-relaxed mb-8">
+                            <h3 className="text-4xl md:text-5xl font-serif text-slate-900 mb-6">{pageData.addOn.title}</h3>
+                            <p className="text-lg text-slate-600 leading-relaxed mb-10 max-w-lg">
                                 {pageData.addOn.description}
                             </p>
-                            <ul className="space-y-4 mb-8 list-none">
+                            <ul className="space-y-4 mb-10 list-none">
                                 {pageData.addOn.benefits.map((benefit, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-titanium">
+                                    <li key={i} className="flex items-center gap-4 text-slate-700">
                                         <div className={`w-2 h-2 rounded-full ${pageData.theme.primaryBg.replace('bg-', 'bg-')}`} />
-                                        {benefit}
+                                        <span className="text-lg font-light">{benefit}</span>
                                     </li>
                                 ))}
                             </ul>
                         </div>
-                        <div className="relative aspect-square md:aspect-video bg-white rounded-2xl overflow-hidden shadow-xl">
+                        <div className="order-1 md:order-2 relative aspect-square md:aspect-[4/5] bg-white rounded-2xl overflow-hidden shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-700">
                             <Image
                                 src={pageData.addOn.image}
                                 alt={pageData.addOn.title}
@@ -171,7 +194,6 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 className="object-cover"
                             />
-
                         </div>
                     </div>
                 </section>
@@ -185,21 +207,21 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
                 theme={pageData.theme}
             />
 
-            {/* 4.5 Why Dakeek for [Service]? */}
+            {/* 4.5 Why Dakeek for [Service]? - Improved Card Design */}
             {pageData.uniqueBenefits && pageData.uniqueBenefits.length > 0 && (
                 <section className="py-24 lg:py-32 px-[5vw] lg:px-[8vw] bg-[#FAFAF9] relative overflow-hidden">
                     <div className="absolute inset-0 opacity-30 pointer-events-none mix-blend-multiply bg-[url('/images/noise.svg')] bg-repeat" />
-                    <div className="max-w-4xl mx-auto relative z-10">
-                        <h3 className="text-3xl md:text-4xl font-serif text-[#111] mb-12 text-center">
-                            Why Dakeek for <span className="italic text-[#5A4A32]">{pageData.hero.title}</span>?
+                    <div className="max-w-5xl mx-auto relative z-10">
+                        <h3 className="text-3xl md:text-5xl font-serif text-[#111] mb-16 text-center">
+                            Why Dakeek for <span className="italic" style={{ color: pageData.theme.hero1 }}>{pageData.hero.title}</span>?
                         </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {pageData.uniqueBenefits.map((benefit, i) => (
-                                <div key={i} className="flex items-start gap-4 p-6 bg-white rounded-xl border border-black/5 shadow-sm">
-                                    <div className={`w-8 h-8 flex-shrink-0 rounded-full ${pageData.theme.iconBg} flex items-center justify-center`}>
+                                <div key={i} className="flex items-start gap-6 p-8 bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-md transition-shadow">
+                                    <div className={`w-10 h-10 flex-shrink-0 rounded-full ${pageData.theme.iconBg} flex items-center justify-center`}>
                                         <span className={`text-sm font-bold ${pageData.theme.primaryText}`}>{i + 1}</span>
                                     </div>
-                                    <p className="text-[#444] leading-relaxed">{benefit}</p>
+                                    <p className="text-[#444] text-lg leading-relaxed font-light">{benefit}</p>
                                 </div>
                             ))}
                         </div>
@@ -221,14 +243,14 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
                             <Link
                                 key={i}
                                 href={`/areas/${area.toLowerCase().replace(/ /g, '-')}`}
-                                className="px-4 py-2 text-sm bg-[#FAFAF9] text-[#555] rounded-full border border-black/5 hover:bg-[#5A4A32] hover:text-white hover:border-[#5A4A32] transition-colors"
+                                className="px-5 py-2.5 text-sm bg-[#FAFAF9] text-[#555] rounded-full border border-black/5 hover:bg-[#111] hover:text-white transition-all transform hover:-translate-y-1"
                             >
                                 {area}
                             </Link>
                         ))}
                         <Link
                             href="/contact"
-                            className="px-4 py-2 text-sm bg-[#111] text-white rounded-full hover:bg-[#5A4A32] transition-colors"
+                            className="px-5 py-2.5 text-sm bg-[#111] text-white rounded-full hover:bg-opacity-80 transition-all transform hover:-translate-y-1 shadow-lg"
                         >
                             + 27 More Areas
                         </Link>
@@ -251,12 +273,12 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
                                     <Link
                                         key={i}
                                         href={`/services/${relatedSlug}`}
-                                        className="group p-8 bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-lg transition-shadow text-center"
+                                        className="group p-8 bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-xl transition-all text-center hover:-translate-y-1"
                                     >
-                                        <span className="block text-lg font-serif text-[#111] group-hover:text-[#5A4A32] transition-colors mb-2">
+                                        <span className="block text-xl font-serif text-[#111] group-hover:text-[#5A4A32] transition-colors mb-2">
                                             {related.hero.title}
                                         </span>
-                                        <span className="text-sm text-[#888]">{related.hero.tag}</span>
+                                        <span className="text-xs uppercase tracking-widest text-[#888]">{related.hero.tag}</span>
                                     </Link>
                                 );
                             })}
@@ -267,26 +289,24 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
 
             {/* 5. Trust & Promise (Premium White) */}
             <section className={`w-full px-[5vw] lg:px-[8vw] py-24 lg:py-32 relative overflow-hidden bg-white border-t border-structure`}>
-                {/* Noise Texture */}
                 <div className="absolute inset-0 w-full h-full opacity-[0.03] bg-[url('/images/noise.svg')] pointer-events-none mix-blend-multiply"></div>
 
                 <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10">
-                    <div className={`p-4 rounded-full bg-white border border-black/5 mb-8 shadow-xl`}>
-                        {/* Use primaryText (Dark Premium Shade) directly. Remove hero1 override. */}
-                        <ShieldCheck className={`w-12 h-12 ${pageData.theme.primaryText}`} strokeWidth={1.5} />
+                    <div className={`p-6 rounded-full bg-white border border-black/5 mb-10 shadow-2xl`}>
+                        <ShieldCheck className={`w-16 h-16 ${pageData.theme.primaryText}`} strokeWidth={1} />
                     </div>
 
-                    <h3 className="text-4xl md:text-6xl font-serif text-slate-900 mb-6 tracking-tight">The Dakeek Guarantee</h3>
-                    <p className="text-xl md:text-2xl font-light text-slate-600 max-w-2xl mb-12 leading-relaxed">
+                    <h3 className="text-4xl md:text-7xl font-serif text-slate-900 mb-8 tracking-tight">The Dakeek Guarantee</h3>
+                    <p className="text-xl md:text-3xl font-light text-slate-600 max-w-3xl mb-16 leading-relaxed">
                         We don&apos;t just fix it; we certify it. Every service comes with a <span className="font-medium text-slate-900">full warranty</span> and a direct line to our support team.
                     </p>
 
-                    <div className="mt-12">
-                        <Link href="/contact" className="group relative px-12 py-4 bg-ink text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl inline-flex items-center gap-3">
-                            <span className="relative z-10 font-mono uppercase tracking-widest text-sm">
+                    <div>
+                        <Link href="/contact" className="group relative px-12 py-5 bg-black text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-2xl inline-flex items-center gap-4">
+                            <span className="relative z-10 font-mono uppercase tracking-widest text-sm font-bold">
                                 Book Now
                             </span>
-                            <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
+                            <ArrowRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
                             <div className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out ${pageData.theme.primaryBg}`} />
                         </Link>
                     </div>

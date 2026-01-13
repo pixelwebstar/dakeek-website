@@ -3,15 +3,18 @@ import React from "react";
 import { Geist, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
 import dynamic from 'next/dynamic';
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { TransitionProvider } from "../lib/context/TransitionContext";
-import ContactHubLoader from "../components/shared/ContactHubLoader";
+// Removed static imports to resolve conflict with dynamic lazy loads
+// import ContactHubLoader from "../components/shared/ContactHubLoader";
 import Preloader from "../components/ui/Preloader";
+
+import Footer from "../components/layout/Footer";
+import ContactHubLoader from "../components/shared/ContactHubLoader";
 
 export const viewport: Viewport = {
   themeColor: "#111111",
@@ -109,9 +112,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Preconnect to critical origins for faster loading */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preconnect removed: Next.js self-hosts fonts, so no external connection needed */}
         <link rel="preload" href="/images/noise.svg" as="image" />
 
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
