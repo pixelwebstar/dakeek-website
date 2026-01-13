@@ -1,12 +1,10 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MapPin } from "lucide-react";
-import StaticFooterWatermark from "./StaticFooterWatermark";
+import { MapPin, Phone, Mail, MessageSquare, ExternalLink, Copy, Check } from "lucide-react";
 import { serviceData } from "../../data/serviceData";
-import { useState } from "react";
 import { usePWAInstall } from "../../hooks/usePWAInstall";
 import InstallModal from "../shared/InstallModal";
 
@@ -14,18 +12,34 @@ export default function Footer() {
     const pathname = usePathname();
     const { install, isIOS } = usePWAInstall();
     const [showInstallModal, setShowInstallModal] = useState(false);
+    const [copied, setCopied] = useState(false);
 
     const handleInstallClick = async (e: React.MouseEvent) => {
         e.preventDefault();
         const outcome = await install();
-        if (outcome === "IOS_INSTRUCTION_NEEDED") {
+        if (outcome === "IOS_INSTRUCTION_NEEDED" || outcome === "INSTALL_UNAVAILABLE") {
             setShowInstallModal(true);
+        }
+    };
+
+    const handleLicenseClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        navigator.clipboard.writeText("1382290");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+        window.open("https://app.invest.dubai.ae/search-license", "_blank");
+    };
+
+    const openChat = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (typeof window !== 'undefined') {
+            const event = new Event('open-chat');
+            window.dispatchEvent(event);
         }
     };
 
     // Dynamic Theme Logic
     const theme = useMemo(() => {
-        // Extract service slug from path /services/[slug]
         const pathParts = pathname?.split('/') || [];
         const isServicePage = pathParts[1] === 'services' && pathParts[2];
         const serviceTheme = isServicePage ? serviceData[pathParts[2]]?.theme : null;
@@ -33,171 +47,185 @@ export default function Footer() {
         if (serviceTheme) {
             return {
                 bg: serviceTheme.secondaryBg,
-                text: serviceTheme.primaryText.replace('text-', 'text-'), // Assuming primaryText is like 'text-blue-600'
-                // For text colors that act as accents or headers, we can derive or use the provided theme
-                // Let's map the serviceTheme to the footer structure
-                accent: serviceTheme.accentText,
+                text: serviceTheme.primaryText.replace('text-', 'text-'),
                 header: serviceTheme.primaryText,
-                border: serviceTheme.primaryText.replace('text-', 'border-').replace('600', '200').replace('500', '200'), // Hacky derivation for lighter border
-                iconBg: `hover:${serviceTheme.primaryText.replace('text-', 'bg-')} hover:text-white`,
-                secondaryText: "text-slate-600",
-                mutedText: "text-slate-400",
-                copyright: "text-slate-300",
-                isDark: false // Service pages are generally light/colored
+                border: serviceTheme.primaryText.replace('text-', 'border-').replace('600', '200').replace('500', '200'),
+                mutedText: "text-slate-500",
+                hoverText: "hover:text-black",
+                copyright: "text-slate-400",
             };
         }
 
-        // Default Theme (Home / Other)
+        // Default Theme
         return {
-            bg: "bg-canvas",
-            text: "text-ink",
-            accent: "text-bronze",
-            header: "text-bronze",
-            border: "border-structure",
-            iconBg: "hover:bg-bronze hover:border-bronze",
-            secondaryText: "text-[#333]",
-            mutedText: "text-[#333]",
-            copyright: "text-[#333]",
-            isDark: false
+            bg: "bg-[#FAFAF9]",
+            text: "text-[#111]",
+            header: "text-[#111]",
+            border: "border-black/5",
+            mutedText: "text-[#555]",
+            hoverText: "hover:text-[#5A4A32]",
+            copyright: "text-[#777]",
         };
     }, [pathname]);
 
-    // Calculate Physics Color (The 'watermark' color)
-    // For service pages, we use the hero1 color (which is usually the lighter one)
-    const getWatermarkColor = () => {
-        const pathParts = pathname?.split('/') || [];
-        if (pathParts[1] === 'services' && pathParts[2]) {
-            const service = serviceData[pathParts[2]];
-            if (service) return service.theme.hero1;
-        }
-        return "#CCCCCC"; // Default grey structure (Darkened from #E5E5E5 for contrast)
+    const links = {
+        company: [
+            { name: "Home", href: "/" },
+            { name: "About Us", href: "/about" },
+            { name: "Services", href: "/services" },
+            { name: "Journal", href: "/journal" },
+            { name: "Queries", href: "/queries" },
+            { name: "Contact Us", href: "/contact" },
+        ],
+        services: [
+            { name: "AC Maintenance", href: "/services/ac" },
+            { name: "Plumbing Services", href: "/services/plumbing" },
+            { name: "Electrical Works", href: "/services/electrical" },
+            { name: "Deep Cleaning", href: "/services/cleaning" },
+            { name: "Handyman", href: "/services/handyman" },
+            { name: "Emergency Service", href: "/services/emergency" },
+        ],
+        contact: [
+            { name: "Call Support", href: "tel:+971542472151", icon: <Phone size={14} /> },
+            { name: "WhatsApp Us", href: "https://wa.me/971542472151", icon: <MessageSquare size={14} /> },
+            { name: "Dakeek Chat", href: "#chat", action: openChat, icon: <MessageSquare size={14} /> },
+            { name: "Email Support", href: "mailto:asheejajayan@gmail.com", icon: <Mail size={14} /> },
+            { name: "Coverage Areas", href: "/coverage", icon: <MapPin size={14} /> },
+            { name: "Our Location", href: "https://www.google.com/maps/search/?api=1&query=Anzar+Gallery+Building+Al+Karama+Dubai", icon: <MapPin size={14} /> },
+        ],
+        socials: [
+            { name: "LinkedIn", href: "https://www.linkedin.com/company/dakeek-technical-service-co-llc/" },
+            { name: "Facebook", href: "https://www.facebook.com/dakeektechnicalservice/" },
+            { name: "Instagram", href: "https://www.instagram.com/dakeektechnicalservice/" },
+            { name: "X (Twitter)", href: "https://twitter.com" },
+            { name: "TikTok", href: "https://tiktok.com" },
+            { name: "Indeed", href: "https://ae.indeed.com/" },
+        ]
     };
 
-    const socialLinks = [
-        { name: "Instagram", href: "https://www.instagram.com/dakeektechnicalservice/" },
-        { name: "Facebook", href: "https://www.facebook.com/dakeektechnicalservice/" },
-        { name: "LinkedIn", href: "https://www.linkedin.com/company/dakeek-technical-service-co-llc/" },
-        { name: "Email", href: "mailto:asheejajayan@gmail.com" },
-        { name: "Phone", href: "tel:+971542472151" }
-    ];
-
     return (
-        <footer id="footer" className={`w-full px-[5vw] lg:px-[8vw] pt-24 pb-8 ${theme.bg} ${theme.text} relative overflow-hidden flex flex-col items-center justify-between border-t ${theme.border} min-h-[50vh]`}>
+        <footer className={`w-full px-[5vw] lg:px-[8vw] py-16 ${theme.bg} ${theme.text} relative overflow-hidden text-sm border-t ${theme.border}`}>
 
-            {/* 1. LAYER 0: The Watermark (Static) */}
-            <StaticFooterWatermark color={getWatermarkColor()} />
+            <div className="relative z-20 w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mb-16">
 
-            {/* 2. LAYER 10: The Content (Floating Above) */}
-            <div
-                className={`relative z-10 w-full max-w-[1600px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24 mb-24 md:mb-32 transition-opacity duration-300 pointer-events-auto opacity-100`}
-            >
-                {/* Col 1: Brand */}
-                <div className="space-y-6">
-                    <h2 className="text-2xl font-bold tracking-tight">DAKEEK</h2>
-                    <p className={`font-serif italic text-lg leading-relaxed ${theme.secondaryText}`}>
-                        &quot;Engineering rigor for Dubai’s finest homes. Precision in every detail.&quot;
-                    </p>
-                    <div className="flex flex-col gap-1 items-start">
-                        <a
-                            href="https://www.google.com/maps/search/?api=1&query=Anzar+Gallery+Building+Al+Karama+Dubai"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`flex items-center gap-2 text-sm ${theme.mutedText} hover:text-black transition-colors cursor-pointer duration-300`}
+                {/* LEFT SIDE: BRANDING & UTILITY */}
+                <div className="w-full lg:w-[30%] flex flex-col gap-6 lg:sticky lg:top-12">
+                    <div>
+                        <h2 className="text-4xl font-bold tracking-tighter mb-4">DAKEEK</h2>
+                        <p className={`font-serif italic text-base leading-relaxed ${theme.mutedText} max-w-xs`}>
+                            &quot;Engineering rigor for Dubai’s finest homes. Precision in every detail.&quot;
+                        </p>
+                    </div>
+
+                    <div className="flex flex-col gap-3 items-start">
+                        {/* License Button */}
+                        <button
+                            onClick={handleLicenseClick}
+                            className="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-black/5 shadow-sm hover:shadow-md transition-all hover:bg-[#F5F5F4] w-fit"
                         >
-                            <MapPin size={16} />
-                            <span>Anzar Gallery Building, Al Karama, Dubai</span>
-                        </a>
-                        <div className="flex flex-col gap-4 items-start mt-4">
-                            <p className="font-mono text-[10px] uppercase tracking-widest text-[#666]">Download the App</p>
-                            <div className="flex gap-2">
-                                <button
-                                    onClick={handleInstallClick}
-                                    className={`px-4 py-2 border ${theme.border} ${theme.secondaryText} hover:bg-black hover:text-white transition-colors text-[10px] uppercase tracking-widest font-mono flex items-center gap-2 rounded-sm`}
-                                >
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                        <polyline points="7 10 12 15 17 10" />
-                                        <line x1="12" y1="15" x2="12" y2="3" />
-                                    </svg>
-                                    Install Web App
-                                </button>
-                            </div>
+                            <div className={`w-1.5 h-1.5 rounded-full ${copied ? "bg-blue-500" : "bg-green-500 animate-pulse"}`} />
+                            <span className="font-mono text-[10px] uppercase tracking-widest text-[#555]">
+                                {copied ? "Copied!" : "Lic: 1382290"}
+                            </span>
+                            {copied ? <Check size={12} className="text-blue-500" /> : <Copy size={12} className="text-[#999] group-hover:text-black transition-colors" />}
+                        </button>
 
-                            <a
-                                href="https://app.invest.dubai.ae/search-license"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={`flex items-center gap-2 mt-4 px-3 py-1.5 rounded-full border border-black/5 bg-black/5 hover:bg-black/10 transition-colors cursor-pointer group`}
-                            >
-                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                                <span className={`text-[10px] font-mono uppercase tracking-widest ${theme.mutedText} group-hover:text-black`}>
-                                    Official License: 1382290
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Col 2: Navigation */}
-                <div className="space-y-6">
-                    <h3 className={`font-mono text-xs uppercase tracking-widest opacity-70`}>Explore</h3>
-                    <div className="flex flex-col gap-4">
-                        <Link href="/" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header}`}>
-                            Home
-                        </Link>
-                        <Link href="/about" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header}`}>
-                            About
-                        </Link>
-                        <Link href="/services" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header}`}>
-                            Services
-                        </Link>
-                        <Link href="/queries" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header}`}>
-                            Queries
-                        </Link>
-                        <Link href="/contact" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header}`}>
-                            Contact
-                        </Link>
-                    </div>
-                </div>
-
-                {/* Col 3: Support */}
-                <div className="space-y-6">
-                    <h3 className={`font-mono text-xs uppercase tracking-widest opacity-70`}>Support</h3>
-                    <div className="flex flex-col gap-4">
-
-                        <Link href="/services/emergency" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header}`}>
-                            Emergency (24/7)
-                        </Link>
-                        <Link href="/all-pages" className={`font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header} opacity-100`}>
-                            All Pages (Temp)
-                        </Link>
+                        {/* Install App Button */}
+                        <button
+                            onClick={handleInstallClick}
+                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#111] text-white shadow-md hover:bg-bronze transition-colors hover:scale-105 active:scale-95 w-fit"
+                        >
+                            <span className="font-mono text-[10px] uppercase tracking-widest font-medium">Install App</span>
+                        </button>
                     </div>
                 </div>
 
 
-                {/* Col 4: Connect (Text Links) */}
-                <div className="space-y-6">
-                    <h3 className={`font-mono text-xs uppercase tracking-widest opacity-70`}>Connect</h3>
-                    <div className="flex flex-col gap-4">
-                        {socialLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                className={`flex items-center gap-2 font-mono text-xs uppercase tracking-widest hover:translate-x-2 transition-transform duration-300 block w-fit ${theme.header}`}
-                            >
-                                <span>{link.name}</span>
-                            </a>
-                        ))}
+                {/* RIGHT SIDE: LINKS GRID (Standardized) */}
+                <div className="w-full lg:w-[70%] grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-10">
+
+                    {/* 1. Company */}
+                    <div className="space-y-5">
+                        <h3 className="font-mono text-sm uppercase tracking-[0.2em] font-medium opacity-100">Company</h3>
+                        <ul className="space-y-3">
+                            {links.company.map((link) => (
+                                <li key={link.name}>
+                                    <Link
+                                        href={link.href}
+                                        title={`${link.name} – Home Maintenance Dubai`}
+                                        className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
+
+                    {/* 2. Services */}
+                    <div className="space-y-5">
+                        <h3 className="font-mono text-sm uppercase tracking-[0.2em] font-medium opacity-100">Services</h3>
+                        <ul className="space-y-3">
+                            {links.services.map((link) => (
+                                <li key={link.name}>
+                                    <Link
+                                        href={link.href}
+                                        title={`${link.name} in Dubai`}
+                                        className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* 3. Contact */}
+                    <div className="space-y-5">
+                        <h3 className="font-mono text-sm uppercase tracking-[0.2em] font-medium opacity-100">Contact</h3>
+                        <ul className="space-y-3">
+                            {links.contact.map((link) => (
+                                <li key={link.name}>
+                                    {link.action ? (
+                                        <button onClick={link.action} className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors text-left block hover:translate-x-1 duration-200`}>
+                                            {link.name}
+                                        </button>
+                                    ) : (
+                                        <a
+                                            href={link.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            title={link.name === "Coverage Areas" ? "Coverage areas within 25 km of our Dubai base" : `${link.name} - Dakeek Dubai`}
+                                            className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
+                                        >
+                                            {link.name}
+                                        </a>
+                                    )}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* 4. Socials */}
+                    <div className="space-y-5">
+                        <h3 className="font-mono text-sm uppercase tracking-[0.2em] font-medium opacity-100">Follow</h3>
+                        <ul className="space-y-3">
+                            {links.socials.map((link) => (
+                                <li key={link.name}>
+                                    <a href={link.href} target="_blank" rel="noopener noreferrer" className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}>
+                                        {link.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
                 </div>
             </div>
 
-            {/* 3. LAYER 60: Copyright (Floating perfectly ON TOP) */}
-            <div
-                className={`absolute bottom-6 left-1/2 -translate-x-1/2 text-center w-full px-4 transition-opacity duration-300 pointer-events-none select-none`}
-                style={{ zIndex: 60 }}
-            >
-                <p className={`text-[10px] font-mono uppercase tracking-widest ${theme.copyright}`}>
+            {/* COPYRIGHT CENTER BOTTOM */}
+            <div className="relative z-20 w-full pt-8 border-t border-black/5 text-center">
+                <p className={`font-mono text-[10px] uppercase tracking-widest ${theme.copyright}`}>
                     © {new Date().getFullYear()} Dakeek Technical Services LLC.
                 </p>
             </div>
@@ -210,4 +238,3 @@ export default function Footer() {
         </footer>
     );
 }
-

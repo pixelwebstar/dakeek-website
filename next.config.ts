@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
   // Critical: Optimize CSS delivery
   experimental: {
     optimizeCss: true, // Inline critical CSS
-    optimizePackageImports: ['lucide-react'], // Tree-shake icons
+    optimizePackageImports: ['lucide-react', 'framer-motion'], // Tree-shake icons and libs
   },
   // Compiler optimizations
   compiler: {
@@ -22,6 +22,12 @@ const nextConfig: NextConfig = {
     // Added 375, 480 for granular mobile optimization
     deviceSizes: [375, 480, 576, 640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
   },
   // Headers for performance
   async headers() {

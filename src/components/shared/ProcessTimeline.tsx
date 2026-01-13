@@ -13,7 +13,7 @@ export type ProcessStep = {
 const STEPS: ProcessStep[] = [
     {
         title: "Book Online",
-        desc: "Pick a date and time. We'll be there when we say we will.",
+        desc: "Pick a date and time. We&apos;ll be there when we say we will.",
         icon: Calendar,
     },
     {

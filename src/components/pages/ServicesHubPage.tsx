@@ -12,8 +12,7 @@ import GradientHero from "@/components/hero/GradientHero";
 
 // Helper to get the first image from details as the "Cover"
 const getServiceImage = (slug: string) => {
-    // @ts-ignore
-    const service = serviceData[slug];
+    const service = serviceData[slug as keyof typeof serviceData];
     return service?.details?.[0]?.image || "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80";
 };
 
@@ -32,17 +31,26 @@ export default function ServicesHubPage() {
                     initialColor="#e7e5e4"
                 />
 
-                <SectionWrapper className="max-w-4xl mx-auto text-center relative z-10 px-6">
+                <SectionWrapper className="relative z-10 text-center px-4 max-w-5xl mx-auto">
                     <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#333] bg-white/50">
                         The Dakeek Standard
                     </span>
                     <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-[#111]">
-                        Excellence. <br />
-                        <span className="italic text-[#333]">Standardized.</span>
+                        Services.
                     </h1>
-                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#333] mb-12">
-                        AC, Plumbing, Electrical, and more. One call. One team. One standard.
+                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#333] mb-12 uppercase tracking-widest">
+                        Excellence In Every Detail
                     </p>
+
+                    <div className="flex justify-center gap-4 animate-hero-fade" style={{ animationDelay: '0.5s' }}>
+                        <Link href="/contact" className="group relative inline-flex items-center justify-center px-12 py-4 bg-[#111] text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
+                            <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Book Technician</span>
+                            <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                        </Link>
+                        <Link href="/coverage" className="inline-flex items-center justify-center px-12 py-4 border border-black/10 text-[#111] rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
+                            View Coverage
+                        </Link>
+                    </div>
                 </SectionWrapper>
 
                 {/* Scroll Indicator - CSS animation */}
@@ -73,8 +81,7 @@ export default function ServicesHubPage() {
             {/* 3. RICH CATALOG (Cinematic Chapters) */}
             <div className="flex flex-col bg-[#FAFAF9]">
                 {serviceKeys.map((slug, index) => {
-                    // @ts-ignore
-                    const service = serviceData[slug];
+                    const service = serviceData[slug as keyof typeof serviceData];
                     const isEven = index % 2 === 0;
                     const coverImage = getServiceImage(slug);
 

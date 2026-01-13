@@ -2,23 +2,26 @@ import { Metadata } from "next";
 import HomePage from "@/components/pages/HomePage";
 
 export const metadata: Metadata = {
-   title: "Best Home Maintenance & Repair Services in Dubai | Dakeek",
-   description: "Dubai's #1 rated home maintenance company. Expert AC repair, plumbing, electrical, and handyman services. 60-min response. Licensed & insured technicians. Book now!",
+   title: "Home Maintenance & Repair Services in Dubai | Dakeek Technical Services",
+   description: "Dakeek is a Dubai-based home maintenance company for villas and apartments, offering precise AC, plumbing, electrical, cleaning, handyman and emergency repair services within 25 km. Licensed technicians, fast response.",
    keywords: [
-      "Home Maintenance Dubai",
-      "Best Home Maintenance Company Dubai",
-      "AC Repair Dubai",
-      "Plumber Dubai",
-      "Electrician Dubai",
-      "Handyman Dubai",
-      "Emergency Repair Dubai",
-      "24/7 Home Services Dubai",
-      "Technical Services Dubai",
+      "home maintenance services in Dubai",
+      "home repair services in Dubai",
+      "AC maintenance in Dubai",
+      "plumbing services in Dubai",
+      "electrical services in Dubai",
+      "handyman services in Dubai",
+      "emergency home maintenance Dubai",
+      "residential maintenance company in Dubai",
       "Dakeek",
+      "Technical Services Dubai"
    ],
+   alternates: {
+      canonical: "https://dakeek.ae/",
+   },
    openGraph: {
-      title: "Dakeek - Best Home Maintenance Services in Dubai",
-      description: "AC repair, plumbing, electrical & handyman. 60-min response. Book now!",
+      title: "Home Maintenance & Repair Services in Dubai | Dakeek Technical Services",
+      description: "Dakeek is a Dubai-based home maintenance company for villas and apartments, offering precise AC, plumbing, electrical, cleaning, handyman and emergency repair services within 25 km.",
    },
 };
 

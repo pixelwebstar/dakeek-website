@@ -23,29 +23,39 @@ export default function JournalHubPage() {
         <main className="min-h-screen bg-[#FAFAF9] text-[#111] font-sans selection:bg-bronze selection:text-white">
 
             {/* 1. HERO: The Journal (Warm Stone / Silver Metallic) */}
-            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#F5F5F4] border-b border-[#E7E5E4]">
+            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
                 <div className="absolute inset-0 z-0">
                     <GradientHero
-                        color1="#d6d3d1"
-                        color2="#fafaf9"
-                        initialColor="#F5F5F4"
+                        color1="#D1D5DB"
+                        color2="#F3F4F6"
+                        initialColor="#D1D5DB"
                     />
                 </div>
 
-                <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
-                    <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#444] bg-white/40">
-                        Editorial
+                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+                    <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
+                        Editorial And Insights
                     </p>
-                    <h1 className="text-6xl md:text-9xl font-serif italic tracking-tight mb-6 leading-[0.9] text-[#1c1917]">
-                        The Journal.
+                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade" style={{ animationDelay: '0s' }}>
+                        Journal
                     </h1>
-                    <p className="text-lg md:text-xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#444]">
-                        Insights on home maintenance, Dubai living, and technical excellence.
+                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12 uppercase tracking-widest animate-hero-fade" style={{ animationDelay: '0.3s' }}>
+                        Knowledge For Better Living
                     </p>
+
+                    <div className="flex justify-center gap-4 animate-hero-fade" style={{ animationDelay: '0.5s' }}>
+                        <Link href="#latest" className="group relative inline-flex items-center justify-center px-12 py-4 bg-ink text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
+                            <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Read Latest</span>
+                            <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                        </Link>
+                        <Link href="#subscribe" className="inline-flex items-center justify-center px-12 py-4 border border-black/10 text-ink rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
+                            Subscribe
+                        </Link>
+                    </div>
                 </div>
             </section>
 
-            <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-24 md:py-32">
+            <div id="latest" className="max-w-[1200px] mx-auto px-6 md:px-12 py-24 md:py-32">
 
                 {/* 2. Categories (Minimal Tab Bar) */}
                 <div className="flex justify-center mb-20 md:mb-24">
@@ -157,7 +167,7 @@ export default function JournalHubPage() {
                 </div>
 
                 {/* 5. Subscribe (Minimal) */}
-                <div className="mt-32 border-t border-black/10 pt-20 text-center">
+                <div id="subscribe" className="mt-32 border-t border-black/10 pt-20 text-center">
                     <BookOpen className="w-8 h-8 mx-auto text-bronze mb-6 opacity-80" />
                     <h2 className="font-serif italic text-3xl md:text-4xl mb-4 text-[#1c1917]">Stay Informed.</h2>
                     <p className="text-[#333] mb-8 max-w-md mx-auto">Get the expert advice you need to maintain a perfect home.</p>

@@ -53,7 +53,7 @@ export function FAQAccordion({ faqs, showSearch = true, defaultOpen = 0 }: FAQAc
                         animate={{ opacity: 1 }}
                         className="text-center py-12 text-gray-500"
                     >
-                        <p className="text-lg font-serif italic">No questions found matching "{searchQuery}"</p>
+                        <p className="text-lg font-serif italic">No questions found matching &quot;{searchQuery}&quot;</p>
                         <button
                             onClick={() => setSearchQuery("")}
                             className="mt-4 text-sm text-bronze hover:underline"

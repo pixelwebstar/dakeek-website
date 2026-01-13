@@ -55,7 +55,7 @@ export default function InstallModal({ isOpen, onClose, isIOS }: InstallModalPro
                                 </div>
                             ) : (
                                 <p className="text-sm text-[#666]">
-                                    Installing app... Check your browser if the prompt doesn't appear.
+                                    If the install prompt doesn&apos;t appear, please use your browser menu (⋮) and select <strong>&quot;Add to Home Screen&quot;</strong> or <strong>&quot;Install App&quot;</strong>.
                                 </p>
                             )}
                         </div>

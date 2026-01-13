@@ -73,10 +73,10 @@ export function SmartForm() {
             // Reset status after a delay
             setTimeout(() => setStatus("idle"), 3000);
 
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error("Form submission error:", error);
             setStatus("error");
-            const message = error?.message || "Something went wrong. Please try again.";
+            const message = (error as Error)?.message || "Something went wrong. Please try again.";
             setErrorMessage(message);
             toast.error("Submission Failed", { description: message });
         }

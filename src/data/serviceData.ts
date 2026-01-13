@@ -119,7 +119,7 @@ export const serviceData: Record<string, ServicePageData> = {
             ]
         },
         intro: {
-            heading: "Excellence shouldn't have an entry fee. That’s why we start with a free inspection and finish with a guaranteed warranty.",
+            heading: "Excellence shouldn&apos;t have an entry fee. That&apos;s why we start with a free inspection and finish with a guaranteed warranty.",
             stats: [
                 { value: "Free", label: "Inspection", sub: "Diagnosis" },
                 { value: "179 AED", label: "Starts at", sub: "Service" },
@@ -221,7 +221,7 @@ export const serviceData: Record<string, ServicePageData> = {
             ]
         },
         intro: {
-            heading: "Water belongs in pipes, not on your floor. We use ultrasonic detection to find leaks you can't see.",
+            heading: "Water belongs in pipes, not on your floor. We use ultrasonic detection to find leaks you can&apos;t see.",
             stats: [
                 { value: "Free", label: "Detection", sub: "With Repair" },
                 { value: "129 AED", label: "Starts at", sub: "Service" },
@@ -316,7 +316,7 @@ export const serviceData: Record<string, ServicePageData> = {
             ]
         },
         intro: {
-            heading: "Electricity is dangerous. Don't risk it. Our certified technicians ensure your home is wired for safety and efficiency.",
+            heading: "Electricity is dangerous. Don&apos;t risk it. Our certified technicians ensure your home is wired for safety and efficiency.",
             stats: [
                 { value: "Free", label: "Safety", sub: "Check" },
                 { value: "179 AED", label: "Starts at", sub: "Service" },
@@ -638,7 +638,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "repair",
                 title: "General Repairs",
                 subtitle: "Fix It All",
-                description: "Door handles, hinges, drawer slides, and minor touch-ups. If it's broken, we probably fix it.",
+                description: "Door handles, hinges, drawer slides, and minor touch-ups. If it&apos;s broken, we probably fix it.",
                 icon: Wrench,
                 details: ["Door Hinges", "Cabinet Handles", "Drawer Slides", "Caulking"],
                 image: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80" // Toolbox
@@ -702,7 +702,7 @@ export const serviceData: Record<string, ServicePageData> = {
             ]
         },
         intro: {
-            heading: "Disasters don't keep office hours. Neither do we. If there is water flooding or power out, we deploy immediately.",
+            heading: "Disasters don&apos;t keep office hours. Neither do we. If there is water flooding or power out, we deploy immediately.",
             stats: [
                 { value: "<60", label: "Mins", sub: "Arrival" },
                 { value: "24/7", label: "Open", sub: "Always" },
@@ -786,7 +786,7 @@ export const serviceData: Record<string, ServicePageData> = {
             qna: []
         },
         intro: {
-            heading: "Not every problem fits a category. If it's broken, tricky, or unusual, let us take a look.",
+            heading: "Not every problem fits a category. If it&apos;s broken, tricky, or unusual, let us take a look.",
             stats: [
                 { value: "Custom", label: "Scope", sub: "Defined" },
                 { value: "Flex", label: "Team", sub: "Adapted" },
@@ -799,7 +799,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "consult",
                 title: "Consultation",
                 subtitle: "Diagnosis",
-                description: "Don't know what's wrong? We perform a full home health check to identify underlying issues.",
+                description: "Don&apos;t know what&apos;s wrong? We perform a full home health check to identify underlying issues.",
                 icon: Search,
                 details: ["Full Inspection", "Report", "Advice", "Plan"],
                 image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80" // Blueprint/Plan

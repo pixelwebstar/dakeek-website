@@ -38,10 +38,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.5,
         },
         {
-            url: 'https://dakeek.ae/blog',
+            url: 'https://dakeek.ae/journal',
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.7,
+        },
+        {
+            url: 'https://dakeek.ae/coverage',
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
         },
         // Individual Services - High Priority
         ...services.map((slug) => ({
@@ -59,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         })),
         // Blog Posts
         ...blogPosts.map((post) => ({
-            url: `https://dakeek.ae/blog/${post.slug}`,
+            url: `https://dakeek.ae/journal/${post.slug}`,
             lastModified: new Date(post.date),
             changeFrequency: 'monthly' as const,
             priority: 0.6,

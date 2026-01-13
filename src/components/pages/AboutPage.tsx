@@ -22,32 +22,23 @@ export default function AboutPage() {
                     />
                 </div>
 
-                <div className="relative z-10 max-w-6xl mx-auto text-center px-6">
-                    <div className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
-                        <span className="w-2 h-2 rounded-full bg-bronze animate-pulse inline-block mr-2" />
-                        Our Promise
-                    </div>
-
-                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-[#111]">
-                        Built Different.
+                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+                    <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
+                        Our Promise Internal
+                    </p>
+                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-[#111] animate-hero-fade" style={{ animationDelay: '0s' }}>
+                        Origins
                     </h1>
+                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#666] mb-12 uppercase tracking-widest animate-hero-fade" style={{ animationDelay: '0.3s' }}>
+                        Built Different By Design
+                    </p>
 
-                    {/* Minimal Tags as requested */}
-                    <div className="flex flex-wrap justify-center gap-3 mb-12">
-                        {["Background-checked & verified", "No surprise visits", "Full-time Employees"].map((item, i) => (
-                            <div key={i} className="flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-md rounded-full border border-white/40 shadow-sm">
-                                <Check className="w-3 h-3 text-bronze" strokeWidth={1.5} />
-                                <span className="font-mono text-[10px] uppercase tracking-wider text-[#111]">{item}</span>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="flex justify-center gap-4">
-                        <Link href="/contact" className="group relative px-12 py-4 bg-[#111] text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
-                            <span className="relative z-10 font-mono text-sm font-medium uppercase tracking-[0.2em]">Book a Visit</span>
+                    <div className="flex justify-center gap-4 animate-hero-fade" style={{ animationDelay: '0.5s' }}>
+                        <Link href="/contact" className="group relative inline-flex items-center justify-center px-12 py-4 bg-[#111] text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
+                            <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Book a Visit</span>
                             <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                         </Link>
-                        <Link href="#story" className="px-12 py-4 border border-black/10 text-[#111] rounded-full font-mono text-sm font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
+                        <Link href="#story" className="inline-flex items-center justify-center px-12 py-4 border border-black/10 text-[#111] rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
                             Our Story
                         </Link>
                     </div>
@@ -60,7 +51,7 @@ export default function AboutPage() {
             </section>
 
             {/* 2. THE CONFLICT: "The Intruder" (Text Reveal) */}
-            <section
+            < section
                 className="relative py-32 px-[5vw] md:px-[10vw] max-w-4xl mx-auto"
             >
                 <p className="text-3xl md:text-5xl font-serif text-stone-300 leading-snug">
@@ -71,10 +62,10 @@ export default function AboutPage() {
                     We know the anxiety that follows. The frantic calls. The 4-hour windows. The stranger walking through your door with muddy boots.
                     It feels like an invasion.
                 </p>
-            </section>
+            </section >
 
             {/* 2b. THE ORIGIN: "It Started with a Leak" (New Content) */}
-            <section className="relative py-32 border-t border-white/5 bg-[#0a0a0a]">
+            < section className="relative py-32 border-t border-white/5 bg-[#0a0a0a]" >
                 <div className="max-w-7xl mx-auto px-[5vw] grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div className="relative h-[600px] w-full rotate-3 transform hover:rotate-0 transition-all duration-700 opacity-80 hover:opacity-100">
                         <Image
@@ -89,25 +80,24 @@ export default function AboutPage() {
                         <h2 className="text-4xl md:text-6xl font-serif mb-8">It started with a Sunday morning leak.</h2>
                         <div className="prose prose-lg text-stone-400 font-light leading-relaxed space-y-6">
                             <p>
-                                Ten years ago, our founder woke up to water dripping from the ceiling. He called a "24/7" service.
-                                They arrived 6 hours late. They didn't have the part. They tracked mud on the carpet and left a bill that changed three times.
+                                Ten years ago, our founder woke up to water dripping from the ceiling. He called a &quot;24/7&quot; service.
+                                They arrived 6 hours late. They didn&apos;t have the part. They tracked mud on the carpet and left a bill that changed three times.
                             </p>
-                            <p>
-                                <h3 className="text-xl md:text-2xl font-light leading-relaxed text-stone-300">
-                                    The founder of Dakeek noticed a gap in the market. Homes were beautiful, but the care they received was often unreliable.
-                                    <br /><br />
-                                    So he built Dakeek not just as a maintenance company, but as a professional service provider.
-                                    Where "on time" means to the minute. Where "clean" means spotless.
-                                    And where every technician is someone you can trust.
-                                </h3>    </p>
+                            <h3 className="text-xl md:text-2xl font-light leading-relaxed text-stone-300">
+                                The founder of Dakeek noticed a gap in the market. Homes were beautiful, but the care they received was often unreliable.
+                                <br /><br />
+                                So he built Dakeek not just as a maintenance company, but as a professional service provider.
+                                Where &quot;on time&quot; means to the minute. Where &quot;clean&quot; means spotless.
+                                And where every technician is someone you can trust.
+                            </h3>
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
 
             {/* 3. THE SOLUTION: "Our Commitment" */}
-            <section className="relative border-t border-white/5 bg-[#111]">
+            < section className="relative border-t border-white/5 bg-[#111]" >
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Image Side - Matches Text Height */}
                     <div className="relative min-h-[400px] lg:min-h-full h-full w-full overflow-hidden group">
@@ -145,10 +135,10 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* 3b. OUR PROCESS: "Before We Knock" */}
-            <section className="py-32 bg-[#080808] relative overflow-hidden">
+            < section className="py-32 bg-[#080808] relative overflow-hidden" >
                 <div className="max-w-5xl mx-auto px-[5vw] text-center relative z-10">
                     <Clock className="w-8 h-8 text-bronze mx-auto mb-6 opacity-80" />
                     <h2 className="text-3xl md:text-5xl font-serif mb-16 text-white/90">Our Process. <span className="italic text-stone-600">Before we arrive.</span></h2>
@@ -172,15 +162,15 @@ export default function AboutPage() {
                             <span className="absolute left-[-5px] top-0 w-2.5 h-2.5 rounded-full bg-stone-700" />
                             <h3 className="text-xl font-sans text-white mb-4">The Explanation</h3>
                             <p className="text-stone-500 font-light text-sm leading-relaxed">
-                                We don't just start drilling. We look you in the eye, explain the issue, show you the price, and ask for permission. You are in control. Always.
+                                We don&apos;t just start drilling. We look you in the eye, explain the issue, show you the price, and ask for permission. You are in control. Always.
                             </p>
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* 4. THE ETHOS: Interactive Cards (Heart Touching) */}
-            <section className="py-32 px-[5vw] relative bg-[#0c0c0c]">
+            < section className="py-32 px-[5vw] relative bg-[#0c0c0c]" >
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-24">
                         <Heart className="w-8 h-8 text-bronze mx-auto mb-6 animate-pulse" />
@@ -191,7 +181,7 @@ export default function AboutPage() {
                         {[
                             {
                                 title: "Transparency",
-                                desc: "No hidden costs. No 'we'll see'. You know the name, face, and price before we arrive.",
+                                desc: "No hidden costs. No &apos;we&apos;ll see&apos;. You know the name, face, and price before we arrive.",
                                 image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80"
                             },
                             {
@@ -201,7 +191,7 @@ export default function AboutPage() {
                             },
                             {
                                 title: "Mastery",
-                                desc: "We don't guess. We diagnose with engineering precision. If we fix it, it stays fixed.",
+                                desc: "We don&apos;t guess. We diagnose with engineering precision. If we fix it, it stays fixed.",
                                 image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80"
                             }
                         ].map((item, i) => (
@@ -225,10 +215,10 @@ export default function AboutPage() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* LICENSE VERIFICATION: Official Credentials */}
-            <section className="py-32 bg-[#0c0c0c] relative border-t border-white/5">
+            < section className="py-32 bg-[#0c0c0c] relative border-t border-white/5" >
                 <div className="max-w-4xl mx-auto px-[5vw] text-center">
                     <span className="font-mono text-xs uppercase tracking-widest text-bronze mb-4 block">Verify Our Credentials</span>
                     <h2 className="text-4xl md:text-6xl font-serif mb-8">Officially <span className="italic text-stone-500">Licensed</span></h2>
@@ -271,10 +261,10 @@ export default function AboutPage() {
                         Enter license number <span className="text-stone-400">1382290</span> to verify
                     </p>
                 </div>
-            </section>
+            </section >
 
             {/* APP PROMO SECTION */}
-            <section id="download-app" className="w-full bg-[#FAFAF9] py-24 border-b border-[#E5E5E5] relative overflow-hidden">
+            < section id="download-app" className="w-full bg-[#FAFAF9] py-24 border-b border-[#E5E5E5] relative overflow-hidden" >
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#E5E5E5]/50 to-transparent pointer-events-none" />
                 <div className="max-w-6xl mx-auto px-[5vw] lg:px-[8vw] flex flex-col md:flex-row items-center gap-16 relative z-10">
                     <div className="flex-1">
@@ -316,10 +306,10 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* 5. FINALE: Clean CTA Section */}
-            <section className="bg-[#111] py-24 lg:py-32">
+            < section className="bg-[#111] py-24 lg:py-32" >
                 <div className="max-w-6xl mx-auto px-[5vw] lg:px-[8vw]">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         {/* Left: Text */}
@@ -363,8 +353,8 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
-        </main>
+        </main >
     );
 }

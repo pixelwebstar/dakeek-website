@@ -27,6 +27,7 @@ export default function Header() {
     const [showInstallModal, setShowInstallModal] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line
         setMounted(true);
         if ("scrollRestoration" in history) {
             history.scrollRestoration = "manual";
@@ -74,7 +75,7 @@ export default function Header() {
     const handleInstallClick = async (e: React.MouseEvent) => {
         e.preventDefault();
         const outcome = await install();
-        if (outcome === "IOS_INSTRUCTION_NEEDED") {
+        if (outcome === "IOS_INSTRUCTION_NEEDED" || outcome === "INSTALL_UNAVAILABLE") {
             setShowInstallModal(true);
         }
     };
@@ -105,7 +106,7 @@ export default function Header() {
                         className="relative z-50 text-3xl font-serif font-bold tracking-tighter text-[#111]"
                         onClick={() => setIsMenuOpen(false)}
                     >
-                        Dakeek.
+                        Dakeek
                     </Link>
                 </div>
 
@@ -122,6 +123,7 @@ export default function Header() {
                                 >
                                     <Link
                                         href={link.href}
+                                        title={`${link.label} – Dakeek home maintenance services in Dubai`}
                                         className={cn(
                                             "relative z-10 transition-colors duration-300 hover:text-[#5A4A32]",
                                             isActive ? "text-[#111] font-bold" : "text-[#555] hover:text-[#5A4A32]"

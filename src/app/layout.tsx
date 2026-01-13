@@ -79,12 +79,24 @@ export const metadata: Metadata = {
   },
   category: "Home Services",
   icons: {
-    icon: '/icons/icon-512.png',
-    shortcut: '/icons/icon-512.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
     apple: '/icons/apple-touch-icon.png',
     other: {
       rel: 'apple-touch-icon-precomposed',
       url: '/icons/apple-touch-icon.png',
+    },
+  },
+  manifest: '/manifest.json',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
 };
@@ -105,6 +117,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0c0a09" />
+        <meta name="geo.region" content="AE-DU" />
+        <meta name="geo.placename" content="Dubai" />
+        <meta name="geo.position" content="25.2487;55.3003" />
+        <meta name="ICBM" content="25.2487, 55.3003" />
       </head>
       <body
         suppressHydrationWarning
@@ -125,77 +141,103 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "HomeAndConstructionBusiness",
-              "name": "DAKEEK Technical Services",
-              "legalName": "DAKEEK Technical Services Co. L.L.C",
-              "license": "1382290",
-              "image": "https://dakeek.ae/opengraph-image.png",
-              "url": "https://dakeek.ae",
-              "telephone": "+971542472151",
-              "email": "asheejajayan@gmail.com",
-              "priceRange": "$$",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Anzar Gallery Building",
-                "addressLocality": "Al Karama",
-                "addressRegion": "Dubai",
-                "addressCountry": "AE"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 25.2487,
-                "longitude": 55.3003
-              },
-              "areaServed": [
-                { "@type": "City", "name": "Dubai" },
-                { "@type": "Place", "name": "Dubai Marina" },
-                { "@type": "Place", "name": "Jumeirah Lake Towers (JLT)" },
-                { "@type": "Place", "name": "Downtown Dubai" },
-                { "@type": "Place", "name": "Business Bay" },
-                { "@type": "Place", "name": "Palm Jumeirah" },
-                { "@type": "Place", "name": "Arabian Ranches" },
-                { "@type": "Place", "name": "Emirates Hills" }
-              ],
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                "opens": "00:00",
-                "closes": "23:59"
-              },
-              "sameAs": [
-                "https://www.instagram.com/dakeektechnicalservice/",
-                "https://www.facebook.com/dakeektechnicalservice/",
-                "https://www.linkedin.com/company/dakeek-technical-service-co-llc/"
-              ],
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Home Maintenance Services",
-                "itemListElement": [
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Maintenance" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Plumbing Services" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electrical Services" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Deep Cleaning" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Stove & Cooker Repair" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Handyman Services" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency Repairs" } }
-                ]
-              },
-              "potentialAction": {
-                "@type": "ReserveAction",
-                "target": {
-                  "@type": "EntryPoint",
-                  "urlTemplate": "https://dakeek.ae/contact",
-                  "inLanguage": "en-AE",
-                  "actionPlatform": [
-                    "http://schema.org/DesktopWebPlatform",
-                    "http://schema.org/MobileWebPlatform"
+              "@graph": [
+                {
+                  "@type": "HomeAndConstructionBusiness",
+                  "@id": "https://dakeek.ae/#organization",
+                  "name": "Dakeek Technical Services LLC",
+                  "legalName": "Dakeek Technical Services Co. L.L.C",
+                  "url": "https://dakeek.ae",
+                  "telephone": "+971542472151",
+                  "email": "asheejajayan@gmail.com",
+                  "image": "https://dakeek.ae/opengraph-image.png",
+                  "logo": "https://dakeek.ae/icons/icon-512.png",
+                  "priceRange": "$$",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Anzar Gallery Building, Al Karama",
+                    "addressLocality": "Dubai",
+                    "addressRegion": "Dubai",
+                    "postalCode": "00000",
+                    "addressCountry": "AE"
+                  },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 25.2487,
+                    "longitude": 55.3003
+                  },
+                  "areaServed": [
+                    { "@type": "City", "name": "Dubai" },
+                    { "@type": "Place", "name": "Al Karama" },
+                    { "@type": "Place", "name": "Dubai Marina" },
+                    { "@type": "Place", "name": "Palm Jumeirah" },
+                    { "@type": "Place", "name": "Downtown Dubai" },
+                    { "@type": "Place", "name": "Business Bay" },
+                    { "@type": "Place", "name": "Jumeirah Lake Towers" },
+                    { "@type": "Place", "name": "Arabian Ranches" },
+                    { "@type": "Place", "name": "Emirates Hills" }
+                  ],
+                  "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                    "opens": "00:00",
+                    "closes": "23:59"
+                  },
+                  "sameAs": [
+                    "https://www.instagram.com/dakeektechnicalservice/",
+                    "https://www.facebook.com/dakeektechnicalservice/",
+                    "https://www.linkedin.com/company/dakeek-technical-service-co-llc/"
                   ]
                 },
-                "result": {
-                  "@type": "Reservation",
-                  "name": "Book a Service"
+                {
+                  "@type": "Service",
+                  "name": "AC Maintenance",
+                  "serviceType": "AC maintenance and repair services in Dubai",
+                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "areaServed": "Dubai, United Arab Emirates",
+                  "url": "https://dakeek.ae/services/ac"
+                },
+                {
+                  "@type": "Service",
+                  "name": "Plumbing Services",
+                  "serviceType": "Plumbing repair and leak detection in Dubai",
+                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "areaServed": "Dubai, United Arab Emirates",
+                  "url": "https://dakeek.ae/services/plumbing"
+                },
+                {
+                  "@type": "Service",
+                  "name": "Electrical Works",
+                  "serviceType": "Electrical works and power distribution in Dubai",
+                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "areaServed": "Dubai, United Arab Emirates",
+                  "url": "https://dakeek.ae/services/electrical"
+                },
+                {
+                  "@type": "Service",
+                  "name": "Deep Cleaning",
+                  "serviceType": "Deep cleaning, water tank and duct sanitization in Dubai",
+                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "areaServed": "Dubai, United Arab Emirates",
+                  "url": "https://dakeek.ae/services/cleaning"
+                },
+                {
+                  "@type": "Service",
+                  "name": "Handyman",
+                  "serviceType": "Handyman and general home repairs in Dubai",
+                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "areaServed": "Dubai, United Arab Emirates",
+                  "url": "https://dakeek.ae/services/handyman"
+                },
+                {
+                  "@type": "Service",
+                  "name": "Emergency Service",
+                  "serviceType": "24/7 emergency home maintenance services in Dubai",
+                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "areaServed": "Dubai, United Arab Emirates",
+                  "url": "https://dakeek.ae/services/emergency"
                 }
-              }
+              ]
             })
           }}
         />

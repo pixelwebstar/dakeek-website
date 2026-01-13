@@ -12,11 +12,11 @@ export function ContactHero() {
                 transition={{ duration: 0.8 }}
             >
                 <h1 className="text-5xl md:text-7xl font-serif italic text-ink leading-tight mb-4">
-                    Let's Fix It. <br />
+                    Let&apos;s Fix It. <br />
                     <span className="text-bronze">Right Now.</span>
                 </h1>
                 <p className="text-lg md:text-xl text-titanium max-w-md leading-relaxed">
-                    Tell us what's broken, and we'll dispatch a verified technician to your doorstep. No hassle. No waiting.
+                    Tell us what&apos;s broken, and we&apos;ll dispatch a verified technician to your doorstep. No hassle. No waiting.
                 </p>
             </motion.div>
 

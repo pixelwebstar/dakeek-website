@@ -13,6 +13,7 @@ interface ServiceCardProps {
   features: string[];
   variant?: "default" | "emergency" | "other";
   priority?: boolean;
+  seoTitle?: string;
 }
 
 export default function ServiceCard({
@@ -23,6 +24,7 @@ export default function ServiceCard({
   features,
   variant = "default",
   priority = false,
+  seoTitle,
 }: ServiceCardProps) {
   const isEmergency = variant === "emergency";
   const isOther = variant === "other";
@@ -31,6 +33,7 @@ export default function ServiceCard({
     <div>
       <Link
         href={href}
+        title={seoTitle || `${title} services in Dubai`}
         className={`group relative block h-[480px] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl
           ${isEmergency ? "rounded-2xl" : "rounded-2xl"}`}
       >

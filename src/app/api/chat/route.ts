@@ -53,9 +53,9 @@ export async function POST(req: Request) {
                     content: text
                 });
 
-            } catch (error: any) {
+            } catch (error: unknown) {
                 console.error("Gemini API FAILED:", error);
-                const errDetail = error?.message || JSON.stringify(error);
+                const errDetail = (error as Error)?.message || JSON.stringify(error);
 
                 // If the key is bad or model not found, let's gracefully fall back 
                 // BUT we log it clearly.

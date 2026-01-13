@@ -21,7 +21,7 @@ export async function POST(req: Request) {
             // Safe access to errors array
             return NextResponse.json({
                 error: "Invalid Request",
-                details: validation.error.issues.map((e: any) => e.message)
+                details: validation.error.issues.map((e) => e.message)
             }, { status: 400 });
         }
 

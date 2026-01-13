@@ -14,7 +14,8 @@ export function usePWAInstall() {
 
     useEffect(() => {
         // Check if it's iOS
-        const isDeviceIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+        const isDeviceIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as unknown as { MSStream: unknown }).MSStream;
+        // eslint-disable-next-line
         setIsIOS(isDeviceIOS);
 
         const handler = (e: Event) => {
@@ -34,7 +35,7 @@ export function usePWAInstall() {
                 // Return a special signal or handle UI for iOS instructions
                 return "IOS_INSTRUCTION_NEEDED";
             }
-            return;
+            return "INSTALL_UNAVAILABLE";
         }
 
         deferredPrompt.prompt();

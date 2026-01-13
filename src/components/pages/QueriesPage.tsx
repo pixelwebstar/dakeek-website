@@ -20,7 +20,7 @@ const FAQ_CATEGORIES = [
             { q: "Is there a call-out fee?", a: "We charge a standard inspection fee of AED 150. This covers the engineer's time and professional diagnosis. Crucially, if you proceed with the quoted repair, this fee is completely waived." },
             { q: "Do I need to be home?", a: "We recommend being present for the initial diagnosis. However, for established clients in secure properties, we can coordinate access directly with your concierge or security team for seamless service." },
             { q: "Can I book online?", a: "Yes, you can book via our website, WhatsApp, or phone. Our online form is available 24/7, and you'll receive confirmation within 15 minutes during business hours." },
-            { q: "Do you offer same-day service?", a: "Absolutely. Same-day service is available for most requests made before 3 PM. For emergencies, we're available around the clock." }
+            { q: "Do you offer same-day service?", a: "Absolutely. Same-day service is available for most requests made before 3 PM. For emergencies, we&apos;re available around the clock." }
         ]
     },
     {
@@ -92,7 +92,7 @@ export default function QueriesPage() {
     return (
         <main className="bg-[#FDFCF8] min-h-screen text-[#1a1a1a] overflow-x-hidden selection:bg-bronze selection:text-white font-sans">
 
-            {/* 1. HERO */}
+            {/* 1. HERO: Golden Standard */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#F4F4F5] border-b border-structure">
                 <div className="absolute inset-0 z-0">
                     <GradientHero
@@ -102,21 +102,31 @@ export default function QueriesPage() {
                     />
                 </div>
 
-                <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
+                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
                     <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
-                        Answers & Insights
+                        Answers And Insights
                     </p>
-                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 leading-[0.9] text-[#111]">
-                        Queries.
+                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-[#111] animate-hero-fade" style={{ animationDelay: '0s' }}>
+                        Queries
                     </h1>
-                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#444] uppercase tracking-widest">
-                        Everything you need to know
+                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#444] mb-12 uppercase tracking-widest animate-hero-fade" style={{ animationDelay: '0.3s' }}>
+                        Knowledge For Your Home
                     </p>
+
+                    <div className="flex justify-center gap-4 animate-hero-fade" style={{ animationDelay: '0.5s' }}>
+                        <button onClick={() => { const event = new Event('open-chat'); window.dispatchEvent(event); }} className="group relative inline-flex items-center justify-center px-12 py-4 bg-[#111] text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
+                            <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Start Chat</span>
+                            <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                        </button>
+                        <Link href="#topics" className="inline-flex items-center justify-center px-12 py-4 border border-black/10 text-[#111] rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
+                            Browse Topics
+                        </Link>
+                    </div>
                 </div>
             </section>
 
             {/* 2. THE INTERFACE: Split Layout */}
-            <section className="relative px-[5vw] lg:px-[8vw] py-16 lg:py-24 min-h-screen">
+            <section id="topics" className="relative px-[5vw] lg:px-[8vw] py-16 lg:py-24 min-h-screen">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
 
                     {/* LEFT: Content & Navigation */}
@@ -134,33 +144,25 @@ export default function QueriesPage() {
                             />
                         </div>
 
-                        {/* Mobile Category Nav */}
+                        {/* Mobile Category Nav (Scrollable Chips) */}
                         {!isSearchMode && (
-                            <div className="lg:hidden mb-12 overflow-x-auto pb-4 -mx-5 px-5 flex gap-4 snap-x">
+                            <div className="lg:hidden mb-12 overflow-x-auto pb-4 -mx-5 px-5 flex gap-3 snap-x no-scrollbar">
                                 {FAQ_CATEGORIES.map((cat) => (
                                     <button
                                         key={cat.id}
                                         onClick={() => { setActiveCategory(cat.id); setOpenQuestion(null); }}
-                                        className={`shrink-0 w-64 p-5 rounded-xl border snap-center text-left transition-all ${activeCategory === cat.id
-                                            ? "bg-[#111] text-white border-[#111] shadow-lg"
+                                        className={`shrink-0 px-6 py-3 rounded-full border snap-center text-sm font-medium transition-all ${activeCategory === cat.id
+                                            ? "bg-[#111] text-white border-[#111]"
                                             : "bg-white text-[#555] border-black/5"
                                             }`}
                                     >
-                                        <div className="flex items-center justify-between mb-3">
-                                            <span className="font-mono text-xs uppercase tracking-widest opacity-80">
-                                                {cat.title}
-                                            </span>
-                                            {activeCategory === cat.id && <div className="w-1.5 h-1.5 rounded-full bg-bronze" />}
-                                        </div>
-                                        <p className={`text-xs transition-colors ${activeCategory === cat.id ? "text-stone-400" : "text-[#777]"}`}>
-                                            {cat.description}
-                                        </p>
+                                        {cat.title}
                                     </button>
                                 ))}
                             </div>
                         )}
 
-                        {/* Desktop Category Nav */}
+                        {/* Desktop Category Nav (Tab Bar) */}
                         {!isSearchMode && (
                             <div className="hidden lg:flex gap-8 mb-12 border-b border-black/5 pb-0">
                                 {FAQ_CATEGORIES.map((cat) => (
@@ -178,7 +180,7 @@ export default function QueriesPage() {
                             </div>
                         )}
 
-                        {/* Questions List - Pure CSS Accordion */}
+                        {/* Questions List */}
                         <div className="space-y-4">
                             {filteredQuestions.map((item, idx) => {
                                 const isOpen = openQuestion === item.q;
@@ -200,7 +202,7 @@ export default function QueriesPage() {
                                             </div>
                                         </div>
 
-                                        {/* Answer - CSS transition */}
+                                        {/* Answer */}
                                         <div className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
                                             <div className="overflow-hidden">
                                                 <div className="px-6 lg:px-8 pb-8 pt-0">
@@ -213,13 +215,18 @@ export default function QueriesPage() {
                                     </div>
                                 );
                             })}
+                            {filteredQuestions.length === 0 && (
+                                <div className="text-center py-12 text-stone-500">
+                                    No questions found matching your search.
+                                </div>
+                            )}
                         </div>
 
                     </div>
 
-                    {/* RIGHT: Dynamic Image */}
-                    <div className="lg:w-1/2 lg:h-[calc(100vh-8rem)] lg:sticky lg:top-32 order-1 lg:order-2 mt-0 lg:mt-32">
-                        <div className="relative w-full h-[60vw] lg:h-full overflow-hidden rounded-2xl lg:rounded-3xl bg-stone-100 shadow-2xl shadow-black/5">
+                    {/* RIGHT: Dynamic Image (Desktop Only) */}
+                    <div className="hidden lg:block lg:w-1/2 lg:h-[calc(100vh-8rem)] lg:sticky lg:top-32 order-1 lg:order-2 mt-0 lg:mt-32">
+                        <div className="relative w-full h-full overflow-hidden rounded-3xl bg-stone-100 shadow-2xl shadow-black/5">
                             <Image
                                 src={activeData.image}
                                 alt={activeData.title}
@@ -230,12 +237,12 @@ export default function QueriesPage() {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                             {/* Caption */}
-                            <div className="absolute bottom-6 left-6 right-6 lg:bottom-12 lg:left-12 lg:right-12 z-10 text-white">
-                                <span className="font-mono text-[10px] lg:text-xs uppercase tracking-widest opacity-80 mb-2 lg:mb-3 block bg-white/20 backdrop-blur-md inline-block px-3 py-1 rounded-full border border-white/10">
+                            <div className="absolute bottom-12 left-12 right-12 z-10 text-white">
+                                <span className="font-mono text-xs uppercase tracking-widest opacity-80 mb-3 block bg-white/20 backdrop-blur-md inline-block px-3 py-1 rounded-full border border-white/10">
                                     Focus Area
                                 </span>
-                                <h3 className="text-3xl lg:text-5xl font-serif italic mb-2 lg:mb-4">{activeData.title}</h3>
-                                <p className="font-light opacity-90 text-sm lg:text-lg leading-relaxed max-w-md text-white/90">
+                                <h3 className="text-5xl font-serif italic mb-4">{activeData.title}</h3>
+                                <p className="font-light opacity-90 text-lg leading-relaxed max-w-md text-white/90">
                                     {activeData.description}
                                 </p>
                             </div>

@@ -193,7 +193,7 @@ export default function UnifiedContactHub() {
 
     const processFlow = (input: string | string[]) => {
         setTimeout(() => {
-            let responseMsg: Message = { id: Date.now().toString(), role: "assistant", content: "", timestamp: new Date() };
+            const responseMsg: Message = { id: Date.now().toString(), role: "assistant", content: "", timestamp: new Date() };
             setIsProcessing(false);
 
             switch (formState.step) {
@@ -310,10 +310,15 @@ export default function UnifiedContactHub() {
 
         const payload = {
             ...formState,
-            service: formState.services.join(", "),
+            services: formState.services,
             name: detailsInput.name,
-            contactInfo: formState.contactMethod === 'Email' ? detailsInput.contact : `${detailsInput.countryCode} ${detailsInput.contact}`,
-            confirmationEmail: detailsInput.confirmationEmail
+            location: "Chat Concierge", // Default location for chat requests
+            // Schema requires phone. Use contact if phone, else dummy if email.
+            phone: formState.contactMethod === 'Email' ? "0000000000" : detailsInput.contact,
+            email: formState.contactMethod === 'Email' ? detailsInput.contact : (detailsInput.confirmationEmail || ""),
+            contactMethod: formState.contactMethod,
+            serviceType: formState.serviceType,
+            issue: formState.issue
         };
 
         try {
@@ -527,14 +532,14 @@ export default function UnifiedContactHub() {
 }
 
 // Extracted for readability
-const MenuContent = ({ setView }: { setView: any }) => (
+const MenuContent = ({ setView }: { setView: (view: "menu" | "chat") => void }) => (
     <>
         <div className="mb-8 relative z-10">
             <span className="inline-block px-3 py-1 rounded-full bg-[#5A4A32]/10 border border-[#5A4A32]/30 text-[#5A4A32] text-[10px] font-bold tracking-widest uppercase mb-3 backdrop-blur-md">
                 Support
             </span>
             <h3 className="text-2xl font-sans text-white font-light tracking-tight leading-snug">
-                How can we <br /><span className="text-[#5A4A32] font-serif italic">help</span> you?
+                How can we <br /><span className="text-white font-bold">help</span> you?
             </h3>
         </div>
 
@@ -550,7 +555,7 @@ const MenuContent = ({ setView }: { setView: any }) => (
             <button onClick={() => setView("chat")} className="w-full text-left">
                 <MenuButton
                     icon={<Sparkles className="w-5 h-5 text-[#C0C0C0]" />}
-                    title="AI Assistant"
+                    title="Dakeek Assistant"
                     subtitle="Start Service Request"
                     delay={0.1}
                     isButton
@@ -559,7 +564,7 @@ const MenuContent = ({ setView }: { setView: any }) => (
 
             <MenuButton
                 icon={<Phone className="w-5 h-5 text-blue-400" />}
-                title="Call +971 54 247 2151"
+                title="Call Dakeek"
                 subtitle="24/7 Operations"
                 href="tel:+971542472151"
                 delay={0.2}
@@ -568,7 +573,16 @@ const MenuContent = ({ setView }: { setView: any }) => (
     </>
 );
 
-const MenuButton = ({ icon, title, subtitle, href, delay, isButton }: any) => {
+interface MenuButtonProps {
+    icon: React.ReactNode;
+    title: string;
+    subtitle: string;
+    href?: string;
+    delay: number;
+    isButton?: boolean;
+}
+
+const MenuButton = ({ icon, title, subtitle, href, delay, isButton }: MenuButtonProps) => {
     const Wrapper = isButton ? "div" : "a";
     const props = isButton ? {} : { href, target: "_blank", rel: "noopener noreferrer" };
 
@@ -584,8 +598,8 @@ const MenuButton = ({ icon, title, subtitle, href, delay, isButton }: any) => {
                     {icon}
                 </div>
                 <div>
-                    <p className="font-medium text-gray-200 group-hover:text-white transition-colors">{title}</p>
-                    <p className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">{subtitle}</p>
+                    <p className="font-medium text-gray-100 group-hover:text-white transition-colors">{title}</p>
+                    <p className="text-xs text-gray-300 group-hover:text-gray-200 transition-colors">{subtitle}</p>
                 </div>
                 <ChevronRight className="w-4 h-4 ml-auto text-gray-600 group-hover:text-[#5A4A32] transition-colors" />
             </motion.div>

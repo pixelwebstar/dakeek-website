@@ -4,13 +4,14 @@ import { MapPin } from "lucide-react";
 
 import GradientHero from "@/components/hero/GradientHero";
 import dynamic from "next/dynamic";
-// @ts-ignore
+
 const TrustIndicators = dynamic(() => import("@/components/shared/TrustIndicators").then(mod => mod.TrustIndicators));
 import { SmartForm } from "@/components/contact/SmartForm";
 import SectionWrapper from "@/components/about/SectionWrapper";
 
-// @ts-ignore
+
 import { useState } from "react";
+import Link from "next/link";
 
 export default function ContactPage() {
     const [zoom, setZoom] = useState(15);
@@ -35,18 +36,27 @@ export default function ContactPage() {
                     initialColor="#D1D5DB"
                 />
 
-                <SectionWrapper className="max-w-4xl mx-auto text-center relative z-10 px-6">
-                    <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
-                        Get in Touch
-                    </span>
-                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink">
-                        Start the <br />
-                        <span className="italic text-titanium">Conversation.</span>
-                    </h1>
-                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12">
-                        Questions? Custom projects? Emergency? We are here to help.
+                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+                    <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
+                        Start The Conversation
                     </p>
-                </SectionWrapper>
+                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade" style={{ animationDelay: '0s' }}>
+                        Contact
+                    </h1>
+                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12 uppercase tracking-widest animate-hero-fade" style={{ animationDelay: '0.3s' }}>
+                        Ready To Serve You
+                    </p>
+
+                    <div className="flex justify-center gap-4 animate-hero-fade" style={{ animationDelay: '0.5s' }}>
+                        <a href="tel:+971542472151" className="group relative inline-flex items-center justify-center px-12 py-4 bg-ink text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
+                            <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Call Dakeek</span>
+                            <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                        </a>
+                        <Link href="https://wa.me/971542472151" target="_blank" className="inline-flex items-center justify-center px-12 py-4 border border-black/10 text-ink rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
+                            WhatsApp Us
+                        </Link>
+                    </div>
+                </div>
             </section>
 
             {/* TRUST INDICATORS */}

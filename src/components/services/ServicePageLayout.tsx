@@ -19,20 +19,24 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
     // Resolve Data (Client Side to avoid serialization issues)
     const pageData = data || (slug ? serviceData[slug] : null);
 
-    if (!pageData) {
-        return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
-    }
+
 
     // Calculate Prev/Next
     const serviceKeys = Object.keys(serviceData);
-    const currentIndex = serviceKeys.indexOf(pageData.slug);
-    const prevKey = serviceKeys[(currentIndex - 1 + serviceKeys.length) % serviceKeys.length];
-    const nextKey = serviceKeys[(currentIndex + 1) % serviceKeys.length];
-    const prevService = serviceData[prevKey];
-    const nextService = serviceData[nextKey];
+    // Default values if pageData is missing
+    let prevKey = "";
+    let nextKey = "";
+
+    if (pageData) {
+        const currentIndex = serviceKeys.indexOf(pageData.slug);
+        prevKey = serviceKeys[(currentIndex - 1 + serviceKeys.length) % serviceKeys.length];
+        nextKey = serviceKeys[(currentIndex + 1) % serviceKeys.length];
+    }
 
     // Keyboard & Swipe Navigation
     useEffect(() => {
+        if (!pageData) return;
+
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'ArrowLeft') router.push(`/services/${prevKey}`);
             if (e.key === 'ArrowRight') router.push(`/services/${nextKey}`);
@@ -71,7 +75,14 @@ export default function ServicePageLayout({ data, slug }: { data?: ServicePageDa
             window.removeEventListener('touchstart', handleTouchStart);
             window.removeEventListener('touchend', handleTouchEnd);
         };
-    }, [nextKey, prevKey, router]);
+    }, [nextKey, prevKey, router, pageData]);
+
+    if (!pageData) {
+        return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    }
+
+    const prevService = serviceData[prevKey];
+    const nextService = serviceData[nextKey];
 
     return (
         <main className={`min-h-screen overflow-x-hidden selection:bg-black selection:text-white ${pageData.theme.secondaryBg}`}>

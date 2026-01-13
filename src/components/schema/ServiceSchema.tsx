@@ -38,7 +38,7 @@ export function ServiceSchema({
     address,
     geo,
 }: ServiceSchemaProps) {
-    const jsonLd: any = {
+    const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": name,
