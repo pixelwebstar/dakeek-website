@@ -3,7 +3,7 @@ import React from "react";
 import { Geist, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "../components/layout/Header";
-import dynamic from 'next/dynamic';
+
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";

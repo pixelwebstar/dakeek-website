@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MapPin, Phone, Mail, MessageSquare, ExternalLink, Copy, Check } from "lucide-react";
+import { MapPin, Phone, Mail, MessageSquare, Copy, Check } from "lucide-react";
 import { serviceData } from "../../data/serviceData";
 import { usePWAInstall } from "../../hooks/usePWAInstall";
 import InstallModal from "../shared/InstallModal";

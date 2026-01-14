@@ -1,0 +1,64 @@
+﻿
+> dakeek-web@0.1.0 build
+> next build
+
+   Γû▓ Next.js 16.0.10 (Turbopack)
+   - Environments: .env.local, .env
+   - Experiments (use with caution):
+     Γ£ô optimizeCss
+     ┬╖ optimizePackageImports
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully in 4.7s
+   Running TypeScript ...
+   Collecting page data using 11 workers ...
+   Generating static pages using 11 workers (0/362) ...
+   Generating static pages using 11 workers (90/362) 
+   Generating static pages using 11 workers (180/362) 
+   Generating static pages using 11 workers (271/362) 
+ Γ£ô Generating static pages using 11 workers (362/362) in 5.1s
+   Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /about
+Γö£ Γùï /all-pages
+Γö£ ╞Æ /api/chat
+Γö£ ╞Æ /api/contact-submit
+Γö£ ΓùÅ /areas/[location]
+Γöé Γö£ /areas/palm-jumeirah
+Γöé Γö£ /areas/dubai-marina
+Γöé Γö£ /areas/jumeirah-lake-towers-(jlt)
+Γöé Γöö [+34 more paths]
+Γö£ Γùï /contact
+Γö£ Γùï /coverage
+Γö£ Γùï /journal
+Γö£ ΓùÅ /journal/[slug]
+Γöé Γö£ /journal/when-to-service-your-ac
+Γöé Γö£ /journal/emergency-plumbing-tips
+Γöé Γö£ /journal/smart-home-electrical-guide
+Γöé Γöö /journal/water-tank-cleaning-importance
+Γö£ Γùï /manifest.webmanifest
+Γö£ Γùï /opengraph-image
+Γö£ Γùï /opengraph-image.png
+Γö£ Γùï /queries
+Γö£ Γùï /robots.txt
+Γö£ Γùï /services
+Γö£ ΓùÅ /services/[slug]
+Γöé Γö£ /services/ac
+Γöé Γö£ /services/plumbing
+Γöé Γö£ /services/electrical
+Γöé Γöö [+5 more paths]
+Γö£ ΓùÅ /services/[slug]/[area]
+Γöé Γö£ /services/ac/palm-jumeirah
+Γöé Γö£ /services/ac/dubai-marina
+Γöé Γö£ /services/ac/jumeirah-lake-towers-(jlt)
+Γöé Γöö [+293 more paths]
+Γöö Γùï /sitemap.xml
+
+
+Γùï  (Static)   prerendered as static content
+ΓùÅ  (SSG)      prerendered as static HTML (uses generateStaticParams)
+╞Æ  (Dynamic)  server-rendered on demand
+

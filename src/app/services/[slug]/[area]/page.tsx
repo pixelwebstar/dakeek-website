@@ -1,5 +1,5 @@
 import ServiceLayout from "../../../../components/services/ServiceLayout";
-import { serviceData } from "../../../../data/serviceData";
+import { serviceData, ServicePageData, ServiceDetail } from "../../../../data/serviceData";
 import { DUBAI_AREAS } from "../../../../lib/constants";
 import { Metadata } from "next";
 import { ServiceSchema } from "../../../../components/schema/ServiceSchema";
@@ -13,8 +13,8 @@ interface Props {
 }
 
 // Helper: Inject Rearch Data into Content
-function localizeData(base: any, areaSlug: string) {
-    if (!base) return { localized: {}, areaProfile: null }; // Crash Shield
+function localizeData(base: ServicePageData, areaSlug: string) {
+    if (!base) return { localized: {} as ServicePageData, areaProfile: null }; // Crash Shield
 
     const areaProfile = getAreaDataBySlug(areaSlug);
     const areaName = areaProfile?.name || areaSlug.replace(/-/g, ' ');
@@ -69,11 +69,11 @@ function localizeData(base: any, areaSlug: string) {
     // CRITICAL FIX: Strip 'icon' components (functions) from details to ensure JSON serializability
     // The client component (ServicePageLayout) will restore them from its local serviceData copy
     if (localized.details) {
-        localized.details = localized.details.map((detail: any) => {
+        localized.details = localized.details.map((detail: ServiceDetail) => {
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const { icon, ...rest } = detail;
             return rest;
-        });
+        }) as unknown as ServiceDetail[];
     }
 
     return { localized, areaProfile };
@@ -151,7 +151,7 @@ export default async function LocationLandingPage({ params }: Props) {
                     longitude: 55.3657
                 }}
             />
-            <FAQSchema faqs={localized.seo.qna ? localized.seo.qna.map((q: any) => ({ question: q.question, answer: q.answer })) : []} />
+            <FAQSchema faqs={localized.seo.qna ? localized.seo.qna.map((q) => ({ question: q.question, answer: q.answer })) : []} />
             <BreadcrumbSchema items={[
                 { label: 'Home', path: '/' },
                 { label: 'Services', path: '/services' },

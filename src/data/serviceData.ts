@@ -48,6 +48,7 @@ export interface ServicePageData {
         keywords: string[];
         schemaType: string;
         qna?: { question: string; answer: string }[];
+        description?: string;
     };
     intro: {
         heading: string;
