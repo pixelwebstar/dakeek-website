@@ -132,7 +132,7 @@ export default async function LocationLandingPage({ params }: Props) {
         <>
             <ServiceSchema
                 name={localized.seo.title}
-                description={localized.seo.description}
+                description={localized.seo.description || ''}
                 image={baseService.details[0].image}
                 url={`https://www.dakeek.ae/services/${slug}/${area}`}
                 telephone="+971542472151"
