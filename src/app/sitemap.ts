@@ -8,50 +8,50 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return [
         {
-            url: 'https://dakeek.ae',
+            url: 'https://www.dakeek.ae',
             lastModified: new Date(),
             changeFrequency: 'yearly',
             priority: 1,
         },
         {
-            url: 'https://dakeek.ae/about',
+            url: 'https://www.dakeek.ae/about',
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: 'https://dakeek.ae/services',
+            url: 'https://www.dakeek.ae/services',
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.8,
         },
         {
-            url: 'https://dakeek.ae/queries',
+            url: 'https://www.dakeek.ae/queries',
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.5,
         },
         {
-            url: 'https://dakeek.ae/contact',
+            url: 'https://www.dakeek.ae/contact',
             lastModified: new Date(),
             changeFrequency: 'yearly',
             priority: 0.5,
         },
         {
-            url: 'https://dakeek.ae/journal',
+            url: 'https://www.dakeek.ae/journal',
             lastModified: new Date(),
             changeFrequency: 'weekly',
             priority: 0.7,
         },
         {
-            url: 'https://dakeek.ae/coverage',
+            url: 'https://www.dakeek.ae/coverage',
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         // Individual Services - High Priority
         ...services.map((slug) => ({
-            url: `https://dakeek.ae/services/${slug}`,
+            url: `https://www.dakeek.ae/services/${slug}`,
             lastModified: new Date(),
             changeFrequency: 'monthly' as const,
             priority: 0.9,
@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         // All 37 Location Pages
 
         ...areas.map((slug) => ({
-            url: `https://dakeek.ae/areas/${slug}`,
+            url: `https://www.dakeek.ae/areas/${slug}`,
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.8,
@@ -67,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         // [SEO NUKE] Service + Area Combinations (~300 Pages)
         ...services.flatMap(service =>
             areas.map(area => ({
-                url: `https://dakeek.ae/services/${service}/${area}`,
+                url: `https://www.dakeek.ae/services/${service}/${area}`,
                 lastModified: new Date(),
                 changeFrequency: 'weekly' as const,
                 priority: 0.85, // Higher than generic area pages
@@ -75,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ),
         // Blog Posts
         ...blogPosts.map((post) => ({
-            url: `https://dakeek.ae/journal/${post.slug}`,
+            url: `https://www.dakeek.ae/journal/${post.slug}`,
             lastModified: new Date(post.date),
             changeFrequency: 'monthly' as const,
             priority: 0.6,

@@ -17,7 +17,7 @@ export function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
             "@type": "ListItem",
             "position": index + 1,
             "name": item.label,
-            "item": `https://dakeek.ae${item.path}`,
+            "item": `https://www.dakeek.ae${item.path}`,
         })),
     };
 

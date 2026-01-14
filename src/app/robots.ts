@@ -13,7 +13,7 @@ export default function robots(): MetadataRoute.Robots {
                 allow: '/',
             }
         ],
-        sitemap: 'https://dakeek.ae/sitemap.xml',
-        host: 'https://dakeek.ae',
+        sitemap: 'https://www.dakeek.ae/sitemap.xml',
+        host: 'https://www.dakeek.ae',
     }
 }

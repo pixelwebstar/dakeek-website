@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             images: [service.details[0].image],
         },
         alternates: {
-            canonical: `https://dakeek.ae/services/${slug}`,
+            canonical: `https://www.dakeek.ae/services/${slug}`,
         }
     };
 }
@@ -56,7 +56,7 @@ export default async function DynamicServicePage({ params }: Props) {
                 name={service.seo.title}
                 description={service.hero.description}
                 image={service.details[0].image}
-                url={`https://dakeek.ae/services/${slug}`}
+                url={`https://www.dakeek.ae/services/${slug}`}
                 telephone="+971542472151"
                 priceRange="$$"
                 ratingValue="4.9"

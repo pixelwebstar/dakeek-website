@@ -97,7 +97,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             images: [baseService.details[0].image],
         },
         alternates: {
-            canonical: `https://dakeek.ae/services/${slug}/${area}`,
+            canonical: `https://www.dakeek.ae/services/${slug}/${area}`,
         }
     };
 }
@@ -134,7 +134,7 @@ export default async function LocationLandingPage({ params }: Props) {
                 name={localized.seo.title}
                 description={localized.seo.description}
                 image={baseService.details[0].image}
-                url={`https://dakeek.ae/services/${slug}/${area}`}
+                url={`https://www.dakeek.ae/services/${slug}/${area}`}
                 telephone="+971542472151"
                 priceRange="$$"
                 ratingValue="4.9"

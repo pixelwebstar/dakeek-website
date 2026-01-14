@@ -57,7 +57,7 @@ export default async function LocationPage(props: { params: Promise<{ location: 
             <ServiceSchema
                 name={`Home Maintenance Services in ${areaName}`}
                 description={areaData?.description || `Premium home maintenance services for residents of ${areaName}.`}
-                image="https://dakeek.ae/opengraph-image.png"
+                image="https://www.dakeek.ae/opengraph-image.png"
                 areaServed={areaName}
                 ratingValue="4.9"
                 reviewCount="250"

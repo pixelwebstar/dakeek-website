@@ -38,14 +38,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dakeek.ae'),
+  metadataBase: new URL('https://www.dakeek.ae'),
   title: {
     template: "%s | Dakeek - Premium Home Maintenance",
     default: "Dakeek - Premium Home Maintenance Dubai",
   },
   description: "Professional home maintenance services in Dubai. AC, Plumbing, Electrical, and more. 60-minute emergency response for licensed and certified repairs.",
   keywords: ["AC Maintenance Dubai", "Emergency Plumber Dubai", "Electrical Services", "Luxury Home Maintenance", "Duct Cleaning", "Water Tank Cleaning", "Dubai Maintenance Company"],
-  authors: [{ name: "Dakeek Technical Services LLC", url: "https://dakeek.ae" }],
+  authors: [{ name: "Dakeek Technical Services LLC", url: "https://www.dakeek.ae" }],
   creator: "Dakeek Technical Services LLC",
   publisher: "Dakeek Technical Services LLC",
   alternates: {
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dakeek | Precision Home Maintenance",
     description: "Experience the new standard in home maintenance. Speed, expertise, and transparency.",
-    url: "https://dakeek.ae",
+    url: "https://www.dakeek.ae",
     siteName: "Dakeek Technical Services",
     locale: "en_AE",
     type: "website",
     images: [
       {
-        url: "https://dakeek.ae/opengraph-image.png",
+        url: "https://www.dakeek.ae/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Dakeek Technical Services Dubai",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     title: "Dakeek | Precision Home Maintenance",
     description: "Dubai's verified home maintenance experts. Book now.",
     creator: "@dakeek_ae",
-    images: ["https://dakeek.ae/opengraph-image.png"],
+    images: ["https://www.dakeek.ae/opengraph-image.png"],
   },
   verification: {
     google: "T8hhiXgeP_vxqaKG5DT3GpJik50Qiv2vNYv9yZ7xBE4",
@@ -145,14 +145,14 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "HomeAndConstructionBusiness",
-                  "@id": "https://dakeek.ae/#organization",
+                  "@id": "https://www.dakeek.ae/#organization",
                   "name": "Dakeek Technical Services LLC",
                   "legalName": "Dakeek Technical Services Co. L.L.C",
-                  "url": "https://dakeek.ae",
+                  "url": "https://www.dakeek.ae",
                   "telephone": "+971542472151",
                   "email": "asheejajayan@gmail.com",
-                  "image": "https://dakeek.ae/opengraph-image.png",
-                  "logo": "https://dakeek.ae/icons/icon-512.png",
+                  "image": "https://www.dakeek.ae/opengraph-image.png",
+                  "logo": "https://www.dakeek.ae/icons/icon-512.png",
                   "priceRange": "$$",
                   "address": {
                     "@type": "PostalAddress",
@@ -194,49 +194,49 @@ export default function RootLayout({
                   "@type": "Service",
                   "name": "AC Maintenance",
                   "serviceType": "AC maintenance and repair services in Dubai",
-                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://dakeek.ae/services/ac"
+                  "url": "https://www.dakeek.ae/services/ac"
                 },
                 {
                   "@type": "Service",
                   "name": "Plumbing Services",
                   "serviceType": "Plumbing repair and leak detection in Dubai",
-                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://dakeek.ae/services/plumbing"
+                  "url": "https://www.dakeek.ae/services/plumbing"
                 },
                 {
                   "@type": "Service",
                   "name": "Electrical Works",
                   "serviceType": "Electrical works and power distribution in Dubai",
-                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://dakeek.ae/services/electrical"
+                  "url": "https://www.dakeek.ae/services/electrical"
                 },
                 {
                   "@type": "Service",
                   "name": "Deep Cleaning",
                   "serviceType": "Deep cleaning, water tank and duct sanitization in Dubai",
-                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://dakeek.ae/services/cleaning"
+                  "url": "https://www.dakeek.ae/services/cleaning"
                 },
                 {
                   "@type": "Service",
                   "name": "Handyman",
                   "serviceType": "Handyman and general home repairs in Dubai",
-                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://dakeek.ae/services/handyman"
+                  "url": "https://www.dakeek.ae/services/handyman"
                 },
                 {
                   "@type": "Service",
                   "name": "Emergency Service",
                   "serviceType": "24/7 emergency home maintenance services in Dubai",
-                  "provider": { "@id": "https://dakeek.ae/#organization" },
+                  "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://dakeek.ae/services/emergency"
+                  "url": "https://www.dakeek.ae/services/emergency"
                 }
               ]
             })
