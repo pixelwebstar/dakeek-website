@@ -56,6 +56,16 @@ const nextConfig: NextConfig = {
         destination: 'https://www.dakeek.ae/:path*',
         permanent: true,
       },
+            {
+        source: '/areas/dubai-hills',
+        destination: '/areas/dubai-hills-estate',
+        permanent: true,
+      },
+      {
+        source: '/areas/jlt',
+        destination: '/areas/jumeirah-lake-towers-jlt',
+        permanent: true,
+      },
     ]
   },
 };
