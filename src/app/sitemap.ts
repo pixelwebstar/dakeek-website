@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next'
 import { DUBAI_AREAS } from '@/lib/constants'
 import { blogPosts } from '@/data/blogData'
+import { serviceData } from '@/data/serviceData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const services = ['ac', 'plumbing', 'electrical', 'cleaning', 'stoves', 'handyman', 'other', 'emergency'];
+    const services = Object.keys(serviceData);
     const areas = DUBAI_AREAS.map(area => area.toLowerCase().replace(/ /g, "-"));
 
     return [
