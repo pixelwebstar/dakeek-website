@@ -44,6 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.7,
         },
         {
+            url: 'https://www.dakeek.ae/privacy-policy',
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.5,
+        },
+        {
             url: 'https://www.dakeek.ae/coverage',
             lastModified: new Date(),
             changeFrequency: 'monthly',

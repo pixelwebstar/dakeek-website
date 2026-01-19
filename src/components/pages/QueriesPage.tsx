@@ -116,7 +116,7 @@ export default function QueriesPage() {
                     <div className="flex justify-center gap-4 animate-hero-fade" style={{ animationDelay: '0.5s' }}>
                         <button onClick={() => { const event = new Event('open-chat'); window.dispatchEvent(event); }} className="group relative inline-flex items-center justify-center px-12 py-4 bg-[#111] text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
                             <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Start Chat</span>
-                            <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                            <div className="absolute inset-0 bg-[#C4A67C] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                         </button>
                         <Link href="#topics" className="inline-flex items-center justify-center px-12 py-4 border border-black/10 text-[#111] rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
                             Browse Topics
@@ -140,7 +140,7 @@ export default function QueriesPage() {
                                 placeholder="Search all questions..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full pl-16 pr-6 py-5 bg-white border border-black/10 rounded-2xl text-[#111] placeholder:text-stone-400 focus:outline-none focus:ring-1 focus:ring-bronze focus:border-bronze transition-all shadow-sm"
+                                className="w-full pl-16 pr-6 py-5 bg-white border border-black/10 rounded-2xl text-[#111] placeholder:text-stone-400 focus:outline-none focus:ring-1 focus:ring-[#C4A67C] focus:border-[#C4A67C] transition-all shadow-sm"
                             />
                         </div>
 
@@ -170,8 +170,8 @@ export default function QueriesPage() {
                                         key={cat.id}
                                         onClick={() => { setActiveCategory(cat.id); setOpenQuestion(null); }}
                                         className={`text-sm font-mono uppercase tracking-widest pb-4 -mb-[1px] border-b-2 transition-all whitespace-nowrap ${activeCategory === cat.id
-                                            ? "border-bronze text-[#111]"
-                                            : "border-transparent text-stone-400 hover:text-bronze"
+                                            ? "border-[#C4A67C] text-[#111]"
+                                            : "border-transparent text-stone-400 hover:text-[#C4A67C]"
                                             }`}
                                     >
                                         {cat.title}
@@ -189,16 +189,16 @@ export default function QueriesPage() {
                                         key={idx}
                                         onClick={() => setOpenQuestion(isOpen ? null : item.q)}
                                         className={`group rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden ${isOpen
-                                            ? "bg-white border-bronze/30 shadow-lg shadow-bronze/5"
+                                            ? "bg-white border-[#C4A67C]/30 shadow-lg shadow-[#C4A67C]/5"
                                             : "bg-white border-black/5 hover:border-black/10"
                                             }`}
                                     >
                                         <div className="p-6 lg:p-8 flex items-start justify-between gap-6">
-                                            <h3 className={`text-lg lg:text-xl font-serif leading-tight transition-colors duration-300 w-[90%] ${isOpen ? "text-bronze" : "text-[#111] group-hover:text-[#444]"}`}>
+                                            <h3 className={`text-lg lg:text-xl font-serif leading-tight transition-colors duration-300 w-[90%] ${isOpen ? "text-[#C4A67C]" : "text-[#111] group-hover:text-[#444]"}`}>
                                                 {item.q}
                                             </h3>
                                             <div className={`shrink-0 transition-transform duration-300 mt-1 ${isOpen ? "rotate-45" : "rotate-0"}`}>
-                                                <Plus className={`w-5 h-5 ${isOpen ? "text-bronze" : "text-stone-300"}`} strokeWidth={1.5} />
+                                                <Plus className={`w-5 h-5 ${isOpen ? "text-[#C4A67C]" : "text-stone-300"}`} strokeWidth={1.5} />
                                             </div>
                                         </div>
 
@@ -241,7 +241,7 @@ export default function QueriesPage() {
                                 <span className="font-mono text-xs uppercase tracking-widest opacity-80 mb-3 block bg-white/20 backdrop-blur-md inline-block px-3 py-1 rounded-full border border-white/10">
                                     Focus Area
                                 </span>
-                                <h3 className="text-5xl font-serif italic mb-4">{activeData.title}</h3>
+                                <h3 className="text-5xl font-serif mb-4">{activeData.title}</h3>
                                 <p className="font-light opacity-90 text-lg leading-relaxed max-w-md text-white/90">
                                     {activeData.description}
                                 </p>
@@ -262,7 +262,7 @@ export default function QueriesPage() {
                     </p>
                     <Link
                         href="/contact"
-                        className="group inline-flex items-center gap-4 px-10 py-5 bg-[#111] text-white rounded-full hover:bg-bronze transition-colors duration-500 shadow-xl"
+                        className="group inline-flex items-center gap-4 px-10 py-5 bg-[#111] text-white rounded-full hover:bg-[#C4A67C] transition-colors duration-500 shadow-xl"
                     >
                         <span className="font-mono text-xs uppercase tracking-[0.2em]">Contact Concierge</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

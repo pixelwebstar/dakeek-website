@@ -86,7 +86,7 @@ export default function Header() {
             const service = serviceData[pathParts[2]];
             if (service) return service.theme.hero1;
         }
-        return "#5A4A32";
+        return "#C4A67C";
     })();
 
     return (
@@ -125,15 +125,15 @@ export default function Header() {
                                         href={link.href}
                                         title={`${link.label} – Dakeek home maintenance services in Dubai`}
                                         className={cn(
-                                            "relative z-10 transition-colors duration-300 hover:text-[#5A4A32]",
-                                            isActive ? "text-[#111] font-bold" : "text-[#555] hover:text-[#5A4A32]"
+                                            "relative z-10 transition-colors duration-300 hover:text-[#C4A67C]",
+                                            isActive ? "text-[#111] font-bold" : "text-[#555] hover:text-[#C4A67C]"
                                         )}
                                     >
                                         {link.label}
                                     </Link>
                                     <span
                                         className={cn(
-                                            "absolute -bottom-1 left-0 w-full h-[1px] bg-[#5A4A32] transform origin-left transition-transform duration-300 ease-out",
+                                            "absolute -bottom-1 left-0 w-full h-[1px] bg-[#C4A67C] transform origin-left transition-transform duration-300 ease-out",
                                             isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                                         )}
                                     />
@@ -145,7 +145,7 @@ export default function Header() {
                     {/* Get App Button (Desktop) */}
                     <button
                         onClick={handleInstallClick}
-                        className="get-app-button px-6 py-2 bg-[#111] text-white rounded-full font-mono text-xs uppercase tracking-widest hover:bg-[#5A4A32] transition-colors border border-transparent hover:border-[#5A4A32]/20 shadow-lg shadow-black/5"
+                        className="get-app-button px-6 py-2 bg-[#111] text-white rounded-full font-mono text-xs uppercase tracking-widest hover:bg-[#C4A67C] transition-colors border border-transparent hover:border-[#C4A67C]/20 shadow-lg shadow-black/5"
                     >
                         Get App
                     </button>
@@ -156,7 +156,7 @@ export default function Header() {
                     {/* Mobile Get App Button (Visible on Navbar) */}
                     <button
                         onClick={handleInstallClick}
-                        className="get-app-button px-4 py-2 bg-[#111] text-white rounded-full font-mono text-[10px] uppercase tracking-widest hover:bg-[#5A4A32] transition-colors border border-transparent shadow-md whitespace-nowrap"
+                        className="get-app-button px-4 py-2 bg-[#111] text-white rounded-full font-mono text-[10px] uppercase tracking-widest hover:bg-[#C4A67C] transition-colors border border-transparent shadow-md whitespace-nowrap"
                     >
                         Get App
                     </button>
@@ -214,7 +214,7 @@ export default function Header() {
                                 <Link
                                     href={link.href}
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="text-4xl font-serif text-[#111] hover:text-[#5A4A32] transition-colors text-center w-full block"
+                                    className="text-4xl font-serif text-[#111] hover:text-[#C4A67C] transition-colors text-center w-full block"
                                 >
                                     {link.label}
                                 </Link>

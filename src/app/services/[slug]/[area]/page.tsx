@@ -27,6 +27,20 @@ function localizeData(base: ServicePageData, areaSlug: string) {
         : areaProfile?.type === 'apartment' ? "High-rise living demands strict safety standards."
             : "Expert maintenance for your property.";
 
+    // Dynamic "Why Choose Us" Content
+    const whyChooseContent = areaProfile?.type === 'villa'
+        ? `Villas in ${areaName} face unique challenges like garden irrigation leaks, water tank hygiene, and higher AC loads. Dakeek specializes in comprehensive villa care.`
+        : areaProfile?.type === 'apartment'
+            ? `Living in ${areaName} means dealing with building management, access cards, and shared plumbing stacks. We handle the logistics so you don't have to.`
+            : `We provide dedicated maintenance services tailored for the specific needs of ${areaName} residents.`;
+
+    // Dynamic Stats
+    const localStats = [
+        { value: "40+", label: `${areaName} Clients`, sub: "This Month" },
+        { value: areaProfile?.type === 'villa' ? "Villa" : "Unit", label: "Specialists", sub: "Team" },
+        { value: "60", label: "Minute", sub: "Arrival" }
+    ];
+
     // Defensive Hero Injection
     localized.hero = {
         ...(base.hero || {}),
@@ -40,9 +54,10 @@ function localizeData(base: ServicePageData, areaSlug: string) {
         localized.intro = {
             ...base.intro,
             heading: base.intro.heading ? `${contextPrefix} ${base.intro.heading}` : contextPrefix,
+            stats: [...(base.intro.stats || []), ...localStats].slice(0, 4) // Mix global and local stats
         };
     } else {
-        localized.intro = { heading: contextPrefix, stats: [] };
+        localized.intro = { heading: contextPrefix, stats: localStats };
     }
 
     // Inject Area Theme (Visual Uniqueness)
@@ -63,8 +78,22 @@ function localizeData(base: ServicePageData, areaSlug: string) {
             ? `Best ${base.hero.title} in ${areaName} | Dakeek ${areaProfile?.type === 'villa' ? 'Villa' : ''} Services`
             : `Best Service in ${areaName} | Dakeek`,
         description: (areaProfile?.description || '') + ` Specialized ${base.hero?.title || 'Team'} team arriving in 60 mins.`,
-        keywords: [...baseKeywords, ...areaKeywords]
+        keywords: [...baseKeywords, ...areaKeywords],
+        qna: [
+            ...(base.seo?.qna || []),
+            {
+                question: `Do you cover all areas in ${areaName}?`,
+                answer: `Yes, our team is active in ${areaName} daily. We have established routes and familiarity with community rules.`
+            }
+        ]
     };
+
+    // Add Unique Benefits for Content Value
+    localized.uniqueBenefits = [
+        ...(base.uniqueBenefits || []),
+        whyChooseContent, // Injecting the "Why Choose Us" paragraph as a benefit/text block
+        `Familiar with ${areaName} community guidelines`
+    ];
 
     // CRITICAL FIX: Strip 'icon' components (functions) from details to ensure JSON serializability
     // The client component (ServicePageLayout) will restore them from its local serviceData copy

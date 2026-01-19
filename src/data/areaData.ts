@@ -34,7 +34,7 @@ export const AREA_DATA: AreaProfile[] = DUBAI_AREAS.map(area => {
     let description = `Professional home maintenance services in ${area}.`;
     let tagline = "Expert Care for Your Home.";
     let priorityServices = ["ac", "plumbing", "electrical"];
-    let accentColor = "#5A4A32"; // Default Bronze
+    let accentColor = "#6B5344"; // Default Dark Brown
 
     switch (area) {
         case "Palm Jumeirah":
@@ -59,7 +59,7 @@ export const AREA_DATA: AreaProfile[] = DUBAI_AREAS.map(area => {
             description = "Premium service for Downtown luxury residences. 24/7 emergency response near Burj Khalifa and Dubai Mall district.";
             tagline = "The Center of Excellence.";
             priorityServices = ["emergency", "ac", "stoves"];
-            accentColor = "#f59e0b"; // Gold
+            accentColor = "#C4A67C"; // Gold
             break;
         case "Jumeirah Lake Towers (JLT)":
             description = "Fast, efficient office and residential maintenance in JLT. DMCC compliant service providers.";

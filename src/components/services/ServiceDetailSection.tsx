@@ -16,7 +16,7 @@ function ServiceSection({ service, index, theme }: { service: ServiceDetail, ind
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-10%" }}
+                    viewport={{ once: true, margin: "-5%" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className={`space-y-8 ${isEven ? "lg:order-1" : "lg:order-2"}`}
                 >

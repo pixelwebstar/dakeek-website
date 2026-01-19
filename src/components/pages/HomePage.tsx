@@ -27,7 +27,7 @@ export default function HomePage() {
     };
 
     return (
-        <main ref={container} className="relative min-h-screen w-full selection:bg-bronze selection:text-white premium-bg text-ink overflow-x-hidden">
+        <main ref={container} className="relative min-h-screen w-full selection:bg-[#C4A67C] selection:text-white premium-bg text-ink overflow-x-hidden">
 
             <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-canvas">
                 <GradientHero
@@ -52,7 +52,7 @@ export default function HomePage() {
                     <div className="flex flex-col md:flex-row gap-4 justify-center items-center animate-hero-fade" style={{ animationDelay: '0.5s' }}>
                         <Link href="/contact" className="group relative inline-flex items-center justify-center px-12 py-4 bg-ink text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
                             <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Book Now</span>
-                            <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                            <div className="absolute inset-0 bg-[#C4A67C] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                         </Link>
                         <Link href="/services" className="inline-flex items-center justify-center px-12 py-4 border border-black/10 text-ink rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
                             Explore Services
@@ -97,7 +97,7 @@ export default function HomePage() {
                         <span className="inline-block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.3em] mb-6">
                             Who We Are
                         </span>
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif italic font-light leading-tight max-w-4xl mx-auto mb-8">
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-light leading-tight max-w-4xl mx-auto mb-8">
                             <Balancer>
                                 Your Home, Our Priority.
                             </Balancer>
@@ -115,7 +115,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
                             <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">01</span>
-                            <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Precision</h3>
+                            <h3 className="text-2xl font-serif mb-4 group-hover:text-[#C4A67C] transition-colors">Precision</h3>
                             <p className="text-[#999] text-sm leading-relaxed mb-6">
                                 &quot;Dakeek&quot; means precise in Arabic. We diagnose accurately, quote fairly, and execute flawlessly. No guesswork. No surprises.
                             </p>
@@ -131,7 +131,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
                             <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">02</span>
-                            <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Respect</h3>
+                            <h3 className="text-2xl font-serif mb-4 group-hover:text-[#C4A67C] transition-colors">Respect</h3>
                             <p className="text-[#999] text-sm leading-relaxed mb-6">
                                 We respect your home and your privacy. Our technicians arrive on time, work quietly, and clean up before they leave.
                             </p>
@@ -147,7 +147,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
                             <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">03</span>
-                            <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Excellence</h3>
+                            <h3 className="text-2xl font-serif mb-4 group-hover:text-[#C4A67C] transition-colors">Excellence</h3>
                             <p className="text-[#999] text-sm leading-relaxed mb-6">
                                 Our licensed technicians use quality materials and proven methods. We get it right the first time, so you don&apos;t have to call twice.
                             </p>
@@ -173,7 +173,7 @@ export default function HomePage() {
                 <div className="flex justify-between items-end border-b border-[#E5E5E5] pb-8">
                     <div>
                         <span className="block font-mono text-xs text-[#6B5344] uppercase tracking-[0.2em] mb-4">The Scope</span>
-                        <h2 className="text-4xl font-serif italic text-[#111]">Our Services</h2>
+                        <h2 className="text-4xl font-serif text-[#111]">Our Services</h2>
                     </div>
                     <Link href="/services" className="text-xs font-mono text-[#333] hover:text-[#111] transition-colors uppercase tracking-widest">Full Specifications</Link>
                 </div>
@@ -275,7 +275,7 @@ export default function HomePage() {
                         <span className="inline-block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.3em] mb-6">
                             How it Works
                         </span>
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif italic font-light">
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-light">
                             Simplicity Itself.
                         </h2>
                     </div>
@@ -288,7 +288,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
                             <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">01</span>
-                            <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Connect</h3>
+                            <h3 className="text-2xl font-serif mb-4 group-hover:text-[#C4A67C] transition-colors">Connect</h3>
                             <p className="text-[#999] text-sm leading-relaxed">
                                 Tell us what you need. A dedicated coordinator will listen and arrange everything clearly.
                             </p>
@@ -300,7 +300,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
                             <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">02</span>
-                            <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Restore</h3>
+                            <h3 className="text-2xl font-serif mb-4 group-hover:text-[#C4A67C] transition-colors">Restore</h3>
                             <p className="text-[#999] text-sm leading-relaxed">
                                 We arrive on time, fix the issue quietly, and clean up afterwards.
                             </p>
@@ -312,7 +312,7 @@ export default function HomePage() {
                             <div className="absolute top-0 left-0 h-12 w-px bg-[#5A4A32] group-hover:h-full transition-all duration-700" />
 
                             <span className="block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.2em] mb-4">03</span>
-                            <h3 className="text-2xl font-serif italic mb-4 group-hover:text-[#C4A67C] transition-colors">Relax</h3>
+                            <h3 className="text-2xl font-serif mb-4 group-hover:text-[#C4A67C] transition-colors">Relax</h3>
                             <p className="text-[#999] text-sm leading-relaxed">
                                 Your home is back to normal. We provide a full report so you can have complete peace of mind.
                             </p>
@@ -325,7 +325,7 @@ export default function HomePage() {
             {/* 7. THE PROMISE (Guarantee) & CTA */}
             <section className="w-full bg-[#FAFAF9] px-[5vw] lg:px-[8vw] py-16 lg:py-24 flex flex-col md:flex-row items-center justify-between gap-12 border-b border-[#E5E5E5]">
                 <div className="max-w-2xl">
-                    <h2 className="text-4xl md:text-5xl font-serif italic mb-6 text-[#111]">The Dakeek Promise.</h2>
+                    <h2 className="text-4xl md:text-5xl font-serif mb-6 text-[#111]">The Dakeek Promise.</h2>
                     <p className="text-xl font-light text-[#444] leading-relaxed mb-8">
                         If the issue returns within 30 days, so do we. <br />
                         <span className="text-[var(--color-bronze)] font-medium">Free of charge.</span> No questions asked.
@@ -382,7 +382,7 @@ export default function HomePage() {
                     <div className="relative p-8 lg:p-12 border border-[#222] bg-[#111]/50 backdrop-blur-sm rounded-sm">
                         <div className="space-y-6">
                             <div>
-                                <h2 className="text-2xl font-serif italic mb-2">The Dakeek Journal.</h2>
+                                <h2 className="text-2xl font-serif mb-2">The Dakeek Journal.</h2>
                                 <p className="text-[#888] text-sm font-light leading-relaxed">
                                     Curated maintenance insights and seasonal care guides for the modern homeowner. Zero clutter.
                                 </p>

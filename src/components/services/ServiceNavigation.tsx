@@ -35,7 +35,7 @@ export default function ServiceNavigation({ prev, next, theme }: ServiceNavigati
                                     <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
                                     Previous
                                 </span>
-                                <h4 className="text-3xl font-serif italic text-slate-900 leading-tight group-hover:text-amber-900/80 transition-colors">
+                                <h4 className="text-3xl font-serif text-slate-900 leading-tight group-hover:text-amber-900/80 transition-colors">
                                     {prev.name}
                                 </h4>
                             </div>
@@ -51,7 +51,7 @@ export default function ServiceNavigation({ prev, next, theme }: ServiceNavigati
                                     Next Service
                                     <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                                 </span>
-                                <h4 className="text-3xl font-serif italic text-white leading-tight">
+                                <h4 className="text-3xl font-serif text-white leading-tight">
                                     {next.name}
                                 </h4>
                             </div>

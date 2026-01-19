@@ -11,9 +11,9 @@ export function ContactHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <h1 className="text-5xl md:text-7xl font-serif italic text-ink leading-tight mb-4">
+                <h1 className="text-5xl md:text-7xl font-serif text-ink leading-tight mb-4">
                     Let&apos;s Fix It. <br />
-                    <span className="text-bronze">Right Now.</span>
+                    <span className="text-[#C4A67C]">Right Now.</span>
                 </h1>
                 <p className="text-lg md:text-xl text-titanium max-w-md leading-relaxed">
                     Tell us what&apos;s broken, and we&apos;ll dispatch a verified technician to your doorstep. No hassle. No waiting.
@@ -28,15 +28,15 @@ export function ContactHero() {
                 className="space-y-4"
             >
                 <div className="flex items-center gap-3 text-sm text-titanium">
-                    <CheckCircle2 className="w-5 h-5 text-bronze flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#C4A67C] flex-shrink-0" />
                     <span>Licensed & Insured Technicians</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-titanium">
-                    <Shield className="w-5 h-5 text-bronze flex-shrink-0" />
+                    <Shield className="w-5 h-5 text-[#C4A67C] flex-shrink-0" />
                     <span>100% Privacy Guaranteed</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-titanium">
-                    <Clock className="w-5 h-5 text-bronze flex-shrink-0" />
+                    <Clock className="w-5 h-5 text-[#C4A67C] flex-shrink-0" />
                     <span>2-Minute Average Response Time</span>
                 </div>
             </motion.div>

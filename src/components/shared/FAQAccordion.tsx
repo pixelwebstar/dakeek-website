@@ -40,7 +40,7 @@ export function FAQAccordion({ faqs, showSearch = true, defaultOpen = 0 }: FAQAc
                         placeholder="Search questions..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full pl-12 pr-4 py-4 bg-white border-2 border-structure rounded-2xl text-ink placeholder-gray-400 focus:outline-none focus:border-bronze transition-all font-light text-lg"
+                        className="w-full pl-12 pr-4 py-4 bg-white border-2 border-structure rounded-2xl text-ink placeholder-gray-400 focus:outline-none focus:border-[#C4A67C] transition-all font-light text-lg"
                     />
                 </motion.div>
             )}
@@ -53,10 +53,10 @@ export function FAQAccordion({ faqs, showSearch = true, defaultOpen = 0 }: FAQAc
                         animate={{ opacity: 1 }}
                         className="text-center py-12 text-gray-500"
                     >
-                        <p className="text-lg font-serif italic">No questions found matching &quot;{searchQuery}&quot;</p>
+                        <p className="text-lg font-serif">No questions found matching &quot;{searchQuery}&quot;</p>
                         <button
                             onClick={() => setSearchQuery("")}
-                            className="mt-4 text-sm text-bronze hover:underline"
+                            className="mt-4 text-sm text-[#C4A67C] hover:underline"
                         >
                             Clear search
                         </button>
@@ -70,13 +70,13 @@ export function FAQAccordion({ faqs, showSearch = true, defaultOpen = 0 }: FAQAc
                             transition={{ delay: index * 0.05 }}
                             className="group"
                         >
-                            <div className="bg-white border border-structure rounded-xl overflow-hidden hover:border-bronze transition-all hover:shadow-lg">
+                            <div className="bg-white border border-structure rounded-xl overflow-hidden hover:border-[#C4A67C] transition-all hover:shadow-lg">
                                 {/* Question Button */}
                                 <button
                                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                                     className="w-full flex justify-between items-center p-6 md:p-8 text-left transition-all group-hover:bg-[#FAFAF9]"
                                 >
-                                    <span className="text-lg md:text-xl font-serif italic text-ink pr-4 leading-relaxed">
+                                    <span className="text-lg md:text-xl font-serif text-ink pr-4 leading-relaxed">
                                         {faq.question}
                                     </span>
                                     <motion.div
@@ -85,9 +85,9 @@ export function FAQAccordion({ faqs, showSearch = true, defaultOpen = 0 }: FAQAc
                                         className="flex-shrink-0"
                                     >
                                         {openIndex === index ? (
-                                            <Minus className="w-5 h-5 text-bronze" />
+                                            <Minus className="w-5 h-5 text-[#C4A67C]" />
                                         ) : (
-                                            <Plus className="w-5 h-5 text-[#86868b] group-hover:text-bronze transition-colors" />
+                                            <Plus className="w-5 h-5 text-[#86868b] group-hover:text-[#C4A67C] transition-colors" />
                                         )}
                                     </motion.div>
                                 </button>

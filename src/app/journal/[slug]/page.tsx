@@ -59,7 +59,7 @@ export default async function BlogPostPage(
                     {/* Back Link */}
                     <Link
                         href="/blog"
-                        className="inline-flex items-center gap-2 text-sm text-[#666] hover:text-[#5A4A32] mb-8 transition-colors"
+                        className="inline-flex items-center gap-2 text-sm text-[#666] hover:text-[#C4A67C] mb-8 transition-colors"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         Back to Blog
@@ -146,7 +146,7 @@ export default async function BlogPostPage(
                                                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                                             />
                                         </div>
-                                        <h4 className="font-serif text-[#111] group-hover:text-[#5A4A32] transition-colors">
+                                        <h4 className="font-serif text-[#111] group-hover:text-[#C4A67C] transition-colors">
                                             {related.title}
                                         </h4>
                                     </Link>
@@ -163,7 +163,7 @@ export default async function BlogPostPage(
                         <p className="text-white/70 mb-6">Book a service and let our experts handle it.</p>
                         <Link
                             href="/contact"
-                            className="inline-block px-8 py-3 bg-[#5A4A32] text-white rounded-full font-mono text-sm uppercase tracking-wider hover:bg-white hover:text-[#111] transition-colors"
+                            className="inline-block px-8 py-3 bg-[#C4A67C] text-white rounded-full font-mono text-sm uppercase tracking-wider hover:bg-white hover:text-[#111] transition-colors"
                         >
                             Book Now
                         </Link>

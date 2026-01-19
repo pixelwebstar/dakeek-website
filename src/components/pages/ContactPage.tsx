@@ -26,7 +26,7 @@ export default function ContactPage() {
     };
 
     return (
-        <main className="min-h-screen bg-canvas text-ink overflow-x-hidden selection:bg-bronze selection:text-white">
+        <main className="min-h-screen bg-canvas text-ink overflow-x-hidden selection:bg-[#C4A67C] selection:text-white">
 
             {/* SECTION 1: HERO (Hyper Metal) */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
@@ -50,7 +50,7 @@ export default function ContactPage() {
                     <div className="flex justify-center gap-4 animate-hero-fade" style={{ animationDelay: '0.5s' }}>
                         <a href="tel:+971542472151" className="group relative inline-flex items-center justify-center px-12 py-4 bg-ink text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
                             <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Call Dakeek</span>
-                            <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                            <div className="absolute inset-0 bg-[#C4A67C] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                         </a>
                         <Link href="https://wa.me/971542472151" target="_blank" className="inline-flex items-center justify-center px-12 py-4 border border-black/10 text-ink rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
                             WhatsApp Us
@@ -65,14 +65,14 @@ export default function ContactPage() {
             </section>
 
             {/* MAIN CONTACT SECTION: The Concierge Desk (Dark Premium) */}
-            <section className="relative z-10 w-full min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-[#0c0c0c]">
+            <section className="relative z-10 w-full min-h-[80vh] py-12 grid grid-cols-1 lg:grid-cols-2 bg-[#0c0c0c]">
 
                 {/* Left Column: Direct Access (VIP Info) */}
                 <div className="relative flex flex-col justify-center p-8 lg:p-24 border-b lg:border-b-0 lg:border-r border-white/5 bg-[#0c0c0c]">
                     <div className="space-y-16 max-w-lg">
 
                         <div>
-                            <span className="font-mono text-xs uppercase tracking-[0.2em] text-bronze mb-4 block">Direct Access</span>
+                            <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#C4A67C] mb-4 block">Direct Access</span>
                             <h2 className="text-4xl md:text-6xl font-serif text-white mb-6">The Concierge.</h2>
                             <p className="text-stone-400 text-lg font-light leading-relaxed">
                                 You are not entering a queue. You are contacting a dedicated engineering team. We value precision in communication as much as in repair.
@@ -86,7 +86,7 @@ export default function ContactPage() {
                             <div className="group flex items-start gap-6">
                                 <span className="font-mono text-xs text-stone-600 mt-1">01</span>
                                 <div>
-                                    <h3 className="text-white text-xl font-serif mb-2 group-hover:text-bronze transition-colors">Emergency & Support</h3>
+                                    <h3 className="text-white text-xl font-serif mb-2 group-hover:text-[#C4A67C] transition-colors">Emergency & Support</h3>
                                     <a href="tel:+971542472151" className="text-2xl md:text-3xl font-light text-stone-300 hover:text-white transition-colors block mb-1">
                                         +971 54 247 2151
                                     </a>
@@ -101,7 +101,7 @@ export default function ContactPage() {
                             <div className="group flex items-start gap-6">
                                 <span className="font-mono text-xs text-stone-600 mt-1">02</span>
                                 <div>
-                                    <h3 className="text-white text-xl font-serif mb-2 group-hover:text-bronze transition-colors">Instant Chat</h3>
+                                    <h3 className="text-white text-xl font-serif mb-2 group-hover:text-[#C4A67C] transition-colors">Instant Chat</h3>
                                     <a href="https://wa.me/971542472151?text=Hello%20Dakeek%20Residential%20Services%2C%20I%20would%20like%20to%20book%20a%20service." target="_blank" className="text-2xl md:text-3xl font-light text-stone-300 hover:text-white transition-colors block mb-1">
                                         WhatsApp Concierge
                                     </a>
@@ -113,7 +113,7 @@ export default function ContactPage() {
                             <div className="group flex items-start gap-6">
                                 <span className="font-mono text-xs text-stone-600 mt-1">03</span>
                                 <div>
-                                    <h3 className="text-white text-xl font-serif mb-2 group-hover:text-bronze transition-colors">Formal Inquiries</h3>
+                                    <h3 className="text-white text-xl font-serif mb-2 group-hover:text-[#C4A67C] transition-colors">Formal Inquiries</h3>
                                     <a href="mailto:asheejajayan@gmail.com" className="text-lg md:text-xl font-light text-stone-300 hover:text-white transition-colors block mb-1">
                                         asheejajayan@gmail.com
                                     </a>
@@ -126,7 +126,7 @@ export default function ContactPage() {
                         {/* Location Context */}
                         <div className="pt-12 border-t border-white/5">
                             <p className="flex items-center gap-3 text-stone-500 text-sm font-mono uppercase tracking-widest">
-                                <MapPin className="w-4 h-4 text-bronze" />
+                                <MapPin className="w-4 h-4 text-[#C4A67C]" />
                                 Dubai Headquarters • Al Karama
                             </p>
                         </div>
@@ -134,7 +134,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Right Column: Smart Form (Glass Card) */}
-                <div className="relative h-full flex items-center justify-center p-6 lg:p-24 bg-[#0a0a0a]">
+                <div className="relative min-h-full flex items-center justify-center p-6 lg:p-24 bg-[#0a0a0a]">
 
                     {/* Background Noise/Gradient */}
                     <div className="absolute inset-0 bg-[url('/images/noise.svg')] opacity-[0.03] animate-grain"></div>
@@ -174,7 +174,7 @@ export default function ContactPage() {
                             <div className="absolute h-full w-[1px] bg-white/20"></div>
 
                             {/* Central Dot */}
-                            <div className="w-1.5 h-1.5 bg-[#5A4A32] rounded-full shadow-[0_0_10px_#5A4A32]"></div>
+                            <div className="w-1.5 h-1.5 bg-[#C4A67C] rounded-full shadow-[0_0_10px_#C4A67C]"></div>
                         </div>
                     </div>
                 </div>
@@ -219,7 +219,7 @@ export default function ContactPage() {
                         <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-bl from-[#5A4A32]/20 to-transparent rounded-bl-3xl"></div>
 
                         <div className="flex items-start gap-4">
-                            <div className="mt-1 w-10 h-10 rounded-full bg-[#5A4A32] text-white flex items-center justify-center shrink-0 shadow-lg">
+                            <div className="mt-1 w-10 h-10 rounded-full bg-[#C4A67C] text-white flex items-center justify-center shrink-0 shadow-lg">
                                 <MapPin className="w-5 h-5" />
                             </div>
                             <div>
@@ -232,7 +232,7 @@ export default function ContactPage() {
                                     href="https://maps.app.goo.gl/kXjXjXjXjXjXjXjX"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-[#5A4A32] hover:text-white transition-colors text-xs font-bold uppercase tracking-widest group/link"
+                                    className="inline-flex items-center gap-2 text-[#C4A67C] hover:text-white transition-colors text-xs font-bold uppercase tracking-widest group/link"
                                 >
                                     Get Directions <span className="group-hover/link:translate-x-1 transition-transform">→</span>
                                 </a>

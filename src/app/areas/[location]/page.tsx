@@ -78,7 +78,7 @@ export default async function LocationPage(props: { params: Promise<{ location: 
                             <span className="font-mono text-xs uppercase tracking-widest text-white/70">Service Area</span>
                         </div>
                         <h1 className="text-4xl md:text-7xl font-serif font-medium mb-6">
-                            Home Maintenance in <span className="italic text-[#C4A67C]">{areaName}</span>
+                            Home Maintenance in <span className="text-[#C4A67C]">{areaName}</span>
                         </h1>
                         {areaData?.tagline && (
                             <p className="text-2xl font-light text-white/80 mb-6">{areaData.tagline}</p>
@@ -128,7 +128,7 @@ export default async function LocationPage(props: { params: Promise<{ location: 
                     {/* Services Grid */}
                     <section className="py-20">
                         <h2 className="text-3xl font-serif text-[#111] mb-12 text-center">
-                            Our Services in <span className="italic" style={{ color: accentColor }}>{areaName}</span>
+                            Our Services in <span style={{ color: accentColor }}>{areaName}</span>
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {Object.values(serviceData)
@@ -160,10 +160,10 @@ export default async function LocationPage(props: { params: Promise<{ location: 
                     </section>
 
                     {/* CTA */}
-                    <div className="py-16 p-12 rounded-3xl text-center relative overflow-hidden" style={{ backgroundColor: accentColor }}>
+                    <div className="py-16 p-12 rounded-2xl text-center relative overflow-hidden" style={{ backgroundColor: accentColor }}>
                         <div className="relative z-10">
                             <h2 className="text-3xl md:text-4xl font-serif text-white mb-6">
-                                Ready for Help in <span className="italic">{areaName}</span>?
+                                Ready for Help in <span>{areaName}</span>?
                             </h2>
                             <p className="text-white/80 mb-8 max-w-xl mx-auto">
                                 Our team is standing by to respond within 60 minutes.

@@ -20,7 +20,7 @@ export default function TechSpecs({ specs, tools, details, theme }: TechSpecsPro
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.25 }}
+                viewport={{ once: true, margin: "-5%" }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
             >
                 <div className="flex flex-col lg:flex-row gap-20">

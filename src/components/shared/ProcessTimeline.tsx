@@ -48,7 +48,7 @@ export default function ProcessTimeline({ steps = STEPS }: ProcessTimelineProps)
             {/* Desktop: Horizontal Timeline */}
             <div className="hidden lg:block">
                 {/* Connecting Line */}
-                <div className="absolute top-16 left-0 right-0 h-px bg-gradient-to-r from-transparent via-bronze/40 to-transparent" />
+                <div className="absolute top-16 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C4A67C]/40 to-transparent" />
 
                 <div className="grid grid-cols-5 gap-4">
                     {steps.map((step, i) => (
@@ -63,13 +63,13 @@ export default function ProcessTimeline({ steps = STEPS }: ProcessTimelineProps)
                             {/* Icon Circle */}
                             <motion.div
                                 whileHover={{ scale: 1.1, y: -5 }}
-                                className="mx-auto w-32 h-32 rounded-2xl bg-white border border-black/5 shadow-lg shadow-black/5 flex items-center justify-center mb-6 group-hover:border-bronze/30 transition-all duration-300"
+                                className="mx-auto w-32 h-32 rounded-2xl bg-white border border-black/5 shadow-lg shadow-black/5 flex items-center justify-center mb-6 group-hover:border-[#C4A67C]/30 transition-all duration-300"
                             >
-                                <step.icon className="w-10 h-10 text-[#111] group-hover:text-bronze transition-colors" strokeWidth={1.5} />
+                                <step.icon className="w-10 h-10 text-[#111] group-hover:text-[#C4A67C] transition-colors" strokeWidth={1.5} />
                             </motion.div>
 
                             {/* Step Number */}
-                            <span className="font-mono text-[10px] text-bronze uppercase tracking-[0.2em] mb-2 block">
+                            <span className="font-mono text-[10px] text-[#C4A67C] uppercase tracking-[0.2em] mb-2 block">
                                 Step {String(i + 1).padStart(2, '0')}
                             </span>
 
@@ -98,13 +98,13 @@ export default function ProcessTimeline({ steps = STEPS }: ProcessTimelineProps)
                     >
                         {/* Icon */}
                         <div className="shrink-0 w-14 h-14 rounded-xl bg-[#FAFAF9] flex items-center justify-center">
-                            <step.icon className="w-7 h-7 text-bronze" strokeWidth={1.5} />
+                            <step.icon className="w-7 h-7 text-[#C4A67C]" strokeWidth={1.5} />
                         </div>
 
                         {/* Content */}
                         <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
-                                <span className="font-mono text-[10px] text-bronze uppercase tracking-wider">
+                                <span className="font-mono text-[10px] text-[#C4A67C] uppercase tracking-wider">
                                     {String(i + 1).padStart(2, '0')}
                                 </span>
                                 <h3 className="text-base font-sans font-medium text-[#111]">{step.title}</h3>

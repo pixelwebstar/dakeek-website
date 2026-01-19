@@ -213,11 +213,11 @@ export default function ServiceLayout({ data, slug }: ServiceLayoutProps) {
                     <div className="absolute inset-0 opacity-30 pointer-events-none mix-blend-multiply bg-[url('/images/noise.svg')] bg-repeat" />
                     <div className="max-w-5xl mx-auto relative z-10">
                         <h3 className="text-3xl md:text-5xl font-serif text-[#111] mb-16 text-center">
-                            Why Dakeek for <span className="italic" style={{ color: pageData.theme.hero1 }}>{pageData.hero.title}</span>?
+                            Why Dakeek for <span style={{ color: pageData.theme.hero1 }}>{pageData.hero.title}</span>?
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {pageData.uniqueBenefits.map((benefit, i) => (
-                                <div key={i} className="flex items-start gap-6 p-8 bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-md transition-shadow">
+                                <div key={i} className="flex items-start gap-6 p-8 bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-md transition-shadow h-full">
                                     <div className={`w-10 h-10 flex-shrink-0 rounded-full ${pageData.theme.iconBg} flex items-center justify-center`}>
                                         <span className={`text-sm font-bold ${pageData.theme.primaryText}`}>{i + 1}</span>
                                     </div>
@@ -231,29 +231,35 @@ export default function ServiceLayout({ data, slug }: ServiceLayoutProps) {
 
             {/* 4.6 Service Areas */}
             <section className="py-24 lg:py-32 px-[5vw] lg:px-[8vw] bg-white border-t border-black/5">
-                <div className="max-w-5xl mx-auto text-center">
-                    <h3 className="text-3xl md:text-4xl font-serif text-[#111] mb-6">
-                        We Cover All of Dubai
-                    </h3>
-                    <p className="text-[#666] mb-12 max-w-2xl mx-auto">
-                        From Palm Jumeirah to Arabian Ranches, our technicians are strategically located to reach you in under 60 minutes.
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-3">
-                        {["Palm Jumeirah", "Dubai Marina", "Downtown Dubai", "Arabian Ranches", "JLT", "Business Bay", "Dubai Hills", "DIFC", "Al Barsha", "Jumeirah"].map((area, i) => (
+                <div className="max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-24 items-start">
+                        <div className="col-span-1 md:col-span-1">
+                            <h3 className="text-3xl font-serif text-[#111] mb-6 leading-tight">
+                                We Cover All of Dubai
+                            </h3>
+                            <p className="text-[#666] text-sm leading-relaxed mb-8">
+                                From Palm Jumeirah to Arabian Ranches, our technicians are strategically located to reach you in under 60 minutes.
+                            </p>
                             <Link
-                                key={i}
-                                href={`/areas/${area.toLowerCase().replace(/ /g, '-')}`}
-                                className="px-5 py-2.5 text-sm bg-[#FAFAF9] text-[#555] rounded-full border border-black/5 hover:bg-[#111] hover:text-white transition-all transform hover:-translate-y-1"
+                                href="/contact"
+                                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#111] hover:text-[#555] transition-colors border-b border-[#111] pb-1"
                             >
-                                {area}
+                                View Full Map <ArrowRight className="w-3 h-3" />
                             </Link>
-                        ))}
-                        <Link
-                            href="/contact"
-                            className="px-5 py-2.5 text-sm bg-[#111] text-white rounded-full hover:bg-opacity-80 transition-all transform hover:-translate-y-1 shadow-lg"
-                        >
-                            + 27 More Areas
-                        </Link>
+                        </div>
+                        <div className="col-span-1 md:col-span-3">
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-4 gap-x-8">
+                                {["Palm Jumeirah", "Dubai Marina", "Downtown Dubai", "Arabian Ranches", "JLT", "Business Bay", "Dubai Hills", "DIFC", "Al Barsha", "Jumeirah", "The Villa", "Mudon", "Damac Hills", "Meadows", "Springs", "Greens"].map((area, i) => (
+                                    <Link
+                                        key={i}
+                                        href={`/areas/${area.toLowerCase().replace(/ /g, '-')}`}
+                                        className="text-sm text-[#444] hover:text-[#111] transition-colors py-1 hover:translate-x-1 transform duration-300 block font-light"
+                                    >
+                                        {area}
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

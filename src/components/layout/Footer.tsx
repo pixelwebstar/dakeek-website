@@ -63,7 +63,7 @@ export default function Footer() {
             header: "text-[#111]",
             border: "border-black/5",
             mutedText: "text-[#555]",
-            hoverText: "hover:text-[#5A4A32]",
+            hoverText: "hover:text-[#C4A67C]",
             copyright: "text-[#555]",
         };
     }, [pathname]);
@@ -112,7 +112,7 @@ export default function Footer() {
                 <div className="w-full lg:w-[30%] flex flex-col gap-6 lg:sticky lg:top-12">
                     <div>
                         <h2 className="text-4xl font-bold tracking-tighter mb-4">DAKEEK</h2>
-                        <p className={`font-serif italic text-base leading-relaxed ${theme.mutedText} max-w-xs`}>
+                        <p className={`font-serif text-base leading-relaxed ${theme.mutedText} max-w-xs`}>
                             &quot;Engineering rigor for Dubai’s finest homes. Precision in every detail.&quot;
                         </p>
                     </div>
@@ -133,7 +133,7 @@ export default function Footer() {
                         {/* Install App Button */}
                         <button
                             onClick={handleInstallClick}
-                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#111] text-white shadow-md hover:bg-bronze transition-colors hover:scale-105 active:scale-95 w-fit"
+                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#111] text-white shadow-md hover:bg-[#C4A67C] transition-colors hover:scale-105 active:scale-95 w-fit"
                         >
                             <span className="font-mono text-[10px] uppercase tracking-widest font-medium">Install App</span>
                         </button>
@@ -235,6 +235,6 @@ export default function Footer() {
                 onClose={() => setShowInstallModal(false)}
                 isIOS={isIOS}
             />
-        </footer>
+        </footer >
     );
 }

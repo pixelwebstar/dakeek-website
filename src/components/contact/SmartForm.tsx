@@ -87,7 +87,7 @@ export function SmartForm() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white/90 backdrop-blur-2xl border border-white/50 p-6 md:p-12 rounded-[2.5rem] shadow-2xl flex flex-col justify-center md:h-full md:min-h-[600px]"
+            className="bg-white/90 backdrop-blur-2xl border border-white/50 p-6 md:p-12 rounded-[2.5rem] shadow-2xl flex flex-col justify-center md:min-h-[600px]"
         >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 md:space-y-8">
 

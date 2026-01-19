@@ -45,7 +45,7 @@ export default function ServicesHubPage() {
                     <div className="flex justify-center gap-4 animate-hero-fade" style={{ animationDelay: '0.5s' }}>
                         <Link href="/contact" className="group relative inline-flex items-center justify-center px-12 py-4 bg-[#111] text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
                             <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Book Technician</span>
-                            <div className="absolute inset-0 bg-bronze transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                            <div className="absolute inset-0 bg-[#C4A67C] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                         </Link>
                         <Link href="/coverage" className="inline-flex items-center justify-center px-12 py-4 border border-black/10 text-[#111] rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
                             View Coverage
@@ -102,7 +102,7 @@ export default function ServicesHubPage() {
 
                                         {/* VISUAL - Cinematic Card */}
                                         <div
-                                            className="w-full lg:w-1/2 relative h-[400px] lg:h-[600px] rounded-none overflow-hidden shadow-xl shadow-black/5 group cursor-pointer hover:scale-[1.02] transition-transform duration-700">
+                                            className="w-full lg:w-1/2 relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-xl shadow-black/5 group cursor-pointer hover:scale-[1.02] transition-transform duration-700">
                                             <Link href={`/services/${slug}`} className="block w-full h-full relative">
                                                 <ImageWithFallback
                                                     src={coverImage}
@@ -117,7 +117,7 @@ export default function ServicesHubPage() {
 
                                                 {/* Floating Elegant Badge */}
                                                 <div className="absolute top-8 left-8 bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3">
-                                                    <span className="font-serif italic text-xl text-white">
+                                                    <span className="font-serif text-xl text-white">
                                                         No. {service.id}
                                                     </span>
                                                 </div>
@@ -179,7 +179,7 @@ export default function ServicesHubPage() {
                                                             ] : [
                                                                 "Custom projects", "Complex installations", "Unique repairs", "Renovations", "Special requests"
                                                             ]).map((issue, i) => (
-                                                                <li key={i} className="text-sm text-[#333] font-serif italic flex items-start gap-2">
+                                                                <li key={i} className="text-sm text-[#333] font-serif flex items-start gap-2">
                                                                     <span className="text-xs text-red-300 mt-1">•</span> {issue}
                                                                 </li>
                                                             ))}
@@ -246,7 +246,7 @@ export default function ServicesHubPage() {
             {/* 4. FOOTER CTA */}
             <section className="py-24 lg:py-32 bg-[#111] text-white text-center">
                 <SectionWrapper>
-                    <h2 className="text-4xl lg:text-6xl font-serif italic mb-8">
+                    <h2 className="text-4xl lg:text-6xl font-serif mb-8">
                         Ready to experience the standard?
                     </h2>
                     <Link href="/contact" className="group relative px-12 py-4 bg-white text-[#111] overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl inline-block text-left">

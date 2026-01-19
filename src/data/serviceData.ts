@@ -840,6 +840,6 @@ export const serviceData: Record<string, ServicePageData> = {
             "Multi-skill technicians for hybrid jobs",
             "We find solutions for any problem"
         ],
-        relatedServices: ["handyman", "cleaning"]
+        relatedServices: ["handyman", "cleaning", "plumbing"]
     }
 };
