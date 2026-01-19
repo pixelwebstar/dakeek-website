@@ -45,7 +45,7 @@ export default function ServiceCard({
             fill
             sizes="(max-width: 375px) 100vw, (max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
-            quality={90}
+            quality={75}
             priority={priority}
           />
           {/* Gradient Overlay */}

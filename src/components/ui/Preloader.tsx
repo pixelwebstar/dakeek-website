@@ -11,14 +11,14 @@ export default function Preloader() {
     const [phase, setPhase] = useState<'show' | 'exit' | 'done'>('show');
 
     useEffect(() => {
-        // Show for 200ms then exit
-        const showTimer = setTimeout(() => setPhase('exit'), 200);
+        // Show for 100ms then exit (reduced from 200ms)
+        const showTimer = setTimeout(() => setPhase('exit'), 100);
 
-        // Remove completely after exit animation
+        // Remove completely after exit animation (reduced from 400ms)
         const exitTimer = setTimeout(() => {
             setPhase('done');
             setLoaded(true);
-        }, 400);
+        }, 200);
 
         return () => {
             clearTimeout(showTimer);

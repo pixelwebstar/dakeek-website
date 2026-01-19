@@ -8,10 +8,16 @@ import Balancer from "react-wrap-balancer";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 
+import dynamic from "next/dynamic";
 import GradientHero from "@/components/hero/GradientHero";
 import ServiceCard from "@/components/services/ServiceCard";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
-import InstallModal from "@/components/shared/InstallModal";
+
+// Lazy load InstallModal - rarely used, saves ~10KB from critical path
+const InstallModal = dynamic(
+    () => import("@/components/shared/InstallModal"),
+    { ssr: false }
+);
 
 
 export default function HomePage() {

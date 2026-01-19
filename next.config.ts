@@ -10,7 +10,16 @@ const nextConfig: NextConfig = {
   // Critical: Optimize CSS delivery
   experimental: {
     optimizeCss: true, // Inline critical CSS
-    optimizePackageImports: ['lucide-react', 'framer-motion'], // Tree-shake icons and libs
+    optimizePackageImports: [
+      'lucide-react',
+      'framer-motion',
+      'sonner',
+      'react-wrap-balancer',
+      'react-phone-number-input',
+      'react-hook-form',
+      '@hookform/resolvers',
+      'zod',
+    ], // Tree-shake heavy libraries
   },
   // Compiler optimizations
   compiler: {
@@ -56,7 +65,7 @@ const nextConfig: NextConfig = {
         destination: 'https://www.dakeek.ae/:path*',
         permanent: true,
       },
-            {
+      {
         source: '/areas/dubai-hills',
         destination: '/areas/dubai-hills-estate',
         permanent: true,

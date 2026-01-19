@@ -112,10 +112,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Preconnect removed: Next.js self-hosts fonts, so no external connection needed */}
+        {/* Preconnect for critical third-party origins */}
+        <link rel="preconnect" href="https://vitals.vercel-insights.com" />
+        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
+
+        {/* Preload critical above-the-fold assets */}
         <link rel="preload" href="/images/noise.svg" as="image" />
 
-        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0c0a09" />
         <meta name="geo.region" content="AE-DU" />
