@@ -1,10 +1,11 @@
 import React from "react";
 
 interface ServiceSchemaProps {
+    type?: string;
     name: string;
     description: string;
     providerName?: string;
-    areaServed?: string;
+    areaServed?: string[];
     image?: string;
     url?: string;
     telephone?: string;
@@ -25,10 +26,11 @@ interface ServiceSchemaProps {
 }
 
 export function ServiceSchema({
+    type = "Service",
     name,
     description,
     providerName = "DAKEEK Technical Services",
-    areaServed = "Dubai",
+    areaServed = ["Dubai"],
     image = "https://www.dakeek.ae/opengraph-image.png",
     url,
     telephone,
@@ -40,12 +42,16 @@ export function ServiceSchema({
 }: ServiceSchemaProps) {
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "Service",
+        "@type": type,
         "name": name,
+        "image": image,
+        "description": description,
         "provider": {
             "@type": "HomeAndConstructionBusiness",
             "name": providerName,
             "image": image,
+            "priceRange": priceRange,
+            "telephone": telephone,
             ...(address && {
                 "address": {
                     "@type": "PostalAddress",
@@ -58,15 +64,22 @@ export function ServiceSchema({
                     ...geo
                 }
             }),
-            ...(telephone && { "telephone": telephone }),
         },
-        "areaServed": {
-            "@type": "City",
-            "name": areaServed,
-        },
-        "description": description,
+        "areaServed": areaServed.map(area => ({
+            "@type": "Place",
+            "name": area
+        })),
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+                ],
+                "opens": "00:00",
+                "closes": "23:59"
+            }
+        ],
         ...(url && { "url": url }),
-        ...(priceRange && { "priceRange": priceRange }),
         ...(ratingValue && {
             "aggregateRating": {
                 "@type": "AggregateRating",
@@ -81,7 +94,7 @@ export function ServiceSchema({
                 {
                     "@type": "Offer",
                     "itemOffered": {
-                        "@type": "Service",
+                        "@type": type,
                         "name": name,
                     },
                 },

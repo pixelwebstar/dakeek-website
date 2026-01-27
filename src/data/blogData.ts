@@ -157,7 +157,7 @@ Our electricians are certified in smart home installation. We handle:
         readTime: '6 min read',
         category: 'guides',
         tags: ['Electrical', 'Smart Home', 'IoT'],
-        image: 'https://images.unsplash.com/photo-1558002038-1091a1661116?auto=format&fit=crop&q=80',
+        image: 'https://images.unsplash.com/photo-1558227691-41ea78d1f631?auto=format&fit=crop&q=80',
         featured: false,
         seoKeywords: ['smart home electrician Dubai', 'home automation setup', 'smart switches installation']
     },

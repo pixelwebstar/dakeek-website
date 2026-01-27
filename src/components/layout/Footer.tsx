@@ -24,7 +24,7 @@ export default function Footer() {
 
     const handleLicenseClick = (e: React.MouseEvent) => {
         e.preventDefault();
-        navigator.clipboard.writeText("1382290");
+        navigator.clipboard.writeText("1344686");
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
         window.open("https://app.invest.dubai.ae/search-license", "_blank");
@@ -86,12 +86,11 @@ export default function Footer() {
             { name: "Emergency Service", href: "/services/emergency" },
         ],
         contact: [
-            { name: "Call Support", href: "tel:+971542472151", icon: <Phone size={14} /> },
-            { name: "WhatsApp Us", href: "https://wa.me/971542472151", icon: <MessageSquare size={14} /> },
-            { name: "Dakeek Chat", href: "#chat", action: openChat, icon: <MessageSquare size={14} /> },
-            { name: "Email Support", href: "mailto:asheejajayan@gmail.com", icon: <Mail size={14} /> },
-            { name: 'Discover', href: '/discover', icon: <MapPin size={14} /> },
-            { name: "Visit Us", href: "https://www.google.com/maps/search/?api=1&query=Anzar+Gallery+Building+Al+Karama+Dubai", icon: <MapPin size={14} /> },
+            { name: "Call Support", href: "tel:+971542472151" },
+            { name: "WhatsApp Us", href: "https://wa.me/971542472151" },
+            { name: "Dakeek Chat", href: "#chat", action: openChat },
+            { name: "Email Support", href: "mailto:asheejajayan@gmail.com" },
+            { name: 'Privacy Policy', href: '/privacy-policy' },
         ],
         socials: [
             { name: "LinkedIn", href: "https://www.linkedin.com/company/dakeek-technical-service-co-llc/" },
@@ -104,9 +103,9 @@ export default function Footer() {
     };
 
     return (
-        <footer className={`w-full px-[5vw] lg:px-[8vw] py-16 ${theme.bg} ${theme.text} relative overflow-hidden text-sm border-t ${theme.border}`}>
+        <footer className={`w-full px-[5vw] lg:px-[8vw] py-10 ${theme.bg} ${theme.text} relative overflow-hidden text-sm border-t ${theme.border}`}>
 
-            <div className="relative z-20 w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mb-16">
+            <div className="relative z-20 w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mb-10">
 
                 {/* LEFT SIDE: BRANDING & UTILITY */}
                 <div className="w-full lg:w-[30%] flex flex-col gap-6 lg:sticky lg:top-12">
@@ -118,27 +117,29 @@ export default function Footer() {
                     </div>
 
                     <div className="flex flex-col gap-3 items-start">
-                        {/* License Button */}
+                        {/* License Button - Reverted to "Perfect" State */}
                         <button
                             onClick={handleLicenseClick}
-                            className="group flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-black/5 shadow-sm hover:shadow-md transition-all hover:bg-[#F5F5F4] w-fit"
+                            className="group flex items-center gap-3 px-5 py-2.5 rounded-full bg-white border border-black/10 hover:border-[#C4A67C] transition-all shadow-sm active:scale-95"
                         >
-                            <div className={`w-1.5 h-1.5 rounded-full ${copied ? "bg-blue-500" : "bg-green-500 animate-pulse"}`} />
-                            <span className="font-mono text-[10px] uppercase tracking-widest text-[#555]">
-                                {copied ? "Copied!" : "Lic: 1382290"}
+                            <span className={`font-mono text-xs uppercase tracking-widest ${theme.mutedText} group-hover:text-[#C4A67C] transition-colors`}>
+                                License: 1344686
                             </span>
-                            {copied ? <Check size={12} className="text-blue-500" /> : <Copy size={12} className="text-[#999] group-hover:text-black transition-colors" />}
+                            {copied ? <Check size={12} className="text-green-500" /> : <Copy size={12} className="text-stone-400 group-hover:text-[#C4A67C]" />}
                         </button>
 
                         {/* Install App Button */}
-                        <h3 className="text-sm font-semibold text-[#111] tracking-wider uppercase mb-6 font-mono">
-                            Visit Us
-                        </h3>
+                        <button
+                            onClick={handleInstallClick}
+                            className="flex items-center gap-2 px-5 py-2.5 mt-2 rounded-full bg-[#111] text-white shadow-md hover:bg-[#C4A67C] transition-all hover:scale-105 active:scale-95 w-fit group"
+                        >
+                            <span className="font-mono text-[10px] uppercase tracking-widest font-medium group-hover:text-white">Install App</span>
+                        </button>
                     </div>
                 </div>
 
 
-                {/* RIGHT SIDE: LINKS GRID (Standardized) */}
+                {/* RIGHT SIDE: LINKS GRID */}
                 <div className="w-full lg:w-[70%] grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-10">
 
                     {/* 1. Company */}
@@ -151,7 +152,7 @@ export default function Footer() {
                                         href={link.href}
                                         prefetch={true}
                                         title={`${link.name} – Home Maintenance Dubai`}
-                                        className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
+                                        className={`text-sm font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
                                     >
                                         {link.name}
                                     </Link>
@@ -170,7 +171,7 @@ export default function Footer() {
                                         href={link.href}
                                         prefetch={true}
                                         title={`${link.name} in Dubai`}
-                                        className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
+                                        className={`text-sm font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
                                     >
                                         {link.name}
                                     </Link>
@@ -183,25 +184,37 @@ export default function Footer() {
                     <div className="space-y-5">
                         <h3 className="font-mono text-sm uppercase tracking-[0.2em] font-medium opacity-100">Contact</h3>
                         <ul className="space-y-3">
-                            {links.contact.map((link) => (
-                                <li key={link.name}>
-                                    {link.action ? (
-                                        <button onClick={link.action} className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors text-left block hover:translate-x-1 duration-200`}>
-                                            {link.name}
-                                        </button>
-                                    ) : (
-                                        <a
-                                            href={link.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            title={link.name === "Coverage Areas" ? "Coverage areas within 25 km of our Dubai base" : `${link.name} - Dakeek Dubai`}
-                                            className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
-                                        >
-                                            {link.name}
-                                        </a>
-                                    )}
-                                </li>
-                            ))}
+                            {links.contact.map((link) => {
+                                const isInternal = link.href.startsWith('/');
+                                return (
+                                    <li key={link.name}>
+                                        {link.action ? (
+                                            <button onClick={link.action} className={`text-sm font-medium ${theme.mutedText} ${theme.hoverText} transition-colors text-left block hover:translate-x-1 duration-200`}>
+                                                {link.name}
+                                            </button>
+                                        ) : (
+                                            isInternal ? (
+                                                <Link
+                                                    href={link.href}
+                                                    className={`text-sm font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
+                                                >
+                                                    {link.name}
+                                                </Link>
+                                            ) : (
+                                                <a
+                                                    href={link.href}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    title={link.name === "Coverage Areas" ? "Coverage areas within 25 km of our Dubai base" : `${link.name} - Dakeek Dubai`}
+                                                    className={`text-sm font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
+                                                >
+                                                    {link.name}
+                                                </a>
+                                            )
+                                        )}
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
 
@@ -211,21 +224,20 @@ export default function Footer() {
                         <ul className="space-y-3">
                             {links.socials.map((link) => (
                                 <li key={link.name}>
-                                    <a href={link.href} target="_blank" rel="noopener noreferrer" className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}>
+                                    <a href={link.href} target="_blank" rel="noopener noreferrer" className={`text-sm font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}>
                                         {link.name}
                                     </a>
                                 </li>
                             ))}
                         </ul>
                     </div>
-
                 </div>
             </div>
 
             {/* COPYRIGHT CENTER BOTTOM */}
             <div className="relative z-20 w-full pt-8 border-t border-black/5 text-center">
                 <p className={`font-mono text-[10px] uppercase tracking-widest ${theme.copyright}`}>
-                    © {new Date().getFullYear()} Dakeek Technical Services LLC.
+                    © {new Date().getFullYear()} Dakeek Technical Services LLC. All rights reserved.
                 </p>
             </div>
 

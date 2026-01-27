@@ -231,39 +231,7 @@ export default function ServiceLayout({ data, slug }: ServiceLayoutProps) {
                 </section>
             )}
 
-            {/* 4.6 Service Areas */}
-            <section className="py-24 lg:py-32 px-[5vw] lg:px-[8vw] bg-white border-t border-black/5">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-24 items-start">
-                        <div className="col-span-1 md:col-span-1">
-                            <h3 className="text-3xl font-serif text-[#111] mb-6 leading-tight">
-                                We Cover All of Dubai
-                            </h3>
-                            <p className="text-[#666] text-sm leading-relaxed mb-8">
-                                From Palm Jumeirah to Arabian Ranches, our technicians are strategically located to reach you in under 60 minutes.
-                            </p>
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#111] hover:text-[#555] transition-colors border-b border-[#111] pb-1"
-                            >
-                                View Full Map <ArrowRight className="w-3 h-3" />
-                            </Link>
-                        </div>
-                        <div className="col-span-1 md:col-span-3">
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-4 gap-x-8">
-                                {["Palm Jumeirah", "Dubai Marina", "Downtown Dubai", "Arabian Ranches", "JLT", "Business Bay", "Dubai Hills", "DIFC", "Al Barsha", "Jumeirah", "The Villa", "Mudon", "Damac Hills", "Meadows", "Springs", "Greens"].map((area, i) => (
-                                    <div
-                                        key={i}
-                                        className="text-sm text-[#444] py-1 block font-light cursor-default"
-                                    >
-                                        {area}
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* 4.7 Related Services */}
             {pageData.relatedServices && pageData.relatedServices.length > 0 && (
@@ -301,9 +269,9 @@ export default function ServiceLayout({ data, slug }: ServiceLayoutProps) {
                         <ShieldCheck className={`w-16 h-16 ${pageData.theme.primaryText}`} strokeWidth={1} />
                     </div>
 
-                    <h3 className="text-4xl md:text-7xl font-serif text-slate-900 mb-8 tracking-tight">The Dakeek Guarantee</h3>
+                    <h3 className="text-4xl md:text-7xl font-serif text-slate-900 mb-8 tracking-tight">Our Promise</h3>
                     <p className="text-xl md:text-3xl font-light text-slate-600 max-w-3xl mb-16 leading-relaxed">
-                        We don&apos;t just fix it; we certify it. Every service comes with a <span className="font-medium text-slate-900">full warranty</span> and a direct line to our support team.
+                        We aim for excellence in every job. Every service is backed by our specific service <span className="font-medium text-slate-900">warranty</span> and support.
                     </p>
 
                     <div>

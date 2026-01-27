@@ -20,10 +20,10 @@ export default function JournalHubPage() {
     const remainingPosts = filteredPosts.filter(p => p.slug !== featuredPost?.slug);
 
     return (
-        <main className="min-h-screen bg-[#FAFAF9] text-[#111] font-sans selection:bg-[#C4A67C] selection:text-white">
+        <main className="min-h-screen bg-white text-[#111] font-sans selection:bg-[#C4A67C] selection:text-white">
 
             {/* 1. HERO: The Journal (Warm Stone / Silver Metallic) */}
-            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
+            <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
                 <div className="absolute inset-0 z-0">
                     <GradientHero
                         color1="#9CA3AF"
@@ -55,73 +55,86 @@ export default function JournalHubPage() {
                 </div>
             </section>
 
-            <div id="latest" className="max-w-[1200px] mx-auto px-6 md:px-12 py-24 md:py-32">
+            {/* 2. MAIN CONTENT AREA */}
+            <div id="latest" className="relative w-full">
 
-                {/* 2. Categories (Minimal Tab Bar) */}
-                <div className="flex justify-center mb-20 md:mb-24">
-                    <div className="inline-flex flex-wrap justify-center gap-x-8 gap-y-4 border-b border-black/10 pb-4">
-                        <button
-                            onClick={() => setActiveCategory("all")}
-                            className={`text-xs font-mono uppercase tracking-widest transition-colors relative pb-1 ${activeCategory === "all" ? "text-[#C4A67C]" : "text-[#999] hover:text-[#111]"}`}
-                        >
-                            All Stories
-                            {activeCategory === "all" && <div className="absolute -bottom-[17px] left-0 w-full h-[2px] bg-[#C4A67C]" />}
-                        </button>
-                        {Object.entries(BLOG_CATEGORIES).map(([key, cat]) => (
+                {/* Noise Overlay for Texture */}
+                <div className="absolute inset-0 w-full h-full opacity-[0.03] bg-[url('/images/noise.svg')] pointer-events-none mix-blend-multiply z-0"></div>
+
+                {/* CATEGORIES BAR (Sticky or Top) */}
+                <div className="relative z-10 bg-white border-b border-black/5">
+                    <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-8">
+                        <div className="flex flex-wrap justify-center gap-x-8 gap-y-4">
                             <button
-                                key={key}
-                                onClick={() => setActiveCategory(key)}
-                                className={`text-xs font-mono uppercase tracking-widest transition-colors relative pb-1 ${activeCategory === key ? "text-[#C4A67C]" : "text-[#999] hover:text-[#111]"}`}
+                                onClick={() => setActiveCategory("all")}
+                                className={`text-xs font-mono uppercase tracking-widest transition-colors relative pb-1 ${activeCategory === "all" ? "text-[#C4A67C]" : "text-[#999] hover:text-[#111]"}`}
                             >
-                                {cat.label}
-                                {activeCategory === key && <div className="absolute -bottom-[17px] left-0 w-full h-[2px] bg-[#C4A67C]" />}
+                                All Stories
+                                {activeCategory === "all" && <div className="absolute -bottom-[9px] left-0 w-full h-[2px] bg-[#C4A67C]" />}
                             </button>
-                        ))}
+                            {Object.entries(BLOG_CATEGORIES).map(([key, cat]) => (
+                                <button
+                                    key={key}
+                                    onClick={() => setActiveCategory(key)}
+                                    className={`text-xs font-mono uppercase tracking-widest transition-colors relative pb-1 ${activeCategory === key ? "text-[#C4A67C]" : "text-[#999] hover:text-[#111]"}`}
+                                >
+                                    {cat.label}
+                                    {activeCategory === key && <div className="absolute -bottom-[9px] left-0 w-full h-[2px] bg-[#C4A67C]" />}
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
-                <div>
-                    {/* 3. FEATURED POST (Cinematic Layout) */}
-                    {featuredPost && (
-                        <Link href={`/blog/${featuredPost.slug}`} className="group block mb-24 md:mb-32">
-                            <article className="relative">
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-                                    {/* Image */}
-                                    <div className="relative h-[400px] lg:h-[600px] w-full overflow-hidden rounded-sm bg-[#E5E5E5] shadow-2xl shadow-stone-200">
-                                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                                        <Image
-                                            src={featuredPost.image}
-                                            alt={featuredPost.title}
-                                            fill
-                                            className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
-                                            priority
-                                        />
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="flex flex-col justify-center">
-                                        <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-[#888] mb-6">
-                                            <span className="text-[#C4A67C] font-bold">Featured</span>
-                                            <span className="w-px h-3 bg-[#ddd]" />
-                                            <span>{featuredPost.readTime}</span>
+                {/* FEATURED POST SECTION (White Background) */}
+                <section className="relative z-10 w-full bg-white px-6 md:px-12 py-24 border-b border-black/5">
+                    <div className="max-w-[1200px] mx-auto">
+                        {featuredPost && (
+                            <Link href={`/blog/${featuredPost.slug}`} className="group block">
+                                <article className="relative">
+                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                                        {/* Image */}
+                                        <div className="relative h-[400px] lg:h-[600px] w-full overflow-hidden rounded-sm bg-[#F5F5F5] shadow-2xl shadow-stone-200">
+                                            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                                            <Image
+                                                src={featuredPost.image}
+                                                alt={featuredPost.title}
+                                                fill
+                                                className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                                                priority
+                                            />
                                         </div>
-                                        <h2 className="text-4xl md:text-6xl font-serif mb-6 text-[#1c1917] group-hover:text-[#C4A67C] transition-colors duration-300 leading-[1.1]">
-                                            {featuredPost.title}
-                                        </h2>
-                                        <p className="text-lg text-[#666] leading-relaxed mb-8 border-l-2 border-[#C4A67C]/20 pl-6">
-                                            {featuredPost.excerpt}
-                                        </p>
-                                        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#111] group-hover:gap-4 transition-all">
-                                            Read Story <ArrowRight className="w-4 h-4" />
+
+                                        {/* Content */}
+                                        <div className="flex flex-col justify-center">
+                                            <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-[#888] mb-6">
+                                                <span className="text-[#C4A67C] font-bold">Featured</span>
+                                                <span className="w-px h-3 bg-[#ddd]" />
+                                                <span>{featuredPost.readTime}</span>
+                                            </div>
+                                            <h2 className="text-4xl md:text-6xl font-serif mb-6 text-[#1c1917] group-hover:text-[#C4A67C] transition-colors duration-300 leading-[1.1]">
+                                                {featuredPost.title}
+                                            </h2>
+                                            <p className="text-lg text-[#666] leading-relaxed mb-8 border-l-2 border-[#C4A67C]/20 pl-6">
+                                                {featuredPost.excerpt}
+                                            </p>
+                                            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#111] group-hover:gap-4 transition-all">
+                                                Read Story <ArrowRight className="w-4 h-4" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </article>
-                        </Link>
-                    )}
+                                </article>
+                            </Link>
+                        )}
+                    </div>
+                </section>
 
-                    {/* 4. RECENT STORIES (Clean Vertical List - No Cards) */}
-                    <div className="max-w-4xl mx-auto space-y-16">
+                {/* RECENT STORIES (Off-White/Premium Texture) */}
+                <section className="relative z-10 w-full bg-[#FAFAF9] px-6 md:px-12 py-24 lg:py-32">
+                    {/* Inner Texture */}
+                    <div className="absolute inset-0 w-full h-full opacity-[0.05] bg-[url('/images/noise.svg')] pointer-events-none mix-blend-multiply"></div>
+
+                    <div className="max-w-4xl mx-auto space-y-16 relative">
                         {remainingPosts.map((post) => (
                             <Link href={`/blog/${post.slug}`} key={post.slug} className="group block border-t border-black/5 pt-16 first:border-0 first:pt-0">
                                 <article className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-start">
@@ -163,24 +176,25 @@ export default function JournalHubPage() {
                             </Link>
                         ))}
                     </div>
+                </section>
 
-                </div>
+                {/* 3. SUBSCRIBE SEPARATOR */}
+                <div id="subscribe" className="relative z-10 bg-white py-24 md:py-32 border-t border-black/5">
+                    <div className="max-w-xl mx-auto px-6 text-center">
+                        <BookOpen className="w-8 h-8 mx-auto text-[#C4A67C] mb-6 opacity-80" />
+                        <h2 className="font-serif text-3xl md:text-4xl mb-4 text-[#1c1917]">Stay Informed.</h2>
+                        <p className="text-[#333] mb-8">Get the expert advice you need to maintain a perfect home.</p>
 
-                {/* 5. Subscribe (Minimal) */}
-                <div id="subscribe" className="mt-32 border-t border-black/10 pt-20 text-center">
-                    <BookOpen className="w-8 h-8 mx-auto text-[#C4A67C] mb-6 opacity-80" />
-                    <h2 className="font-serif text-3xl md:text-4xl mb-4 text-[#1c1917]">Stay Informed.</h2>
-                    <p className="text-[#333] mb-8 max-w-md mx-auto">Get the expert advice you need to maintain a perfect home.</p>
-
-                    <div className="flex justify-center flex-col md:flex-row gap-2 max-w-md mx-auto">
-                        <input
-                            type="email"
-                            placeholder="Email address"
-                            className="bg-transparent border-b border-[#999] px-4 py-3 text-sm flex-grow focus:border-[#C4A67C] transition-colors outline-none text-center md:text-left placeholder:text-[#555]"
-                        />
-                        <button className="text-xs font-mono uppercase tracking-widest text-[#111] hover:text-[#C4A67C] transition-colors py-3 px-4">
-                            Subscribe
-                        </button>
+                        <div className="flex justify-center flex-col md:flex-row gap-2">
+                            <input
+                                type="email"
+                                placeholder="Email address"
+                                className="bg-transparent border-b border-[#999] px-4 py-3 text-sm flex-grow focus:border-[#C4A67C] transition-colors outline-none text-center md:text-left placeholder:text-[#555]"
+                            />
+                            <button className="text-xs font-mono uppercase tracking-widest text-[#111] hover:text-[#C4A67C] transition-colors py-3 px-4">
+                                Subscribe
+                            </button>
+                        </div>
                     </div>
                 </div>
 

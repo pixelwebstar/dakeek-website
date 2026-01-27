@@ -20,14 +20,14 @@ const FAQ_CATEGORIES = [
             { q: "Is there a call-out fee?", a: "We charge a standard inspection fee of AED 150. This covers the engineer's time and professional diagnosis. Crucially, if you proceed with the quoted repair, this fee is completely waived." },
             { q: "Do I need to be home?", a: "We recommend being present for the initial diagnosis. However, for established clients in secure properties, we can coordinate access directly with your concierge or security team for seamless service." },
             { q: "Can I book online?", a: "Yes, you can book via our website, WhatsApp, or phone. Our online form is available 24/7, and you'll receive confirmation within 15 minutes during business hours." },
-            { q: "Do you offer same-day service?", a: "Absolutely. Same-day service is available for most requests made before 3 PM. For emergencies, we&apos;re available around the clock." }
+            { q: "Do you offer same-day service?", a: "Absolutely. Same-day service is available for most requests made before 3 PM. For emergencies, we're available around the clock." }
         ]
     },
     {
         id: "standards",
         title: "Our Standards",
         description: "Quality, vetting, and warranty.",
-        image: "https://images.unsplash.com/photo-1635326444826-06c8f84991a9?auto=format&fit=crop&q=80",
+        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80",
         questions: [
             { q: "Who will be entering my home?", a: "We exclusively employ full-time, in-house technicians. By avoiding the variability of the freelance market, we ensure you receive a consistent, vetted, and highly trained professional every single time." },
             { q: "Is the work guaranteed?", a: "Yes. We offer a comprehensive 30-day workmanship warranty. If the issue persists, we return and rectify it at zero cost. We stand by our engineering standards." },

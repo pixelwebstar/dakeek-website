@@ -5,7 +5,7 @@ export const DUBAI_AREAS = [
     "Damac Hills", "Dubai Hills Estate", "Meydan", "DIFC", "Sheikh Zayed Road",
     "The Greens", "The Views", "Victory Heights", "Sports City", "Motor City", "Sustainable City",
     "Al Furjan", "Jumeirah Village Circle (JVC)", "Jumeirah Village Triangle (JVT)", "Remraam",
-    "Town Square", "Mira", "Mira Oasis", "Silicon Oasis", "Academic City", "Mirdif", "Al Warqa"
+    "Town Square", "Mira", "Mira Oasis", "Silicon Oasis", "Academic City", "Mirdif"
 ];
 
 export const SERVICE_TYPES = [

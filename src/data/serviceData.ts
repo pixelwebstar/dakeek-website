@@ -90,8 +90,8 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         hero: {
             tag: "AC & Cooling",
-            title: "AC Care",
-            description: "Fixing leaks, noise, and heat. Fast."
+            title: "AC Repair & Maintenance",
+            description: "Fast AC repair, duct cleaning, and maintenance services across Dubai."
         },
         seo: {
             title: "Best AC Repair & Maintenance Services in Dubai | Dakeek",
@@ -107,78 +107,78 @@ export const serviceData: Record<string, ServicePageData> = {
             qna: [
                 {
                     question: "How quickly can you fix my AC in Dubai?",
-                    answer: "We offer 60-minute emergency response times across Dubai, including Marina, Palm Jumeirah, and Downtown. Our vans are fully stocked to fix 90% of issues on the first visit."
+                    answer: "We offer rapid response times across Dubai, including Marina, Palm Jumeirah, and Downtown. Our technicians aim to resolve issues efficiently."
                 },
                 {
                     question: "Do you offer warranty on AC repairs?",
-                    answer: "Yes, we provide a 30-day warranty on all workmanship. If the same issue returns, we fix it for free. No questions asked."
+                    answer: "Yes, we provide a service warranty on our workmanship. We ensure quality repairs for your peace of mind."
                 },
                 {
                     question: "What is the cost of AC service in Dubai?",
-                    answer: "Our inspections are free with any service. Basic maintenance starts at 179 AED. We provide upfront pricing before starting any work."
+                    answer: "We provide clear, upfront pricing before starting any work. Contact us for our latest rates."
                 }
             ]
         },
         intro: {
-            heading: "Excellence shouldn't have an entry fee. That's why we start with a free inspection and finish with a guaranteed warranty.",
+            heading: "Excellence shouldn't have an entry fee. That's why we start with clear pricing and finish with quality work.",
             stats: [
-                { value: "Free", label: "Inspection", sub: "Diagnosis" },
-                { value: "179 AED", label: "Starts at", sub: "Service" },
-                { value: "30", label: "Days", sub: "Warranty" },
-                { value: "Clear", label: "Transparent", sub: "Pricing" }
+                { value: "Check", label: "Inspection", sub: "Diagnosis" },
+                { value: "Fair", label: "Pricing", sub: "Service" },
+                { value: "Yes", label: "Warranty", sub: "Included" },
+                { value: "Clear", label: "Transparent", sub: "Quotes" }
             ]
         },
         details: [
             {
                 id: "installation",
-                title: "Installation",
+                title: "AC Installation",
                 subtitle: "The Perfect Start",
-                description: "A flawless installation is the foundation of a decade of comfort. We calculate load, optimize placement, and calibrate airflow.",
+                description: "A proper installation ensures efficiency. We ensure correct placement and airflow calibration.",
                 icon: Wind,
                 details: ["Load Calculation", "Ductwork Design", "Efficiency Audits", "Smart Thermostats"],
                 image: "/images/services/ac.webp" // Using reliable local asset
             },
             {
                 id: "maintenance",
-                title: "Maintenance",
+                title: "AC Maintenance",
                 subtitle: "Peak Performance",
-                description: "Silence the noise and lower the bills. Our comprehensive tune-up restores your unit to factory specs.",
+                description: "Maximize efficiency and comfort. Our comprehensive tune-up checks your unit's key components.",
                 icon: Thermometer,
                 details: ["Coil Cleaning", "Refrigerant Check", "Electrical Inspection", "Drain Flushing"],
                 image: "/images/ac/maintenance_new.png"
             },
             {
                 id: "repair",
-                title: "Repair",
+                title: "AC Repair",
                 subtitle: "Rapid Response",
-                description: "When the heat rises, we drop it. Our emergency repair team identifies the root cause instantly.",
+                description: "System down? Our team identifies the root cause to restore your cooling quickly.",
                 icon: Wrench,
-                details: ["Compressor Diagnostics", "Leak Repair", "Circuit Board Fix", "24/7 Service"],
+                details: ["Compressor Diagnostics", "Leak Repair", "Circuit Board Fix", "Priority Service"],
                 image: "/images/ac/maintenance_final.jpg"
             }
         ],
         addOn: {
-            title: "Deep Clean",
+            title: "Duct Cleaning",
             tag: "Add-On Service",
-            description: "Dirty ducts mean dirty air. Dust, mold, and allergens hide inside your walls. We use industrial vacuums to clear them out.",
+            description: "Dust and allergens accumulate over time. We thoroughly clean your system for better air quality.",
             benefits: ["Removes bad smells", "Reduces dust", "Improves airflow"],
             image: "/images/ac/deep_clean_new.png"
         },
         techSpecs: {
             grid: [
                 { label: "COOLING", value: "RESTORED" },
-                { label: "NOISE", value: "SILENT" },
+                { label: "NOISE", value: "REDUCED" },
                 { label: "AIR FLOW", value: "OPTIMIZED" },
-                { label: "WARRANTY", value: "30 DAYS" }
+                { label: "WARRANTY", value: "INCLUDED" }
             ],
-            tools: "We use digital tools to measure gas pressure, airflow, and temperature.",
+            tools: "Professional diagnostic tools for accurate readings.",
             list: ["Filter cleaning", "Gas check", "Motor inspection", "Coil washing", "Leak test"]
         },
         uniqueBenefits: [
-            "Specialized AC training per technician",
-            "We carry parts for all major brands in our vans",
-            "Same-day service for emergencies in extreme heat",
-            "Free inspection with every repair"
+            "Specialized AC training",
+            "Equipped for major brands",
+            "Priority emergency service",
+            "Clear upfront pricing"
         ],
         relatedServices: ["cleaning", "electrical", "emergency"]
     },
@@ -196,8 +196,8 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         hero: {
             tag: "Hydraulics",
-            title: "Plumbing",
-            description: "Flow restored. Leaks stopped. Pressure optimized."
+            title: "Plumbing Services",
+            description: "Emergency leak detection, water heater repair, and drain cleaning."
         },
         seo: {
             title: "Emergency Plumber Dubai | Leak Detection & Water Heater Repair | Dakeek",
@@ -213,21 +213,21 @@ export const serviceData: Record<string, ServicePageData> = {
             qna: [
                 {
                     question: "Can you find a water leak under my floor tiles?",
-                    answer: "Yes, we use advanced ultrasonic and thermal leak detection technology to locate hidden leaks without breaking your tiles or damaging your property."
+                    answer: "Yes, we use advanced finding technology to aim to locate hidden leaks efficiently."
                 },
                 {
                     question: "Do you fix blocked drains on weekends?",
-                    answer: "We operate 24/7, including weekends and holidays. We can clear blocked drains, toilets, and sinks immediately."
+                    answer: "We offer services throughout the week, including weekends. We can check blocked drains, toilets, and sinks."
                 }
             ]
         },
         intro: {
-            heading: "Water belongs in pipes, not on your floor. We use ultrasonic detection to find leaks you can't see.",
+            heading: "Water belongs in pipes, not on your floor. We use modern tools to find leaks you can't see.",
             stats: [
-                { value: "Free", label: "Detection", sub: "With Repair" },
-                { value: "129 AED", label: "Starts at", sub: "Service" },
-                { value: "30", label: "Days", sub: "Warranty" },
-                { value: "24/7", label: "Emergency", sub: "Response" }
+                { value: "Free", label: "Check", sub: "Diagnosis" },
+                { value: "Fair", label: "Rates", sub: "Service" },
+                { value: "Yes", label: "Warranty", sub: "Included" },
+                { value: "Fast", label: "Response", sub: "Time" }
             ]
         },
         details: [
@@ -235,45 +235,45 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "leaks",
                 title: "Leak Detection",
                 subtitle: "Precision Tracing",
-                description: "Hidden leaks ruin foundations. We find them without tearing up your walls using thermal and acoustic sensors.",
+                description: "Hidden leaks can cause damage. We aim to find them with minimal disruption.",
                 icon: Search,
-                details: ["Ultrasonic Detection", "Thermal Imaging", "Pressure Testing", "Non-Invasive"],
+                details: ["Hidden Leak Tracing", "Pinpoint Accuracy", "Water Bill Check", "Damage-Free"],
                 image: "/images/services/plumbing.webp"
             },
             {
                 id: "heaters",
                 title: "Water Heaters",
                 subtitle: "Thermodynamics",
-                description: "Cold showers are a choice. We repair and install all major brands of electric and gas water heaters.",
+                description: "We repair and install major types of electric and gas water heaters.",
                 icon: Flame,
-                details: ["Element Replacement", "Tank Flushing", "Thermostat Calibration", "Safety Valves"],
+                details: ["Element Replacement", "Tank Flushing", "Thermostat Check", "Safety Valves"],
                 image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80" // Water Heater / Boiler (Residential)
             },
             {
                 id: "pumps",
                 title: "Booster Pumps",
                 subtitle: "Flow Dynamics",
-                description: "Low pressure is frustrating. We balance your system to ensure consistent, strong flow from every tap.",
+                description: "Low pressure is frustrating. We check your system to improve flow.",
                 icon: Activity,
-                details: ["Pressure Switch", "Motor Rewind", "Impeller Check", "System Balancing"],
+                details: ["Pressure Switch", "Motor Check", "Impeller Check", "System Check"],
                 image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80" // Water Pressure / Shower (Residential)
             }
         ],
         techSpecs: {
             grid: [
-                { label: "PRESSURE", value: "BALANCED" },
+                { label: "PRESSURE", value: "OPTIMAL" },
                 { label: "LEAKS", value: "SEALED" },
                 { label: "DRAINS", value: "CLEAR" },
-                { label: "WARRANTY", value: "30 DAYS" }
+                { label: "WARRANTY", value: "INCLUDED" }
             ],
-            tools: "We use acoustic leak detectors and thermal cameras to see inside walls.",
+            tools: "Advanced diagnostic systems for non-invasive finding.",
             list: ["Pressure testing", "Drain snaking", "Heater flush", "Valve seating", "Pipe insulation"]
         },
         uniqueBenefits: [
-            "Non-invasive leak detection with thermal cameras",
-            "24/7 emergency response for floods and burst pipes",
-            "Licensed plumbers with Dubai Municipality certification",
-            "Upfront pricing with no hidden fees"
+            "Advanced leak detection",
+            "Emergency response available",
+            "Experienced plumbers",
+            "Clear upfront pricing"
         ],
         relatedServices: ["cleaning", "ac", "emergency"]
     },
@@ -291,8 +291,8 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         hero: {
             tag: "Power Systems",
-            title: "Electrical",
-            description: "Safe. Stable. Certified. Lighting up your life."
+            title: "Electrical Services",
+            description: "Safe electrical repair, wiring, and maintenance for Dubai homes."
         },
         seo: {
             title: "Certified Electrician Dubai | Emergency Electrical Services | Dakeek",
@@ -308,20 +308,20 @@ export const serviceData: Record<string, ServicePageData> = {
             qna: [
                 {
                     question: "Why does my DEWA bill keep increasing?",
-                    answer: "High bills often indicate faulty wiring, old AC units, or inefficient lighting. We perform comprehensive electrical audits to reduce your consumption."
+                    answer: "High bills can indicate potential issues. We can check your electrical consumption for efficiency."
                 },
                 {
-                    question: "Are your electricians certified?",
-                    answer: "Yes, all our senior technicians are certified and trained to handle residential and commercial electrical systems safely."
+                    question: "Are your electricians qualified?",
+                    answer: "Yes, our technicians are trained to handle residential and commercial electrical systems safely."
                 }
             ]
         },
         intro: {
-            heading: "Electricity is dangerous. Don't risk it. Our certified technicians ensure your home is wired for safety and efficiency.",
+            heading: "Electricity requires care. Our technicians ensure your home is wired for safety and efficiency.",
             stats: [
                 { value: "Free", label: "Safety", sub: "Check" },
-                { value: "179 AED", label: "Starts at", sub: "Service" },
-                { value: "Verified", label: "Safe", sub: "Certified" },
+                { value: "Fair", label: "Rates", sub: "Service" },
+                { value: "Safe", label: "Work", sub: "Standard" },
                 { value: "0", label: "Hazards", sub: "Goal" }
             ]
         },
@@ -330,16 +330,16 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "wiring",
                 title: "Wiring & Panels",
                 subtitle: "The Nervous System",
-                description: "Old wiring is a fire hazard. We inspect, upgrade, and organize your distribution boards for maximum safety.",
+                description: "We inspect and organize your distribution boards for safety.",
                 icon: Zap,
                 details: ["Load Balancing", "Breaker Testing", "Short Circuit Fix", "Rewiring"],
                 image: "/images/services/electrical.webp"
             },
             {
                 id: "lights",
-                title: "Lighting",
+                title: "Lighting Installation",
                 subtitle: "Illumination",
-                description: "From ambiance to security. We design and install LED systems that save energy and look stunning.",
+                description: "From ambiance to security. We install systems that save energy and look great.",
                 icon: Sparkles,
                 details: ["LED Upgrades", "Dimmer Switches", "Garden Lighting", "Hidden Strips"],
                 image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&q=80" // Reliable Lighting
@@ -348,27 +348,27 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "smart",
                 title: "Smart Home",
                 subtitle: "Automation",
-                description: "Control your world. We integrate smart switches, sensors, and hubs for a truly connected experience.",
+                description: "Control your world. We integrate smart switches and sensors for a connected experience.",
                 icon: Activity,
                 details: ["IoT Integration", "Sensor Install", "Voice Control", "Wifi Setup"],
-                image: "https://images.unsplash.com/photo-1558002038-1091a1661116?auto=format&fit=crop&q=80" // Reliable Smart Home
+                image: "https://images.unsplash.com/photo-1556911220-e1584149fa74?auto=format&fit=crop&q=80" // Reliable Smart Home
             }
         ],
         techSpecs: {
             grid: [
                 { label: "VOLTAGE", value: "STABLE" },
                 { label: "LOAD", value: "BALANCED" },
-                { label: "SAFETY", value: "CERTIFIED" },
-                { label: "WARRANTY", value: "30 DAYS" }
+                { label: "SAFETY", value: "CHECKED" },
+                { label: "WARRANTY", value: "INCLUDED" }
             ],
-            tools: "Fluke Multimeters and thermal scanners to detect hotspots before they burn.",
+            tools: "Certified testing equipment for total safety.",
             list: ["Load check", "Breaker test", "Grounding", "Insulation test", "Socket polarity"]
         },
         uniqueBenefits: [
-            "All technicians are certified and insured",
-            "Thermal scanning to detect hidden hotspots",
-            "Smart home integration specialists",
-            "DEWA bill reduction audits"
+            "Trained technicians",
+            "Detailed safety audits",
+            "Smart home integration",
+            "Efficiency audits"
         ],
         relatedServices: ["ac", "handyman", "emergency"]
     },
@@ -387,8 +387,8 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         hero: {
             tag: "Hygiene",
-            title: "Cleaning Services",
-            description: "Deep cleaning, water tanks, and sanitization."
+            title: "Deep Cleaning Services",
+            description: "Deep cleaning, water tank sanitization, and duct cleaning."
         },
         seo: {
             title: "Professional Deep Cleaning & Water Tank Cleaning Dubai | Dakeek",
@@ -404,21 +404,21 @@ export const serviceData: Record<string, ServicePageData> = {
             qna: [
                 {
                     question: "How often should I clean my water tank in Dubai?",
-                    answer: "Dubai Municipality recommends cleaning water tanks every 6 months to prevent bacteria, algae, and sediment buildup."
+                    answer: "It is generally recommended to clean water tanks every 6 months for optimal hygiene."
                 },
                 {
                     question: "What is included in a deep clean?",
-                    answer: "Our deep clean covers everything from floor scrubbing and window cleaning to sanitizing bathrooms, kitchens, and hard-to-reach areas."
+                    answer: "Our deep clean covers floor scrubbing, window cleaning, and sanitizing bathrooms and kitchens."
                 }
             ]
         },
         intro: {
-            heading: "From dusty ducts to water tanks, we ensure a spotless, healthy environment.",
+            heading: "From ducts to water tanks, we ensure a cleaner environment.",
             stats: [
                 { value: "Full", label: "Sanitization", sub: "Deep" },
                 { value: "Safe", label: "Water", sub: "Tanks" },
                 { value: "Pure", label: "Air", sub: "Ducts" },
-                { value: "Verified", label: "Hygiene", sub: "Goal" }
+                { value: "Clean", label: "Hygiene", sub: "Goal" }
             ]
         },
         details: [
@@ -426,51 +426,48 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "deep-clean",
                 title: "Deep Cleaning",
                 subtitle: "Intensive",
-                description: "Complete home sanitization for move-ins or spring cleaning. Floors, windows, and surfaces.",
+                description: "Thorough home sanitization for move-ins or seasonal cleaning.",
                 icon: Sparkles,
                 details: ["Floor Scrubbing", "Window Cleaning", "Kitchen Degreasing", "Bathroom Sanitize"],
                 image: "/images/services/cleaning.webp"
             },
             {
                 id: "tanks",
-                title: "Water Tanks",
+                title: "Water Tank Cleaning",
                 subtitle: "Safe Water",
                 description: "Removal of sediment and disinfection of your main water supply.",
                 icon: Droplet,
                 details: ["Drain & Scrub", "Chlorination", "Pump Check", "Lab Test Option"],
-                image: "https://images.unsplash.com/photo-1533618105727-b08e50b1df2c?auto=format&fit=crop&q=80" // Clean Water Texture
+                image: "https://images.unsplash.com/photo-1562654501-a03df0438548?auto=format&fit=crop&q=80" // Water/Tank
             },
             {
                 id: "ducts",
-                title: "Duct Cleaning",
+                title: "AC Duct Cleaning",
                 subtitle: "Air Quality",
-                description: "Removing dust and mold from your AC ductwork.",
+                description: "Removing dust and debris from your AC ductwork.",
                 icon: Wind,
                 details: ["Rotary Brush", "HEPA Vacuum", "Fogging", "Filter Wash"],
-                image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80" // Corrected Duct
+                image: "https://images.unsplash.com/photo-1504384308090-c54be385507d?auto=format&fit=crop&q=80" // Ventilation / Air
             }
         ],
         techSpecs: {
             grid: [
-                { label: "GERMS", value: "KILLED" },
-                { label: "AIR", value: "PURE" },
+                { label: "GERMS", value: "REDUCED" },
+                { label: "AIR", value: "CLEANER" },
                 { label: "WATER", value: "CLEAN" },
                 { label: "HOME", value: "FRESH" }
             ],
-            tools: "Industrial steamers, wet vacuums, and rotary brushes.",
+            tools: "Professional cleaning equipment.",
             list: ["Steam sanitize", "Vacuum extraction", "Scrubbing", "Fogging", "Polishing"]
         },
         uniqueBenefits: [
-            "Dubai Municipality approved cleaning products",
-            "Trained staff for villas and high-rises",
-            "Water tank cleaning with lab testing option",
-            "Eco-friendly and safe for children and pets"
+            "Approved cleaning products",
+            "Trained cleaning staff",
+            "Lab testing available",
+            "Safe for families"
         ],
-        relatedServices: ["ac", "plumbing"]
+        relatedServices: ["ac", "plumbing", "electrical"]
     },
-
-
-
     // 05. Stoves (Renumbered)
     stoves: {
         id: "06",
@@ -486,7 +483,7 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         hero: {
             tag: "Cooking Heat",
-            title: "Stove Repair",
+            title: "Stove & Cooker Repair",
             description: "Blue flames. Even heat. Safe cooking."
         },
         seo: {
@@ -502,11 +499,11 @@ export const serviceData: Record<string, ServicePageData> = {
             qna: [
                 {
                     question: "Why is my stove flame yellow instead of blue?",
-                    answer: "A yellow flame indicates incomplete combustion or dirty burners. We clean and calibrate the burners to restore a safe blue flame."
+                    answer: "A yellow flame indicates incomplete combustion. We clean and adjust the burners to improve flame quality."
                 },
                 {
                     question: "Do you repair all brands of cookers?",
-                    answer: "Yes, we repair major brands including Ariston, Elba, Bosch, Siemens, and Teka."
+                    answer: "We repair many major brands. Contact us to confirm your specific model."
                 }
             ]
         },
@@ -515,8 +512,8 @@ export const serviceData: Record<string, ServicePageData> = {
             stats: [
                 { value: "Blue", label: "Flame", sub: "Target" },
                 { value: "Glass", label: "Top", sub: "Care" },
-                { value: "Oven", label: "Heat", sub: "Calib" },
-                { value: "Any", label: "Brand", sub: "Repair" }
+                { value: "Oven", label: "Heat", sub: "Check" },
+                { value: "Many", label: "Brands", sub: "Service" }
             ]
         },
         details: [
@@ -524,7 +521,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "burners",
                 title: "Burner Service",
                 subtitle: "Combustion",
-                description: "Yellow flame? Soot? We clean nozzles and adjust air mixers for a perfect, hot blue flame.",
+                description: "Yellow flame? We clean nozzles and adjust air mixers for a better flame.",
                 icon: Flame,
                 details: ["Nozzle Cleaning", "Air Mix Adjust", "Igniter Fix", "Grate Cleaning"],
                 image: "/images/services/stoves.webp"
@@ -533,40 +530,39 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "oven",
                 title: "Oven Repair",
                 subtitle: "Baking",
-                description: "Cakes burning on one side? We calibrate thermostats and replace heating elements.",
+                description: "Uneven baking? We check thermostats and heating elements.",
                 icon: Thermometer,
-                details: ["Element Swap", "Thermostat Calib", "Door Seal", "Fan Motor"],
+                details: ["Element Check", "Thermostat Check", "Door Seal", "Fan Motor"],
                 image: "https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?auto=format&fit=crop&q=80" // Modern Oven Interior
             },
             {
                 id: "safety",
                 title: "Safety Check",
                 subtitle: "Connections",
-                description: "Ensuring all connections are tight and leak-free. A vital safety feature we test on every visit.",
+                description: "We check connections for leaks and tightness.",
                 icon: ShieldCheck,
-                details: ["Connection Test", "Shutoff Valve", "Glass Integrity", "Knob Repair"],
+                details: ["Connection Test", "Shutoff Valve", "Glass Check", "Knob Repair"],
                 image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80" // Safety Valve / Technical
             }
         ],
         techSpecs: {
             grid: [
                 { label: "FLAME", value: "BLUE" },
-                { label: "IGNITION", value: "INSTANT" },
+                { label: "IGNITION", value: "WORKING" },
                 { label: "HEAT", value: "EVEN" },
-                { label: "WARRANTY", value: "30 DAYS" }
+                { label: "WARRANTY", value: "INCLUDED" }
             ],
-            tools: "Digital thermometers for oven calibration.",
+            tools: "Digital tools for checking operation.",
             list: ["Flame adjust", "Igniter gap", "Fuel flow", "Temp accuracy", "Leak check"]
         },
         uniqueBenefits: [
-            "Specialists in Ariston, Bosch, Siemens, and Teka",
-            "Safe handling of gas connections",
-            "Oven temperature calibration",
-            "Burner cleaning for perfect blue flame"
+            "Specialists in major brands",
+            "Safe handling of connections",
+            "Oven temperature checks",
+            "Burner cleaning services"
         ],
-        relatedServices: ["electrical", "handyman"]
+        relatedServices: ["electrical", "handyman", "cleaning"]
     },
-
     // 07. Handyman (Moved Up)
     handyman: {
         id: "07",
@@ -582,8 +578,8 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         hero: {
             tag: "Versatile",
-            title: "Handyman",
-            description: "Furniture assembly. Mounting. Repairs. Done right."
+            title: "Handyman & Assembly",
+            description: "Furniture assembly, TV mounting, and general home repairs."
         },
         seo: {
             title: "Best Handyman Services Dubai | Mounting, Assembly & Repairs | Dakeek",
@@ -599,16 +595,16 @@ export const serviceData: Record<string, ServicePageData> = {
             qna: [
                 {
                     question: "Do you assemble IKEA furniture?",
-                    answer: "Yes, we are experts in assembling all flat-pack furniture from IKEA, Home Centre, and Danube, ensuring it is sturdy and correctly built."
+                    answer: "Yes, we assemble flat-pack furniture from various retailers."
                 },
                 {
                     question: "Can you mount a TV on a gypsum wall?",
-                    answer: "Yes, we use special heavy-duty anchors designed for gypsum/drywall to ensure your TV is mounted safely and securely."
+                    answer: "Yes, we use appropriate heavy-duty anchors for different wall types to ensure secure mounting."
                 }
             ]
         },
         intro: {
-            heading: "Small tasks pile up. We knock them down. From hanging art to assembling IKEA furniture, we handle the details.",
+            heading: "Small tasks pile up. We knock them down. From hanging art to assembling furniture, we handle the details.",
             stats: [
                 { value: "Any", label: "Task", sub: "Solution" },
                 { value: "Fast", label: "Assembly", sub: "Service" },
@@ -619,9 +615,9 @@ export const serviceData: Record<string, ServicePageData> = {
         details: [
             {
                 id: "mounting",
-                title: "Mounting & Hanging",
+                title: "TV Mounting & Hanging",
                 subtitle: "Precision",
-                description: "TVs, mirrors, curtains, and art. We use laser levels and proper anchors so nothing ever falls.",
+                description: "TVs, mirrors, curtains, and art. We use levels and proper anchors.",
                 icon: Wrench, // Reusing generic tool icon
                 details: ["TV Mounting", "Curtain Rods", "Shelving", "Art Installation"],
                 image: "/images/services/handyman.webp" // Drill/Wall
@@ -630,16 +626,16 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "assembly",
                 title: "Furniture Assembly",
                 subtitle: "No Spare Parts",
-                description: "Bought it in a box? We build it solid. Wardrobes, beds, tables, and desks assembled without the frustration.",
+                description: "We assemble wardrobes, beds, tables, and desks solid.",
                 icon: Gauge, // Symbolizing assembly/structure
-                details: ["IKEA Assembly", "Bed Frames", "Wardrobes", "Office Desks"],
+                details: ["Furniture Assembly", "Bed Frames", "Wardrobes", "Office Desks"],
                 image: "https://images.unsplash.com/photo-1595846519845-68e298c2edd8?auto=format&fit=crop&q=80" // Furniture/Assembly
             },
             {
                 id: "repair",
                 title: "General Repairs",
                 subtitle: "Fix It All",
-                description: "Door handles, hinges, drawer slides, and minor touch-ups. If it's broken, we probably fix it.",
+                description: "Door handles, hinges, drawer slides, and minor touch-ups.",
                 icon: Wrench,
                 details: ["Door Hinges", "Cabinet Handles", "Drawer Slides", "Caulking"],
                 image: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80" // Toolbox
@@ -647,21 +643,21 @@ export const serviceData: Record<string, ServicePageData> = {
         ],
         techSpecs: {
             grid: [
-                { label: "LEVEL", value: "LASER" },
+                { label: "LEVEL", value: "CHECKED" },
                 { label: "ANCHORS", value: "RATED" },
                 { label: "SOLID", value: "YES" },
                 { label: "SPEED", value: "FAST" }
             ],
-            tools: "Laser levels, stud finders, and impact drivers.",
+            tools: "Professional installation tools.",
             list: ["Leveling", "Stud finding", "Drilling", "Anchoring", "Touch-ups"]
         },
         uniqueBenefits: [
-            "IKEA and flat-pack furniture experts",
-            "Proper anchors for gypsum and concrete walls",
-            "Laser-leveled precision for every mount",
-            "Clean finish with no mess left behind"
+            "Furniture assembly experts",
+            "Appropriate wall anchors used",
+            "Precision mounting",
+            "Clean workspace post-job"
         ],
-        relatedServices: ["electrical", "other"]
+        relatedServices: ["electrical", "cleaning", "ac"]
     },
 
     // 08. Emergency (Moved Down)
@@ -694,21 +690,21 @@ export const serviceData: Record<string, ServicePageData> = {
             qna: [
                 {
                     question: "How long does it take for you to arrive in an emergency?",
-                    answer: "We aim for an arrival time of under 60 minutes for all emergency calls within Dubai limits."
+                    answer: "We aim for rapid arrival times for all emergency calls within Dubai limits."
                 },
                 {
                     question: "Is there an extra charge for after-hours service?",
-                    answer: "We are transparent about our pricing. Emergency call-outs may carry a standard surcharge, which will be confirmed with you before we dispatch the team."
+                    answer: "Emergency call-outs may carry a surcharge, which will be confirmed with you."
                 }
             ]
         },
         intro: {
-            heading: "Disasters don't keep office hours. Neither do we. If there is water flooding or power out, we deploy immediately.",
+            heading: "Disasters don't keep office hours. Neither do we. If there is an issue, we deploy immediately.",
             stats: [
-                { value: "<60", label: "Mins", sub: "Arrival" },
+                { value: "Fast", label: "Arrival", sub: "Target" },
                 { value: "24/7", label: "Open", sub: "Always" },
                 { value: "Fully", label: "Stocked", sub: "Vans" },
-                { value: "Fixed", label: "First Time", sub: "Goal" }
+                { value: "Fixed", label: "Solution", sub: "Goal" }
             ]
         },
         details: [
@@ -716,7 +712,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "flood",
                 title: "Water Flood",
                 subtitle: "Containment",
-                description: "Burst pipe? Heater leak? We extract water and stop the flow immediately to protect your furniture.",
+                description: "We extract water and stop the flow to limit damage.",
                 icon: Droplet,
                 details: ["Valve Shutoff", "Water Vac", "Pipe Repair", "Damage Control"],
                 image: "/images/services/emergency.webp" // Flooded floor/water
@@ -725,7 +721,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "power",
                 title: "Power Outage",
                 subtitle: "Restoration",
-                description: "Total blackout? We bring generators if needed and trace the short circuit to restore lights.",
+                description: "We trace shorts and restore lights.",
                 icon: Zap,
                 details: ["Trip Trace", "Bypass", "Generator", "Safety Check"],
                 image: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?auto=format&fit=crop&q=80" // Dark room/candle or circuit
@@ -734,7 +730,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "ac",
                 title: "AC Failure",
                 subtitle: "Heat Relief",
-                description: "AC died in July? We consider this an emergency. We carry portable ACs and fix compressors ASAP.",
+                description: "We prioritize AC failures during heatwaves.",
                 icon: Wind,
                 details: ["Rapid Cooling", "Portable Units", "Priority Fix", "Night Service"],
                 image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80" // AC unit again (appropriate here)
@@ -747,14 +743,14 @@ export const serviceData: Record<string, ServicePageData> = {
                 { label: "TEAM", value: "AWAKE" },
                 { label: "SOLUTION", value: "NOW" }
             ],
-            tools: "Rapid Response Kits designed for triage and containment.",
+            tools: "Fully stocked vans for immediate repairs.",
             list: ["Stop leak", "Isolate power", "Cool down", "Clean up", "Report"]
         },
         uniqueBenefits: [
-            "Under 60-minute arrival time in Dubai",
-            "Fully stocked vans with emergency parts",
-            "Night and weekend availability at no extra charge",
-            "Immediate damage control to protect your property"
+            "Rapid arrival target in Dubai",
+            "Vans stocked for emergencies",
+            "Night and weekend availability",
+            "Immediate damage control"
         ],
         relatedServices: ["ac", "plumbing", "electrical"]
     },
@@ -800,7 +796,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "consult",
                 title: "Consultation",
                 subtitle: "Diagnosis",
-                description: "Don&apos;t know what&apos;s wrong? We perform a full home health check to identify underlying issues.",
+                description: "Don't know what's wrong? We perform a full home health check to identify underlying issues.",
                 icon: Search,
                 details: ["Full Inspection", "Report", "Advice", "Plan"],
                 image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80" // Blueprint/Plan
@@ -812,7 +808,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "From installing pet doors to hanging chandeliers or custom requests.",
                 icon: Sparkles,
                 details: ["Conversions", "Upgrades", "Installations", "Fixes"],
-                image: "https://images.unsplash.com/photo-1581092921461-eab62e9e8c18?auto=format&fit=crop&q=80" // Workshop
+                image: "https://images.unsplash.com/photo-1581093588401-fbb07366f531?auto=format&fit=crop&q=80" // Mechanical/Special
             },
             {
                 id: "renovation",
@@ -838,7 +834,7 @@ export const serviceData: Record<string, ServicePageData> = {
             "Flexible scope for unusual requests",
             "Free consultation and upfront quote",
             "Multi-skill technicians for hybrid jobs",
-            "We find solutions for any problem"
+            "We aim to find solutions for any problem"
         ],
         relatedServices: ["handyman", "cleaning", "plumbing"]
     }

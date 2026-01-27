@@ -4,72 +4,40 @@ import { serviceData } from '@/data/serviceData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const services = Object.keys(serviceData);
+    const baseUrl = 'https://www.dakeek.ae';
 
-    return [
-        {
-            url: 'https://www.dakeek.ae',
-            lastModified: new Date(),
-            changeFrequency: 'yearly',
-            priority: 1,
-        },
-        {
-            url: 'https://www.dakeek.ae/about',
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.dakeek.ae/services',
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.8,
-        },
-        {
-            url: 'https://www.dakeek.ae/queries',
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.5,
-        },
-        {
-            url: 'https://www.dakeek.ae/contact',
-            lastModified: new Date(),
-            changeFrequency: 'yearly',
-            priority: 0.5,
-        },
-        {
-            url: 'https://www.dakeek.ae/journal',
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 0.7,
-        },
-        {
-            url: 'https://www.dakeek.ae/privacy-policy',
-            lastModified: new Date(),
-            changeFrequency: 'yearly',
-            priority: 0.5,
-        },
-        {
-            url: 'https://www.dakeek.ae/discover',
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        // Individual Services - High Priority
-        ...services.map((slug) => ({
-            url: `https://www.dakeek.ae/services/${slug}`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly' as const,
-            priority: 0.9,
-        })),
+    // Static Routes
+    const staticRoutes = [
+        '',
+        '/about',
+        '/services',
+        '/contact',
+        '/careers',
+        '/queries',
+        '/privacy-policy',
+        '/journal',
+    ].map((route) => ({
+        url: `${baseUrl}${route}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: route === '' ? 1 : 0.8,
+    }));
 
-        // Blog Posts
-        ...blogPosts.map((post) => ({
-            url: `https://www.dakeek.ae/journal/${post.slug}`,
-            lastModified: new Date(post.date),
-            changeFrequency: 'monthly' as const,
-            priority: 0.6,
-        })),
-    ]
+    // Dynamic Service Routes
+    const serviceRoutes = services.map((slug) => ({
+        url: `${baseUrl}/services/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'daily' as const,
+        priority: 1.0,
+    }));
+
+    // Dynamic Blog Post Routes
+    const blogRoutes = blogPosts.map((post) => ({
+        url: `${baseUrl}/journal/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+    }));
+
+    return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
 }
-
-

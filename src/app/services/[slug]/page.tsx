@@ -6,6 +6,7 @@ import { ServiceSchema } from "../../../components/schema/ServiceSchema";
 import { FAQSchema } from "../../../components/schema/FAQSchema";
 import { BreadcrumbSchema } from "../../../components/schema/BreadcrumbSchema";
 import { notFound } from "next/navigation";
+import { DUBAI_AREAS } from "../../../lib/constants";
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -53,6 +54,7 @@ export default async function DynamicServicePage({ params }: Props) {
     return (
         <>
             <ServiceSchema
+                type={service.seo.schemaType}
                 name={service.seo.title}
                 description={service.hero.description}
                 image={service.details[0].image}
@@ -61,6 +63,7 @@ export default async function DynamicServicePage({ params }: Props) {
                 priceRange="$$"
                 ratingValue="4.9"
                 reviewCount="120"
+                areaServed={DUBAI_AREAS}
                 address={{
                     streetAddress: "Anzar Gallery, Al Karama",
                     addressLocality: "Dubai",

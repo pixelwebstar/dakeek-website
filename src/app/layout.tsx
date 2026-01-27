@@ -9,20 +9,18 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { TransitionProvider } from "../lib/context/TransitionContext";
-// Removed static imports to resolve conflict with dynamic lazy loads
-// import ContactHubLoader from "../components/shared/ContactHubLoader";
 import Preloader from "../components/ui/Preloader";
 
 import Footer from "../components/layout/Footer";
 import ContactHubLoader from "../components/shared/ContactHubLoader";
 
 import PageTransition from "../components/shared/PageTransition";
+import { DUBAI_AREAS } from "../lib/constants";
 
 export const viewport: Viewport = {
   themeColor: "#111111",
   width: "device-width",
   initialScale: 1,
-  // Removed maximumScale and userScalable for accessibility compliance
 };
 
 const geistSans = Geist({
@@ -47,16 +45,18 @@ export const metadata: Metadata = {
   },
   description: "Dubai's verified residential maintenance experts. Precision AC repair, plumbing, electrical, and handyman services. 60-minute emergency response. Serving Downtown, Marina, Palm Jumeirah, and all major communities.",
   keywords: [
-    "Residential maintenance Dubai",
-    "Home maintenance Dubai",
     "AC repair Dubai",
-    "Plumbing services Dubai",
-    "Electrical works Dubai",
+    "Emergency plumber Dubai",
+    "Electrician Dubai",
     "Handyman services Dubai",
-    "Emergency home repair Dubai",
-    "Best home maintenance company Dubai",
-    "Property maintenance Dubai",
+    "Water heater repair",
+    "Leak detection Dubai",
+    "Furniture assembly Dubai",
+    "Deep cleaning Dubai",
     "Water tank cleaning Dubai",
+    "Home maintenance Dubai",
+    "Residential maintenance Dubai",
+    "Property maintenance Dubai",
     "Dakeek Residential Services"
   ],
   authors: [{ name: "Dakeek Residential Services and Maintenance", url: "https://www.dakeek.ae" }],
@@ -126,13 +126,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Preconnect for critical third-party origins */}
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
-
-        {/* Preload critical above-the-fold assets */}
         <link rel="preload" href="/images/noise.svg" as="image" />
-
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0c0a09" />
         <meta name="geo.region" content="AE-DU" />
@@ -188,14 +184,7 @@ export default function RootLayout({
                   },
                   "areaServed": [
                     { "@type": "City", "name": "Dubai" },
-                    { "@type": "Place", "name": "Al Karama" },
-                    { "@type": "Place", "name": "Dubai Marina" },
-                    { "@type": "Place", "name": "Palm Jumeirah" },
-                    { "@type": "Place", "name": "Downtown Dubai" },
-                    { "@type": "Place", "name": "Business Bay" },
-                    { "@type": "Place", "name": "Jumeirah Lake Towers" },
-                    { "@type": "Place", "name": "Arabian Ranches" },
-                    { "@type": "Place", "name": "Emirates Hills" }
+                    ...DUBAI_AREAS.map(area => ({ "@type": "Place", "name": area }))
                   ],
                   "openingHoursSpecification": {
                     "@type": "OpeningHoursSpecification",
@@ -277,7 +266,6 @@ export default function RootLayout({
           }}
         />
       </body>
-
     </html>
   );
 }

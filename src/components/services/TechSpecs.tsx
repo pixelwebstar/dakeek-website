@@ -100,7 +100,7 @@ export default function TechSpecs({ specs, tools, details, theme }: TechSpecsPro
                         <div className="flex items-start gap-4">
                             <Award className={`w-5 h-5 mt-1 shrink-0 ${theme.primaryText}`} />
                             <div>
-                                <div className={`text-xs font-mono uppercase tracking-widest mb-2 ${theme.primaryText}`}>Why It&apos;s Better Than Others</div>
+                                <div className={`text-xs font-mono uppercase tracking-widest mb-2 ${theme.primaryText}`}>Why It's Better Than Others</div>
 
                                 <div className="text-slate-700 font-serif text-lg italic leading-relaxed opacity-90">
                                     &ldquo;We combine technical expertise with honest service. No upselling, no hidden fees—just skilled technicians who fix it right the first time.&rdquo;
