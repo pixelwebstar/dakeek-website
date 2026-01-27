@@ -31,9 +31,9 @@ export default function ContactPage() {
             {/* SECTION 1: HERO (Hyper Metal) */}
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
                 <GradientHero
-                    color1="#D1D5DB"
-                    color2="#F3F4F6"
-                    initialColor="#D1D5DB"
+                    color1="#9CA3AF"
+                    color2="#E5E7EB"
+                    initialColor="#E5E7EB"
                 />
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">

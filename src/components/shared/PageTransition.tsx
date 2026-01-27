@@ -12,22 +12,22 @@ import { usePathname } from "next/navigation";
 const pageVariants: Variants = {
     initial: {
         opacity: 0,
-        y: 20,
+        y: 10, // Reduced from 20 for subtler movement
     },
     enter: {
         opacity: 1,
         y: 0,
         transition: {
-            duration: 0.4,
-            ease: [0.16, 1, 0.3, 1] as const,
+            duration: 0.35, // Faster than 0.4
+            ease: [0.22, 1, 0.36, 1], // Custom "crisp" bezier
             when: "beforeChildren",
         },
     },
     exit: {
         opacity: 0,
-        y: -10,
+        y: -5, // Reduced from -10
         transition: {
-            duration: 0.25,
+            duration: 0.1, // Snappy exit
             ease: "easeIn",
         },
     },
@@ -41,7 +41,7 @@ const curtainVariants: Variants = {
     enter: {
         scaleY: 0,
         transition: {
-            duration: 0.6,
+            duration: 0.5,
             ease: [0.76, 0, 0.24, 1] as const,
         },
     },

@@ -2,26 +2,27 @@ import { Metadata } from "next";
 import HomePage from "@/components/pages/HomePage";
 
 export const metadata: Metadata = {
-   title: "Home Maintenance & Repair Services in Dubai | Dakeek Technical Services",
-   description: "Dakeek is a Dubai-based home maintenance company for villas and apartments, offering precise AC, plumbing, electrical, cleaning, handyman and emergency repair services within 25 km. Licensed technicians, fast response.",
+   title: "Dakeek Residential Services and Maintenance | Dubai's #1 Home Experts",
+   description: "Dubai's verified residential maintenance experts. Precision AC repair, plumbing, electrical, and handyman services. 60-minute emergency response.",
    keywords: [
-      "home maintenance services in Dubai",
-      "home repair services in Dubai",
-      "AC maintenance in Dubai",
-      "plumbing services in Dubai",
-      "electrical services in Dubai",
-      "handyman services in Dubai",
-      "emergency home maintenance Dubai",
-      "residential maintenance company in Dubai",
-      "Dakeek",
-      "Technical Services Dubai"
+      "Residential maintenance Dubai",
+      "Home maintenance Dubai",
+      "AC repair Dubai",
+      "Plumbing services Dubai",
+      "Electrical works Dubai",
+      "Handyman services Dubai",
+      "Emergency home repair Dubai",
+      "Best home maintenance company Dubai",
+      "Property maintenance Dubai",
+      "Water tank cleaning Dubai",
+      "Dakeek Residential Services"
    ],
    alternates: {
-      canonical: "https://dakeek.ae/",
+      canonical: "https://www.dakeek.ae/",
    },
    openGraph: {
-      title: "Home Maintenance & Repair Services in Dubai | Dakeek Technical Services",
-      description: "Dakeek is a Dubai-based home maintenance company for villas and apartments, offering precise AC, plumbing, electrical, cleaning, handyman and emergency repair services within 25 km.",
+      title: "Dakeek Residential Services and Maintenance",
+      description: "Dubai's verified residential maintenance experts. Precision AC, Plumbing, Electrical, and Cleaning.",
    },
 };
 

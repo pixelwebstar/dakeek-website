@@ -11,7 +11,7 @@ function ServiceSection({ service, index, theme }: { service: ServiceDetail, ind
 
     return (
         <section className="min-h-[auto] lg:min-h-[80vh] flex items-center justify-center py-20 md:py-32 relative overflow-hidden border-t border-white/10">
-            <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center z-10">
+            <div className="max-w-7xl mx-auto px-[5vw] lg:px-[8vw] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center z-10">
                 {/* Content - Subtle Fade In */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -88,7 +88,7 @@ export default function ServiceDetailSection({
             <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/10 to-black/30 pointer-events-none" />
 
             {/* Title Section */}
-            <div className="max-w-4xl mx-auto px-6 pt-24 pb-20 text-center">
+            <div className="max-w-4xl mx-auto px-[5vw] lg:px-[8vw] pt-24 pb-20 text-center">
                 <p className={`font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-6 ${data.theme.accentText}`}>
                     Our Approach
                 </p>

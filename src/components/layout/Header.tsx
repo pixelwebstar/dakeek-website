@@ -103,6 +103,7 @@ export default function Header() {
                 <div className="animate-header-fade" style={{ animationDelay: '0s' }}>
                     <Link
                         href="/"
+                        prefetch={true}
                         className="relative z-50 text-3xl font-serif font-bold tracking-tighter text-[#111]"
                         onClick={() => setIsMenuOpen(false)}
                     >
@@ -123,6 +124,7 @@ export default function Header() {
                                 >
                                     <Link
                                         href={link.href}
+                                        prefetch={true}
                                         title={`${link.label} – Dakeek home maintenance services in Dubai`}
                                         className={cn(
                                             "relative z-10 transition-colors duration-300 hover:text-[#C4A67C]",
@@ -213,6 +215,7 @@ export default function Header() {
                             >
                                 <Link
                                     href={link.href}
+                                    prefetch={true}
                                     onClick={() => setIsMenuOpen(false)}
                                     className="text-4xl font-serif text-[#111] hover:text-[#C4A67C] transition-colors text-center w-full block"
                                 >

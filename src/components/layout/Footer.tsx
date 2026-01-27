@@ -90,16 +90,16 @@ export default function Footer() {
             { name: "WhatsApp Us", href: "https://wa.me/971542472151", icon: <MessageSquare size={14} /> },
             { name: "Dakeek Chat", href: "#chat", action: openChat, icon: <MessageSquare size={14} /> },
             { name: "Email Support", href: "mailto:asheejajayan@gmail.com", icon: <Mail size={14} /> },
-            { name: "Coverage Areas", href: "/coverage", icon: <MapPin size={14} /> },
-            { name: "Our Location", href: "https://www.google.com/maps/search/?api=1&query=Anzar+Gallery+Building+Al+Karama+Dubai", icon: <MapPin size={14} /> },
+            { name: 'Discover', href: '/discover', icon: <MapPin size={14} /> },
+            { name: "Visit Us", href: "https://www.google.com/maps/search/?api=1&query=Anzar+Gallery+Building+Al+Karama+Dubai", icon: <MapPin size={14} /> },
         ],
         socials: [
             { name: "LinkedIn", href: "https://www.linkedin.com/company/dakeek-technical-service-co-llc/" },
-            { name: "Facebook", href: "https://www.facebook.com/dakeektechnicalservice/" },
+            { name: "Indeed", href: "https://ae.indeed.com/" },
             { name: "Instagram", href: "https://www.instagram.com/dakeektechnicalservice/" },
+            { name: "Facebook", href: "https://www.facebook.com/dakeektechnicalservice/" },
             { name: "X (Twitter)", href: "https://twitter.com" },
             { name: "TikTok", href: "https://tiktok.com" },
-            { name: "Indeed", href: "https://ae.indeed.com/" },
         ]
     };
 
@@ -131,12 +131,9 @@ export default function Footer() {
                         </button>
 
                         {/* Install App Button */}
-                        <button
-                            onClick={handleInstallClick}
-                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#111] text-white shadow-md hover:bg-[#C4A67C] transition-colors hover:scale-105 active:scale-95 w-fit"
-                        >
-                            <span className="font-mono text-[10px] uppercase tracking-widest font-medium">Install App</span>
-                        </button>
+                        <h3 className="text-sm font-semibold text-[#111] tracking-wider uppercase mb-6 font-mono">
+                            Visit Us
+                        </h3>
                     </div>
                 </div>
 
@@ -152,6 +149,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <Link
                                         href={link.href}
+                                        prefetch={true}
                                         title={`${link.name} – Home Maintenance Dubai`}
                                         className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
                                     >
@@ -170,6 +168,7 @@ export default function Footer() {
                                 <li key={link.name}>
                                     <Link
                                         href={link.href}
+                                        prefetch={true}
                                         title={`${link.name} in Dubai`}
                                         className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
                                     >

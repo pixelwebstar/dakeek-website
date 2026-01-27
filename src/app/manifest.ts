@@ -2,12 +2,12 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: 'Dakeek | Precision Home Services',
+        name: 'Dakeek Residential Services and Maintenance',
         short_name: 'Dakeek',
-        description: 'The Science of Maintenance. Precision AC, Plumbing, and Electrical services.',
+        description: 'Dubai\'s Verified Residential Maintenance Experts. AC, Plumbing, Electrical.',
         start_url: '/',
         display: 'standalone',
-        background_color: '#FAFAF9',
+        background_color: '#E5E7EB',
         theme_color: '#111111',
         icons: [
             {

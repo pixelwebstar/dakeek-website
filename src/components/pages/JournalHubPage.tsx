@@ -26,9 +26,9 @@ export default function JournalHubPage() {
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
                 <div className="absolute inset-0 z-0">
                     <GradientHero
-                        color1="#D1D5DB"
-                        color2="#F3F4F6"
-                        initialColor="#D1D5DB"
+                        color1="#9CA3AF"
+                        color2="#E5E7EB"
+                        initialColor="#E5E7EB"
                     />
                 </div>
 

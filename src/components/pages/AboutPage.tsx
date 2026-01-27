@@ -27,9 +27,9 @@ export default function AboutPage() {
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E7E5E4] border-b border-black/5 text-[#111]">
                 <div className="absolute inset-0 z-0">
                     <GradientHero
-                        color1="#A8A29E"
-                        color2="#E7E5E4"
-                        initialColor="#E7E5E4"
+                        color1="#9CA3AF"
+                        color2="#E5E7EB"
+                        initialColor="#E5E7EB"
                     />
                 </div>
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
                     <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
                         Our Promise Internal
                     </p>
-                    <h1 className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-[#111] animate-hero-fade" style={{ animationDelay: '0s' }}>
+                    <h1 className="text-6xl md:text-9xl font-sans tracking-tight mb-6 md:mb-8 leading-[0.9] text-[#111] animate-hero-fade" style={{ animationDelay: '0s' }}>
                         Origins
                     </h1>
                     <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#555] mb-12 uppercase tracking-widest animate-hero-fade" style={{ animationDelay: '0.3s' }}>
@@ -64,7 +64,7 @@ export default function AboutPage() {
 
             {/* 2. THE CONFLICT: "The Intruder" (Dark - Tension) - REPLANNED (Image Added) */}
             <section
-                className="relative py-32 md:py-48 px-[5vw] md:px-[10vw] max-w-7xl mx-auto bg-[#111]"
+                className="relative py-32 md:py-48 px-[5vw] lg:px-[8vw] max-w-7xl mx-auto bg-[#111]"
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     {/* Text Column */}
@@ -315,7 +315,7 @@ export default function AboutPage() {
                     style={{ backgroundImage: 'radial-gradient(#A18262 1px, transparent 1px)', backgroundSize: '30px 30px' }}
                 />
 
-                <div className="relative max-w-5xl mx-auto px-[5vw]">
+                <div className="relative max-w-5xl mx-auto px-[5vw] lg:px-[8vw]">
                     <div className="relative p-8 lg:p-12 border border-[#222] bg-[#111]/50 backdrop-blur-sm rounded-2xl overflow-hidden group hover:border-[#C4A67C]/20 transition-all duration-700">
 
                         {/* Metallic Sheen Effect */}
@@ -366,7 +366,7 @@ export default function AboutPage() {
 
             {/* 8. APP PROMO: Beautiful Redesign */}
             <section id="download-app" className="relative bg-[#F5F5F4] overflow-hidden py-32 lg:py-40">
-                <div className="max-w-7xl mx-auto px-[5vw] grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div className="max-w-7xl mx-auto px-[5vw] lg:px-[8vw] grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
                     {/* Left: Content */}
                     <div>
@@ -477,7 +477,7 @@ export default function AboutPage() {
                                 </div>
 
                                 {/* Home Bar - Footer removed (Tab bar gone) */}
-                                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-[#111]/20 rounded-full" />
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-32 h-1 bg-[#111]/20 rounded-full" />
                             </div>
 
                             {/* Reflection */}
@@ -488,7 +488,7 @@ export default function AboutPage() {
             </section>
 
             {/* 9. FINALE: The Invitation */}
-            <section className="bg-[#111] py-40 px-[5vw] text-center relative overflow-hidden">
+            <section className="bg-[#111] py-40 px-[5vw] lg:px-[8vw] text-center relative overflow-hidden">
                 <div className="max-w-4xl mx-auto relative z-10">
                     <p className="font-mono text-xs uppercase tracking-[0.3em] text-[#C4A67C] mb-8">
                         The Conclusion

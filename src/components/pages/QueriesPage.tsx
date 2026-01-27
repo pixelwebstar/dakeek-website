@@ -96,9 +96,9 @@ export default function QueriesPage() {
             <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#F4F4F5] border-b border-structure">
                 <div className="absolute inset-0 z-0">
                     <GradientHero
-                        color1="#a1a1aa"
-                        color2="#f4f4f5"
-                        initialColor="#F4F4F5"
+                        color1="#9CA3AF"
+                        color2="#E5E7EB"
+                        initialColor="#E5E7EB"
                     />
                 </div>
 

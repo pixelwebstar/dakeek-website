@@ -194,6 +194,7 @@ export default function ServiceLayout({ data, slug }: ServiceLayoutProps) {
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 className="object-cover"
+                                quality={90}
                             />
                         </div>
                     </div>

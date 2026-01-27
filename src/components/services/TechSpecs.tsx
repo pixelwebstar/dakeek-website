@@ -16,7 +16,7 @@ export default function TechSpecs({ specs, tools, details, theme }: TechSpecsPro
     const dynamicBg = theme.secondaryBg;
 
     return (
-        <section className={`w-full px-[5vw] py-16 md:py-24 ${dynamicBg}`}>
+        <section className={`w-full px-[5vw] lg:px-[8vw] py-16 md:py-24 ${dynamicBg}`}>
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}

@@ -16,6 +16,8 @@ import Preloader from "../components/ui/Preloader";
 import Footer from "../components/layout/Footer";
 import ContactHubLoader from "../components/shared/ContactHubLoader";
 
+import PageTransition from "../components/shared/PageTransition";
+
 export const viewport: Viewport = {
   themeColor: "#111111",
   width: "device-width",
@@ -40,12 +42,24 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.dakeek.ae'),
   title: {
-    template: "%s | Dakeek - Premium Home Maintenance",
-    default: "Dakeek - Premium Home Maintenance Dubai",
+    template: "%s | Dakeek Residential Services and Maintenance",
+    default: "Dakeek Residential Services and Maintenance | Dubai's #1 Home Experts",
   },
-  description: "Professional home maintenance services in Dubai. AC, Plumbing, Electrical, and more. 60-minute emergency response for licensed and certified repairs.",
-  keywords: ["AC Maintenance Dubai", "Emergency Plumber Dubai", "Electrical Services", "Luxury Home Maintenance", "Duct Cleaning", "Water Tank Cleaning", "Dubai Maintenance Company"],
-  authors: [{ name: "Dakeek Technical Services LLC", url: "https://www.dakeek.ae" }],
+  description: "Dubai's verified residential maintenance experts. Precision AC repair, plumbing, electrical, and handyman services. 60-minute emergency response. Serving Downtown, Marina, Palm Jumeirah, and all major communities.",
+  keywords: [
+    "Residential maintenance Dubai",
+    "Home maintenance Dubai",
+    "AC repair Dubai",
+    "Plumbing services Dubai",
+    "Electrical works Dubai",
+    "Handyman services Dubai",
+    "Emergency home repair Dubai",
+    "Best home maintenance company Dubai",
+    "Property maintenance Dubai",
+    "Water tank cleaning Dubai",
+    "Dakeek Residential Services"
+  ],
+  authors: [{ name: "Dakeek Residential Services and Maintenance", url: "https://www.dakeek.ae" }],
   creator: "Dakeek Technical Services LLC",
   publisher: "Dakeek Technical Services LLC",
   alternates: {
@@ -55,10 +69,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Dakeek | Precision Home Maintenance",
-    description: "Experience the new standard in home maintenance. Speed, expertise, and transparency.",
+    title: "Dakeek Residential Services and Maintenance",
+    description: "Dubai's verified home maintenance experts. AC, Plumbing, Electrical, and Cleaning. Book your service today.",
     url: "https://www.dakeek.ae",
-    siteName: "Dakeek Technical Services",
+    siteName: "Dakeek Residential Services and Maintenance",
     locale: "en_AE",
     type: "website",
     images: [
@@ -66,21 +80,21 @@ export const metadata: Metadata = {
         url: "https://www.dakeek.ae/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Dakeek Technical Services Dubai",
+        alt: "Dakeek Residential Services and Maintenance Dubai",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dakeek | Precision Home Maintenance",
-    description: "Dubai's verified home maintenance experts. Book now.",
+    title: "Dakeek Residential Services and Maintenance",
+    description: "Dubai's #1 Residential Maintenance Service. Fast, Reliable, Precise.",
     creator: "@dakeek_ae",
     images: ["https://www.dakeek.ae/opengraph-image.png"],
   },
   verification: {
     google: "T8hhiXgeP_vxqaKG5DT3GpJik50Qiv2vNYv9yZ7xBE4",
   },
-  category: "Home Services",
+  category: "Residential Services",
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -128,12 +142,14 @@ export default function RootLayout({
       </head>
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${playfair.variable} antialiased bg-[#FAFAF9] text-[#111]`}
+        className={`${geistSans.variable} ${playfair.variable} antialiased bg-[#E5E7EB] text-[#111]`}
       >
         <TransitionProvider>
           <Preloader />
           <Header />
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
           <Footer />
           <ContactHubLoader />
         </TransitionProvider>

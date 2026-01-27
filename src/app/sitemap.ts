@@ -49,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.5,
         },
         {
-            url: 'https://www.dakeek.ae/coverage',
+            url: 'https://www.dakeek.ae/discover',
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
