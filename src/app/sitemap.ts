@@ -1,11 +1,9 @@
 import { MetadataRoute } from 'next'
-import { DUBAI_AREAS } from '@/lib/constants'
 import { blogPosts } from '@/data/blogData'
 import { serviceData } from '@/data/serviceData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const services = Object.keys(serviceData);
-    const areas = DUBAI_AREAS.map(area => area.toLowerCase().replace(/ /g, "-"));
 
     return [
         {
@@ -63,23 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'monthly' as const,
             priority: 0.9,
         })),
-        // All 37 Location Pages
 
-        ...areas.map((slug) => ({
-            url: `https://www.dakeek.ae/areas/${slug}`,
-            lastModified: new Date(),
-            changeFrequency: 'weekly' as const,
-            priority: 0.8,
-        })),
-        // [SEO NUKE] Service + Area Combinations (~300 Pages)
-        ...services.flatMap(service =>
-            areas.map(area => ({
-                url: `https://www.dakeek.ae/services/${service}/${area}`,
-                lastModified: new Date(),
-                changeFrequency: 'weekly' as const,
-                priority: 0.85, // Higher than generic area pages
-            }))
-        ),
         // Blog Posts
         ...blogPosts.map((post) => ({
             url: `https://www.dakeek.ae/journal/${post.slug}`,
