@@ -120,7 +120,7 @@ export default function CareersPage() {
                                 <span className="italic text-[#C4A67C]">Perform.</span>
                             </h2>
                             <p className="text-[#444] text-lg leading-relaxed">
-                                We provide the tools you need to do your best work. Dakeek technicians operate from organized, fully stocked vans and use quality professional equipment.
+                                We provide the tools you need to do your best work. Dakeek technicians are equipped with high-quality professional tools and technology.
                             </p>
                             <ul className="space-y-4 mt-8">
                                 <li className="flex items-center gap-4">
