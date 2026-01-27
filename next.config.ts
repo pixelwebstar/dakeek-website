@@ -54,17 +54,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'dakeek.ae',
-          },
-        ],
-        destination: 'https://www.dakeek.ae/:path*',
-        permanent: true,
-      },
+
       {
         source: '/areas/dubai-hills',
         destination: '/areas/dubai-hills-estate',
