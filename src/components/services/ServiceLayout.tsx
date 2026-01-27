@@ -11,6 +11,7 @@ import { ArrowRight, ShieldCheck, ChevronDown, Wind } from "lucide-react";
 import { motion } from "framer-motion";
 import { ServicePageData, serviceData } from "../../data/serviceData";
 import ServiceDetailSection from "./ServiceDetailSection";
+import ServiceCard from "./ServiceCard";
 
 interface ServiceLayoutProps {
     data?: ServicePageData;
@@ -250,13 +251,12 @@ export default function ServiceLayout({ data, slug }: ServiceLayoutProps) {
                         <div className="col-span-1 md:col-span-3">
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-y-4 gap-x-8">
                                 {["Palm Jumeirah", "Dubai Marina", "Downtown Dubai", "Arabian Ranches", "JLT", "Business Bay", "Dubai Hills", "DIFC", "Al Barsha", "Jumeirah", "The Villa", "Mudon", "Damac Hills", "Meadows", "Springs", "Greens"].map((area, i) => (
-                                    <Link
+                                    <div
                                         key={i}
-                                        href={`/areas/${area.toLowerCase().replace(/ /g, '-')}`}
-                                        className="text-sm text-[#444] hover:text-[#111] transition-colors py-1 hover:translate-x-1 transform duration-300 block font-light"
+                                        className="text-sm text-[#444] py-1 block font-light cursor-default"
                                     >
                                         {area}
-                                    </Link>
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -276,16 +276,14 @@ export default function ServiceLayout({ data, slug }: ServiceLayoutProps) {
                                 const related = serviceData[relatedSlug];
                                 if (!related) return null;
                                 return (
-                                    <Link
+                                    <ServiceCard
                                         key={i}
+                                        title={related.hero.title}
                                         href={`/services/${relatedSlug}`}
-                                        className="group p-8 bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-xl transition-all text-center hover:-translate-y-1"
-                                    >
-                                        <span className="block text-xl font-serif text-[#111] group-hover:text-[#5A4A32] transition-colors mb-2">
-                                            {related.hero.title}
-                                        </span>
-                                        <span className="text-xs uppercase tracking-widest text-[#888]">{related.hero.tag}</span>
-                                    </Link>
+                                        image={related.details[0]?.image || related.addOn?.image || "/images/services/ac.png"} // Fallback image just in case
+                                        features={related.uniqueBenefits?.slice(0, 3) || []}
+                                        seoTitle={related.seo.title}
+                                    />
                                 );
                             })}
                         </div>
