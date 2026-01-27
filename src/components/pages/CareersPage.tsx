@@ -107,7 +107,64 @@ export default function CareersPage() {
                 </div>
             </section>
 
-            {/* 3. VALUES (SEO Content) */}
+            {/* 3. LIGHT SECTION: "Equipped for Excellence" (The Rhythm Breaker) */}
+            <section className="py-24 px-[5vw] lg:px-[8vw] bg-[#FAFAF9] text-[#111] border-y border-black/5">
+                <div className="max-w-7xl mx-auto">
+                    <div className="flex flex-col md:flex-row gap-16 items-center">
+                        <div className="w-full md:w-1/2 space-y-8">
+                            <span className="inline-block font-mono text-xs text-[#6B5344] uppercase tracking-[0.3em] mb-2">
+                                The Environment
+                            </span>
+                            <h2 className="text-4xl md:text-5xl font-serif leading-tight">
+                                Equipped for <br />
+                                <span className="italic text-[#C4A67C]">Perfection.</span>
+                            </h2>
+                            <p className="text-[#444] text-lg leading-relaxed">
+                                We believe elite craftsmen deserve elite tools. Dakeek technicians operate from fully stocked, showroom-quality vans and utilize the latest diagnostic technology.
+                            </p>
+                            <ul className="space-y-4 mt-8">
+                                <li className="flex items-center gap-4">
+                                    <div className="w-10 h-10 rounded-full bg-[#E5E5E5] flex items-center justify-center text-[#111]">
+                                        <Briefcase className="w-4 h-4" />
+                                    </div>
+                                    <div>
+                                        <div className="font-serif text-lg">Digital Dispatch</div>
+                                        <div className="text-xs font-mono uppercase text-[#666] tracking-wider">Paperless Workflow</div>
+                                    </div>
+                                </li>
+                                <li className="flex items-center gap-4">
+                                    <div className="w-10 h-10 rounded-full bg-[#E5E5E5] flex items-center justify-center text-[#111]">
+                                        <ShieldCheck className="w-4 h-4" />
+                                    </div>
+                                    <div>
+                                        <div className="font-serif text-lg">Premium Uniforms</div>
+                                        <div className="text-xs font-mono uppercase text-[#666] tracking-wider">Respect & Authority</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Visual Abstract - Typography/Grid */}
+                        <div className="w-full md:w-1/2 relative h-[500px] border border-black/10 rounded-2xl overflow-hidden bg-white p-8 md:p-12 flex flex-col justify-between">
+                            <div className="absolute top-0 right-0 p-8 opacity-10">
+                                <Star className="w-32 h-32" />
+                            </div>
+                            <div className="space-y-2">
+                                <div className="text-6xl md:text-8xl font-serif text-[#111]">100%</div>
+                                <div className="text-sm font-mono uppercase tracking-[0.2em] text-[#666]">Support Ratio</div>
+                            </div>
+                            <div className="space-y-6">
+                                <p className="text-[#333] font-light italic text-xl border-l-2 border-[#C4A67C] pl-6">
+                                    &quot;You focus on the fix. We handle the logistics, the bookings, and the client. Complete freedom to practice your craft.&quot;
+                                </p>
+                                <div className="text-xs font-bold uppercase tracking-widest text-[#111]">— Operations Command</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 4. VALUES (SEO Content) */}
             <section className="py-24 px-[5vw] lg:px-[8vw] border-t border-white/10">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
                     <div>
