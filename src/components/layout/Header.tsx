@@ -6,7 +6,11 @@ import { cn } from "../../lib/utils";
 import React, { useEffect, useState } from "react";
 import { serviceData } from "../../data/serviceData";
 import { usePWAInstall } from "../../hooks/usePWAInstall";
-import InstallModal from "../shared/InstallModal";
+import dynamic from "next/dynamic";
+
+const InstallModal = dynamic(() => import("../shared/InstallModal"), {
+    ssr: false,
+});
 
 const links = [
     { href: "/", label: "HOME" },

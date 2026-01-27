@@ -12,6 +12,7 @@ import dynamic from "next/dynamic";
 import GradientHero from "@/components/hero/GradientHero";
 import ServiceCard from "@/components/services/ServiceCard";
 import { usePWAInstall } from "@/hooks/usePWAInstall";
+import BackgroundLoader from "@/components/shared/BackgroundLoader";
 
 // Lazy load InstallModal - rarely used, saves ~10KB from critical path
 const InstallModal = dynamic(
@@ -41,6 +42,8 @@ export default function HomePage() {
                     color2="#E5E7EB"
                     initialColor="#E5E7EB"
                 />
+
+                <BackgroundLoader />
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
                     <h1 className="flex flex-col items-center">
