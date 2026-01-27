@@ -116,11 +116,11 @@ export default function CareersPage() {
                                 The Environment
                             </span>
                             <h2 className="text-4xl md:text-5xl font-serif leading-tight">
-                                Equipped for <br />
-                                <span className="italic text-[#C4A67C]">Perfection.</span>
+                                Equipped to <br />
+                                <span className="italic text-[#C4A67C]">Perform.</span>
                             </h2>
                             <p className="text-[#444] text-lg leading-relaxed">
-                                We believe elite craftsmen deserve elite tools. Dakeek technicians operate from fully stocked, showroom-quality vans and utilize the latest diagnostic technology.
+                                We provide the tools you need to do your best work. Dakeek technicians operate from organized, fully stocked vans and use quality professional equipment.
                             </p>
                             <ul className="space-y-4 mt-8">
                                 <li className="flex items-center gap-4">
@@ -128,8 +128,8 @@ export default function CareersPage() {
                                         <Briefcase className="w-4 h-4" />
                                     </div>
                                     <div>
-                                        <div className="font-serif text-lg">Digital Dispatch</div>
-                                        <div className="text-xs font-mono uppercase text-[#666] tracking-wider">Paperless Workflow</div>
+                                        <div className="font-serif text-lg">Clear Job Details</div>
+                                        <div className="text-xs font-mono uppercase text-[#666] tracking-wider">Organized Schedule</div>
                                     </div>
                                 </li>
                                 <li className="flex items-center gap-4">
@@ -137,8 +137,8 @@ export default function CareersPage() {
                                         <ShieldCheck className="w-4 h-4" />
                                     </div>
                                     <div>
-                                        <div className="font-serif text-lg">Premium Uniforms</div>
-                                        <div className="text-xs font-mono uppercase text-[#666] tracking-wider">Respect & Authority</div>
+                                        <div className="font-serif text-lg">Professional Gear</div>
+                                        <div className="text-xs font-mono uppercase text-[#666] tracking-wider">Quality Uniforms</div>
                                     </div>
                                 </li>
                             </ul>
