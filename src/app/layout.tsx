@@ -40,10 +40,10 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.dakeek.ae'),
   title: {
-    template: "%s | Dakeek Residential Services and Maintenance",
-    default: "Dakeek Residential Services and Maintenance | Dubai's #1 Home Experts",
+    default: 'Dakeek - Residential Service and Maintenance',
+    template: '%s | Dakeek - Residential Service and Maintenance'
   },
-  description: "Dubai's verified residential maintenance experts. Precision AC repair, plumbing, electrical, and handyman services. 60-minute emergency response. Serving Downtown, Marina, Palm Jumeirah, and all major communities.",
+  description: 'Precision home maintenance services in Dubai. AC repair, plumbing, electrical, and handyman services with 60-minute response times.',
   keywords: [
     "AC repair Dubai",
     "Emergency plumber Dubai",

@@ -91,6 +91,7 @@ export default function Footer() {
             { name: "Dakeek Chat", href: "#chat", action: openChat },
             { name: "Email Support", href: "mailto:asheejajayan@gmail.com" },
             { name: 'Privacy Policy', href: '/privacy-policy' },
+            { name: "Careers", href: "/careers" },
         ],
         socials: [
             { name: "LinkedIn", href: "https://www.linkedin.com/company/dakeek-technical-service-co-llc/" },

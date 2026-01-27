@@ -28,20 +28,16 @@ export default async function Image() {
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        border: '4px solid #3f3f46',
-                        borderRadius: '40px',
-                        padding: '60px 100px',
-                        background: 'linear-gradient(to bottom, #18181b, #09090b)',
+                        background: 'transparent',
                     }}
                 >
-                    {/* Logo Mark: Shield + Check */}
+                    {/* Logo Mark: Shield + Check (Just the Shield) */}
                     <svg
-                        width="160"
-                        height="160"
+                        width="320"
+                        height="320"
                         viewBox="0 0 24 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        style={{ marginBottom: '40px' }}
                     >
                         <path
                             d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z"
@@ -58,33 +54,6 @@ export default async function Image() {
                             strokeLinejoin="round"
                         />
                     </svg>
-
-                    {/* Brand Name */}
-                    <div
-                        style={{
-                            fontSize: 80,
-                            fontWeight: 900,
-                            color: 'white',
-                            letterSpacing: '-0.03em',
-                            marginBottom: '10px',
-                            fontFamily: 'sans-serif',
-                        }}
-                    >
-                        DAKEEK
-                    </div>
-
-                    {/* Tagline */}
-                    <div
-                        style={{
-                            fontSize: 32,
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.4em',
-                            color: '#9A7B4F', // Bronze
-                            fontFamily: 'monospace',
-                        }}
-                    >
-                        Guaranteed Quality
-                    </div>
                 </div>
             </div>
         ),
