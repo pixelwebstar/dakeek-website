@@ -3,29 +3,51 @@
 import React from "react";
 import { Briefcase, ArrowRight, ShieldCheck, Star, Users } from "lucide-react";
 import Link from "next/link";
+import Balancer from "react-wrap-balancer";
 import GradientHero from "../hero/GradientHero";
 
 export default function CareersPage() {
     return (
         <main className="min-h-screen bg-[#0A0A0A] text-white selection:bg-[#C4A67C] selection:text-white">
 
-            {/* 1. HERO: Premium Dark - "Join The Elite" */}
-            <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden border-b border-white/10">
-                <div className="absolute inset-0 bg-[#0A0A0A]">
-                    <div className="absolute inset-0 bg-[url('/images/texture-noise.png')] opacity-20 Mix-blend-overlay"></div>
-                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/0 via-black/50 to-[#0A0A0A]"></div>
+            {/* 1. HERO: Exact Replica of Home Page Design */}
+            <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-canvas">
+                <GradientHero
+                    color1="#9CA3AF"
+                    color2="#E5E7EB"
+                    initialColor="#E5E7EB"
+                />
+
+                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+                    <h1 className="flex flex-col items-center">
+                        <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
+                            Talent Acquisition
+                        </span>
+                        <span className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade block" style={{ animationDelay: '0s' }}>
+                            <Balancer>Join the Elite.</Balancer>
+                        </span>
+                        <span className="text-lg md:text-2xl font-light max-w-2xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12 animate-hero-fade block" style={{ animationDelay: '0.3s' }}>
+                            <Balancer>
+                                We don&apos;t just hire technicians. We recruit craftsmen who define the standard for luxury home maintenance in Dubai.
+                            </Balancer>
+                        </span>
+                    </h1>
+
+                    <div className="flex flex-col md:flex-row gap-4 justify-center items-center animate-hero-fade" style={{ animationDelay: '0.5s' }}>
+                        <a
+                            href="mailto:careers@dakeek.ae"
+                            className="group relative inline-flex items-center justify-center px-12 py-4 bg-ink text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl"
+                        >
+                            <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Apply Now</span>
+                            <div className="absolute inset-0 bg-[#C4A67C] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
+                        </a>
+                    </div>
                 </div>
 
-                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
-                    <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-6 inline-block px-4 py-2 rounded-full border border-white/10 text-[#888] bg-white/5 backdrop-blur-md">
-                        Talent Acquisition
-                    </p>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans tracking-tight mb-8 leading-[0.9] text-white">
-                        Join the <span className="text-[#C4A67C]">Elite.</span>
-                    </h1>
-                    <p className="text-lg md:text-2xl font-light max-w-2xl mx-auto leading-relaxed text-stone-400 mb-12">
-                        We don't just hire technicians. We recruit craftsmen who define the standard for luxury home maintenance in Dubai.
-                    </p>
+                <div className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 text-[#999] animate-bounce">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg>
                 </div>
             </section>
 
