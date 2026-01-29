@@ -50,19 +50,19 @@ export default async function BlogPostPage(
         <>
             <BreadcrumbSchema items={[
                 { label: 'Home', path: '/' },
-                { label: 'Blog', path: '/blog' },
-                { label: post.title, path: `/blog/${post.slug}` }
+                { label: 'Journal', path: '/journal' },
+                { label: post.title, path: `/journal/${post.slug}` }
             ]} />
 
             <main className="min-h-screen bg-[#FAFAF9] pt-32 pb-24">
                 <article className="max-w-3xl mx-auto px-[5vw]">
                     {/* Back Link */}
                     <Link
-                        href="/blog"
+                        href="/journal"
                         className="inline-flex items-center gap-2 text-sm text-[#666] hover:text-[#C4A67C] mb-8 transition-colors"
                     >
                         <ArrowLeft className="w-4 h-4" />
-                        Back to Blog
+                        Back to Journal
                     </Link>
 
                     {/* Header */}
@@ -137,7 +137,7 @@ export default async function BlogPostPage(
                             <h3 className="text-2xl font-serif text-[#111] mb-8">Related Articles</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {relatedPosts.map((related) => (
-                                    <Link key={related.slug} href={`/blog/${related.slug}`} className="group">
+                                    <Link key={related.slug} href={`/journal/${related.slug}`} className="group">
                                         <div className="relative h-[150px] rounded-xl overflow-hidden mb-3">
                                             <Image
                                                 src={related.image}

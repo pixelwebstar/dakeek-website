@@ -89,17 +89,17 @@ export const serviceData: Record<string, ServicePageData> = {
             hero2: "#f8fafc"
         },
         hero: {
-            tag: "AC & Cooling",
-            title: "AC Repair & Maintenance",
-            description: "Fast AC repair, duct cleaning, and maintenance services across Dubai."
+            tag: "Cooling Experts",
+            title: "AC Services",
+            description: "Reliable AC repair and maintenance for homes and businesses across Dubai."
         },
         seo: {
-            title: "Best AC Repair & Maintenance Services in Dubai | Dakeek",
+            title: "AC Repair & Maintenance Dubai | Residential & Commercial | Dakeek",
             keywords: [
-                "AC Repair Dubai", "Air Conditioning Service Dubai", "AC Maintenance Dubai", "Chiller Repair Dubai",
-                "Split AC Repair", "Central AC Maintenance", "Duct Cleaning Dubai", "AC Gas Refill",
-                "Emergency AC Repair Dubai", "AC Technician Near Me", "Best AC Company Dubai", "24/7 AC Repair",
-                "AC Installation Dubai", "Cooling System Repair", "AC Water Leak Fix", "Villa AC Maintenance",
+                "AC Repair Dubai", "Commercial AC Repair", "Restaurant AC Maintenance", "Home AC Service",
+                "Chiller Repair Dubai", "VRF System Maintenance", "Split AC Repair", "Central AC Maintenance",
+                "Duct Cleaning Dubai", "AC AMC Contract Dubai", "Emergency AC Repair", "Best AC Company Dubai",
+                "Office AC Maintenance", "Villa AC Repair", "Industrial AC Services",
                 ...DUBAI_AREAS.map(area => `AC Repair ${area}`),
                 ...DUBAI_AREAS.map(area => `AC Maintenance ${area}`)
             ],
@@ -131,29 +131,29 @@ export const serviceData: Record<string, ServicePageData> = {
         details: [
             {
                 id: "installation",
-                title: "AC Installation",
-                subtitle: "The Perfect Start",
-                description: "A proper installation ensures efficiency. We ensure correct placement and airflow calibration.",
+                title: "Installation & Fit-outs",
+                subtitle: "Home & Business",
+                description: "From split units in villas to VRF systems for offices. We ensure efficiency.",
                 icon: Wind,
-                details: ["Load Calculation", "Ductwork Design", "Efficiency Audits", "Smart Thermostats"],
-                image: "/images/services/ac.webp" // Using reliable local asset
+                details: ["Split Unit Install", "VRF Systems", "Ductwork Design", "Smart Controls"],
+                image: "/images/services/ac.webp"
             },
             {
                 id: "maintenance",
-                title: "AC Maintenance",
-                subtitle: "Peak Performance",
-                description: "Maximize efficiency and comfort. Our comprehensive tune-up checks your unit's key components.",
+                title: "Maintenance & AMC",
+                subtitle: "Preventive Care",
+                description: "Tailored contracts for restaurants, shops, and private residences.",
                 icon: Thermometer,
-                details: ["Coil Cleaning", "Refrigerant Check", "Electrical Inspection", "Drain Flushing"],
+                details: ["Deep Coil Cleaning", "Filter Exchange", "Performance Reports", "Scheduled Visits"],
                 image: "/images/ac/maintenance_new.png"
             },
             {
                 id: "repair",
-                title: "AC Repair",
-                subtitle: "Rapid Response",
-                description: "System down? Our team identifies the root cause to restore your cooling quickly.",
+                title: "Repair Service",
+                subtitle: "Fast Response",
+                description: "Is your AC blowing hot air? Our technicians diagnose and fix issues rapidly.",
                 icon: Wrench,
-                details: ["Compressor Diagnostics", "Leak Repair", "Circuit Board Fix", "Priority Service"],
+                details: ["Compressor Fix", "Gas Top-up", "Leak Repair", "Circuit Board"],
                 image: "/images/ac/maintenance_final.jpg"
             }
         ],
@@ -195,17 +195,16 @@ export const serviceData: Record<string, ServicePageData> = {
             hero2: "#ecfeff"
         },
         hero: {
-            tag: "Hydraulics",
+            tag: "Water Systems",
             title: "Plumbing Services",
-            description: "Emergency leak detection, water heater repair, and drain cleaning."
+            description: "Leak detection, heaters, pumps, and grease traps for all properties."
         },
         seo: {
-            title: "Emergency Plumber Dubai | Leak Detection & Water Heater Repair | Dakeek",
+            title: "Professional Plumber Dubai | Residential & Commercial Services | Dakeek",
             keywords: [
-                "Plumber Dubai", "Emergency Plumber Dubai", "Water Leak Detection Dubai", "Water Heater Repair Dubai",
-                "Drain Cleaning Dubai", "Blocked Toilet Fix", "Pump Repair Dubai", "Pipe Leak Repair",
-                "Bathroom Plumbing Dubai", "Kitchen Plumbing", "Water Pump Repair Dubai", "Best Plumbers in Dubai",
-                "24 Hour Plumber Dubai", "Dripping Tap Fix", "Water Pressure Booster Dubai",
+                "Plumber Dubai", "Commercial Plumber Dubai", "Restaurant Plumbing", "Leak Detection Dubai",
+                "Water Heater Repair", "Drain Cleaning Dubai", "Grease Trap Cleaning", "Water Pump Repair",
+                "Emergency Plumber", "Villa Plumbing Maintenance", "Office Plumbing Services", "Blocked Toilet Fix",
                 ...DUBAI_AREAS.map(area => `Plumber ${area}`),
                 ...DUBAI_AREAS.map(area => `Leak Detection ${area}`)
             ],
@@ -235,28 +234,28 @@ export const serviceData: Record<string, ServicePageData> = {
                 id: "leaks",
                 title: "Leak Detection",
                 subtitle: "Precision Tracing",
-                description: "Hidden leaks can cause damage. We aim to find them with minimal disruption.",
+                description: "Hidden leaks cause damage. We trace them in walls and floors accurately.",
                 icon: Search,
-                details: ["Hidden Leak Tracing", "Pinpoint Accuracy", "Water Bill Check", "Damage-Free"],
+                details: ["Acoustic Tracing", "Thermal Imaging", "Water Bill Check", "Non-Invasive"],
                 image: "/images/services/plumbing.webp"
             },
             {
-                id: "heaters",
-                title: "Water Heaters",
-                subtitle: "Thermodynamics",
-                description: "We repair and install major types of electric and gas water heaters.",
-                icon: Flame,
-                details: ["Element Replacement", "Tank Flushing", "Thermostat Check", "Safety Valves"],
-                image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80" // Water Heater / Boiler (Residential)
+                id: "commercial",
+                title: "Commercial Plumbing",
+                subtitle: "Business Ready",
+                description: "Grease trap cleaning, high-flow drainage, and restroom maintenance.",
+                icon: Droplet,
+                details: ["Grease Traps", "Drain Jetting", "Staff Washrooms", "Kitchen Drainage"],
+                image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80"
             },
             {
                 id: "pumps",
-                title: "Booster Pumps",
-                subtitle: "Flow Dynamics",
-                description: "Low pressure is frustrating. We check your system to improve flow.",
+                title: "Pumps & Heaters",
+                subtitle: "Systems",
+                description: "From villa water heaters to industrial booster pumps.",
                 icon: Activity,
-                details: ["Pressure Switch", "Motor Check", "Impeller Check", "System Check"],
-                image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80" // Water Pressure / Shower (Residential)
+                details: ["Booster Pumps", "Water Heaters", "Pressure Switches", "Tank Valves"],
+                image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80"
             }
         ],
         techSpecs: {
@@ -292,15 +291,14 @@ export const serviceData: Record<string, ServicePageData> = {
         hero: {
             tag: "Power Systems",
             title: "Electrical Services",
-            description: "Safe electrical repair, wiring, and maintenance for Dubai homes."
+            description: "From fixing a socket at home to wiring a retail shop. Safe & Certified."
         },
         seo: {
-            title: "Certified Electrician Dubai | Emergency Electrical Services | Dakeek",
+            title: "Electrician Dubai | Residential & Commercial Services | Dakeek",
             keywords: [
-                "Electrician Dubai", "Emergency Electrician Dubai", "Electrical Maintenance Dubai", "Short Circuit Fix Dubai",
-                "Electrical Panel Upgrade", "Light Installation Dubai", "Power Outage Fix", "Home Wiring Dubai",
-                "Socket Repair Dubai", "Certified Electricians Dubai", "Electrical Contractor Dubai", "24/7 Electrician",
-                "Breaker Tripping Fix", "Garden Lighting Installation", "Villa Electrical Maintenance",
+                "Electrician Dubai", "Commercial Electrician", "Office Lighting", "3 Phase Wiring Dubai",
+                "Home Wiring Dubai", "Retail Electrical Services", "Short Circuit Fix", "DB Dressing",
+                "Electrical Maintenance AMC", "Chandelier Installation", "Emergency Electrician",
                 ...DUBAI_AREAS.map(area => `Electrician ${area}`),
                 ...DUBAI_AREAS.map(area => `Electrical Services ${area}`)
             ],
@@ -328,30 +326,30 @@ export const serviceData: Record<string, ServicePageData> = {
         details: [
             {
                 id: "wiring",
-                title: "Wiring & Panels",
-                subtitle: "The Nervous System",
-                description: "We inspect and organize your distribution boards for safety.",
+                title: "Wiring & Safety",
+                subtitle: "Inspections",
+                description: "DB dressing, short circuit tracing, and safety audits for homes and offices.",
                 icon: Zap,
                 details: ["Load Balancing", "Breaker Testing", "Short Circuit Fix", "Rewiring"],
                 image: "/images/services/electrical.webp"
             },
             {
-                id: "lights",
-                title: "Lighting Installation",
-                subtitle: "Illumination",
-                description: "From ambiance to security. We install systems that save energy and look great.",
+                id: "lighting",
+                title: "Lighting Solutions",
+                subtitle: "Retail & Home",
+                description: "From chandelier hanging in villas to track lighting in retail shops.",
                 icon: Sparkles,
-                details: ["LED Upgrades", "Dimmer Switches", "Garden Lighting", "Hidden Strips"],
-                image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&q=80" // Reliable Lighting
+                details: ["LED Upgrades", "Retail Tracks", "Garden Lighting", "Chandelier Install"],
+                image: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&q=80"
             },
             {
-                id: "smart",
-                title: "Smart Home",
-                subtitle: "Automation",
-                description: "Control your world. We integrate smart switches and sensors for a connected experience.",
+                id: "power",
+                title: "Power Systems",
+                subtitle: "Heavy Duty",
+                description: "3-Phase connections for industrial equipment and server rooms.",
                 icon: Activity,
-                details: ["IoT Integration", "Sensor Install", "Voice Control", "Wifi Setup"],
-                image: "https://images.unsplash.com/photo-1556911220-e1584149fa74?auto=format&fit=crop&q=80" // Reliable Smart Home
+                details: ["3-Phase Wiring", "Isolator Switches", "Control Panels", "Data Cabling"],
+                image: "https://images.unsplash.com/photo-1556911220-e1584149fa74?auto=format&fit=crop&q=80"
             }
         ],
         techSpecs: {
@@ -387,7 +385,7 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         hero: {
             tag: "Hygiene",
-            title: "Deep Cleaning Services",
+            title: "Cleaning Services",
             description: "Deep cleaning, water tank sanitization, and duct cleaning."
         },
         seo: {
@@ -424,7 +422,7 @@ export const serviceData: Record<string, ServicePageData> = {
         details: [
             {
                 id: "deep-clean",
-                title: "Deep Cleaning",
+                title: "Cleaning Services",
                 subtitle: "Intensive",
                 description: "Thorough home sanitization for move-ins or seasonal cleaning.",
                 icon: Sparkles,
@@ -482,18 +480,18 @@ export const serviceData: Record<string, ServicePageData> = {
             hero2: "#fff7ed"
         },
         hero: {
-            tag: "Cooking Heat",
-            title: "Stove & Cooker Repair",
-            description: "Blue flames. Even heat. Safe cooking."
+            tag: "Gas Systems",
+            title: "Gas & Cookers",
+            description: "Domestic cooker repair and commercial gas line maintenance."
         },
         seo: {
-            title: "Cooker & Stove Repair Dubai | Oven Maintenance | Dakeek",
+            title: "Gas Stove & Commercial Burner Repair Dubai | Dakeek",
             keywords: [
-                "Stove Repair Dubai", "Cooker Repair Dubai", "Oven Repair Service", "Cooking Range Repair",
-                "Hob Fix", "Burner Cleaning Service", "Stove Maintenance Dubai", "Induction Cooker Repair",
-                "Kitchen Appliance Repair Dubai", "Cooker Hood Fix", "Ariston Stove Repair", "Elba Cooker Repair",
+                "Stove Repair Dubai", "Cooker Repair Dubai", "Commercial Burner Repair", "Restaurant Kitchen Maintenance",
+                "Oven Repair Service", "Gas Line Installation", "IGD System Maintenance", "Cooking Range Repair",
+                "Ariston Stove Repair", "Pizza Oven Repair", "Kitchen Gas Safety", "Hotel Kitchen Maintenance",
                 ...DUBAI_AREAS.map(area => `Stove Repair ${area}`),
-                ...DUBAI_AREAS.map(area => `Oven Repair ${area}`)
+                ...DUBAI_AREAS.map(area => `Gas Line Repair ${area}`)
             ],
             schemaType: "GeneralContractor",
             qna: [
@@ -518,31 +516,31 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         details: [
             {
-                id: "burners",
-                title: "Burner Service",
-                subtitle: "Combustion",
-                description: "Yellow flame? We clean nozzles and adjust air mixers for a better flame.",
+                id: "cookers",
+                title: "Domestic Cookers",
+                subtitle: "Home Kitchens",
+                description: "We repair Ariston, Elba, and all major home cooker brands.",
                 icon: Flame,
-                details: ["Nozzle Cleaning", "Air Mix Adjust", "Igniter Fix", "Grate Cleaning"],
+                details: ["Flame Issues", "Oven Heating", "Glass Replacement", "Knob Repair"],
                 image: "/images/services/stoves.webp"
             },
             {
-                id: "oven",
-                title: "Oven Repair",
-                subtitle: "Baking",
-                description: "Uneven baking? We check thermostats and heating elements.",
-                icon: Thermometer,
-                details: ["Element Check", "Thermostat Check", "Door Seal", "Fan Motor"],
-                image: "https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?auto=format&fit=crop&q=80" // Modern Oven Interior
+                id: "commercial-burners",
+                title: "Commercial Burners",
+                subtitle: "Restaurants",
+                description: "High-BTU burner maintenance, nozzle cleaning, and pilot light fixes.",
+                icon: Flame,
+                details: ["Nozzle Cleaning", "Air Mix Adjust", "Valve Repair", "Carbon Removal"],
+                image: "https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?auto=format&fit=crop&q=80"
             },
             {
-                id: "safety",
-                title: "Safety Check",
-                subtitle: "Connections",
-                description: "We check connections for leaks and tightness.",
+                id: "gas-lines",
+                title: "Gas Pipelines",
+                subtitle: "Safety First",
+                description: "IGD & LPG gas line installation and leak detection systems.",
                 icon: ShieldCheck,
-                details: ["Connection Test", "Shutoff Valve", "Glass Check", "Knob Repair"],
-                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80" // Safety Valve / Technical
+                details: ["Leak Detection", "Pressure Testing", "Solenoid Valves", "Safety Interlocks"],
+                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80"
             }
         ],
         techSpecs: {
@@ -578,16 +576,15 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         hero: {
             tag: "Versatile",
-            title: "Handyman & Assembly",
-            description: "Furniture assembly, TV mounting, and general home repairs."
+            title: "Handyman Services",
+            description: "Furniture assembly, TV mounting, and fit-out repairs for shops and homes."
         },
         seo: {
-            title: "Best Handyman Services Dubai | Mounting, Assembly & Repairs | Dakeek",
+            title: "Handyman & Fit-out Services Dubai | Home & Shop Repairs | Dakeek",
             keywords: [
-                "Handyman Dubai", "Furniture Assembly Dubai", "TV Mounting Service", "Curtain Installation Dubai",
-                "IKEA Furniture Assembly", "Home Maintenance Handyman", "Picture Hanging Service", "Drilling Services Dubai",
-                "Door Handle Repair", "Shelving Installation", "Carpenter Handyman", "Odd Jobs Dubai",
-                "Professional Handyman Near Me", "Cheap Handyman Dubai",
+                "Handyman Dubai", "Shop Fitout Dubai", "Furniture Assembly", "TV Mounting Service",
+                "Retail Shop Maintenance", "Office Furniture Assembly", "Curtain Installation", "Door Closer Repair",
+                "Shelving Installation", "Commercial Handyman", "Home Repairs Dubai", "Odd Jobs Service",
                 ...DUBAI_AREAS.map(area => `Handyman ${area}`),
                 ...DUBAI_AREAS.map(area => `Furniture Assembly ${area}`)
             ],
@@ -614,31 +611,31 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         details: [
             {
-                id: "mounting",
-                title: "TV Mounting & Hanging",
-                subtitle: "Precision",
-                description: "TVs, mirrors, curtains, and art. We use levels and proper anchors.",
-                icon: Wrench, // Reusing generic tool icon
-                details: ["TV Mounting", "Curtain Rods", "Shelving", "Art Installation"],
-                image: "/images/services/handyman.webp" // Drill/Wall
+                id: "home-tasks",
+                title: "Home Handyman",
+                subtitle: "Residential",
+                description: "Mounting TVs, hanging curtains, and fixing door handles in your home.",
+                icon: Wrench,
+                details: ["TV Mounting", "Curtain Rods", "Picture Hanging", "Minor Plumbing"],
+                image: "/images/services/handyman.webp"
             },
             {
                 id: "assembly",
                 title: "Furniture Assembly",
-                subtitle: "No Spare Parts",
-                description: "We assemble wardrobes, beds, tables, and desks solid.",
-                icon: Gauge, // Symbolizing assembly/structure
+                subtitle: "IKEA & Custom",
+                description: "We assemble wardrobes, beds, and office desks efficiently.",
+                icon: Gauge,
                 details: ["Furniture Assembly", "Bed Frames", "Wardrobes", "Office Desks"],
-                image: "https://images.unsplash.com/photo-1595846519845-68e298c2edd8?auto=format&fit=crop&q=80" // Furniture/Assembly
+                image: "https://images.unsplash.com/photo-1595846519845-68e298c2edd8?auto=format&fit=crop&q=80"
             },
             {
-                id: "repair",
-                title: "General Repairs",
-                subtitle: "Fix It All",
-                description: "Door handles, hinges, drawer slides, and minor touch-ups.",
-                icon: Wrench,
-                details: ["Door Hinges", "Cabinet Handles", "Drawer Slides", "Caulking"],
-                image: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80" // Toolbox
+                id: "fit-out",
+                title: "Shop Fit-out",
+                subtitle: "Commercial",
+                description: "Shelving, partitions, and repairs for retail shops and offices.",
+                icon: Gauge,
+                details: ["Shelving Install", "Partition Walls", "Door Closers", "Ceiling Tiles"],
+                image: "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80"
             }
         ],
         techSpecs: {
@@ -755,10 +752,10 @@ export const serviceData: Record<string, ServicePageData> = {
         relatedServices: ["ac", "plumbing", "electrical"]
     },
 
-    // 09. Other (Custom)
-    other: {
+    // 09. AMC Contracts (Formerly Other)
+    amc: {
         id: "09",
-        slug: "other",
+        slug: "amc",
         theme: {
             primaryText: "text-slate-900",
             primaryBg: "bg-slate-950",
@@ -769,73 +766,83 @@ export const serviceData: Record<string, ServicePageData> = {
             hero2: "#f1f5f9"
         },
         hero: {
-            tag: "Custom",
-            title: "Other Services",
-            description: "Unique requests? We handle special projects too."
+            tag: "Peace of Mind",
+            title: "AMC Contracts",
+            description: "Annual maintenance packages for homes and businesses. Priority support, scheduled visits, and zero worries."
         },
         seo: {
-            title: "Custom Home Maintenance Services Dubai | Special Projects | Dakeek",
+            title: "Annual Maintenance Contracts Dubai | Home & Business AMC | Dakeek",
             keywords: [
-                "Custom Home Repairs Dubai", "Special Maintenance Projects", "Villa Renovation Minor", "Home Improvement Dubai",
-                "Odd Jobs Service", "Custom Carpentry", "General Fixes Dubai"
+                "AMC Contract Dubai", "Home Maintenance Package", "Annual AC Maintenance Contract", "Villa AMC Dubai",
+                "Office Maintenance Contract", "Property Management AMC", "Building Maintenance Dubai", "Restaurant AMC Services",
+                ...DUBAI_AREAS.map(area => `AMC Contract ${area}`)
             ],
-            schemaType: "GeneralContractor",
-            qna: []
+            schemaType: "Service",
+            qna: [
+                {
+                    question: "What is included in an AMC package?",
+                    answer: "Our packages typically include scheduled AC maintenance, plumbing and electrical inspections, and priority emergency response."
+                },
+                {
+                    question: "Do you offer AMC for commercial properties?",
+                    answer: "Yes, we provide tailored maintenance contracts for offices, restaurants, and retail spaces."
+                }
+            ]
         },
         intro: {
-            heading: "Not every problem fits a category. If it's broken, tricky, or unusual, let us take a look.",
+            heading: "Don't wait for things to break. Our Annual Maintenance Contracts keep your property running smoothly year-round.",
             stats: [
-                { value: "Custom", label: "Scope", sub: "Defined" },
-                { value: "Flex", label: "Team", sub: "Adapted" },
-                { value: "Quote", label: "Free", sub: "Upfront" },
-                { value: "100%", label: "Solution", sub: "Found" }
+                { value: "365", label: "Coverage", sub: "Days" },
+                { value: "Priority", label: "Response", sub: "Speed" },
+                { value: "Fixed", label: "Cost", sub: "Budget" },
+                { value: "Total", label: "Care", sub: "Asset" }
             ]
         },
         details: [
             {
-                id: "consult",
-                title: "Consultation",
-                subtitle: "Diagnosis",
-                description: "Don't know what's wrong? We perform a full home health check to identify underlying issues.",
+                id: "home-amc",
+                title: "Home Packages",
+                subtitle: "Residential",
+                description: "Comprehensive care for villas and apartments. Includes AC, plumbing, and electrical upkeep.",
+                icon: ShieldCheck,
+                details: ["Scheduled Visits", "Emergency Callouts", "AC Servicing", "Handyman Help"],
+                image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80"
+            },
+            {
+                id: "business-amc",
+                title: "Business Support",
+                subtitle: "Commercial",
+                description: "Operational stability for restaurants, offices, and retail. Minimize downtime.",
+                icon: Activity,
+                details: ["Preventive Maintenance", "Compliance Checks", "After-hours Service", "Asset Asset Management"],
+                image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+            },
+            {
+                id: "preventive",
+                title: "Preventive Care",
+                subtitle: "Long-term",
+                description: "Regular inspections to catch small issues before they become expensive repairs.",
                 icon: Search,
-                details: ["Full Inspection", "Report", "Advice", "Plan"],
-                image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80" // Blueprint/Plan
-            },
-            {
-                id: "special",
-                title: "Special Projects",
-                subtitle: "Unique",
-                description: "From installing pet doors to hanging chandeliers or custom requests.",
-                icon: Sparkles,
-                details: ["Conversions", "Upgrades", "Installations", "Fixes"],
-                image: "https://images.unsplash.com/photo-1581093588401-fbb07366f531?auto=format&fit=crop&q=80" // Mechanical/Special
-            },
-            {
-                id: "renovation",
-                title: "Minor Touch-ups",
-                subtitle: "Refresh",
-                description: "Grouting, sealing, painting touch-ups, and restoring the look of your home.",
-                icon: Wrench,
-                details: ["Grouting", "Sealing", "Patching", "Restoring"],
-                image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&q=80" // Paint/Wall
+                details: ["System Audits", "Report Logs", "Efficiency Tuning", "Safety Checks"],
+                image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80"
             }
         ],
         techSpecs: {
             grid: [
-                { label: "SCOPE", value: "CUSTOM" },
-                { label: "TEAM", value: "EXPERT" },
-                { label: "PLAN", value: "CLEAR" },
-                { label: "RESULT", value: "PERFECT" }
+                { label: "SCOPE", value: "365 DAYS" },
+                { label: "TEAM", value: "PRIORITY" },
+                { label: "PLAN", value: "CUSTOM" },
+                { label: "RESULT", value: "PEACE" }
             ],
-            tools: "Everything in our vans and more.",
-            list: ["Diagnosis", "Planning", "Execution", "Review", "Cleanup"]
+            tools: "Scheduled maintenance checklists and tracking.",
+            list: ["System Audits", "Performance Logs", "Safety Checks", "Priority Status", "Asset History"]
         },
         uniqueBenefits: [
-            "Flexible scope for unusual requests",
-            "Free consultation and upfront quote",
-            "Multi-skill technicians for hybrid jobs",
-            "We aim to find solutions for any problem"
+            "Priority response for contract holders",
+            "Preventive maintenance reduces failure",
+            "Fixed annual cost for budgeting",
+            "Extended asset lifespan"
         ],
-        relatedServices: ["handyman", "cleaning", "plumbing"]
+        relatedServices: ["ac", "plumbing", "electrical"]
     }
 };

@@ -73,7 +73,7 @@ export default function CareersPage() {
                                     <ShieldCheck className="w-4 h-4 text-[#C4A67C]" />
                                     <span>Vetted Skills</span>
                                 </div>
-                                <p className="text-xs text-stone-500 uppercase tracking-wider">Top 1% Only</p>
+                                <p className="text-xs text-stone-500 uppercase tracking-wider">Expert Level</p>
                             </div>
                             <div className="space-y-2">
                                 <div className="flex items-center gap-2 text-white font-medium">

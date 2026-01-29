@@ -48,7 +48,7 @@ export default function HomePage() {
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
                     <h1 className="flex flex-col items-center">
                         <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
-                            Precision Residential Services
+                            Residential & Commercial Services
                         </span>
                         <span className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade block" style={{ animationDelay: '0s' }}>
                             <Balancer>Dakeek</Balancer>
@@ -83,10 +83,10 @@ export default function HomePage() {
                 <div className="flex gap-8 md:gap-16 whitespace-nowrap font-mono text-xs uppercase tracking-widest text-[#6B5344] animate-ticker">
                     {[...Array(4)].map((_, i) => (
                         <div key={i} className="flex gap-8 md:gap-16">
-                            <span className="flex items-center gap-2"><ShieldCheck className="w-3.5 h-3.5" strokeWidth={1.5} /> PRIVACY GUARANTEED</span>
-                            <span className="flex items-center gap-2"><UserCheck className="w-3.5 h-3.5" strokeWidth={1.5} /> TRUSTED BY FAMILIES</span>
-                            <span className="flex items-center gap-2"><Home className="w-3.5 h-3.5" strokeWidth={1.5} /> RESIDENTIAL SPECIALISTS</span>
-                            <span className="flex items-center gap-2"><Clock className="w-3.5 h-3.5" strokeWidth={1.5} /> ALWAYS ON TIME</span>
+                            <span className="flex items-center gap-2"><ShieldCheck className="w-3.5 h-3.5" strokeWidth={1.5} /> RESIDENTIAL & COMMERCIAL</span>
+                            <span className="flex items-center gap-2"><UserCheck className="w-3.5 h-3.5" strokeWidth={1.5} /> TRUSTED EXPERTS</span>
+                            <span className="flex items-center gap-2"><Home className="w-3.5 h-3.5" strokeWidth={1.5} /> TECHNICAL SERVICES</span>
+                            <span className="flex items-center gap-2"><Clock className="w-3.5 h-3.5" strokeWidth={1.5} /> 24/7 SUPPORT</span>
                         </div>
                     ))}
                 </div>
@@ -108,11 +108,11 @@ export default function HomePage() {
                         </span>
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-light leading-tight max-w-4xl mx-auto mb-8">
                             <Balancer>
-                                Your Home, Our Priority.
+                                Your Property, Our Priority.
                             </Balancer>
                         </h2>
                         <p className="text-lg md:text-xl text-[#CCC] font-light max-w-3xl mx-auto leading-relaxed">
-                            Dakeek is a Dubai-based home maintenance company helping families and landlords keep their homes running smoothly with fast, professional AC, plumbing, electrical, and handyman services.
+                            Dakeek provides premium technical support for homeowners and businesses alike. Whether it’s a family villa or a busy restaurant, we ensure your systems run perfectly.
                         </p>
                     </div>
 
@@ -190,70 +190,70 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[
                         {
-                            title: "AC",
+                            title: "AC Services",
                             href: "/services/ac",
                             icon: IconAC,
                             image: "/images/services/ac.png",
-                            features: ["Precision Cooling", "Install & Repair", "Split / Central"],
-                            seoTitle: "AC maintenance and repair services in Dubai"
+                            features: ["Repair & Maintenance", "Duct Cleaning", "AMC Contracts"],
+                            seoTitle: "AC services for homes and businesses in Dubai"
                         },
                         {
-                            title: "Plumbing",
+                            title: "Plumbing Services",
                             href: "/services/plumbing",
                             icon: IconPlumbing,
                             image: "/images/services/plumbing.png",
-                            features: ["Water Systems", "Leak Detection", "Pumps & Heaters"],
-                            seoTitle: "Plumbing repair and leak detection in Dubai"
+                            features: ["Leak Detection", "Water Heaters", "Grease Traps"],
+                            seoTitle: "Residential and commercial plumbing services"
                         },
                         {
-                            title: "Electrical",
+                            title: "Electrical Services",
                             href: "/services/electrical",
                             icon: IconElectrical,
                             image: "/images/services/electrical.png",
-                            features: ["Power Distribution", "Load Balancing", "Safety Systems"],
-                            seoTitle: "Electrical works and power distribution in Dubai"
+                            features: ["Safety Inspections", "Lighting", "3-Phase Power"],
+                            seoTitle: "Electrical maintenance for properties in Dubai"
                         },
                         {
-                            title: "Cleaning",
+                            title: "Cleaning Services",
                             href: "/services/cleaning",
                             icon: IconCleaning,
                             image: "/images/services/cleaning.png",
                             features: ["Deep Cleaning", "Water Tanks", "Duct Sanitization"],
-                            seoTitle: "Deep cleaning, water tank and duct sanitization in Dubai"
+                            seoTitle: "Deep cleaning and sanitization services"
                         },
                         {
-                            title: "Stoves",
+                            title: "Gas & Cookers",
                             href: "/services/stoves",
                             icon: IconStoves,
                             image: "/images/services/stoves.png",
-                            features: ["Cooker Repair", "Calibration", "Burner Service"],
-                            seoTitle: "Stove and cooker repair services in Dubai"
+                            features: ["Cooker Repair", "Gas Lines", "Commercial Burners"],
+                            seoTitle: "Gas stove repair and pipeline services"
                         },
                         {
-                            title: "Handyman",
+                            title: "Handyman Services",
                             href: "/services/handyman",
                             icon: IconHandyman,
                             image: "/images/services/handyman_final.png",
-                            features: ["Mounting", "Assembly", "General Repairs"],
-                            seoTitle: "Handyman and general home repairs in Dubai"
+                            features: ["Mounting & Assembly", "General Repairs", "Shop Fit-out"],
+                            seoTitle: "Handyman and fit-out services for all properties"
                         },
                         {
-                            title: "Other",
-                            href: "/contact",
+                            title: "AMC Contracts",
+                            href: "/services/amc",
                             icon: IconOther,
                             image: "/images/services/other_final.png",
-                            features: ["Custom Request", "Consultation", "Special Projects"],
+                            features: ["Home Packages", "Business Support", "Preventive Care"],
                             variant: "other",
-                            seoTitle: "Custom home maintenance requests in Dubai"
+                            seoTitle: "Annual maintenance contracts for Dubai properties"
                         },
                         {
                             title: "Emergency",
                             href: "/services/emergency",
                             icon: IconEmergency,
                             image: "/images/services/emergency_final.png",
-                            features: ["Critical Failure", "24/7 Response", "Immediate Dispatch"],
+                            features: ["24/7 Response", "Power Outage", "Water Leaks"],
                             variant: "emergency",
-                            seoTitle: "24/7 emergency home maintenance services in Dubai"
+                            seoTitle: "24/7 emergency maintenance services"
                         }
                     ].map((service, index) => (
                         <ServiceCard
@@ -269,6 +269,80 @@ export default function HomePage() {
                     ))}
                 </div>
             </section>
+
+            {/* 5. INDUSTRIES WE SERVE - CLEAN TEXTUAL (Dark) */}
+            <section className="w-full bg-[#050505] text-white py-20 lg:py-24 border-b border-white/5">
+                <div className="max-w-7xl mx-auto px-[5vw] lg:px-[8vw]">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                        <div>
+                            <span className="inline-block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.3em] mb-4">
+                                Sectors
+                            </span>
+                            <h2 className="text-4xl md:text-5xl font-serif font-light leading-none">
+                                Serving All Spaces
+                            </h2>
+                        </div>
+                        <p className="text-[#666] max-w-sm text-sm md:text-base leading-relaxed">
+                            Specialized technical support for Dubai's most demanding environments.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
+                        {[
+                            "Private Villas",
+                            "Luxury Apartments",
+                            "Restaurants & Cafes",
+                            "Retail Showrooms",
+                            "Corporate Offices",
+                            "Property Management",
+                            "Fitness Centers",
+                            "Salons & Spas"
+                        ].map((industry, i) => (
+                            <div key={i} className="group flex items-center gap-4 cursor-default">
+                                <span className="text-[#333] font-mono text-sm group-hover:text-[#C4A67C] transition-colors">0{i + 1}</span>
+                                <h3 className="text-xl md:text-2xl font-serif text-[#CCC] group-hover:text-white transition-colors">
+                                    {industry}
+                                </h3>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* NEW SECTION: LIGHT THEME BRIDGE (The Dakeek Standard) */}
+            <section className="w-full bg-[#F5F5F0] text-[#111] py-24 lg:py-32 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-black/10 to-transparent"></div>
+
+                <div className="max-w-7xl mx-auto px-[5vw] lg:px-[8vw] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span className="inline-block font-mono text-xs text-slate-500 uppercase tracking-[0.3em] mb-6">
+                            The Standard
+                        </span>
+                        <h2 className="text-4xl md:text-6xl font-serif leading-tight mb-8">
+                            Licensed.<br />Certified.<br />Transparent.
+                        </h2>
+                        <p className="text-lg text-slate-600 leading-relaxed max-w-md">
+                            We bridge the gap between freelance handymen and corporate facility management. Professional, compliant, and always accountable.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        {[
+                            { title: "Municiaplity Certified", desc: "Fully compliant with Dubai regulations." },
+                            { title: "Priority Response", desc: "Rapid deployment for emergencies." },
+                            { title: "Transparent Pricing", desc: "No hidden costs. Detailed quotations." },
+                            { title: "Warranty Assured", desc: "30-day service guarantee on all jobs." }
+                        ].map((item, i) => (
+                            <div key={i} className="bg-white p-8 rounded-xl shadow-sm border border-black/5 hover:shadow-md transition-shadow">
+                                <h4 className="font-serif text-xl mb-3">{item.title}</h4>
+                                <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* 6. HOW IT WORKS */}
 
             {/* 6. HOW IT WORKS (Human Process) - Matching Philosophy Design */}
             <section className="relative w-full bg-[#111] text-white py-8 lg:py-12 border-b border-[#333] overflow-hidden">

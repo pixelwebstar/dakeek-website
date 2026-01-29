@@ -3,7 +3,7 @@ import CareersPage from "@/components/pages/CareersPage";
 
 export const metadata: Metadata = {
     title: "Careers at Dakeek - Join Dubai's Elite Home Maintenance Team",
-    description: "Looking for technician jobs in Dubai? Dakeek recruits the top 1% of AC technicians, plumbers, and electricians for luxury residential service. Join our reserve list.",
+    description: "Looking for technician jobs in Dubai? Dakeek recruits elite AC technicians, plumbers, and electricians for luxury residential service. Join our reserve list.",
     keywords: [
         "Jobs in Dubai",
         "Technician Jobs Dubai",

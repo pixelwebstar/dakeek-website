@@ -90,7 +90,7 @@ export default function JournalHubPage() {
                 <section className="relative z-10 w-full bg-white px-6 md:px-12 py-24 border-b border-black/5">
                     <div className="max-w-[1200px] mx-auto">
                         {featuredPost && (
-                            <Link href={`/blog/${featuredPost.slug}`} className="group block">
+                            <Link href={`/journal/${featuredPost.slug}`} className="group block">
                                 <article className="relative">
                                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
                                         {/* Image */}
@@ -136,7 +136,7 @@ export default function JournalHubPage() {
 
                     <div className="max-w-4xl mx-auto space-y-16 relative">
                         {remainingPosts.map((post) => (
-                            <Link href={`/blog/${post.slug}`} key={post.slug} className="group block border-t border-black/5 pt-16 first:border-0 first:pt-0">
+                            <Link href={`/journal/${post.slug}`} key={post.slug} className="group block border-t border-black/5 pt-16 first:border-0 first:pt-0">
                                 <article className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-start">
 
                                     {/* Content Left */}

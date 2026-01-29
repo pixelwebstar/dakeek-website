@@ -1,8 +1,9 @@
 export const DUBAI_AREAS = [
     "Palm Jumeirah", "Dubai Marina", "Jumeirah Lake Towers (JLT)", "Downtown Dubai",
-    "Business Bay", "Arabian Ranches", "Emirates Hills", "Jumeirah Islands", "The Meadows",
+    "Business Bay", "DIFC", "Sheikh Zayed Road", "Dubai Media City", "Dubai Internet City",
+    "Al Quoz", "Deira", "Bur Dubai", "Arabian Ranches", "Emirates Hills", "Jumeirah Islands", "The Meadows",
     "The Springs", "Jumeirah Park", "Al Barsha", "Umm Suqeim", "Jumeirah", "Mudon",
-    "Damac Hills", "Dubai Hills Estate", "Meydan", "DIFC", "Sheikh Zayed Road",
+    "Damac Hills", "Dubai Hills Estate", "Meydan",
     "The Greens", "The Views", "Victory Heights", "Sports City", "Motor City", "Sustainable City",
     "Al Furjan", "Jumeirah Village Circle (JVC)", "Jumeirah Village Triangle (JVT)", "Remraam",
     "Town Square", "Mira", "Mira Oasis", "Silicon Oasis", "Academic City", "Mirdif"
@@ -10,12 +11,12 @@ export const DUBAI_AREAS = [
 
 export const SERVICE_TYPES = [
     "AC Services",
-    "Plumbing",
-    "Electrical",
-    "Cleaning",
-    "Stove Repair",
-    "Handyman",
-    "Other",
+    "Plumbing Services",
+    "Electrical Services",
+    "Cleaning Services",
+    "Gas & Cookers",
+    "Handyman Services",
+    "AMC Contracts",
     "Emergency"
 ] as const;
 

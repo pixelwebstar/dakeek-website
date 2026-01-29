@@ -56,6 +56,14 @@ export function SmartForm() {
                 })
             });
 
+
+            // Handle HTTP errors
+            if (!response.ok) {
+                const result = await response.json();
+                console.error("API Error:", result);
+                throw new Error(result.error || `Server responded with ${response.status}`);
+            }
+
             const result = await response.json();
 
             if (!response.ok) {
@@ -76,7 +84,7 @@ export function SmartForm() {
         } catch (error: unknown) {
             console.error("Form submission error:", error);
             setStatus("error");
-            const message = (error as Error)?.message || "Something went wrong. Please try again.";
+            const message = (error as Error)?.message || "Something went wrong. Please try again or message us on WhatsApp.";
             setErrorMessage(message);
             toast.error("Submission Failed", { description: message });
         }

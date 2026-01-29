@@ -18,7 +18,7 @@ const getServiceImage = (slug: string) => {
 
 export default function ServicesHubPage() {
     // List of services in order - Included 'other'
-    const serviceKeys = ["ac", "plumbing", "electrical", "cleaning", "stoves", "handyman", "other", "emergency"];
+    const serviceKeys = ["ac", "plumbing", "electrical", "cleaning", "stoves", "handyman", "amc", "emergency"];
 
     return (
         <main className="min-h-screen bg-[#FAFAF9] text-[#111] overflow-x-hidden selection:bg-[#5A4A32] selection:text-white">

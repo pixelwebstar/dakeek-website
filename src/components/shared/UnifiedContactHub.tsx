@@ -211,10 +211,10 @@ export default function UnifiedContactHub() {
                         responseMsg.type = 'options';
 
                         // Dynamic sub-options could be moved to constants as well for full centralization
-                        if (singleData === "Cleaning") responseMsg.options = ["Deep Cleaning", "Water Tank", "Sofa / Carpet", "General", "Other"];
-                        else if (singleData === "Handyman") responseMsg.options = ["Furniture Assembly", "Wall Mounting", "Curtains/Blinds", "Repairs", "Other"];
+                        if (singleData === "Cleaning Services") responseMsg.options = ["Deep Cleaning", "Water Tank", "Sofa / Carpet", "General", "Other"];
+                        else if (singleData === "Handyman Services") responseMsg.options = ["Furniture Assembly", "Wall Mounting", "Curtains/Blinds", "Repairs", "Other"];
                         else if (singleData === "Emergency") { responseMsg.content = "🚨 Priority Mode. What is the emergency?"; responseMsg.options = ["Water Leak / Flood", "Power Outage", "AC Failure", "Gas Issue", "Other"]; }
-                        else if (singleData === "Stove Repair") responseMsg.options = ["Not Lighting", "Yellow Flame", "Gas Leak", "Maintenance", "Other"];
+                        else if (singleData === "Gas & Cookers") responseMsg.options = ["Not Lighting", "Yellow Flame", "Gas Leak", "Maintenance", "Other"];
                         else responseMsg.options = ["Installation", "Maintenance", "Repair", "Inspection", "Other"];
                     }
                     break;
@@ -329,7 +329,9 @@ export default function UnifiedContactHub() {
             });
 
             if (!response.ok) {
-                throw new Error("Server error");
+                const result = await response.json();
+                console.error("Chat API Error:", result);
+                throw new Error(result.error || "Server error");
             }
 
             let successText = "✅ Request Sent!";
