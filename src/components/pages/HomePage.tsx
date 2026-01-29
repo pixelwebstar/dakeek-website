@@ -190,7 +190,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[
                         {
-                            title: "AC Services",
+                            title: "AC\nServices",
                             href: "/services/ac",
                             icon: IconAC,
                             image: "/images/services/ac.png",
@@ -198,7 +198,7 @@ export default function HomePage() {
                             seoTitle: "AC services for homes and businesses in Dubai"
                         },
                         {
-                            title: "Plumbing Services",
+                            title: "Plumbing\nServices",
                             href: "/services/plumbing",
                             icon: IconPlumbing,
                             image: "/images/services/plumbing.png",
@@ -206,7 +206,7 @@ export default function HomePage() {
                             seoTitle: "Residential and commercial plumbing services"
                         },
                         {
-                            title: "Electrical Services",
+                            title: "Electrical\nServices",
                             href: "/services/electrical",
                             icon: IconElectrical,
                             image: "/images/services/electrical.png",
@@ -214,7 +214,7 @@ export default function HomePage() {
                             seoTitle: "Electrical maintenance for properties in Dubai"
                         },
                         {
-                            title: "Cleaning Services",
+                            title: "Cleaning\nServices",
                             href: "/services/cleaning",
                             icon: IconCleaning,
                             image: "/images/services/cleaning.png",
@@ -222,7 +222,7 @@ export default function HomePage() {
                             seoTitle: "Deep cleaning and sanitization services"
                         },
                         {
-                            title: "Gas & Cookers",
+                            title: "Gas & Cookers\nServices",
                             href: "/services/stoves",
                             icon: IconStoves,
                             image: "/images/services/stoves.png",
@@ -230,7 +230,7 @@ export default function HomePage() {
                             seoTitle: "Gas stove repair and pipeline services"
                         },
                         {
-                            title: "Handyman Services",
+                            title: "Handyman\nServices",
                             href: "/services/handyman",
                             icon: IconHandyman,
                             image: "/images/services/handyman_final.png",
@@ -238,7 +238,7 @@ export default function HomePage() {
                             seoTitle: "Handyman and fit-out services for all properties"
                         },
                         {
-                            title: "AMC Contracts",
+                            title: "AMC\nContracts",
                             href: "/services/amc",
                             icon: IconOther,
                             image: "/images/services/other_final.png",
@@ -247,7 +247,7 @@ export default function HomePage() {
                             seoTitle: "Annual maintenance contracts for Dubai properties"
                         },
                         {
-                            title: "Emergency",
+                            title: "Emergency\nServices",
                             href: "/services/emergency",
                             icon: IconEmergency,
                             image: "/images/services/emergency_final.png",
@@ -328,7 +328,7 @@ export default function HomePage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                         {[
-                            { title: "Municiaplity Certified", desc: "Fully compliant with Dubai regulations." },
+                            { title: "Municipality Certified", desc: "Fully compliant with Dubai regulations." },
                             { title: "Priority Response", desc: "Rapid deployment for emergencies." },
                             { title: "Transparent Pricing", desc: "No hidden costs. Detailed quotations." },
                             { title: "Warranty Assured", desc: "30-day service guarantee on all jobs." }

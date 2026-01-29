@@ -672,7 +672,7 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         hero: {
             tag: "SOS",
-            title: "Emergency 24/7",
+            title: "Emergency Services",
             description: "We are on the way. Right now."
         },
         seo: {

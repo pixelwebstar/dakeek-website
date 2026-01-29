@@ -8,6 +8,9 @@ export const dynamic = 'force-dynamic';
 export async function POST(req: Request) {
     try {
         const body = await req.json();
+        const apiKey = process.env.RESEND_API_KEY;
+        console.log("DEBUG: Received submission. Key present?", !!apiKey, "Length:", apiKey?.length);
+
 
         // 1. Strict Validation using Zod
         const validation = contactFormSchema.safeParse({
@@ -118,7 +121,7 @@ export async function POST(req: Request) {
         // Attempt to send email
         try {
             const { data, error } = await resend.emails.send({
-                from: 'Dakeek <noreply@dakeek.ae>', // Should be updated to verified domain in env
+                from: 'Dakeek <onboarding@resend.dev>', // Default Resend testing domain until custom domain is verified
                 to: toEmails,
                 subject: subject,
                 html: htmlContent,

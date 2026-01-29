@@ -75,7 +75,7 @@ export default function ServiceCard({
           )}
 
           {/* Title */}
-          <h3 className={`text-2xl font-serif font-semibold mb-2 transition-colors duration-300
+          <h3 className={`text-2xl font-serif font-semibold mb-2 transition-colors duration-300 whitespace-pre-line
             ${isEmergency ? "text-white group-hover:text-red-300" : isOther ? "text-white group-hover:text-teal-300" : "text-white"}`}
           >
             {title}
@@ -85,7 +85,7 @@ export default function ServiceCard({
           {isEmergency && (
             <span className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-red-400 mb-3">
               <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-              60 Minute Response
+              Priority Response
             </span>
           )}
 

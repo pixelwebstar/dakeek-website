@@ -329,9 +329,18 @@ export default function UnifiedContactHub() {
             });
 
             if (!response.ok) {
-                const result = await response.json();
-                console.error("Chat API Error:", result);
-                throw new Error(result.error || "Server error");
+                const contentType = response.headers.get("content-type");
+                if (contentType && contentType.includes("application/json")) {
+                    const result = await response.json();
+                    console.error("Chat API Error (JSON):", result);
+                    throw new Error(result.error || `Server Error (${response.status})`);
+                } else {
+                    const text = await response.text();
+                    console.error("Chat API Error (Text):", text);
+                    if (response.status === 404) throw new Error("API Route Not Found (404)");
+                    if (response.status === 500) throw new Error("Internal Server Error (500)");
+                    throw new Error(`Server Error (${response.status})`);
+                }
             }
 
             let successText = "✅ Request Sent!";
@@ -347,7 +356,8 @@ export default function UnifiedContactHub() {
 
         } catch (error) {
             console.error("Submission error", error);
-            setMessages(prev => [...prev, { id: "err", role: "assistant", content: "Connection error. Please call +971 54 247 2151.", timestamp: new Date() }]);
+            const errMsg = (error as Error)?.message || "Connection error";
+            setMessages(prev => [...prev, { id: "err", role: "assistant", content: `⚠️ ${errMsg}. Please try again or call +971 54 247 2151.`, timestamp: new Date() }]);
             setIsTyping(false);
         }
     };
