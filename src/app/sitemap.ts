@@ -23,12 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: route === '' ? 1 : 0.8,
     }));
 
-    // Dynamic Service Routes
+    // Dynamic Service Routes - High Priority
     const serviceRoutes = services.map((slug) => ({
         url: `${baseUrl}/services/${slug}`,
         lastModified: new Date(),
-        changeFrequency: 'daily' as const,
-        priority: 1.0,
+        changeFrequency: 'weekly' as const,
+        priority: 0.95,
     }));
 
     // Dynamic Blog Post Routes

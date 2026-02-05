@@ -11,6 +11,11 @@ export default function robots(): MetadataRoute.Robots {
             {
                 userAgent: 'Googlebot',
                 allow: '/',
+                crawlDelay: 0,
+            },
+            {
+                userAgent: 'Googlebot-Image',
+                allow: '/',
             }
         ],
         sitemap: 'https://www.dakeek.ae/sitemap.xml',

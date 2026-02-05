@@ -24,7 +24,7 @@ export default function Footer() {
 
     const handleLicenseClick = (e: React.MouseEvent) => {
         e.preventDefault();
-        navigator.clipboard.writeText("1344686");
+        navigator.clipboard.writeText("1382290");
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
         window.open("https://app.invest.dubai.ae/search-license", "_blank");
@@ -104,27 +104,36 @@ export default function Footer() {
     };
 
     return (
-        <footer className={`w-full px-[5vw] lg:px-[8vw] py-10 ${theme.bg} ${theme.text} relative overflow-hidden text-sm border-t ${theme.border}`}>
+        <footer itemScope itemType="https://schema.org/LocalBusiness" className={`w-full px-[5vw] lg:px-[8vw] py-10 ${theme.bg} ${theme.text} relative overflow-hidden text-sm border-t ${theme.border}`}>
 
             <div className="relative z-20 w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20 items-start mb-10">
 
                 {/* LEFT SIDE: BRANDING & UTILITY */}
                 <div className="w-full lg:w-[30%] flex flex-col gap-6 lg:sticky lg:top-12">
                     <div>
-                        <h2 className="text-4xl font-bold tracking-tighter mb-4">DAKEEK</h2>
-                        <p className={`font-serif text-base leading-relaxed ${theme.mutedText} max-w-xs`}>
+                        <h2 className="text-4xl font-bold tracking-tighter mb-4" itemProp="name">DAKEEK</h2>
+                        <p className={`font-serif text-base leading-relaxed ${theme.mutedText} max-w-xs`} itemProp="description">
                             &quot;Engineering rigor for Dubai’s finest homes. Precision in every detail.&quot;
                         </p>
+                        <meta itemProp="telephone" content="+971542472151" />
+                        <meta itemProp="email" content="asheejajayan@gmail.com" />
+                        <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className="hidden">
+                            <meta itemProp="streetAddress" content="Anzar Gallery Building, Al Karama" />
+                            <meta itemProp="addressLocality" content="Dubai" />
+                            <meta itemProp="addressRegion" content="Dubai" />
+                            <meta itemProp="addressCountry" content="AE" />
+                        </div>
                     </div>
 
                     <div className="flex flex-col gap-3 items-start">
-                        {/* License Button - Reverted to "Perfect" State */}
+                        {/* License Button with SEO metadata */}
                         <button
                             onClick={handleLicenseClick}
                             className="group flex items-center gap-3 px-5 py-2.5 rounded-full bg-white border border-black/10 hover:border-[#C4A67C] transition-all shadow-sm active:scale-95"
+                            title="Dubai DET License 1382290 - Verify on Dubai Economy &amp; Tourism"
                         >
                             <span className={`font-mono text-xs uppercase tracking-widest ${theme.mutedText} group-hover:text-[#C4A67C] transition-colors`}>
-                                License: 1344686
+                                DET License: 1382290
                             </span>
                             {copied ? <Check size={12} className="text-green-500" /> : <Copy size={12} className="text-stone-400 group-hover:text-[#C4A67C]" />}
                         </button>
@@ -152,7 +161,7 @@ export default function Footer() {
                                     <Link
                                         href={link.href}
                                         prefetch={true}
-                                        title={`${link.name} – Home Maintenance Dubai`}
+                                        title={`${link.name} – Dubai's Premier Home Maintenance & Technical Services`}
                                         className={`text-sm font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
                                     >
                                         {link.name}
@@ -171,7 +180,7 @@ export default function Footer() {
                                     <Link
                                         href={link.href}
                                         prefetch={true}
-                                        title={`${link.name} in Dubai`}
+                                        title={`${link.name} in Dubai – 24/7 Emergency Service Available`}
                                         className={`text-sm font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
                                     >
                                         {link.name}

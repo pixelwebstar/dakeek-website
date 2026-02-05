@@ -43,21 +43,59 @@ export const metadata: Metadata = {
     default: 'Dakeek - Residential Service and Maintenance',
     template: '%s | Dakeek - Residential Service and Maintenance'
   },
-  description: 'Precision home maintenance services in Dubai. AC repair, plumbing, electrical, and handyman services with 60-minute response times.',
+  description: 'Precision home maintenance services in Dubai. AC repair, plumbing, electrical, and handyman services with rapid emergency response.',
   keywords: [
+    // Core Services
     "AC repair Dubai",
+    "AC maintenance Dubai",
     "Emergency plumber Dubai",
     "Electrician Dubai",
     "Handyman services Dubai",
-    "Water heater repair",
+    "Deep cleaning Dubai",
+
+    // Emergency & Time-sensitive
+    "24/7 plumber Dubai",
+    "Emergency AC repair Dubai",
+    "Same day electrician Dubai",
+    "Emergency home repair Dubai",
+    "60 minute response Dubai",
+
+    // Location-specific (Key Dubai Areas)
+    "AC repair Dubai Marina",
+    "Plumber Downtown Dubai",
+    "Electrician JBR Dubai",
+    "Handyman Palm Jumeirah",
+    "Home maintenance Jumeirah",
+    "AC repair Business Bay",
+
+    // Service + Location combinations
+    "Water heater repair Dubai",
     "Leak detection Dubai",
     "Furniture assembly Dubai",
-    "Deep cleaning Dubai",
     "Water tank cleaning Dubai",
+    "AC duct cleaning Dubai",
+    "Electrical troubleshooting Dubai",
+
+    // General maintenance
     "Home maintenance Dubai",
     "Residential maintenance Dubai",
     "Property maintenance Dubai",
-    "Dakeek Residential Services"
+    "Villa maintenance Dubai",
+    "Apartment maintenance Dubai",
+
+    // Long-tail search terms
+    "best AC repair company Dubai",
+    "reliable plumber Dubai",
+    "licensed electrician Dubai",
+    "professional handyman Dubai",
+    "home repair services near me",
+    "AC technician Dubai",
+    "plumbing services Dubai",
+
+    // Brand
+    "Dakeek Residential Services",
+    "Dakeek Technical Services Dubai",
+    "Dakeek home maintenance"
   ],
   authors: [{ name: "Dakeek Residential Services and Maintenance", url: "https://www.dakeek.ae" }],
   creator: "Dakeek Technical Services LLC",
@@ -70,7 +108,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Dakeek Residential Services and Maintenance",
-    description: "Dubai's verified home maintenance experts. AC, Plumbing, Electrical, and Cleaning. Book your service today.",
+    description: "Dubai's verified home maintenance experts. Licensed AC, Plumbing, Electrical, and Cleaning services. DET License 1382290. Fast emergency response. Book now!",
     url: "https://www.dakeek.ae",
     siteName: "Dakeek Residential Services and Maintenance",
     locale: "en_AE",
@@ -87,7 +125,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Dakeek Residential Services and Maintenance",
-    description: "Dubai's #1 Residential Maintenance Service. Fast, Reliable, Precise.",
+    description: "Dubai's #1 Residential Maintenance Service. Fast, Reliable, Precise. 24/7 Emergency Support.",
     creator: "@dakeek_ae",
     images: ["https://www.dakeek.ae/opengraph-image.png"],
   },
@@ -163,12 +201,26 @@ export default function RootLayout({
                   "@id": "https://www.dakeek.ae/#organization",
                   "name": "Dakeek Technical Services LLC",
                   "legalName": "Dakeek Technical Services Co. L.L.C",
+                  "alternateName": "Dakeek Dubai",
+                  "description": "Professional home maintenance and technical services in Dubai. Licensed and verified provider of AC repair, plumbing, electrical, cleaning, and handyman services with rapid emergency response across all Dubai areas.",
+                  "slogan": "Engineering rigor for Dubai's finest homes. Precision in every detail.",
                   "url": "https://www.dakeek.ae",
                   "telephone": "+971542472151",
                   "email": "asheejajayan@gmail.com",
                   "image": "https://www.dakeek.ae/opengraph-image.png",
                   "logo": "https://www.dakeek.ae/icons/icon-512.png",
                   "priceRange": "$$",
+                  "currenciesAccepted": "AED",
+                  "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+                  "hasCredential": {
+                    "@type": "EducationalOccupationalCredential",
+                    "credentialCategory": "Business License",
+                    "recognizedBy": {
+                      "@type": "GovernmentOrganization",
+                      "name": "Dubai Department of Economy and Tourism"
+                    },
+                    "description": "Dubai DET License No. 1382290"
+                  },
                   "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "Anzar Gallery Building, Al Karama",
@@ -183,14 +235,34 @@ export default function RootLayout({
                     "longitude": 55.3003
                   },
                   "areaServed": [
-                    { "@type": "City", "name": "Dubai" },
+                    { "@type": "City", "name": "Dubai", "geo": { "@type": "GeoCoordinates", "latitude": 25.2048, "longitude": 55.2708 } },
                     ...DUBAI_AREAS.map(area => ({ "@type": "Place", "name": area }))
                   ],
+                  "serviceArea": {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                      "@type": "GeoCoordinates",
+                      "latitude": 25.2487,
+                      "longitude": 55.3003
+                    },
+                    "geoRadius": "30000"
+                  },
                   "openingHoursSpecification": {
                     "@type": "OpeningHoursSpecification",
                     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
                     "opens": "00:00",
                     "closes": "23:59"
+                  },
+                  "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5",
+                    "reviewCount": "1",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                  },
+                  "numberOfEmployees": {
+                    "@type": "QuantitativeValue",
+                    "value": "15"
                   },
                   "sameAs": [
                     "https://www.instagram.com/dakeektechnicalservice/",
@@ -200,51 +272,105 @@ export default function RootLayout({
                 },
                 {
                   "@type": "Service",
-                  "name": "AC Maintenance",
-                  "serviceType": "AC maintenance and repair services in Dubai",
+                  "name": "AC Maintenance & Repair Dubai",
+                  "serviceType": "Air Conditioning maintenance, repair, and installation services in Dubai",
                   "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://www.dakeek.ae/services/ac"
+                  "url": "https://www.dakeek.ae/services/ac",
+                  "description": "Professional AC repair and maintenance services in Dubai. 24/7 emergency AC repair, yearly maintenance contracts, and AC installation across all Dubai areas.",
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceSpecification": {
+                      "@type": "PriceSpecification",
+                      "priceCurrency": "AED"
+                    }
+                  }
                 },
                 {
                   "@type": "Service",
-                  "name": "Plumbing Services",
-                  "serviceType": "Plumbing repair and leak detection in Dubai",
+                  "name": "Plumbing Services Dubai",
+                  "serviceType": "Emergency plumber, leak detection, pipe repair services in Dubai",
                   "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://www.dakeek.ae/services/plumbing"
+                  "url": "https://www.dakeek.ae/services/plumbing",
+                  "description": "24/7 emergency plumber in Dubai. Water leak detection, pipe repairs, drainage solutions, water heater repair, and bathroom fitting services.",
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceSpecification": {
+                      "@type": "PriceSpecification",
+                      "priceCurrency": "AED"
+                    }
+                  }
                 },
                 {
                   "@type": "Service",
-                  "name": "Electrical Works",
-                  "serviceType": "Electrical works and power distribution in Dubai",
+                  "name": "Electrical Services Dubai",
+                  "serviceType": "Licensed electrician services, electrical repairs, and installations in Dubai",
                   "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://www.dakeek.ae/services/electrical"
+                  "url": "https://www.dakeek.ae/services/electrical",
+                  "description": "Professional electrical services in Dubai. Circuit repairs, switch and socket installation, lighting solutions, electrical troubleshooting, and power distribution.",
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceSpecification": {
+                      "@type": "PriceSpecification",
+                      "priceCurrency": "AED"
+                    }
+                  }
                 },
                 {
                   "@type": "Service",
-                  "name": "Deep Cleaning",
-                  "serviceType": "Deep cleaning, water tank and duct sanitization in Dubai",
+                  "name": "Deep Cleaning Services Dubai",
+                  "serviceType": "Deep cleaning, water tank cleaning, and duct sanitization in Dubai",
                   "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://www.dakeek.ae/services/cleaning"
+                  "url": "https://www.dakeek.ae/services/cleaning",
+                  "description": "Professional deep cleaning services in Dubai. Water tank cleaning, AC duct cleaning, move-in/move-out cleaning, and comprehensive home sanitization.",
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceSpecification": {
+                      "@type": "PriceSpecification",
+                      "priceCurrency": "AED"
+                    }
+                  }
                 },
                 {
                   "@type": "Service",
-                  "name": "Handyman",
-                  "serviceType": "Handyman and general home repairs in Dubai",
+                  "name": "Handyman Services Dubai",
+                  "serviceType": "Handyman and general home repair services in Dubai",
                   "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://www.dakeek.ae/services/handyman"
+                  "url": "https://www.dakeek.ae/services/handyman",
+                  "description": "Professional handyman services in Dubai. Furniture assembly, painting, carpentry, fixture installation, and general home repairs.",
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceSpecification": {
+                      "@type": "PriceSpecification",
+                      "priceCurrency": "AED"
+                    }
+                  }
                 },
                 {
                   "@type": "Service",
-                  "name": "Emergency Service",
-                  "serviceType": "24/7 emergency home maintenance services in Dubai",
+                  "name": "24/7 Emergency Home Repair Dubai",
+                  "serviceType": "24/7 emergency home maintenance and repair services in Dubai",
                   "provider": { "@id": "https://www.dakeek.ae/#organization" },
                   "areaServed": "Dubai, United Arab Emirates",
-                  "url": "https://www.dakeek.ae/services/emergency"
+                  "url": "https://www.dakeek.ae/services/emergency",
+                  "description": "24/7 emergency home repair services in Dubai. Fast response for plumbing emergencies, AC breakdowns, electrical failures, and urgent home repairs.",
+                  "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceSpecification": {
+                      "@type": "PriceSpecification",
+                      "priceCurrency": "AED"
+                    }
+                  }
                 }
               ]
             })
