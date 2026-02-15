@@ -3,8 +3,6 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
 // Initialize Resend
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
     try {
         const { message, history } = await req.json();
@@ -17,6 +15,7 @@ export async function POST(req: Request) {
         // Forward message to admin via Email using Resend
         if (process.env.RESEND_API_KEY) {
             try {
+                const resend = new Resend(process.env.RESEND_API_KEY);
                 await resend.emails.send({
                     from: 'Dakeek Bot <bot@dakeek.ae>', // Ensure this domain is verified in Resend
                     to: ['admin@dakeek.ae'], // Replace with actual admin email if known, or keep generic for now
