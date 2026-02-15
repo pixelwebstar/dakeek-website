@@ -143,19 +143,22 @@ export async function POST(req: Request) {
             console.error("❌ Primary Email Method Failed:", error);
 
             // FALLBACK: Nodemailer
-            if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+            const emailUser = process.env.EMAIL_USER;
+            const emailPass = process.env.EMAIL_PASS;
+
+            if (emailUser && emailPass) {
                 try {
                     console.log("[API DEBUG] Attempting delivery via Nodemailer (Gmail SMTP)...");
                     const transporter = nodemailer.createTransport({
                         service: 'gmail',
                         auth: {
-                            user: process.env.EMAIL_USER,
-                            pass: process.env.EMAIL_PASS,
+                            user: emailUser,
+                            pass: emailPass,
                         },
                     });
 
                     const info = await transporter.sendMail({
-                        from: `"Dakeek Bot" <${process.env.EMAIL_USER}>`,
+                        from: `"Dakeek Bot" <${emailUser}>`,
                         to: toEmails.join(", "),
                         subject: subject,
                         html: htmlContent,
@@ -168,6 +171,10 @@ export async function POST(req: Request) {
                     console.error("❌ Fallback Email Method Failed:", fallbackError);
                     return NextResponse.json({ error: "Email Dispatch Failed (All Methods)" }, { status: 502 });
                 }
+            } else {
+                console.error("❌ Fallback Impossible: Missing Credentials");
+                console.error(`- EMAIL_USER: ${emailUser ? "Present" : "MISSING"}`);
+                console.error(`- EMAIL_PASS: ${emailPass ? "Present" : "MISSING"}`);
             }
 
             return NextResponse.json({ error: "Email Dispatch Failed (No Fallback Available)" }, { status: 502 });

@@ -43,19 +43,22 @@ export async function POST(req: Request) {
             }
 
             // Fallback: Nodemailer
-            if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+            const emailUser = process.env.EMAIL_USER;
+            const emailPass = process.env.EMAIL_PASS;
+
+            if (emailUser && emailPass) {
                 try {
                     console.log("[CHAT DEBUG] Attempting delivery via Nodemailer...");
                     const transporter = nodemailer.createTransport({
                         service: 'gmail',
                         auth: {
-                            user: process.env.EMAIL_USER,
-                            pass: process.env.EMAIL_PASS
+                            user: emailUser,
+                            pass: emailPass
                         }
                     });
 
                     await transporter.sendMail({
-                        from: `"Dakeek Bot" <${process.env.EMAIL_USER}>`,
+                        from: `"Dakeek Bot" <${emailUser}>`,
                         to: toEmails.join(", "),
                         subject: subject,
                         html: html
@@ -65,6 +68,10 @@ export async function POST(req: Request) {
                 } catch (err) {
                     console.error("❌ Chat Fallback Failed:", err);
                 }
+            } else {
+                console.warn("⚠️ Chat Fallback Impossible: Missing Credentials");
+                console.warn(`- EMAIL_USER: ${emailUser ? "Present" : "MISSING"}`);
+                console.warn(`- EMAIL_PASS: ${emailPass ? "Present" : "MISSING"}`);
             }
             return false;
         };
