@@ -9,9 +9,10 @@ export async function POST(req: Request) {
     try {
         const body = await req.json();
         const apiKey = process.env.RESEND_API_KEY;
-        console.log("DEBUG: Received submission. Key present?", !!apiKey, "Length:", apiKey?.length);
 
-
+        // Safe logging: Only show prefix and suffix to protect full key
+        const keyStatus = apiKey ? `Present (${apiKey.substring(0, 6)}...${apiKey.substring(apiKey.length - 4)})` : "MISSING";
+        console.log(`[API DEBUG] Received submission. Key: ${keyStatus}`);
         // 1. Strict Validation using Zod
         const validation = contactFormSchema.safeParse({
             ...body,
@@ -35,19 +36,8 @@ export async function POST(req: Request) {
         const contactInfo = phone;
 
         // 2. Check for API Key securely
-        // 2. Check for API Key securely
-        if (!process.env.RESEND_API_KEY) {
+        if (!apiKey) {
             console.error("❌ FATAL: Missing RESEND_API_KEY");
-
-            if (process.env.NODE_ENV === 'development') {
-                console.warn("⚠️ DEV MODE: Mocking successful email send (No API Key).");
-                return NextResponse.json({
-                    success: true,
-                    message: "Request received (Dev Mock - No Key)",
-                    emailId: "mock-id-no-key"
-                });
-            }
-
             return NextResponse.json({ error: "Server Configuration Error" }, { status: 500 });
         }
 
@@ -132,25 +122,15 @@ export async function POST(req: Request) {
         // Attempt to send email
         try {
             const { data, error } = await resend.emails.send({
-                from: 'Dakeek <onboarding@resend.dev>', // Default Resend testing domain until custom domain is verified
+                from: 'Dakeek <onboarding@resend.dev>',
                 to: toEmails,
                 subject: subject,
                 html: htmlContent,
-                replyTo: clientEmail,
+                replyTo: clientEmail || undefined,
             });
 
             if (error) {
                 console.error("❌ Resend API Error:", error);
-
-                if (process.env.NODE_ENV === 'development') {
-                    console.warn("⚠️ DEV MODE: Mocking successful email send despite API Error.");
-                    return NextResponse.json({
-                        success: true,
-                        message: "Request received (Dev Mock - API Error)",
-                        emailId: "mock-id-api-error"
-                    });
-                }
-
                 return NextResponse.json({ error: "Email Service Error" }, { status: 502 });
             }
 
@@ -159,17 +139,6 @@ export async function POST(req: Request) {
 
         } catch (emailError) {
             console.error("❌ Resend Logic Error:", emailError);
-
-            // Mock Success in Development
-            if (process.env.NODE_ENV === 'development') {
-                console.warn("⚠️ DEV MODE: Mocking successful email send due to API failure.");
-                return NextResponse.json({
-                    success: true,
-                    message: "Request received (Dev Mock)",
-                    emailId: "mock-id-123"
-                });
-            }
-
             return NextResponse.json({ error: "Email Dispatch Failed" }, { status: 502 });
         }
 

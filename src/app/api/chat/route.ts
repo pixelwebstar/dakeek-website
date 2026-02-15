@@ -13,12 +13,17 @@ export async function POST(req: Request) {
         }
 
         // Forward message to admin via Email using Resend
-        if (process.env.RESEND_API_KEY) {
+        const apiKey = process.env.RESEND_API_KEY;
+        if (apiKey) {
             try {
-                const resend = new Resend(process.env.RESEND_API_KEY);
+                // Safe logging
+                const keyStatus = `Present (${apiKey.substring(0, 6)}...${apiKey.substring(apiKey.length - 4)})`;
+                console.log(`[CHAT DEBUG] Forwarding message. Key: ${keyStatus}`);
+
+                const resend = new Resend(apiKey);
                 await resend.emails.send({
-                    from: 'Dakeek Bot <bot@dakeek.ae>', // Ensure this domain is verified in Resend
-                    to: ['admin@dakeek.ae'], // Replace with actual admin email if known, or keep generic for now
+                    from: 'Dakeek Bot <onboarding@resend.dev>', // Standardized for testing
+                    to: ['asheejajayan@gmail.com'], // Consistent recipient
                     subject: 'New Chat Message via Dakeek Bot',
                     html: `
                         <h2>New Message Received</h2>
@@ -31,7 +36,6 @@ export async function POST(req: Request) {
                 console.log("✅ Chat message forwarded to email.");
             } catch (emailError) {
                 console.error("❌ Failed to forward chat message to email:", emailError);
-                // Continue to respond to user even if email fails - user experience first
             }
         } else {
             console.warn("⚠️ RESEND_API_KEY missing. Chat message NOT forwarded.");
