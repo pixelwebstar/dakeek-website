@@ -343,10 +343,7 @@ export default function UnifiedContactHub() {
                 }
             }
 
-            let successText = "✅ Request Sent!";
-            if (formState.contactMethod === "Call Back") successText = `✅ Request Received! We'll call you at **${detailsInput.contact}** shortly.`;
-            else if (formState.contactMethod === "WhatsApp") successText = `✅ Request Received! We'll message **${detailsInput.contact}** shortly.`;
-            else if (formState.contactMethod === "Email") successText = `✅ Request Received! Check your email at **${detailsInput.contact}**.`;
+            const successText = `✅ Request Received! Dakeek has received your request and will contact you shortly.`;
 
             setTimeout(() => {
                 setMessages(prev => [...prev, { id: Date.now().toString(), role: "assistant", content: successText, timestamp: new Date() }]);
