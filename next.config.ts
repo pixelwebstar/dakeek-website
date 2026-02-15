@@ -52,21 +52,7 @@ const nextConfig: NextConfig = {
       },
     ]
   },
-  async redirects() {
-    return [
 
-      {
-        source: '/areas/dubai-hills',
-        destination: '/areas/dubai-hills-estate',
-        permanent: true,
-      },
-      {
-        source: '/areas/jlt',
-        destination: '/areas/jumeirah-lake-towers-jlt',
-        permanent: true,
-      },
-    ]
-  },
 };
 
 import withBundleAnalyzer from '@next/bundle-analyzer';

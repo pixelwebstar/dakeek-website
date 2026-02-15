@@ -20,6 +20,7 @@ import {
 import Link from "next/link";
 
 import GradientHero from "../hero/GradientHero";
+import { SmartForm } from "../contact/SmartForm";
 
 export default function ContactPage() {
     return (
@@ -147,70 +148,7 @@ export default function ContactPage() {
 
                         {/* Form */}
                         <div className="lg:col-span-8">
-                            <form className="space-y-12">
-                                {/* Contact Details */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                                    <div className="group relative">
-                                        <label className="block font-mono text-xs uppercase tracking-widest text-[#666] mb-3">Your Name</label>
-                                        <input
-                                            type="text"
-                                            placeholder="Eg. Valentine"
-                                            className="w-full pb-4 border-b border-[#E5E5E5] text-[#111] text-xl font-light focus:outline-none focus:border-[#C4A67C] transition-colors placeholder:text-[#DDD]"
-                                        />
-                                    </div>
-                                    <div className="group relative">
-                                        <div className="flex justify-between">
-                                            <label className="block font-mono text-xs uppercase tracking-widest text-[#666] mb-3">Phone Number</label>
-                                            <span className="text-[10px] uppercase tracking-widest text-[#C4A67C] opacity-0 group-focus-within:opacity-100 transition-opacity">Validating...</span>
-                                        </div>
-                                        <input
-                                            type="tel"
-                                            placeholder="+971 XX XXX XXXX"
-                                            pattern="[+]?[0-9]*"
-                                            className="w-full pb-4 border-b border-[#E5E5E5] text-[#111] text-xl font-light focus:outline-none focus:border-[#C4A67C] transition-colors placeholder:text-[#DDD]"
-                                        />
-                                        <p className="absolute bottom-[-20px] left-0 text-[10px] text-stone-400">We will verify this number via SMS.</p>
-                                    </div>
-                                </div>
-
-                                {/* Service Type */}
-                                <div>
-                                    <label className="block font-mono text-xs uppercase tracking-widest text-[#666] mb-6">Service Required</label>
-                                    <div className="flex flex-wrap gap-3">
-                                        {["AC", "Plumbing", "Electrical", "Handyman", "Cleaning", "Other"].map((service) => (
-                                            <label key={service} className="cursor-pointer group">
-                                                <input type="radio" name="service" className="sr-only peer" />
-                                                <span className="px-6 py-3 border border-[#E5E5E5] rounded-sm text-sm text-[#555] peer-checked:bg-[#111] peer-checked:text-white peer-checked:border-[#111] transition-all hover:border-[#999] block font-mono uppercase tracking-wider text-xs">
-                                                    {service}
-                                                </span>
-                                            </label>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Message */}
-                                <div>
-                                    <label className="block font-mono text-xs uppercase tracking-widest text-[#666] mb-3">Details</label>
-                                    <textarea
-                                        rows={4}
-                                        placeholder="Type your message here..."
-                                        className="w-full pb-4 border-b border-[#E5E5E5] text-[#111] text-xl font-light focus:outline-none focus:border-[#C4A67C] transition-colors placeholder:text-[#DDD] resize-none"
-                                    ></textarea>
-                                </div>
-
-                                {/* Submit */}
-                                <div className="pt-8 flex items-center justify-between border-t border-[#F5F5F4] mt-8">
-                                    <p className="text-xs text-[#999] max-w-xs">
-                                        By submitting, you agree to our Privacy Policy.
-                                    </p>
-                                    <button className="group relative inline-flex items-center justify-center px-16 py-5 bg-[#111] text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl">
-                                        <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em] group-hover:text-[#111] transition-colors">
-                                            Send Request
-                                        </span>
-                                        <div className="absolute inset-0 bg-[#C4A67C] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
-                                    </button>
-                                </div>
-                            </form>
+                            <SmartForm />
                         </div>
                     </div>
                 </div>
