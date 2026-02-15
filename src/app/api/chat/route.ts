@@ -1,6 +1,6 @@
-
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
 // Initialize Resend
 export async function POST(req: Request) {
@@ -12,34 +12,65 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: "Message is required" }, { status: 400 });
         }
 
-        // Forward message to admin via Email using Resend
-        const apiKey = process.env.RESEND_API_KEY;
-        if (apiKey) {
-            try {
-                // Safe logging
-                const keyStatus = `Present (${apiKey.substring(0, 6)}...${apiKey.substring(apiKey.length - 4)})`;
-                console.log(`[CHAT DEBUG] Forwarding message. Key: ${keyStatus}`);
+        // Forward message to admin
+        const sendAdminNotification = async () => {
+            const subject = 'New Chat Message via Dakeek Bot';
+            const toEmails = ['asheejajayan@gmail.com'];
+            const html = `
+                <h2>New Message Received</h2>
+                <p><strong>Message:</strong> ${message}</p>
+                <hr />
+                <h3>Chat History Context:</h3>
+                <pre>${JSON.stringify(history, null, 2)}</pre>
+            `;
 
-                const resend = new Resend(apiKey);
-                await resend.emails.send({
-                    from: 'Dakeek Bot <onboarding@resend.dev>', // Standardized for testing
-                    to: ['asheejajayan@gmail.com'], // Consistent recipient
-                    subject: 'New Chat Message via Dakeek Bot',
-                    html: `
-                        <h2>New Message Received</h2>
-                        <p><strong>Message:</strong> ${message}</p>
-                        <hr />
-                        <h3>Chat History Context:</h3>
-                        <pre>${JSON.stringify(history, null, 2)}</pre>
-                    `
-                });
-                console.log("✅ Chat message forwarded to email.");
-            } catch (emailError) {
-                console.error("❌ Failed to forward chat message to email:", emailError);
+            const resendKey = process.env.RESEND_API_KEY;
+            if (resendKey) {
+                try {
+                    console.log("[CHAT DEBUG] Attempting delivery via Resend...");
+                    const resend = new Resend(resendKey);
+                    await resend.emails.send({
+                        from: 'Dakeek Bot <onboarding@resend.dev>',
+                        to: toEmails,
+                        subject: subject,
+                        html: html
+                    });
+                    console.log("✅ Chat message forwarded via Resend.");
+                    return true;
+                } catch (err) {
+                    console.warn("⚠️ Chat Resend Failed, trying fallback...");
+                }
             }
-        } else {
-            console.warn("⚠️ RESEND_API_KEY missing. Chat message NOT forwarded.");
-        }
+
+            // Fallback: Nodemailer
+            if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+                try {
+                    console.log("[CHAT DEBUG] Attempting delivery via Nodemailer...");
+                    const transporter = nodemailer.createTransport({
+                        service: 'gmail',
+                        auth: {
+                            user: process.env.EMAIL_USER,
+                            pass: process.env.EMAIL_PASS
+                        }
+                    });
+
+                    await transporter.sendMail({
+                        from: `"Dakeek Bot" <${process.env.EMAIL_USER}>`,
+                        to: toEmails.join(", "),
+                        subject: subject,
+                        html: html
+                    });
+                    console.log("✅ Chat message forwarded via Nodemailer.");
+                    return true;
+                } catch (err) {
+                    console.error("❌ Chat Fallback Failed:", err);
+                }
+            }
+            return false;
+        };
+
+        // Fire and forget (don't block user response)
+        sendAdminNotification();
 
 
         // Static Response Logic (No AI)

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 import { contactFormSchema } from '@/lib/schemas';
 
 // Force dynamic to ensure API is not cached
@@ -121,7 +122,8 @@ export async function POST(req: Request) {
 
         // Attempt to send email
         try {
-            const { data, error } = await resend.emails.send({
+            console.log("[API DEBUG] Attempting delivery via Resend...");
+            const { data: resendData, error: resendError } = await resend.emails.send({
                 from: 'Dakeek <onboarding@resend.dev>',
                 to: toEmails,
                 subject: subject,
@@ -129,17 +131,46 @@ export async function POST(req: Request) {
                 replyTo: clientEmail || undefined,
             });
 
-            if (error) {
-                console.error("❌ Resend API Error:", error);
-                return NextResponse.json({ error: "Email Service Error" }, { status: 502 });
+            if (resendError) {
+                console.warn("⚠️ Resend API Error:", resendError);
+                throw new Error("Resend failed, trying fallback...");
             }
 
-            console.log("✅ Email dispatched:", data?.id);
-            return NextResponse.json({ success: true, message: "Request received", emailId: data?.id });
+            console.log("✅ Email dispatched via Resend:", resendData?.id);
+            return NextResponse.json({ success: true, message: "Request received", emailId: resendData?.id });
 
-        } catch (emailError) {
-            console.error("❌ Resend Logic Error:", emailError);
-            return NextResponse.json({ error: "Email Dispatch Failed" }, { status: 502 });
+        } catch (error) {
+            console.error("❌ Primary Email Method Failed:", error);
+
+            // FALLBACK: Nodemailer
+            if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+                try {
+                    console.log("[API DEBUG] Attempting delivery via Nodemailer (Gmail SMTP)...");
+                    const transporter = nodemailer.createTransport({
+                        service: 'gmail',
+                        auth: {
+                            user: process.env.EMAIL_USER,
+                            pass: process.env.EMAIL_PASS,
+                        },
+                    });
+
+                    const info = await transporter.sendMail({
+                        from: `"Dakeek Bot" <${process.env.EMAIL_USER}>`,
+                        to: toEmails.join(", "),
+                        subject: subject,
+                        html: htmlContent,
+                        replyTo: clientEmail || undefined,
+                    });
+
+                    console.log("✅ Email dispatched via Nodemailer:", info.messageId);
+                    return NextResponse.json({ success: true, message: "Request received (Fallback)", emailId: info.messageId });
+                } catch (fallbackError) {
+                    console.error("❌ Fallback Email Method Failed:", fallbackError);
+                    return NextResponse.json({ error: "Email Dispatch Failed (All Methods)" }, { status: 502 });
+                }
+            }
+
+            return NextResponse.json({ error: "Email Dispatch Failed (No Fallback Available)" }, { status: 502 });
         }
 
     } catch (error) {
