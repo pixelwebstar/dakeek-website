@@ -131,6 +131,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "T8hhiXgeP_vxqaKG5DT3GpJik50Qiv2vNYv9yZ7xBE4",
+    other: {
+      "zoho-verification": "zb00597891.zmverify.zoho.com",
+    },
   },
   category: "Residential Services",
   icons: {
