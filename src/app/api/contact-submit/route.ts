@@ -165,7 +165,7 @@ export async function POST(req: Request) {
 
                     const info = await transporter.sendMail({
                         from: `"Dakeek Bot" <${emailUser}>`,
-                        to: toEmails.join(", "),
+                        to: [toEmail, ...ccEmails].join(", "),
                         subject: subject,
                         html: htmlContent,
                         replyTo: clientEmail || undefined,
