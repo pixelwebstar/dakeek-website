@@ -35,7 +35,7 @@ export default function CareersPage() {
 
                     <div className="flex flex-col md:flex-row gap-4 justify-center items-center animate-hero-fade" style={{ animationDelay: '0.5s' }}>
                         <a
-                            href="mailto:careers@dakeek.ae"
+                            href="mailto:care@dakeek.ae"
                             className="group relative inline-flex items-center justify-center px-12 py-4 bg-ink text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl"
                         >
                             <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Apply Now</span>
@@ -92,7 +92,7 @@ export default function CareersPage() {
                         </div>
 
                         <a
-                            href="mailto:careers@dakeek.ae?subject=Application for Reserve List - [Your Name]"
+                            href="mailto:care@dakeek.ae?subject=Application for Reserve List - [Your Name]"
                             className="group relative inline-flex items-center justify-center px-12 py-4 bg-white text-black overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl hover:shadow-[#C4A67C]/20"
                         >
                             <span className="relative z-10 font-mono text-xs font-bold uppercase tracking-[0.2em] group-hover:text-white transition-colors">

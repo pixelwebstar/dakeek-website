@@ -118,7 +118,7 @@ export async function POST(req: Request) {
         `;
 
         // Safe recipient handling
-        const toEmails: string[] = ['asheejajayan@gmail.com'];
+        const toEmails: string[] = ['asheejajayan@gmail.com', 'jayan@dakeek.ae', 'jayansivadan2011@gmail.com'];
 
         // Attempt to send email
         try {

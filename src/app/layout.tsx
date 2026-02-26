@@ -101,7 +101,6 @@ export const metadata: Metadata = {
   creator: "Dakeek Technical Services LLC",
   publisher: "Dakeek Technical Services LLC",
   alternates: {
-    canonical: "/",
     languages: {
       'en-AE': '/',
     },
@@ -113,21 +112,12 @@ export const metadata: Metadata = {
     siteName: "Dakeek Residential Services and Maintenance",
     locale: "en_AE",
     type: "website",
-    images: [
-      {
-        url: "https://www.dakeek.ae/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Dakeek Residential Services and Maintenance Dubai",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dakeek Residential Services and Maintenance",
     description: "Dubai's #1 Residential Maintenance Service. Fast, Reliable, Precise. 24/7 Emergency Support.",
     creator: "@dakeek_ae",
-    images: ["https://www.dakeek.ae/opengraph-image.png"],
   },
   verification: {
     google: "T8hhiXgeP_vxqaKG5DT3GpJik50Qiv2vNYv9yZ7xBE4",
