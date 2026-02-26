@@ -117,15 +117,21 @@ export async function POST(req: Request) {
             </div>
         `;
 
-        // Safe recipient handling
-        const toEmails: string[] = ['asheejajayan@gmail.com', 'jayan@dakeek.ae', 'jayansivadan2011@gmail.com'];
+        // Safe recipient handling: In development, Resend restricts sending to the verified owner email.
+        const isProd = process.env.NODE_ENV === 'production';
+        const fromEmail = isProd ? 'Dakeek Service <care@dakeek.ae>' : 'Dakeek <onboarding@resend.dev>';
+
+        // In production, send to main email and CC the rest. In dev, only send to verified owner.
+        const toEmail = 'care@dakeek.ae';
+        const ccEmails = isProd ? ['asheejajayan@gmail.com', 'jayan@dakeek.ae', 'jayansivadan2011@gmail.com'] : [];
 
         // Attempt to send email
         try {
             console.log("[API DEBUG] Attempting delivery via Resend...");
             const { data: resendData, error: resendError } = await resend.emails.send({
-                from: 'Dakeek <onboarding@resend.dev>',
-                to: toEmails,
+                from: fromEmail,
+                to: [toEmail],
+                ...(ccEmails.length > 0 && { cc: ccEmails }),
                 subject: subject,
                 html: htmlContent,
                 replyTo: clientEmail || undefined,
