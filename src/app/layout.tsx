@@ -120,7 +120,7 @@ export const metadata: Metadata = {
     creator: "@dakeek_ae",
   },
   verification: {
-    google: "T8hhiXgeP_vxqaKG5DT3GpJik50Qiv2vNYv9yZ7xBE4",
+    google: "dx0MGQgKU16cFzMrzrW9Su0YCXZ6uC7P6CXi83K6q9s",
     other: {
       "zoho-verification": "zb00597891.zmverify.zoho.com",
     },
