@@ -16,6 +16,9 @@ export const metadata: Metadata = {
         title: "About Dakeek - Dubai's Premium Home Maintenance",
         description: "Our story, team, and commitment to excellence in home services.",
     },
+    alternates: {
+        canonical: "https://www.dakeek.ae/about",
+    },
 };
 
 export default function Page() {

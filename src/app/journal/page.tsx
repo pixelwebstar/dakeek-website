@@ -14,6 +14,9 @@ export const metadata: Metadata = {
         title: "The Journal | Dakeek",
         description: "Expert advice from Dubai's trusted home maintenance company.",
     },
+    alternates: {
+        canonical: "https://www.dakeek.ae/journal",
+    },
 };
 
 export default function JournalPage() {

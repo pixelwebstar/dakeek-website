@@ -17,7 +17,10 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Careers | Dakeek - Residential Service & Maintenance",
         description: "Join the elite team serving Dubai's finest homes.",
-    }
+    },
+    alternates: {
+        canonical: "https://www.dakeek.ae/careers",
+    },
 };
 
 export default function Page() {

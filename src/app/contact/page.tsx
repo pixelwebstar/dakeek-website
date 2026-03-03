@@ -17,6 +17,9 @@ export const metadata: Metadata = {
         title: "Book Dakeek - 24/7 Home Maintenance Dubai",
         description: "Call, WhatsApp, or book online. 60-min response guaranteed!",
     },
+    alternates: {
+        canonical: "https://www.dakeek.ae/contact",
+    },
 };
 
 export default function Page() {
