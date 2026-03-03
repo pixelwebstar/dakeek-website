@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         description: "Our story, team, and commitment to excellence in home services.",
     },
     alternates: {
-        canonical: "https://www.dakeek.ae/about",
+        canonical: "https://dakeek.ae/about",
     },
 };
 

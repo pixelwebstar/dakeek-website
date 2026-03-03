@@ -31,7 +31,7 @@ export function ServiceSchema({
     description,
     providerName = "DAKEEK Technical Services",
     areaServed = ["Dubai"],
-    image = "https://www.dakeek.ae/opengraph-image.png",
+    image = "https://dakeek.ae/opengraph-image.png",
     url,
     telephone,
     priceRange,

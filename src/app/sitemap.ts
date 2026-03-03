@@ -4,7 +4,7 @@ import { serviceData } from '@/data/serviceData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const services = Object.keys(serviceData);
-    const baseUrl = 'https://www.dakeek.ae';
+    const baseUrl = 'https://dakeek.ae';
 
     // Static Routes
     const staticRoutes = [

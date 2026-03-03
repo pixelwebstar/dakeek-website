@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         description: "Join the elite team serving Dubai's finest homes.",
     },
     alternates: {
-        canonical: "https://www.dakeek.ae/careers",
+        canonical: "https://dakeek.ae/careers",
     },
 };
 

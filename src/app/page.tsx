@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Dakeek home services"
    ],
    alternates: {
-      canonical: "https://www.dakeek.ae/",
+      canonical: "https://dakeek.ae/",
    },
    openGraph: {
       title: "Dakeek Technical Services Dubai | 24/7 Home Maintenance",

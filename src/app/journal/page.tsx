@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         description: "Expert advice from Dubai's trusted home maintenance company.",
     },
     alternates: {
-        canonical: "https://www.dakeek.ae/journal",
+        canonical: "https://dakeek.ae/journal",
     },
 };
 

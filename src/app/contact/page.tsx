@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         description: "Call, WhatsApp, or book online. 60-min response guaranteed!",
     },
     alternates: {
-        canonical: "https://www.dakeek.ae/contact",
+        canonical: "https://dakeek.ae/contact",
     },
 };
 
