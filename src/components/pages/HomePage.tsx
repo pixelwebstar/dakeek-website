@@ -2,7 +2,7 @@
 // HMR Trigger
 
 import { IconAC, IconElectrical, IconPlumbing, IconStoves, IconEmergency, IconCleaning, IconHandyman, IconOther } from "@/components/services/ServiceIcons";
-import { ShieldCheck, HeartHandshake, Sparkles, Award, Clock, UserCheck, Home } from "lucide-react";
+import { ShieldCheck, Clock, UserCheck, Home } from "lucide-react";
 import Balancer from "react-wrap-balancer";
 
 import Link from "next/link";
@@ -283,7 +283,7 @@ export default function HomePage() {
                             </h2>
                         </div>
                         <p className="text-[#666] max-w-sm text-sm md:text-base leading-relaxed">
-                            Specialized technical support for Dubai's most demanding environments.
+                            Specialized technical support for Dubai&apos;s most demanding environments.
                         </p>
                     </div>
 

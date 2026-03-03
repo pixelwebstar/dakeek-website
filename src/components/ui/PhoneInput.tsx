@@ -1,6 +1,5 @@
 import 'react-phone-number-input/style.css'
 import PhoneInputFromLib from 'react-phone-number-input'
-import { ChevronDown } from "lucide-react";
 
 interface PhoneInputProps {
     value: string;

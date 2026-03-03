@@ -1,0 +1,81 @@
+
+> dakeek-web@0.1.0 lint
+> eslint
+
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/app/api/chat/route.ts
+  40:26  warning  'err' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/components/contact/MapVisual.tsx
+  5:10  warning  'MapPin' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/components/contact/SmartForm.tsx
+  5:13  warning  'z' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/components/layout/Footer.tsx
+  6:10  warning  'MapPin' is defined but never used         @typescript-eslint/no-unused-vars
+  6:18  warning  'Phone' is defined but never used          @typescript-eslint/no-unused-vars
+  6:25  warning  'Mail' is defined but never used           @typescript-eslint/no-unused-vars
+  6:31  warning  'MessageSquare' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/components/pages/AboutPage.tsx
+    6:22   warning  'Star' is defined but never used                                 @typescript-eslint/no-unused-vars
+    6:59   warning  'Check' is defined but never used                                @typescript-eslint/no-unused-vars
+    6:66   warning  'Phone' is defined but never used                                @typescript-eslint/no-unused-vars
+    6:73   warning  'MessageCircle' is defined but never used                        @typescript-eslint/no-unused-vars
+    6:103  warning  'Copy' is defined but never used                                 @typescript-eslint/no-unused-vars
+    8:8    warning  'SectionWrapper' is defined but never used                       @typescript-eslint/no-unused-vars
+    9:8    warning  'ImageWithFallback' is defined but never used                    @typescript-eslint/no-unused-vars
+   87:105  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  261:39   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  351:73   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  351:97   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/components/pages/CareersPage.tsx
+    4:21   warning  'ArrowRight' is defined but never used                           @typescript-eslint/no-unused-vars
+    5:8    warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+  174:39   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  174:72   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  174:163  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/components/pages/ContactPage.tsx
+   3:17  warning  'useState' is defined but never used       @typescript-eslint/no-unused-vars
+   7:5   warning  'MessageSquare' is defined but never used  @typescript-eslint/no-unused-vars
+  14:5   warning  'Twitter' is defined but never used        @typescript-eslint/no-unused-vars
+  16:5   warning  'Globe' is defined but never used          @typescript-eslint/no-unused-vars
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/components/pages/HomePage.tsx
+    5:23  warning  'HeartHandshake' is defined but never used                       @typescript-eslint/no-unused-vars
+    5:39  warning  'Sparkles' is defined but never used                             @typescript-eslint/no-unused-vars
+    5:49  warning  'Award' is defined but never used                                @typescript-eslint/no-unused-vars
+  286:68  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/components/pages/ServicesHubPage.tsx
+  10:8  warning  'ImageWithFallback' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/components/services/TechSpecs.tsx
+  103:128  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/components/shared/UnifiedContactHub.tsx
+    5:34  warning  'Minimize2' is defined but never used                                                                               @typescript-eslint/no-unused-vars
+    5:52  warning  'Mail' is defined but never used                                                                                    @typescript-eslint/no-unused-vars
+    5:87  warning  'AlertCircle' is defined but never used                                                                             @typescript-eslint/no-unused-vars
+   78:8   warning  React Hook useEffect has a missing dependency: 'messages.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  441:80  warning  'i' is defined but never used                                                                                       @typescript-eslint/no-unused-vars
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/components/ui/PhoneInput.tsx
+  3:10  warning  'ChevronDown' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/data/serviceData.ts
+  4:5  warning  'ShieldAlert' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/lib/context/TransitionContext.tsx
+  3:54  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+
+/home/asheejajayan/Desktop/PixelWebStar/dakeek-website/src/lib/schemas.ts
+  2:10  warning  'DUBAI_AREAS' is defined but never used      @typescript-eslint/no-unused-vars
+  2:23  warning  'CONTACT_METHODS' is defined but never used  @typescript-eslint/no-unused-vars
+  2:40  warning  'SERVICE_TYPES' is defined but never used    @typescript-eslint/no-unused-vars
+
+✖ 44 problems (9 errors, 35 warnings)
+

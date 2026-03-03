@@ -37,7 +37,7 @@ export async function POST(req: Request) {
                     });
                     console.log("✅ Chat message forwarded via Resend.");
                     return true;
-                } catch (err) {
+                } catch {
                     console.warn("⚠️ Chat Resend Failed, trying fallback...");
                 }
             }
@@ -65,8 +65,8 @@ export async function POST(req: Request) {
                     });
                     console.log("✅ Chat message forwarded via Nodemailer.");
                     return true;
-                } catch (err) {
-                    console.error("❌ Chat Fallback Failed:", err);
+                } catch (error) {
+                    console.error("❌ Chat Fallback Failed:", error);
                 }
             } else {
                 console.warn("⚠️ Chat Fallback Impossible: Missing Credentials");

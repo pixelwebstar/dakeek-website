@@ -1,7 +1,6 @@
 import {
     Wind, Zap,
     Flame, Gauge,
-    ShieldAlert,
     Wrench, Thermometer,
     Droplet, Activity,
     Search,

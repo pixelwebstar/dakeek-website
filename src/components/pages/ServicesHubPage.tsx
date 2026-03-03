@@ -7,7 +7,6 @@ import SectionWrapper from "@/components/about/SectionWrapper";
 import ProcessTimeline from "@/components/shared/ProcessTimeline";
 import { serviceData } from "@/data/serviceData";
 import Image from "next/image";
-import ImageWithFallback from "@/components/shared/ImageWithFallback";
 import GradientHero from "@/components/hero/GradientHero";
 
 // Helper to get the first image from details as the "Cover"

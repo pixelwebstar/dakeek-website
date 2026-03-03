@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Minimize2, Phone, Mail, Bot, ChevronRight, Sparkles, AlertCircle, ArrowLeft, RefreshCw, ArrowRight } from "lucide-react";
+import { MessageCircle, X, Send, Phone, Bot, ChevronRight, Sparkles, ArrowLeft, RefreshCw, ArrowRight } from "lucide-react";
 import { PhoneInput } from "@/components/ui/PhoneInput";
 import { contactFormSchema } from "@/lib/schemas";
 import { SERVICE_TYPES, CONTACT_METHODS } from "@/lib/constants";
@@ -75,6 +75,7 @@ export default function UnifiedContactHub() {
         if (view === "chat" && messages.length === 0) {
             startChatFlow();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [view]);
 
     // Click Outside
@@ -438,7 +439,7 @@ export default function UnifiedContactHub() {
                                             {msg.type === 'options' && msg.options && (
                                                 <div className="mt-3 w-full">
                                                     <div className={`grid gap-2 ${msg.options.length > 4 ? 'grid-cols-2' : 'grid-cols-1'}`}>
-                                                        {msg.options.map((opt, i) => {
+                                                        {msg.options.map((opt) => {
                                                             const isSelected = currentSelections.includes(opt);
                                                             return (
                                                                 <button

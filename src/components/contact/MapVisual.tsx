@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { MapPin, Navigation, Zap } from "lucide-react";
+import { Navigation, Zap } from "lucide-react";
 
 export function MapVisual() {
     const [activeTechs, setActiveTechs] = useState([

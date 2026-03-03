@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { Briefcase, ArrowRight, ShieldCheck, Star, Users } from "lucide-react";
-import Link from "next/link";
+import { Briefcase, ShieldCheck, Star, Users } from "lucide-react";
 import Balancer from "react-wrap-balancer";
 import GradientHero from "../hero/GradientHero";
 
@@ -171,7 +170,7 @@ export default function CareersPage() {
                         <span className="text-[#C4A67C] font-mono text-xs uppercase tracking-widest block mb-4">Why Dakeek?</span>
                         <h2 className="text-4xl md:text-5xl font-serif mb-8 text-white">Defining the Standard.</h2>
                         <p className="text-stone-400 leading-relaxed mb-6">
-                            Dakeek isn't just a maintenance company; it's a promise of perfection. working here means adhering to the strictest standards in Dubai's residential service sector.
+                            Dakeek isn&apos;t just a maintenance company; it&apos;s a promise of perfection. working here means adhering to the strictest standards in Dubai&apos;s residential service sector.
                         </p>
                         <p className="text-stone-400 leading-relaxed">
                             We serve exclusive communities like Palm Jumeirah, Emirates Hills, and Downtown Dubai. Our clients expect invisibility, precision, and technical mastery. If you have these traits, you belong here.

@@ -1,19 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import {
     Clock,
     Mail,
-    MessageSquare,
     Phone,
     Shield,
     ArrowRight,
     Facebook,
     Instagram,
     Linkedin,
-    Twitter,
     Briefcase,
-    Globe,
     Search,
     MapPin // MapPin is still used in section 6, so it should be kept.
 } from "lucide-react";

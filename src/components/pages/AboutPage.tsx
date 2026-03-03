@@ -3,10 +3,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Star, Shield, Heart, Clock, PenTool, Check, Phone, MessageCircle, Search, Award, Copy, CheckCircle } from "lucide-react";
+import { ArrowRight, Shield, Heart, Clock, PenTool, Search, Award, CheckCircle } from "lucide-react";
 import { useState } from "react";
-import SectionWrapper from "@/components/about/SectionWrapper";
-import ImageWithFallback from "@/components/shared/ImageWithFallback";
+
 import GradientHero from "@/components/hero/GradientHero";
 
 export default function AboutPage() {
@@ -84,7 +83,7 @@ export default function AboutPage() {
                         </p>
                         <p className="text-lg font-light text-gray-400 leading-relaxed border-l border-white/20 pl-6">
                             The stranger walking through your door with muddy boots.
-                            It feels like an invasion. <span className="text-white font-medium">It doesn't have to be.</span>
+                            It feels like an invasion. <span className="text-white font-medium">It doesn&apos;t have to be.</span>
                         </p>
                     </div>
 
@@ -258,7 +257,7 @@ export default function AboutPage() {
                                 values.
                             </h2>
                             <p className="text-stone-400 font-light leading-relaxed max-w-sm">
-                                We don't just repair homes. We restore peace of mind. Every action we take is guided by three core principles.
+                                We don&apos;t just repair homes. We restore peace of mind. Every action we take is guided by three core principles.
                             </p>
                         </div>
 
@@ -348,7 +347,7 @@ export default function AboutPage() {
                         <div className="mt-16 pt-12 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
                             <p className="text-stone-400 font-light max-w-lg">
                                 Fully licensed by the Dubai Department of Economy and Tourism.
-                                We operate with absolute transparency—it's not just a policy, it's our promise.
+                                We operate with absolute transparency—it&apos;s not just a policy, it&apos;s our promise.
                             </p>
                             <button
                                 onClick={handleCopyLicense}

@@ -1,6 +1,4 @@
 import * as z from "zod";
-import { DUBAI_AREAS, CONTACT_METHODS, SERVICE_TYPES } from "./constants";
-
 export const contactFormSchema = z.object({
     name: z.string().min(1, "Name is required"),
     location: z.string().optional(),
