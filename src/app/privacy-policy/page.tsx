@@ -5,6 +5,9 @@ import { Shield, Lock, Globe, FileText } from "lucide-react";
 export const metadata: Metadata = {
     title: "Privacy Policy | Dakeek Data Protection",
     description: "Our commitment to data privacy under UAE and International Law. Your data is secure and never sold.",
+    alternates: {
+        canonical: "https://dakeek.ae/privacy-policy",
+    },
 };
 
 export default function PrivacyPolicyPage() {

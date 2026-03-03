@@ -24,10 +24,8 @@ export async function generateMetadata(
         title: `${post.title} | Dakeek Blog`,
         description: post.excerpt,
         keywords: post.seoKeywords,
-        openGraph: {
-            title: post.title,
-            description: post.excerpt,
-            images: [post.image],
+        alternates: {
+            canonical: `https://dakeek.ae/journal/${params.slug}`,
         },
     };
 }

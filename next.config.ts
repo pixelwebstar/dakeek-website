@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  trailingSlash: false,
   productionBrowserSourceMaps: false,
   compress: true,
   poweredByHeader: false,
@@ -37,6 +38,31 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
+  },
+  // 301 Redirects for removed/old pages
+  async redirects() {
+    return [
+      {
+        source: '/all-pages',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/areas/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/services/other',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/blog/:slug',
+        destination: '/journal/:slug',
+        permanent: true,
+      },
+    ];
   },
   // Headers for performance
   async headers() {

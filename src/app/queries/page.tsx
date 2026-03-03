@@ -17,6 +17,9 @@ export const metadata: Metadata = {
         title: "Dakeek FAQ - Your Questions Answered",
         description: "Pricing, warranty, coverage, and more. Find all answers here.",
     },
+    alternates: {
+        canonical: "https://dakeek.ae/queries",
+    },
 };
 
 export default function Page() {
