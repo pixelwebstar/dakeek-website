@@ -123,7 +123,7 @@ export async function POST(req: Request) {
 
         // In production, send to main email and CC the rest. In dev, only send to verified owner.
         const toEmail = 'care@dakeek.ae';
-        const ccEmails: string[] = [];
+        const ccEmails = isProd ? ['asheejajayan@gmail.com', 'jayan@dakeek.ae', 'jayansivadan2011@gmail.com'] : [];
 
         // Attempt to send email
         try {

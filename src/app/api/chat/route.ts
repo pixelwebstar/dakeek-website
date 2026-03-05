@@ -15,7 +15,7 @@ export async function POST(req: Request) {
         // Forward message to admin
         const sendAdminNotification = async () => {
             const subject = 'New Chat Message via Dakeek Bot';
-            const toEmails = ['care@dakeek.ae'];
+            const toEmails = ['asheejajayan@gmail.com'];
             const html = `
                 <h2>New Message Received</h2>
                 <p><strong>Message:</strong> ${message}</p>
