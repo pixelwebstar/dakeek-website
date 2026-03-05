@@ -84,7 +84,7 @@ export default function ContactPage() {
 
 
                         {/* Email (Official) */}
-                        <a href="mailto:asheejajayan@gmail.com" className="group h-full flex flex-col justify-between p-8 border border-white/10 hover:border-[#C4A67C] bg-white/5 hover:bg-[#C4A67C]/10 transition-all duration-500 rounded-lg">
+                        <a href="mailto:care@dakeek.ae" className="group h-full flex flex-col justify-between p-8 border border-white/10 hover:border-[#C4A67C] bg-white/5 hover:bg-[#C4A67C]/10 transition-all duration-500 rounded-lg">
                             <div>
                                 <Mail className="w-8 h-8 text-[#C4A67C] mb-6" />
                                 <h3 className="text-2xl font-serif mb-2">Email</h3>

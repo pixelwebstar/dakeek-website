@@ -199,7 +199,7 @@ export default function RootLayout({
                   "slogan": "Engineering rigor for Dubai's finest homes. Precision in every detail.",
                   "url": "https://dakeek.ae",
                   "telephone": "+971542472151",
-                  "email": "asheejajayan@gmail.com",
+                  "email": "care@dakeek.ae",
                   "image": "https://dakeek.ae/opengraph-image.png",
                   "logo": "https://dakeek.ae/icons/icon-512.png",
                   "priceRange": "$$",

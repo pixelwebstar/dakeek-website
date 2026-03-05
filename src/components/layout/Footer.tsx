@@ -89,7 +89,7 @@ export default function Footer() {
             { name: "Call Support", href: "tel:+971542472151" },
             { name: "WhatsApp Us", href: "https://wa.me/971542472151" },
             { name: "Dakeek Chat", href: "#chat", action: openChat },
-            { name: "Email Support", href: "mailto:asheejajayan@gmail.com" },
+            { name: "Email Support", href: "mailto:care@dakeek.ae" },
             { name: 'Privacy Policy', href: '/privacy-policy' },
             { name: "Careers", href: "/careers" },
         ],
@@ -116,7 +116,7 @@ export default function Footer() {
                             &quot;Engineering rigor for Dubai’s finest homes. Precision in every detail.&quot;
                         </p>
                         <meta itemProp="telephone" content="+971542472151" />
-                        <meta itemProp="email" content="asheejajayan@gmail.com" />
+                        <meta itemProp="email" content="care@dakeek.ae" />
                         <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className="hidden">
                             <meta itemProp="streetAddress" content="Anzar Gallery Building, Al Karama" />
                             <meta itemProp="addressLocality" content="Dubai" />
