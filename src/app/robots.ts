@@ -8,15 +8,6 @@ export default function robots(): MetadataRoute.Robots {
                 allow: '/',
                 disallow: ['/private', '/admin', '/api/*', '/areas/*'],
             },
-            {
-                userAgent: 'Googlebot',
-                allow: '/',
-                crawlDelay: 0,
-            },
-            {
-                userAgent: 'Googlebot-Image',
-                allow: '/',
-            }
         ],
         sitemap: 'https://dakeek.ae/sitemap.xml',
         host: 'https://dakeek.ae',
