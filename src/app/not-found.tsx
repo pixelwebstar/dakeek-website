@@ -20,7 +20,7 @@ export default function NotFound() {
 
             {/* Main Content */}
             <div className="relative z-10 text-center max-w-lg">
-                <h1 className="text-[12rem] font-serif italic leading-none text-[#222] select-none mix-blend-difference mb-4">404</h1>
+                <div className="text-[12rem] font-serif italic leading-none text-[#222] select-none mix-blend-difference mb-4">404</div>
 
                 <h2 className="text-2xl font-serif text-[#FAFAF9] mb-6 tracking-wide">
                     Destination Unknown.

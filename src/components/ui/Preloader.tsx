@@ -38,9 +38,9 @@ export default function Preloader() {
                 animation: 'fade-out-visibility 0.1s forwards 1.5s'
             }}
         >
-            <h1 className="text-5xl md:text-7xl font-mono font-bold tracking-tighter text-[#E7E5E4]">
+            <div className="text-5xl md:text-7xl font-mono font-bold tracking-tighter text-[#E7E5E4]" aria-hidden="true">
                 DAKEEK
-            </h1>
+            </div>
             <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#333]">
                 <div className="h-full bg-[#5A4A32] animate-preloader-progress" />
             </div>

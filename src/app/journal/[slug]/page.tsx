@@ -21,7 +21,7 @@ export async function generateMetadata(
     if (!post) return { title: "Post Not Found" };
 
     return {
-        title: `${post.title} | Dakeek Blog`,
+        title: `${post.title} | Dakeek`,
         description: post.excerpt,
         keywords: post.seoKeywords,
         alternates: {
