@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import AboutPage from "@/components/pages/AboutPage";
 
 export const metadata: Metadata = {
-    title: "About Dakeek - Dubai's Most Trusted Home Maintenance Company",
+    title: "About Dakeek | Dubai's Trusted Maintenance Co.",
     description: "Licensed Technical Services LLC with 10+ years serving Dubai. Certified technicians, 30-day warranty, 24/7 emergency support. Trusted by 10,000+ homes.",
     keywords: [
         "About Dakeek",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
         "Professional Technicians Dubai",
     ],
     openGraph: {
-        title: "About Dakeek - Dubai's Premium Home Maintenance",
+        title: "About Dakeek | Premium Home Maintenance",
         description: "Our story, team, and commitment to excellence in home services.",
     },
     alternates: {

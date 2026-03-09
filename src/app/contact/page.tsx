@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ContactPage from "@/components/pages/ContactPage";
 
 export const metadata: Metadata = {
-    title: "Contact Dakeek - Book Home Maintenance in Dubai | 24/7 Available",
+    title: "Contact Dakeek | Book Maintenance Dubai 24/7",
     description: "Book AC repair, plumber, or electrician in Dubai now. 60-minute response time. WhatsApp, call, or book online. Available 24/7 for emergencies across all Dubai areas.",
     keywords: [
         "Book Home Maintenance Dubai",

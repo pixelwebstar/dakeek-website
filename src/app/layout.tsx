@@ -158,7 +158,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         <link rel="preload" href="/images/noise.svg" as="image" />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <meta name="theme-color" content="#0c0a09" />
         <meta name="geo.region" content="AE-DU" />
         <meta name="geo.placename" content="Dubai" />

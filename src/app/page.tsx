@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import HomePage from "@/components/pages/HomePage";
 
 export const metadata: Metadata = {
-   title: "Dakeek Technical Services Dubai | Home Maintenance & Emergency Repair",
+   title: "Dakeek Dubai | Home Maintenance & Emergency Repair",
    description: "Dubai's trusted technical services for homes and businesses. Licensed AC repair, 24/7 emergency plumber, electrician, deep cleaning, and handyman. DET License 1382290. Fast emergency response across all Dubai areas.",
    keywords: [
       // Core Services - Dubai Focused
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
       languages: { 'en-AE': 'https://dakeek.ae/' },
    },
    openGraph: {
-      title: "Dakeek Technical Services Dubai | 24/7 Home Maintenance",
+      title: "Dakeek Dubai | 24/7 Home Maintenance Services",
       description: "Licensed home maintenance services in Dubai. AC, Plumbing, Electrical, Cleaning, Handyman. DET License 1382290. Book online or call +971542472151",
    },
 };

@@ -46,7 +46,7 @@ export default function ServicesHubPage() {
                             <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Book Technician</span>
                             <div className="absolute inset-0 bg-[#C4A67C] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                         </Link>
-                        <Link href="/discover" className="inline-flex items-center justify-center px-12 py-4 border border-black/10 text-[#111] rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
+                        <Link href="/services" className="inline-flex items-center justify-center px-12 py-4 border border-black/10 text-[#111] rounded-full font-mono text-xs font-medium uppercase tracking-[0.2em] bg-white/40 hover:bg-white/80 transition-all backdrop-blur-sm shadow-sm hover:shadow-md">
                             Discover
                         </Link>
                     </div>

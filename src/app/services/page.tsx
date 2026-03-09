@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import ServicesHubPage from "@/components/pages/ServicesHubPage";
 
 export const metadata: Metadata = {
-    title: "Home Services Dubai - AC, Plumbing, Electrical, Cleaning | Dakeek",
+    title: "Dubai Home Services | AC, Plumbing & More | Dakeek",
     description: "Complete home maintenance services in Dubai. AC repair & maintenance, 24/7 emergency plumber, licensed electrician, deep cleaning, handyman. DET License 1382290. Fast emergency response. Book now!",
     keywords: [
         "Home Services Dubai",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         languages: { 'en-AE': 'https://dakeek.ae/services' },
     },
     openGraph: {
-        title: "All Home Services in Dubai | Dakeek Technical Services",
+        title: "All Home Services Dubai | Dakeek",
         description: "Licensed AC, plumbing, electrical, cleaning, handyman & 24/7 emergency services in Dubai. DET License 1382290. Book now!",
     },
 };

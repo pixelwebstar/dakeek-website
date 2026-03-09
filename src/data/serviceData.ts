@@ -93,7 +93,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Reliable AC repair and maintenance for homes and businesses across Dubai."
         },
         seo: {
-            title: "AC Repair & Maintenance Dubai | Residential & Commercial | Dakeek",
+            title: "AC Repair & Maintenance Dubai | Dakeek",
             keywords: [
                 "AC Repair Dubai", "Commercial AC Repair", "Restaurant AC Maintenance", "Home AC Service",
                 "Chiller Repair Dubai", "VRF System Maintenance", "Split AC Repair", "Central AC Maintenance",
@@ -199,7 +199,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Leak detection, heaters, pumps, and grease traps for all properties."
         },
         seo: {
-            title: "Professional Plumber Dubai | Residential & Commercial Services | Dakeek",
+            title: "Plumber Dubai | Home & Business | Dakeek",
             keywords: [
                 "Plumber Dubai", "Commercial Plumber Dubai", "Restaurant Plumbing", "Leak Detection Dubai",
                 "Water Heater Repair", "Drain Cleaning Dubai", "Grease Trap Cleaning", "Water Pump Repair",
@@ -293,7 +293,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "From fixing a socket at home to wiring a retail shop. Safe & Certified."
         },
         seo: {
-            title: "Electrician Dubai | Residential & Commercial Services | Dakeek",
+            title: "Electrician Dubai | Licensed Services | Dakeek",
             keywords: [
                 "Electrician Dubai", "Commercial Electrician", "Office Lighting", "3 Phase Wiring Dubai",
                 "Home Wiring Dubai", "Retail Electrical Services", "Short Circuit Fix", "DB Dressing",
@@ -388,7 +388,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Deep cleaning, water tank sanitization, and duct cleaning."
         },
         seo: {
-            title: "Professional Deep Cleaning & Water Tank Cleaning Dubai | Dakeek",
+            title: "Deep Cleaning & Water Tank Dubai | Dakeek",
             keywords: [
                 "Deep Cleaning Service Dubai", "Water Tank Cleaning Dubai", "Home Sanitization Dubai", "AC Duct Cleaning",
                 "Best Cleaning Company Dubai", "Move In Cleaning Dubai", "Villa Deep Cleaning", "Apartment Cleaning Service",
@@ -484,7 +484,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Domestic cooker repair and commercial gas line maintenance."
         },
         seo: {
-            title: "Gas Stove & Commercial Burner Repair Dubai | Dakeek",
+            title: "Gas Stove & Burner Repair Dubai | Dakeek",
             keywords: [
                 "Stove Repair Dubai", "Cooker Repair Dubai", "Commercial Burner Repair", "Restaurant Kitchen Maintenance",
                 "Oven Repair Service", "Gas Line Installation", "IGD System Maintenance", "Cooking Range Repair",
@@ -579,7 +579,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Furniture assembly, TV mounting, and fit-out repairs for shops and homes."
         },
         seo: {
-            title: "Handyman & Fit-out Services Dubai | Home & Shop Repairs | Dakeek",
+            title: "Handyman & Fit-out Dubai | Dakeek",
             keywords: [
                 "Handyman Dubai", "Shop Fitout Dubai", "Furniture Assembly", "TV Mounting Service",
                 "Retail Shop Maintenance", "Office Furniture Assembly", "Curtain Installation", "Door Closer Repair",
@@ -675,7 +675,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "We are on the way. Right now."
         },
         seo: {
-            title: "24/7 Emergency Home Maintenance Dubai | Urgent Repair Services | Dakeek",
+            title: "24/7 Emergency Repair Dubai | Dakeek",
             keywords: [
                 "Emergency Home Maintenance Dubai", "24 Hour Repair Service Dubai", "Urgent AC Repair", "Emergency Plumber 24/7",
                 "Power Outage Emergency Dubai", "Flood Cleanup Service", "Emergency Handyman Dubai", "Fast Response Maintenance",
@@ -770,7 +770,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Annual maintenance packages for homes and businesses. Priority support, scheduled visits, and zero worries."
         },
         seo: {
-            title: "Annual Maintenance Contracts Dubai | Home & Business AMC | Dakeek",
+            title: "AMC Contracts Dubai | Home & Business | Dakeek",
             keywords: [
                 "AMC Contract Dubai", "Home Maintenance Package", "Annual AC Maintenance Contract", "Villa AMC Dubai",
                 "Office Maintenance Contract", "Property Management AMC", "Building Maintenance Dubai", "Restaurant AMC Services",

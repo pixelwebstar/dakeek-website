@@ -64,11 +64,22 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  // Headers for performance
+  // Headers for performance & security
   async headers() {
     return [
       {
-        source: '/:all*(svg|jpg|png|webp|avif)',
+        source: '/(.*)',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'X-XSS-Protection', value: '1; mode=block' },
+          { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(self)' },
+        ],
+      },
+      {
+        source: '/:all*(svg|jpg|jpeg|png|webp|avif|ico|woff|woff2|ttf|eot)',
         headers: [
           {
             key: 'Cache-Control',

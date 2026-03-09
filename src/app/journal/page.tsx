@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import JournalHubPage from "@/components/pages/JournalHubPage";
 
 export const metadata: Metadata = {
-    title: "The Journal | Home Maintenance Insights for Dubai | Dakeek",
+    title: "The Journal | Dubai Maintenance Tips | Dakeek",
     description: "Expert advice on AC maintenance schedules, emergency plumbing tips, electrical safety, and home care in Dubai.",
     keywords: [
         "AC maintenance tips Dubai",
