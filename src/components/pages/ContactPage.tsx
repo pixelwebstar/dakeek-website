@@ -134,9 +134,9 @@ export default function ContactPage() {
                                     <div>
                                         <h4 className="font-bold text-sm text-[#111]">Headquarters</h4>
                                         <p className="text-xs text-[#666] leading-relaxed">
-                                            Anzar Gallery Building<br />
-                                            Al Karama, Dubai<br />
-                                            United Arab Emirates
+                                            Xavier Business Center, BN Building<br />
+                                            B1 Floor, M2, Al Mateena St, Deira<br />
+                                            Dubai, United Arab Emirates
                                         </p>
                                     </div>
                                 </div>
@@ -263,7 +263,7 @@ export default function ContactPage() {
                     <div style={{ width: '100%', height: '100%', background: '#222' }}>
                         {/* Placeholder for map iframe if needed, or keeping it abstract/premium */}
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.688397368686!2d55.30669237618683!3d25.253244877478052!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f432822008f33%3A0x6bba3f075d5e34b3!2sAnzar%20Gallery!5e0!3m2!1sen!2sae!4v1709845000000!5m2!1sen!2sae&maptype=satellite"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.8!2d55.3172!3d25.2700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sXavier+Business+Center!5e0!3m2!1sen!2sae!4v1709845000000!5m2!1sen!2sae&maptype=satellite"
                             width="100%"
                             height="100%"
                             style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(83%)' }}
@@ -284,9 +284,9 @@ export default function ContactPage() {
 
                     <div className="space-y-6 text-stone-400 font-light">
                         <p>
-                            Anzar Gallery Building<br />
-                            Al Karama, Dubai<br />
-                            United Arab Emirates
+                            Xavier Business Center, BN Building<br />
+                            B1 Floor, M2, Al Mateena St, Deira<br />
+                            Dubai, United Arab Emirates
                         </p>
 
                         <div className="pt-6 border-t border-white/10">
@@ -298,7 +298,7 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    <a href="https://www.google.com/maps/search/?api=1&query=Anzar+Gallery+Building+Al+Karama+Dubai" target="_blank" rel="noopener noreferrer" className="mt-8 block w-full py-4 text-center border border-white/20 hover:border-[#C4A67C] text-white hover:text-[#C4A67C] transition-colors font-mono text-xs uppercase tracking-widest">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Xavier+Business+Center+BN+Building+Al+Mateena+St+Deira+Dubai" target="_blank" rel="noopener noreferrer" className="mt-8 block w-full py-4 text-center border border-white/20 hover:border-[#C4A67C] text-white hover:text-[#C4A67C] transition-colors font-mono text-xs uppercase tracking-widest">
                         Get Directions
                     </a>
                 </div>

@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: "https://dakeek.ae/about",
+        languages: { 'en-AE': 'https://dakeek.ae/about' },
     },
 };
 

@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: "https://dakeek.ae/services",
+        languages: { 'en-AE': 'https://dakeek.ae/services' },
     },
     openGraph: {
         title: "All Home Services in Dubai | Dakeek Technical Services",

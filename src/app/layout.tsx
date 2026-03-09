@@ -101,9 +101,7 @@ export const metadata: Metadata = {
   creator: "Dakeek Technical Services LLC",
   publisher: "Dakeek Technical Services LLC",
   alternates: {
-    languages: {
-      'en-AE': '/',
-    },
+    canonical: 'https://dakeek.ae',
   },
   openGraph: {
     title: "Dakeek Residential Services and Maintenance",
@@ -164,8 +162,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#0c0a09" />
         <meta name="geo.region" content="AE-DU" />
         <meta name="geo.placename" content="Dubai" />
-        <meta name="geo.position" content="25.2487;55.3003" />
-        <meta name="ICBM" content="25.2487, 55.3003" />
+        <meta name="geo.position" content="25.2700;55.3200" />
+        <meta name="ICBM" content="25.2700, 55.3200" />
       </head>
       <body
         suppressHydrationWarning
@@ -216,7 +214,7 @@ export default function RootLayout({
                   },
                   "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "Anzar Gallery Building, Al Karama",
+                    "streetAddress": "Xavier Business Center, BN Building, B1 Floor, M2, Al Mateena St, Deira",
                     "addressLocality": "Dubai",
                     "addressRegion": "Dubai",
                     "postalCode": "00000",
@@ -224,8 +222,8 @@ export default function RootLayout({
                   },
                   "geo": {
                     "@type": "GeoCoordinates",
-                    "latitude": 25.2487,
-                    "longitude": 55.3003
+                    "latitude": 25.2700,
+                    "longitude": 55.3200
                   },
                   "areaServed": [
                     { "@type": "City", "name": "Dubai", "geo": { "@type": "GeoCoordinates", "latitude": 25.2048, "longitude": 55.2708 } },
@@ -235,10 +233,10 @@ export default function RootLayout({
                     "@type": "GeoCircle",
                     "geoMidpoint": {
                       "@type": "GeoCoordinates",
-                      "latitude": 25.2487,
-                      "longitude": 55.3003
+                      "latitude": 25.2700,
+                      "longitude": 55.3200
                     },
-                    "geoRadius": "30000"
+                    "geoRadius": "20000"
                   },
                   "openingHoursSpecification": {
                     "@type": "OpeningHoursSpecification",

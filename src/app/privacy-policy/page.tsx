@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     description: "Our commitment to data privacy under UAE and International Law. Your data is secure and never sold.",
     alternates: {
         canonical: "https://dakeek.ae/privacy-policy",
+        languages: { 'en-AE': 'https://dakeek.ae/privacy-policy' },
     },
 };
 

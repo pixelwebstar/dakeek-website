@@ -675,7 +675,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "We are on the way. Right now."
         },
         seo: {
-            title: "24/7 Emergency Home Maintenace Dubai | Urgent Repair Services | Dakeek",
+            title: "24/7 Emergency Home Maintenance Dubai | Urgent Repair Services | Dakeek",
             keywords: [
                 "Emergency Home Maintenance Dubai", "24 Hour Repair Service Dubai", "Urgent AC Repair", "Emergency Plumber 24/7",
                 "Power Outage Emergency Dubai", "Flood Cleanup Service", "Emergency Handyman Dubai", "Fast Response Maintenance",

@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         alternates: {
             canonical: `https://dakeek.ae/services/${slug}`,
+            languages: { 'en-AE': `https://dakeek.ae/services/${slug}` },
         }
     };
 }
@@ -65,15 +66,15 @@ export default async function DynamicServicePage({ params }: Props) {
                 reviewCount="120"
                 areaServed={DUBAI_AREAS}
                 address={{
-                    streetAddress: "Anzar Gallery, Al Karama",
+                    streetAddress: "Xavier Business Center, BN Building, B1 Floor, M2, Al Mateena St, Deira",
                     addressLocality: "Dubai",
                     addressRegion: "Dubai",
                     postalCode: "00000",
                     addressCountry: "AE"
                 }}
                 geo={{
-                    latitude: 25.2532,
-                    longitude: 55.3657
+                    latitude: 25.2700,
+                    longitude: 55.3200
                 }}
             />
             <FAQSchema faqs={service.seo.qna ? service.seo.qna.map(q => ({ question: q.question, answer: q.answer })) : []} />

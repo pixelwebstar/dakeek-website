@@ -118,7 +118,7 @@ export default function Footer() {
                         <meta itemProp="telephone" content="+971542472151" />
                         <meta itemProp="email" content="care@dakeek.ae" />
                         <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress" className="hidden">
-                            <meta itemProp="streetAddress" content="Anzar Gallery Building, Al Karama" />
+                            <meta itemProp="streetAddress" content="Xavier Business Center, BN Building, B1 Floor, M2, Al Mateena St, Deira" />
                             <meta itemProp="addressLocality" content="Dubai" />
                             <meta itemProp="addressRegion" content="Dubai" />
                             <meta itemProp="addressCountry" content="AE" />

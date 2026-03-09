@@ -26,6 +26,7 @@ export async function generateMetadata(
         keywords: post.seoKeywords,
         alternates: {
             canonical: `https://dakeek.ae/journal/${params.slug}`,
+            languages: { 'en-AE': `https://dakeek.ae/journal/${params.slug}` },
         },
     };
 }
