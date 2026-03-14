@@ -54,7 +54,7 @@ export default function HomePage() {
                             <Balancer>Dakeek</Balancer>
                         </span>
                         <span className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12 uppercase tracking-widest animate-hero-fade block" style={{ animationDelay: '0.3s' }}>
-                            <Balancer>Based in Deira | 20KM Priority Radius</Balancer>
+                            <Balancer>Technical Services Co. L.L.C</Balancer>
                         </span>
                     </h1>
 

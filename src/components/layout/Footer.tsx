@@ -103,10 +103,9 @@ export default function Footer() {
         ],
         areas: [
             "Deira", "Al Mateena", "Al Rigga", "Al Muraqqabat", "Hor Al Anz", "Al Qusais",
-            "Al Nahda", "Port Saeed", "Dubai Festival City", "Mirdif", "Al Warqa",
-            "Bur Dubai", "Karama", "Oud Metha", "Satwa", "Jumeirah 1", "Jumeirah 2",
-            "Jumeirah 3", "Downtown Dubai", "Business Bay", "DIFC", "Al Mankhool",
-            "Al Jaddaf", "Al Rashidiya", "Al Twar", "Al Garhoud", "Muhaisnah"
+            "Al Nahda", "Port Saeed", "Mirdif", "Al Warqa", "Bur Dubai", "Karama",
+            "Oud Metha", "Satwa", "Downtown Dubai", "Business Bay", "DIFC", "Al Mankhool",
+            "Dubai Festival City", "Al Mamzar", "Dubai Creek Harbour"
         ]
     };
 
