@@ -2,67 +2,28 @@ import { Metadata } from "next";
 import HomePage from "@/components/pages/HomePage";
 
 export const metadata: Metadata = {
-   title: "Dakeek Dubai | AC Repair, Home Maintenance & Emergency Service",
-   description: "Dubai's trusted technical services for homes and businesses. Top-rated AC repair in Dubai, 24/7 emergency plumber, electrician, deep cleaning, and handyman. DET License 1382290. Fast emergency response across all Dubai areas.",
+   title: "Dakeek Deira | #1 AC Repair & Home Maintenance Deira",
+   description: "Deira's most trusted technical services based in Al Mateena St (BN Building). 2 years of excellence in AC repair, plumbing & electrical. Fast 20km radius response. DET License 1382290.",
    keywords: [
-      // Core Services - Dubai Focused
-      "AC in Dubai",
-      "AC repair in Dubai",
-      "Best AC repair in Dubai",
-      "Home maintenance Dubai",
-      "Residential maintenance Dubai",
-      "AC repair Dubai",
-      "Emergency plumber Dubai",
-      "Electrician Dubai",
-      "Handyman Dubai",
-      "Deep cleaning Dubai",
-
-      // Emergency Services
-      "24/7 AC repair Dubai",
-      "Emergency home repair Dubai",
-      "Same day plumber Dubai",
-      "Emergency electrician Dubai",
-      "60 minute response Dubai",
-
-      // Location-Specific
-      "AC repair Dubai Marina",
-      "Plumber Downtown Dubai",
-      "Electrician JBR",
-      "Handyman Palm Jumeirah",
-      "Home maintenance Business Bay",
-
-      // Specific Services
-      "AC maintenance contracts Dubai",
-      "Water leak detection Dubai",
-      "Gas stove repair Dubai",
-      "Electrical troubleshooting",
-      "Water tank cleaning",
-      "Furniture assembly Dubai",
-
-      // Business Types
-      "Restaurant maintenance Dubai",
-      "Office maintenance Dubai",
-      "Villa maintenance Dubai",
-      "Apartment maintenance Dubai",
-
-      // Long-tail
-      "best home maintenance company Dubai",
-      "reliable plumber near me Dubai",
-      "licensed electrician Dubai",
-      "professional AC technician Dubai",
-
-      // Brand
-      "Dakeek Technical Services",
-      "Dakeek Dubai",
-      "Dakeek home services"
+      "AC Repair Deira",
+      "Home Maintenance Al Mateena St",
+      "BN Building Maintenance Dubai",
+      "AC Maintenance Deira",
+      "Technical Services Deira",
+      "Xavier Business Center Dubai",
+      "Handyman Al Mateena St",
+      "Emergency Plumber Deira",
+      "Dakeek Deira",
+      "Best AC repair in Deira",
+      "Home Maintenance 20km radius Deira",
    ],
    alternates: {
       canonical: "https://dakeek.ae/",
       languages: { 'en-AE': 'https://dakeek.ae/' },
    },
    openGraph: {
-      title: "Dakeek Dubai | 24/7 Home Maintenance Services",
-      description: "Licensed home maintenance services in Dubai. AC, Plumbing, Electrical, Cleaning, Handyman. DET License 1382290. Book online or call +971542472151",
+      title: "Dakeek Deira | 24/7 Home Maintenance Services",
+      description: "Licensed home maintenance services in Deira, Dubai. AC, Plumbing, Electrical, Cleaning, Handyman. DET License 1382290. Book online or call +971542472151",
    },
 };
 

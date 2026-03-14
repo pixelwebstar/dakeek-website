@@ -3,13 +3,15 @@ import AboutPage from "@/components/pages/AboutPage";
 
 export const metadata: Metadata = {
     title: "About Dakeek | Dubai's Trusted Maintenance Co.",
-    description: "Licensed Technical Services LLC with 10+ years serving Dubai. Certified technicians, 30-day warranty, 24/7 emergency support. Trusted by 10,000+ homes.",
+    description: "Licensed Technical Services LLC with 2 years serving Dubai. Deira's fastest-growing home maintenance provider. Based in Al Mateena St, BN Building. Certified technicians, 30-day warranty, 24/7 support.",
     keywords: [
         "About Dakeek",
-        "Home Maintenance Company Dubai",
-        "Best Handyman Company Dubai",
+        "Home Maintenance Deira",
+        "AC Repair Al Mateena St Dubai",
+        "Technical Services Deira BN Building",
+        "Best Handyman Deira Dubai",
         "Licensed Technical Services Dubai",
-        "Trusted Home Repair Dubai",
+        "Trusted Home Repair Deira",
         "Professional Technicians Dubai",
     ],
     openGraph: {

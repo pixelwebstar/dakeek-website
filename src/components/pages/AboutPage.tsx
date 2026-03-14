@@ -116,18 +116,16 @@ export default function AboutPage() {
                     </div>
                     <div>
                         <span className="font-mono text-xs uppercase tracking-widest text-[#6B5344] mb-8 block bg-[#6B5344]/10 w-fit px-3 py-1 rounded-sm">The Origin</span>
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-10 leading-[0.9] tracking-tight text-[#111]">It started with a <span className="text-stone-500">Sunday morning leak.</span></h2>
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-10 leading-[0.9] tracking-tight text-[#111]">Built for the <span className="text-stone-500">heart of Deira.</span></h2>
                         <div className="space-y-6 text-stone-600 font-light leading-relaxed">
                             <p className="text-base md:text-lg">
-                                Ten years ago, our founder woke up to water dripping from the ceiling. He called a &quot;24/7&quot; service.
-                                They arrived 6 hours late. They didn&apos;t have the part. They tracked mud on the carpet and left a bill that changed three times.
+                                Founded two years ago in the heart of Al Mateena St, Dakeek was born from a simple observation: while Deira is the historic core of Dubai, its home maintenance services often lacked modern precision.
                             </p>
                             <p className="text-lg md:text-xl text-[#111]">
-                                The founder of Dakeek noticed a gap in the market. Homes were beautiful, but the care they received was often unreliable.
+                                Our founder, operating from the Xavier Business Center in the BN Building, set out to create a service that treats every 20km radius around Deira with the same urgency as a high-rise in Downtown.
                             </p>
                             <p className="text-lg md:text-xl text-stone-500">
-                                So he built Dakeek not just as a maintenance company, but as a professional service provider.
-                                Where &quot;on time&quot; means to the minute. Where &quot;clean&quot; means spotless.
+                                In just 24 months, we&apos;ve become the neighborhood&apos;s most trusted technical team. Where &quot;locally based&quot; means we&apos;re at your door in Al Mateena or Deira while others are still stuck in traffic.
                             </p>
                         </div>
                     </div>

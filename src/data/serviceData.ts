@@ -93,11 +93,12 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Reliable AC repair and maintenance for homes and businesses across Dubai."
         },
         seo: {
-            title: "Expert AC Repair & Maintenance in Dubai | Dakeek",
-            description: "Dakeek offers the best AC repair in Dubai. Our expert technicians provide fast, reliable AC maintenance, installation, and 24/7 repair across all Dubai areas.",
+            title: "Expert AC Repair & Maintenance in Deira | Dakeek",
+            description: "Dakeek offers the best AC repair in Deira. Based in Al Mateena St, our technicians provide fast, reliable AC maintenance and repair across Deira and a 20km radius.",
             keywords: [
-                "AC in Dubai", "AC Repair in Dubai", "Best AC Repair in Dubai", "AC Maintenance in Dubai",
-                "AC Repair Dubai", "Commercial AC Repair", "Restaurant AC Maintenance", "Home AC Service",
+                "AC Repair Deira", "AC Maintenance Deira", "Best AC Repair in Deira", "Al Mateena St AC Service",
+                "BN Building AC Repair", "Deira Technical Services", "AC repair near Al Mateena", "Home AC Service Deira",
+                "Emergency AC Repair Deira", "Best AC Company Deira",
                 "Chiller Repair Dubai", "VRF System Maintenance", "Split AC Repair", "Central AC Maintenance",
                 "Duct Cleaning Dubai", "AC AMC Contract Dubai", "Emergency AC Repair", "Best AC Company Dubai",
                 "Office AC Maintenance", "Villa AC Repair", "Industrial AC Services",
@@ -201,10 +202,10 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Leak detection, heaters, pumps, and grease traps for all properties."
         },
         seo: {
-            title: "Plumber Dubai | Home & Business | Dakeek",
+            title: "Plumber Deira | Home & Business | Dakeek",
             keywords: [
-                "Plumber Dubai", "Commercial Plumber Dubai", "Restaurant Plumbing", "Leak Detection Dubai",
-                "Water Heater Repair", "Drain Cleaning Dubai", "Grease Trap Cleaning", "Water Pump Repair",
+                "Plumber Deira", "Plumbing Al Mateena St", "Leak Detection Deira", "BN Building Plumber",
+                "Al Mateena Plumbing Service", "Emergency Plumber Deira", "Deira Leak Detection", "Water Heater Repair Deira",
                 "Emergency Plumber", "Villa Plumbing Maintenance", "Office Plumbing Services", "Blocked Toilet Fix",
                 ...DUBAI_AREAS.map(area => `Plumber ${area}`),
                 ...DUBAI_AREAS.map(area => `Leak Detection ${area}`)
@@ -295,10 +296,10 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "From fixing a socket at home to wiring a retail shop. Safe & Certified."
         },
         seo: {
-            title: "Electrician Dubai | Licensed Services | Dakeek",
+            title: "Electrician Deira | Licensed Services | Dakeek",
             keywords: [
-                "Electrician Dubai", "Commercial Electrician", "Office Lighting", "3 Phase Wiring Dubai",
-                "Home Wiring Dubai", "Retail Electrical Services", "Short Circuit Fix", "DB Dressing",
+                "Electrician Deira", "Electrical Service Al Mateena", "Deira Electrical Repair", "BN Building Electrician",
+                "Al Mateena St Professional Electrician", "Deira Shop Fitting", "Short Circuit Fix Deira", "DB Dressing Deira",
                 "Electrical Maintenance AMC", "Chandelier Installation", "Emergency Electrician",
                 ...DUBAI_AREAS.map(area => `Electrician ${area}`),
                 ...DUBAI_AREAS.map(area => `Electrical Services ${area}`)
