@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
             {
                 userAgent: '*',
                 allow: '/',
-                disallow: ['/private', '/admin', '/api/*', '/areas/*'],
+                disallow: ['/private', '/admin', '/api/*'],
             },
         ],
         sitemap: 'https://dakeek.ae/sitemap.xml',

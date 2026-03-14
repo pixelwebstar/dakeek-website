@@ -100,6 +100,10 @@ export default function Footer() {
             { name: "Facebook", href: "https://www.facebook.com/dakeektechnicalservice/" },
             { name: "X (Twitter)", href: "https://twitter.com" },
             { name: "TikTok", href: "https://tiktok.com" },
+        ],
+        areas: [
+            "Dubai Marina", "Downtown Dubai", "Palm Jumeirah", "JBR", "Business Bay",
+            "Jumeirah", "JLT", "The Greens", "The Views", "Emirates Hills", "The Meadows"
         ]
     };
 
@@ -240,6 +244,22 @@ export default function Footer() {
                                 </li>
                             ))}
                         </ul>
+                    </div>
+
+                    {/* 5. Areas We Serve */}
+                    <div className="col-span-2 md:col-span-4 pt-10 border-t border-black/5">
+                        <h3 className="font-mono text-sm uppercase tracking-[0.2em] font-medium opacity-100 mb-6">Areas We Serve</h3>
+                        <div className="flex flex-wrap gap-x-6 gap-y-3">
+                            {links.areas.map((area) => (
+                                <Link
+                                    key={area}
+                                    href="/services"
+                                    className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors`}
+                                >
+                                    {area}
+                                </Link>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

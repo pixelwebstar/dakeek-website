@@ -48,18 +48,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/areas/:path*',
-        destination: '/',
-        permanent: true,
-      },
-      {
         source: '/services/other',
         destination: '/services',
-        permanent: true,
-      },
-      {
-        source: '/blog/:slug',
-        destination: '/journal/:slug',
         permanent: true,
       },
     ];

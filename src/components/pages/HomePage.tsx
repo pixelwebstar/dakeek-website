@@ -48,7 +48,7 @@ export default function HomePage() {
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
                     <h1 className="flex flex-col items-center">
                         <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
-                            Residential & Commercial Services
+                            Top-Rated AC Repair & Maintenance in Dubai
                         </span>
                         <span className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade block" style={{ animationDelay: '0s' }}>
                             <Balancer>Dakeek</Balancer>
@@ -112,7 +112,7 @@ export default function HomePage() {
                             </Balancer>
                         </h2>
                         <p className="text-lg md:text-xl text-[#CCC] font-light max-w-3xl mx-auto leading-relaxed">
-                            Dakeek provides premium technical support for homeowners and businesses alike. Whether it’s a family villa or a busy restaurant, we ensure your systems run perfectly.
+                            Dakeek provides premium technical support and the best AC repair in Dubai. Whether it’s a family villa in the Marina or a busy restaurant in Downtown, we ensure your systems run perfectly.
                         </p>
                     </div>
 
@@ -195,7 +195,7 @@ export default function HomePage() {
                             icon: IconAC,
                             image: "/images/services/ac.png",
                             features: ["Repair & Maintenance", "Duct Cleaning", "AMC Contracts"],
-                            seoTitle: "AC services for homes and businesses in Dubai"
+                            seoTitle: "The best AC repair in Dubai for homes and businesses"
                         },
                         {
                             title: "Plumbing\nServices",

@@ -2,10 +2,13 @@ import { Metadata } from "next";
 import HomePage from "@/components/pages/HomePage";
 
 export const metadata: Metadata = {
-   title: "Dakeek Dubai | Home Maintenance & Emergency Repair",
-   description: "Dubai's trusted technical services for homes and businesses. Licensed AC repair, 24/7 emergency plumber, electrician, deep cleaning, and handyman. DET License 1382290. Fast emergency response across all Dubai areas.",
+   title: "Dakeek Dubai | AC Repair, Home Maintenance & Emergency Service",
+   description: "Dubai's trusted technical services for homes and businesses. Top-rated AC repair in Dubai, 24/7 emergency plumber, electrician, deep cleaning, and handyman. DET License 1382290. Fast emergency response across all Dubai areas.",
    keywords: [
       // Core Services - Dubai Focused
+      "AC in Dubai",
+      "AC repair in Dubai",
+      "Best AC repair in Dubai",
       "Home maintenance Dubai",
       "Residential maintenance Dubai",
       "AC repair Dubai",

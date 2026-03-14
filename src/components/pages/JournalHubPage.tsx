@@ -23,7 +23,7 @@ export default function JournalHubPage() {
         <main className="min-h-screen bg-white text-[#111] font-sans selection:bg-[#C4A67C] selection:text-white">
 
             {/* 1. HERO: The Journal (Warm Stone / Silver Metallic) */}
-            <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
+            <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-[#E5E7EB] border-b border-structure">
                 <div className="absolute inset-0 z-0">
                     <GradientHero
                         color1="#9CA3AF"

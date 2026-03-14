@@ -100,9 +100,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Dakeek Residential Services and Maintenance", url: "https://dakeek.ae" }],
   creator: "Dakeek Technical Services LLC",
   publisher: "Dakeek Technical Services LLC",
-  alternates: {
-    canonical: 'https://dakeek.ae',
-  },
   openGraph: {
     title: "Dakeek Residential Services and Maintenance",
     description: "Dubai's verified home maintenance experts. Licensed AC, Plumbing, Electrical, and Cleaning services. DET License 1382290. Fast emergency response. Book now!",

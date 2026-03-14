@@ -93,8 +93,10 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Reliable AC repair and maintenance for homes and businesses across Dubai."
         },
         seo: {
-            title: "AC Repair & Maintenance Dubai | Dakeek",
+            title: "Expert AC Repair & Maintenance in Dubai | Dakeek",
+            description: "Dakeek offers the best AC repair in Dubai. Our expert technicians provide fast, reliable AC maintenance, installation, and 24/7 repair across all Dubai areas.",
             keywords: [
+                "AC in Dubai", "AC Repair in Dubai", "Best AC Repair in Dubai", "AC Maintenance in Dubai",
                 "AC Repair Dubai", "Commercial AC Repair", "Restaurant AC Maintenance", "Home AC Service",
                 "Chiller Repair Dubai", "VRF System Maintenance", "Split AC Repair", "Central AC Maintenance",
                 "Duct Cleaning Dubai", "AC AMC Contract Dubai", "Emergency AC Repair", "Best AC Company Dubai",

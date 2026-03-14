@@ -1,5 +1,14 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Page Not Found | Dakeek",
+    robots: {
+        index: false,
+        follow: false,
+    },
+};
 
 export default function NotFound() {
     return (
