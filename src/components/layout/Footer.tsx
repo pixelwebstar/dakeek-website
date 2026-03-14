@@ -102,8 +102,11 @@ export default function Footer() {
             { name: "TikTok", href: "https://tiktok.com" },
         ],
         areas: [
-            "Dubai Marina", "Downtown Dubai", "Palm Jumeirah", "JBR", "Business Bay",
-            "Jumeirah", "JLT", "The Greens", "The Views", "Emirates Hills", "The Meadows"
+            "Deira", "Al Mateena", "Al Rigga", "Al Muraqqabat", "Hor Al Anz", "Al Qusais",
+            "Al Nahda", "Port Saeed", "Dubai Festival City", "Mirdif", "Al Warqa",
+            "Bur Dubai", "Karama", "Oud Metha", "Satwa", "Jumeirah 1", "Jumeirah 2",
+            "Jumeirah 3", "Downtown Dubai", "Business Bay", "DIFC", "Al Mankhool",
+            "Al Jaddaf", "Al Rashidiya", "Al Twar", "Al Garhoud", "Muhaisnah"
         ]
     };
 
