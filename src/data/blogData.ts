@@ -98,7 +98,7 @@ Take photos and videos for insurance purposes before any cleanup.
 
 Move furniture and electronics away from the affected area.
 
-## Call Dakeek 24/7
+## Call Dakeek Technical
 
 Our emergency plumbers arrive within 60 minutes, fully equipped to handle any situation.
 
@@ -142,7 +142,7 @@ For the most reliable smart home, hardwired ethernet beats WiFi.
 - **Apple HomeKit** - Premium integration for Apple users
 - **Amazon Alexa** - Wide device compatibility
 
-## Dakeek Smart Home Services
+## Dakeek Smart Property Services
 
 Our electricians are certified in smart home installation. We handle:
 - Wiring assessment

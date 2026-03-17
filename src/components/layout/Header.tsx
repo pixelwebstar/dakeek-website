@@ -233,7 +233,7 @@ export default function Header() {
                     <div className="mt-auto pb-12 space-y-4">
                         <div className="h-[1px] w-full bg-[#E5E5E5] mb-6" />
                         <a
-                            href="https://wa.me/971542472151?text=Hello%20Dakeek%20Residential%20Services%2C%20I%20would%20like%20to%20book%20a%20service."
+                            href="https://wa.me/971542472151?text=Hello%20Dakeek%20Property%20Maintenance%2C%20I%20would%20like%20to%20book%20a%20service."
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setIsMenuOpen(false)}

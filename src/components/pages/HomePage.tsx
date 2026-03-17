@@ -47,8 +47,9 @@ export default function HomePage() {
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
                     <h1 className="flex flex-col items-center">
-                        <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
-                            Commercial & Residential Property Maintenance
+                        <span className="font-mono text-[10px] md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-6 py-3 rounded-[2rem] border border-black/5 text-titanium bg-white/50">
+                            <span className="block md:inline">Commercial & Residential</span>
+                            <span className="block md:inline md:ml-2">Property Maintenance</span>
                         </span>
                         <span className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade block" style={{ animationDelay: '0s' }}>
                             <Balancer>Dakeek</Balancer>
@@ -85,8 +86,8 @@ export default function HomePage() {
                         <div key={i} className="flex gap-8 md:gap-16">
                             <span className="flex items-center gap-2"><ShieldCheck className="w-3.5 h-3.5" strokeWidth={1.5} /> RESIDENTIAL & COMMERCIAL</span>
                             <span className="flex items-center gap-2"><UserCheck className="w-3.5 h-3.5" strokeWidth={1.5} /> TRUSTED EXPERTS</span>
-                            <span className="flex items-center gap-2"><Home className="w-3.5 h-3.5" strokeWidth={1.5} /> TECHNICAL SERVICES</span>
-                            <span className="flex items-center gap-2"><Clock className="w-3.5 h-3.5" strokeWidth={1.5} /> 24/7 SUPPORT</span>
+                            <span className="flex items-center gap-2"><Home className="w-3.5 h-3.5" strokeWidth={1.5} /> PROPERTY MAINTENANCE</span>
+                            <span className="flex items-center gap-2"><Clock className="w-3.5 h-3.5" strokeWidth={1.5} /> PROFESSIONAL SUPPORT</span>
                         </div>
                     ))}
                 </div>
@@ -253,7 +254,7 @@ export default function HomePage() {
                             image: "/images/services/emergency_final.png",
                             features: ["24/7 Response", "Power Outage", "Water Leaks"],
                             variant: "emergency",
-                            seoTitle: "24/7 emergency maintenance services"
+                            seoTitle: "Emergency property maintenance services"
                         }
                     ].map((service, index) => (
                         <ServiceCard

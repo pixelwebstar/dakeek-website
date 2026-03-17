@@ -3,21 +3,21 @@ import { Metadata } from "next";
 import ServicesHubPage from "@/components/pages/ServicesHubPage";
 
 export const metadata: Metadata = {
-    title: "Dubai Home Services | AC, Plumbing & More | Dakeek",
-    description: "Complete home maintenance services in Dubai. AC repair & maintenance, 24/7 emergency plumber, licensed electrician, deep cleaning, handyman. DET License 1382290. Fast emergency response. Book now!",
+    title: "Dubai Property Services | AC, Plumbing & More | Dakeek",
+    description: "Complete property maintenance services in Dubai. AC repair & maintenance, emergency plumber, licensed electrician, deep cleaning, handyman. DET License 1382290. Professional response. Book now!",
     keywords: [
-        "Home Services Dubai",
-        "Home Maintenance Dubai",
+        "Property Services Dubai",
+        "Property Maintenance Dubai",
         "AC Repair Dubai",
         "Emergency Plumber Dubai",
-        "24/7 Electrician Dubai",
+        "Electrician Dubai",
         "Handyman Services Dubai",
         "Deep Cleaning Services Dubai",
         "Water Tank Cleaning Dubai",
         "Emergency Repair Dubai",
-        "Home Maintenance Services Dubai",
-        "Best Home Services Company Dubai",
-        "Licensed home services Dubai",
+        "Property Maintenance Services Dubai",
+        "Best Property Services Company Dubai",
+        "Licensed property services Dubai",
         "Residential maintenance Dubai",
         "Villa maintenance Dubai",
         "Apartment repair services Dubai",
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
         languages: { 'en-AE': 'https://dakeek.ae/services' },
     },
     openGraph: {
-        title: "All Home Services Dubai | Dakeek",
-        description: "Licensed AC, plumbing, electrical, cleaning, handyman & 24/7 emergency services in Dubai. DET License 1382290. Book now!",
+        title: "All Property Services Dubai | Dakeek",
+        description: "Licensed AC, plumbing, electrical, cleaning, handyman & emergency services in Dubai. DET License 1382290. Book now!",
     },
 };
 

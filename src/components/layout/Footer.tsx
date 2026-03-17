@@ -119,7 +119,7 @@ export default function Footer() {
                     <div>
                         <h2 className="text-4xl font-bold tracking-tighter mb-4" itemProp="name">DAKEEK</h2>
                         <p className={`font-serif text-base leading-relaxed ${theme.mutedText} max-w-xs`} itemProp="description">
-                            &quot;Engineering rigor for Dubai’s finest homes. Precision in every detail.&quot;
+                            &quot;Engineering rigor for Dubai’s finest properties. Precision in every detail.&quot;
                         </p>
                         <meta itemProp="telephone" content="+971542472151" />
                         <meta itemProp="email" content="care@dakeek.ae" />
@@ -167,7 +167,7 @@ export default function Footer() {
                                     <Link
                                         href={link.href}
                                         prefetch={true}
-                                        title={`${link.name} – Dubai's Premier Home Maintenance & Technical Services`}
+                                        title={`${link.name} – Dubai's Premier Property Maintenance & Technical Services`}
                                         className={`text-sm font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
                                     >
                                         {link.name}
@@ -186,7 +186,7 @@ export default function Footer() {
                                     <Link
                                         href={link.href}
                                         prefetch={true}
-                                        title={`${link.name} in Dubai – 24/7 Emergency Service Available`}
+                                        title={`${link.name} in Dubai – Emergency Service Available`}
                                         className={`text-sm font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
                                     >
                                         {link.name}
@@ -256,7 +256,7 @@ export default function Footer() {
                                 <Link
                                     key={area}
                                     href="/services"
-                                    className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors`}
+                                    className={`text-xs font-medium ${theme.mutedText} ${theme.hoverText} transition-colors ${["Al Mamzar", "Al Barsha"].includes(area) ? "hidden lg:block" : ""}`}
                                 >
                                     {area}
                                 </Link>

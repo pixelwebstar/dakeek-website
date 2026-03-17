@@ -11,7 +11,7 @@ export const metadata: Metadata = {
         "Plumber Job Dubai",
         "Electrician Vacancy Dubai",
         "Careers Dakeek",
-        "Luxury Home Maintenance Jobs",
+        "Luxury Property Maintenance Jobs",
         "Maintenance work Dubai"
     ],
     openGraph: {

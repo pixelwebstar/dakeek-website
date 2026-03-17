@@ -558,7 +558,7 @@ const MenuContent = ({ setView }: { setView: (view: "menu" | "chat") => void }) 
                 icon={<MessageCircle className="w-5 h-5 text-green-400" />}
                 title="WhatsApp"
                 subtitle="Fastest response"
-                href="https://wa.me/971542472151?text=Hello%20Dakeek%20Residential%20Services%2C%20I%20would%20like%20to%20book%20a%20service."
+                href="https://wa.me/971542472151?text=Hello%20Dakeek%20Property%20Maintenance%2C%20I%20would%20like%20to%20book%20a%20service."
                 delay={0}
             />
 
@@ -575,7 +575,7 @@ const MenuContent = ({ setView }: { setView: (view: "menu" | "chat") => void }) 
             <MenuButton
                 icon={<Phone className="w-5 h-5 text-blue-400" />}
                 title="Call Dakeek"
-                subtitle="24/7 Operations"
+                subtitle="Expert Operations"
                 href="tel:+971542472151"
                 delay={0.2}
             />

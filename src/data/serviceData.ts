@@ -93,11 +93,11 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Reliable AC repair and maintenance for homes and businesses across Dubai."
         },
         seo: {
-            title: "Expert AC Repair & Maintenance in Deira | Dakeek",
-            description: "Dakeek offers the best AC repair in Deira. Based in Al Mateena St, our technicians provide fast, reliable AC maintenance and repair across Deira and a 30km radius.",
+            title: "Expert AC Repair & Maintenance in Deira | Property Maintenance",
+            description: "Licensed residential and commercial AC repair and maintenance in Deira and across Dubai. Professional technical support within 30km of Al Mateena St.",
             keywords: [
                 "AC Repair Deira", "AC Maintenance Deira", "Best AC Repair in Deira", "Al Mateena St AC Service",
-                "BN Building AC Repair", "Deira Technical Services", "AC repair near Al Mateena", "Home AC Service Deira",
+                "BN Building AC Repair", "Deira Technical Services", "AC repair near Al Mateena", "Property AC Service Deira",
                 "Emergency AC Repair Deira", "Best AC Company Deira",
                 "Chiller Repair Dubai", "VRF System Maintenance", "Split AC Repair", "Central AC Maintenance",
                 "Duct Cleaning Dubai", "AC AMC Contract Dubai", "Emergency AC Repair", "Best AC Company Dubai",
@@ -202,7 +202,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Leak detection, heaters, pumps, and grease traps for all properties."
         },
         seo: {
-            title: "Plumber Deira | Home & Business | Dakeek",
+            title: "Licensed Plumber Deira | Property Maintenance Dubai",
             keywords: [
                 "Plumber Deira", "Plumbing Al Mateena St", "Leak Detection Deira", "BN Building Plumber",
                 "Al Mateena Plumbing Service", "Emergency Plumber Deira", "Deira Leak Detection", "Water Heater Repair Deira",
@@ -296,7 +296,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "From fixing a socket at home to wiring a retail shop. Safe & Certified."
         },
         seo: {
-            title: "Electrician Deira | Licensed Services | Dakeek",
+            title: "Licensed Electricians Deira | Property Maintenance Dubai",
             keywords: [
                 "Electrician Deira", "Electrical Service Al Mateena", "Deira Electrical Repair", "BN Building Electrician",
                 "Al Mateena St Professional Electrician", "Deira Shop Fitting", "Short Circuit Fix Deira", "DB Dressing Deira",
@@ -391,7 +391,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Deep cleaning, water tank sanitization, and duct cleaning."
         },
         seo: {
-            title: "Deep Cleaning & Water Tank Dubai | Dakeek",
+            title: "Deep Cleaning & Property Sanitization Dubai | Dakeek",
             keywords: [
                 "Deep Cleaning Service Dubai", "Water Tank Cleaning Dubai", "Home Sanitization Dubai", "AC Duct Cleaning",
                 "Best Cleaning Company Dubai", "Move In Cleaning Dubai", "Villa Deep Cleaning", "Apartment Cleaning Service",
@@ -582,7 +582,7 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "Furniture assembly, TV mounting, and fit-out repairs for shops and homes."
         },
         seo: {
-            title: "Handyman & Fit-out Dubai | Dakeek",
+            title: "Handyman & Property Maintenance Deira | Dakeek",
             keywords: [
                 "Handyman Dubai", "Shop Fitout Dubai", "Furniture Assembly", "TV Mounting Service",
                 "Retail Shop Maintenance", "Office Furniture Assembly", "Curtain Installation", "Door Closer Repair",
@@ -678,11 +678,11 @@ export const serviceData: Record<string, ServicePageData> = {
             description: "We are on the way. Right now."
         },
         seo: {
-            title: "24/7 Emergency Repair Dubai | Dakeek",
+            title: "Emergency Property Maintenance Dubai | Fast Technical Support",
             keywords: [
-                "Emergency Home Maintenance Dubai", "24 Hour Repair Service Dubai", "Urgent AC Repair", "Emergency Plumber 24/7",
+                "Emergency Property Maintenance Dubai", "Urgent technical support Dubai", "Urgent AC Repair", "Emergency Plumber",
                 "Power Outage Emergency Dubai", "Flood Cleanup Service", "Emergency Handyman Dubai", "Fast Response Maintenance",
-                "After Hours Repair Dubai", "Holiday Maintenance Service", "Critical Home Repair", "SOS Home Services",
+                "After Hours Repair Dubai", "Holiday Maintenance Service", "Critical Property Repair", "SOS Property Services",
                 ...DUBAI_AREAS.map(area => `Emergency Repair ${area}`)
             ],
             schemaType: "EmergencyService",
@@ -701,7 +701,7 @@ export const serviceData: Record<string, ServicePageData> = {
             heading: "Disasters don't keep office hours. Neither do we. If there is an issue, we deploy immediately.",
             stats: [
                 { value: "Fast", label: "Arrival", sub: "Target" },
-                { value: "24/7", label: "Open", sub: "Always" },
+                { value: "Live", label: "Open", sub: "Always" },
                 { value: "Fully", label: "Stocked", sub: "Vans" },
                 { value: "Fixed", label: "Solution", sub: "Goal" }
             ]
@@ -775,7 +775,7 @@ export const serviceData: Record<string, ServicePageData> = {
         seo: {
             title: "AMC Contracts Dubai | Home & Business | Dakeek",
             keywords: [
-                "AMC Contract Dubai", "Home Maintenance Package", "Annual AC Maintenance Contract", "Villa AMC Dubai",
+                "AMC Contract Dubai", "Property Maintenance Package", "Annual AC Maintenance Contract", "Villa AMC Dubai",
                 "Office Maintenance Contract", "Property Management AMC", "Building Maintenance Dubai", "Restaurant AMC Services",
                 ...DUBAI_AREAS.map(area => `AMC Contract ${area}`)
             ],

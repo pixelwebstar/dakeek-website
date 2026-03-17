@@ -2,20 +2,20 @@ import { Metadata } from "next";
 import ContactPage from "@/components/pages/ContactPage";
 
 export const metadata: Metadata = {
-    title: "Contact Dakeek | Book Maintenance Dubai 24/7",
-    description: "Book AC repair, plumber, or electrician in Dubai now. 60-minute response time. WhatsApp, call, or book online. Available 24/7 for emergencies across all Dubai areas.",
+    title: "Contact Dakeek | Book Property Maintenance Dubai",
+    description: "Book AC repair, plumbing, or electrical in Dubai now. Professional response time. WhatsApp, call, or book online. Available for emergencies across all Dubai areas.",
     keywords: [
-        "Book Home Maintenance Dubai",
+        "Book Property Maintenance Dubai",
         "Contact Handyman Dubai",
         "Book AC Repair Dubai",
         "Emergency Plumber Dubai",
-        "24/7 Electrician Dubai",
+        "Expert Electrician Dubai",
         "WhatsApp Repair Dubai",
-        "Home Service Booking Dubai",
+        "Property Service Booking Dubai",
     ],
     openGraph: {
-        title: "Book Dakeek - 24/7 Home Maintenance Dubai",
-        description: "Call, WhatsApp, or book online. 60-min response guaranteed!",
+        title: "Book Dakeek - Property Maintenance Dubai",
+        description: "Call, WhatsApp, or book online. Professional response guaranteed!",
     },
     alternates: {
         canonical: "https://dakeek.ae/contact",

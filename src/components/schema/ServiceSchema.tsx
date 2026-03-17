@@ -89,7 +89,7 @@ export function ServiceSchema({
         }),
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Home Maintenance Services",
+            "name": "Property Maintenance Services",
             "itemListElement": [
                 {
                     "@type": "Offer",

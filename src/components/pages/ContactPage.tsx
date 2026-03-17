@@ -33,13 +33,13 @@ export default function ContactPage() {
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
                     <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
-                        24/7 Support
+                        Property Maintenance
                     </p>
                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-sans tracking-tight mb-6 md:mb-8 leading-[0.9] text-[#111]">
                         Contact
                     </h1>
                     <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#555] mb-12 uppercase tracking-widest">
-                        We are ready to help.
+                        Commercial & Residential
                     </p>
                 </div>
             </section>
@@ -136,7 +136,8 @@ export default function ContactPage() {
                                         <p className="text-xs text-[#666] leading-relaxed">
                                             Xavier Business Center, BN Building<br />
                                             B1 Floor, M2, Al Mateena St, Deira<br />
-                                            Dubai, United Arab Emirates
+                                            Dubai, United Arab Emirates<br />
+                                            <span className="text-[10px] text-[#C4A67C] mt-2 block">Licensed Property Maintenance</span>
                                         </p>
                                     </div>
                                 </div>
@@ -263,13 +264,14 @@ export default function ContactPage() {
                     <div style={{ width: '100%', height: '100%', background: '#222' }}>
                         {/* Placeholder for map iframe if needed, or keeping it abstract/premium */}
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.8!2d55.3172!3d25.2700!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sXavier+Business+Center!5e0!3m2!1sen!2sae!4v1709845000000!5m2!1sen!2sae&maptype=satellite"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14432.307414231225!2d55.318!3d25.268!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5dfce703db49%3A0x7ef1980d9ed37cac!2sDAKEEK%20TECHNICAL%20SERVICES%20CO.%20L.L.C!5e0!3m2!1sen!2sca!4v1773777508946!5m2!1sen!2sca"
                             width="100%"
                             height="100%"
-                            style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(83%)' }}
+                            style={{ border: 0, filter: 'grayscale(100%) invert(92%) contrast(83%) hover:grayscale(0%) transition-all duration-700' }}
                             allowFullScreen
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
+                            title="Dakeek Technical Services Location"
                         />
                     </div>
                 </div>
