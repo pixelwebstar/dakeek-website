@@ -1,12 +1,10 @@
 export const DUBAI_AREAS = [
-    "Palm Jumeirah", "Dubai Marina", "Jumeirah Lake Towers (JLT)", "Downtown Dubai",
-    "Business Bay", "DIFC", "Sheikh Zayed Road", "Dubai Media City", "Dubai Internet City",
-    "Al Quoz", "Deira", "Bur Dubai", "Arabian Ranches", "Emirates Hills", "Jumeirah Islands", "The Meadows",
-    "The Springs", "Jumeirah Park", "Al Barsha", "Umm Suqeim", "Jumeirah", "Mudon",
-    "Damac Hills", "Dubai Hills Estate", "Meydan",
-    "The Greens", "The Views", "Victory Heights", "Sports City", "Motor City", "Sustainable City",
-    "Al Furjan", "Jumeirah Village Circle (JVC)", "Jumeirah Village Triangle (JVT)", "Remraam",
-    "Town Square", "Mira", "Mira Oasis", "Silicon Oasis", "Academic City", "Mirdif"
+    "Deira", "Bur Dubai", "Downtown Dubai", "Business Bay", "DIFC", "Sheikh Zayed Road",
+    "Al Nahda", "Al Qusais", "Al Mamzar", "Al Garhoud", "Oud Metha", "Port Saeed",
+    "Al Barsha", "Umm Suqeim", "Jumeirah", "The Greens", "The Views",
+    "Silicon Oasis", "Silicon Park", "Silicon Heights", "Muhaisnah",
+    "Dubai Festival City", "Al Rashidiya", "Al Warqa", "Mirdif",
+    "Sharjah City", "Al Nahda Sharjah", "Al Khan", "Al Majaz"
 ];
 
 export const SERVICE_TYPES = [

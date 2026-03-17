@@ -43,13 +43,25 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/all-pages',
+        source: '/areas/:path*',
         destination: '/',
         permanent: true,
       },
       {
-        source: '/services/other',
+        source: '/services/other/:path*',
         destination: '/services',
+        permanent: true,
+      },
+      {
+        // Redirect deep-linked legacy emergency URLs but NOT the main /services/emergency page
+        source: '/services/emergency/:slug(.+)', 
+        destination: '/services/emergency',
+        permanent: true,
+      },
+      {
+        // Catch-all for any other service sub-paths that might be causing 404s
+        source: '/services/:category/:slug',
+        destination: '/services/:category',
         permanent: true,
       },
     ];

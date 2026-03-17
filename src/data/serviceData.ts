@@ -94,7 +94,7 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         seo: {
             title: "Expert AC Repair & Maintenance in Deira | Dakeek",
-            description: "Dakeek offers the best AC repair in Deira. Based in Al Mateena St, our technicians provide fast, reliable AC maintenance and repair across Deira and a 20km radius.",
+            description: "Dakeek offers the best AC repair in Deira. Based in Al Mateena St, our technicians provide fast, reliable AC maintenance and repair across Deira and a 30km radius.",
             keywords: [
                 "AC Repair Deira", "AC Maintenance Deira", "Best AC Repair in Deira", "Al Mateena St AC Service",
                 "BN Building AC Repair", "Deira Technical Services", "AC repair near Al Mateena", "Home AC Service Deira",
