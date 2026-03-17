@@ -6,13 +6,13 @@ export const metadata: Metadata = {
     description: "Expert advice on AC maintenance schedules, emergency plumbing tips, electrical safety, and home care in Dubai.",
     keywords: [
         "AC maintenance tips Dubai",
-        "Home maintenance advice Dubai",
+        "Property maintenance advice Dubai",
         "Dakeek Journal",
         "Dubai home care tips"
     ],
     openGraph: {
         title: "The Journal | Dakeek",
-        description: "Expert advice from Dubai's trusted home maintenance company.",
+        description: "Expert advice from Dubai's trusted property maintenance company.",
     },
     alternates: {
         canonical: "https://dakeek.ae/journal",

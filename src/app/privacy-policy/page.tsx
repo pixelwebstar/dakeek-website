@@ -41,7 +41,7 @@ export default function PrivacyPolicyPage() {
                             <div>
                                 <h2 className="text-2xl font-serif mb-4">Our Data Promise</h2>
                                 <p className="text-[#555] leading-relaxed mb-4">
-                                    We collect necessary data (Name, Phone, Location) solely to provide our home maintenance services.
+                                    We collect necessary data (Name, Phone, Location) solely to provide our property maintenance services.
                                     <strong className="text-[#111] block mt-2">We do NOT sell, trade, or rent your personal identification information to others.</strong>
                                 </p>
                                 <p className="text-[#555]">

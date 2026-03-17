@@ -252,7 +252,7 @@ export default function HomePage() {
                             href: "/services/emergency",
                             icon: IconEmergency,
                             image: "/images/services/emergency_final.png",
-                            features: ["24/7 Response", "Power Outage", "Water Leaks"],
+                            features: ["Rapid Response", "Power Outage", "Water Leaks"],
                             variant: "emergency",
                             seoTitle: "Emergency property maintenance services"
                         }

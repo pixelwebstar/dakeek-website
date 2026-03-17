@@ -7,7 +7,7 @@ const timelineData = [
     { year: "2018", title: "The Foundation", desc: "Started with a single van and a toolbox." },
     { year: "2020", title: "The Expansion", desc: "Grew to 50+ technicians covering all of Dubai." },
     { year: "2022", title: "The Digital Shift", desc: "Launched the first app-based booking system." },
-    { year: "2024", title: "The Standard", desc: "Defining the future of home maintenance." },
+    { year: "2024", title: "The Standard", desc: "Defining the future of property maintenance." },
     { year: "2025", title: "Hyper-Service", desc: "AI-driven diagnostics and 3D visualization." },
 ];
 

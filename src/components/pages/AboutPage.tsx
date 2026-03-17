@@ -119,7 +119,7 @@ export default function AboutPage() {
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-10 leading-[0.9] tracking-tight text-[#111]">Built for the <span className="text-stone-500">heart of Deira.</span></h2>
                         <div className="space-y-6 text-stone-600 font-light leading-relaxed">
                             <p className="text-base md:text-lg">
-                                Founded two years ago in the heart of Al Mateena St, Dakeek was born from a simple observation: while Deira is the historic core of Dubai, its home maintenance services often lacked modern precision.
+                                Founded two years ago in the heart of Al Mateena St, Dakeek was born from a simple observation: while Deira is the historic core of Dubai, its property maintenance services often lacked modern precision.
                             </p>
                             <p className="text-lg md:text-xl text-[#111]">
                                 Our founder, operating from the Xavier Business Center in the BN Building, set out to create a service that treats every 20km radius around Deira with the same urgency as a high-rise in Downtown.

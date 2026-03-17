@@ -27,7 +27,7 @@ export default function CareersPage() {
                         </span>
                         <span className="text-lg md:text-2xl font-light max-w-2xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12 animate-hero-fade block" style={{ animationDelay: '0.3s' }}>
                             <Balancer>
-                                We don&apos;t just hire technicians. We recruit craftsmen who define the standard for luxury home maintenance in Dubai.
+                                We don&apos;t just hire technicians. We recruit craftsmen who define the standard for luxury property maintenance in Dubai.
                             </Balancer>
                         </span>
                     </h1>

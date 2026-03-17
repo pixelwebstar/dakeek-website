@@ -19,7 +19,7 @@ const FAQ_CATEGORIES = [
             { q: "What areas do you cover?", a: "We serve all major freehold communities including Emirates Hills, Palm Jumeirah, Arabian Ranches, Dubai Hills, Downtown Dubai, Dubai Marina, JLT, Business Bay, and 30+ other communities." },
             { q: "Is there a call-out fee?", a: "We charge a standard inspection fee of AED 150. This covers the engineer's time and professional diagnosis. Crucially, if you proceed with the quoted repair, this fee is completely waived." },
             { q: "Do I need to be home?", a: "We recommend being present for the initial diagnosis. However, for established clients in secure properties, we can coordinate access directly with your concierge or security team for seamless service." },
-            { q: "Can I book online?", a: "Yes, you can book via our website, WhatsApp, or phone. Our online form is available 24/7, and you'll receive confirmation within 15 minutes during business hours." },
+            { q: "Can I book online?", a: "Yes, you can book via our website, WhatsApp, or phone. Our online form is always available, and you'll receive confirmation within 15 minutes during business hours." },
             { q: "Do you offer same-day service?", a: "Absolutely. Same-day service is available for most requests made before 3 PM. For emergencies, we're available around the clock." }
         ]
     },
@@ -43,7 +43,7 @@ const FAQ_CATEGORIES = [
         description: "What we do and what it costs.",
         image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80",
         questions: [
-            { q: "What services do you offer?", a: "We specialize in AC maintenance, plumbing, electrical, deep cleaning, stove/oven repair, and general handyman work. We also handle emergencies 24/7." },
+            { q: "What services do you offer?", a: "We specialize in AC maintenance, plumbing, electrical, deep cleaning, stove/oven repair, and general handyman work. We also handle emergencies with rapid response times." },
             { q: "How much does AC servicing cost?", a: "Basic AC servicing starts at AED 150 per unit. Deep cleaning with coil wash and gas check ranges from AED 250-350 depending on the unit type (split, window, or central)." },
             { q: "What is the cost for plumbing repairs?", a: "Plumbing costs vary by task. A simple drain unblocking starts at AED 200, while more complex work like water heater repairs or leak detection is quoted after inspection." },
             { q: "Do you offer annual maintenance contracts?", a: "Yes, we offer AMC packages for AC, general maintenance, and full-home coverage. Contracts include priority scheduling, discounts, and quarterly preventive visits." },

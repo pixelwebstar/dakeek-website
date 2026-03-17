@@ -3,7 +3,7 @@ import QueriesPage from "@/components/pages/QueriesPage";
 
 export const metadata: Metadata = {
     title: "FAQ - Property Maintenance Questions Answered | Dakeek Dubai",
-    description: "Get answers about AC repair costs, plumber fees, warranty, and booking in Dubai. Everything you need to know about home maintenance services from Dakeek.",
+    description: "Get answers about AC repair costs, plumber fees, warranty, and booking in Dubai. Everything you need to know about property maintenance services from Dakeek.",
     keywords: [
         "AC Repair Cost Dubai",
         "Plumber Price Dubai",

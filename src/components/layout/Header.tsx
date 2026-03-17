@@ -129,7 +129,7 @@ export default function Header() {
                                     <Link
                                         href={link.href}
                                         prefetch={true}
-                                        title={`${link.label} – Dakeek home maintenance services in Dubai`}
+                                        title={`${link.label} – Dakeek property maintenance services in Dubai`}
                                         className={cn(
                                             "relative z-10 transition-colors duration-300 hover:text-[#C4A67C]",
                                             isActive ? "text-[#111] font-bold" : "text-[#555] hover:text-[#C4A67C]"
