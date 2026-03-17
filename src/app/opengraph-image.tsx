@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
-export const alt = 'DAKEEK | Precision Technical Services'
+export const alt = 'Dakeek | Commercial & Residential Property Maintenance in Dubai'
 export const size = {
     width: 1200,
     height: 630,
