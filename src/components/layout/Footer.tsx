@@ -105,7 +105,7 @@ export default function Footer() {
             "Deira", "Al Mateena", "Al Rigga", "Al Muraqqabat", "Hor Al Anz", "Al Qusais",
             "Al Nahda", "Port Saeed", "Mirdif", "Al Warqa", "Bur Dubai", "Karama",
             "Oud Metha", "Satwa", "Downtown Dubai", "Business Bay", "DIFC", "Al Mankhool",
-            "Dubai Festival City", "Al Mamzar", "Dubai Creek Harbour"
+            "Dubai Festival City", "Al Mamzar", "Al Barsha"
         ]
     };
 
