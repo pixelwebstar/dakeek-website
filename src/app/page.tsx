@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import HomePage from "@/components/pages/HomePage";
 
 export const metadata: Metadata = {
-   title: "Dakeek Deira | #1 AC Repair & Home Maintenance Deira",
+   title: "Dakeek Deira | Commercial & Residential Property Maintenance",
    description: "Deira's most trusted technical services based in Al Mateena St (BN Building). 2 years of excellence in AC repair, plumbing & electrical. Fast 20km radius response. DET License 1382290.",
    keywords: [
       "AC Repair Deira",

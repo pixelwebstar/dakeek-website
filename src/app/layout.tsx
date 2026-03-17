@@ -121,15 +121,7 @@ export const metadata: Metadata = {
     },
   },
   category: "Residential Services",
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/icons/apple-touch-icon.png',
-    other: {
-      rel: 'apple-touch-icon-precomposed',
-      url: '/icons/apple-touch-icon.png',
-    },
-  },
+
   manifest: '/manifest.json',
   robots: {
     index: true,

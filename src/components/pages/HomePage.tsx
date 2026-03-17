@@ -48,7 +48,7 @@ export default function HomePage() {
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
                     <h1 className="flex flex-col items-center">
                         <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
-                            Deira&apos;s #1 AC Repair & Maintenance
+                            Commercial & Residential Property Maintenance
                         </span>
                         <span className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade block" style={{ animationDelay: '0s' }}>
                             <Balancer>Dakeek</Balancer>
