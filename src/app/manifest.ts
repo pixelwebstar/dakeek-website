@@ -22,7 +22,6 @@ export default function manifest(): MetadataRoute.Manifest {
                 src: '/icons/icon-192-maskable.png',
                 sizes: '192x192',
                 type: 'image/png',
-                // @ts-expect-error - Next.js types don't support "maskable" yet, but it is valid spec
                 purpose: 'maskable',
             },
             {
@@ -35,7 +34,6 @@ export default function manifest(): MetadataRoute.Manifest {
                 src: '/icons/icon-512-maskable.png',
                 sizes: '512x512',
                 type: 'image/png',
-                // @ts-expect-error - Next.js types don't support "maskable" yet, but it is valid spec
                 purpose: 'maskable',
             },
             {
