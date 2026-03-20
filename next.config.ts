@@ -39,33 +39,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // 301 Redirects for removed/old pages
-  async redirects() {
-    return [
-      {
-        source: '/areas/:path*',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/services/other/:path*',
-        destination: '/services',
-        permanent: true,
-      },
-      {
-        // Redirect deep-linked legacy emergency URLs but NOT the main /services/emergency page
-        source: '/services/emergency/:slug(.+)', 
-        destination: '/services/emergency',
-        permanent: true,
-      },
-      {
-        // Catch-all for any other service sub-paths that might be causing 404s
-        source: '/services/:category/:slug',
-        destination: '/services/:category',
-        permanent: true,
-      },
-    ];
-  },
+
   // Headers for performance & security
   async headers() {
     return [

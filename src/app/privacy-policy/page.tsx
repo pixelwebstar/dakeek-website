@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Shield, Lock, Globe, FileText } from "lucide-react";
+import { Shield, Lock, Globe } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "Privacy Policy | Dakeek Data Protection",
@@ -73,34 +73,7 @@ export default function PrivacyPolicyPage() {
                         </div>
                     </section>
 
-                    {/* 3. Detailed Clauses */}
-                    <section className="space-y-6 text-[#444]">
-                        <h2 className="text-2xl font-serif mb-6 flex items-center gap-3">
-                            <FileText className="w-5 h-5 text-[#C4A67C]" />
-                            Terms of Use
-                        </h2>
 
-                        <div className="border-l-2 border-[#E5E5E5] pl-6">
-                            <h3 className="font-bold text-[#111] mb-2">1. Information Collection</h3>
-                            <p className="text-sm leading-relaxed">
-                                We collect information you provide directly to us when requesting a service, creating an account, or communicating with us. This includes contact details and property locations.
-                            </p>
-                        </div>
-
-                        <div className="border-l-2 border-[#E5E5E5] pl-6">
-                            <h3 className="font-bold text-[#111] mb-2">2. Data Usage</h3>
-                            <p className="text-sm leading-relaxed">
-                                Information is used to dispatch technicians, process payments, send service updates, and improve our platform. We may use your contact info to send critical service alerts.
-                            </p>
-                        </div>
-
-                        <div className="border-l-2 border-[#E5E5E5] pl-6">
-                            <h3 className="font-bold text-[#111] mb-2">3. Security</h3>
-                            <p className="text-sm leading-relaxed">
-                                We implement appropriate technical and organizational measures to protect your data against unauthorized access, alteration, disclosure, or destruction.
-                            </p>
-                        </div>
-                    </section>
 
                     {/* Contact for Privacy */}
                     <div className="mt-16 pt-8 border-t border-black/10 text-center">

@@ -1,4 +1,4 @@
-import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function DownloadLogoPage() {
@@ -12,9 +12,11 @@ export default function DownloadLogoPage() {
                 </p>
                 
                 <div className="relative aspect-square w-64 mx-auto mb-10 rounded-xl overflow-hidden border border-stone-200 bg-black flex items-center justify-center shadow-inner">
-                    <img 
+                    <Image 
                         src="/icons/logo-square.png" 
                         alt="Dakeek Padded Logo" 
+                        width={256}
+                        height={256}
                         className="max-w-full max-h-full object-contain"
                     />
                 </div>
