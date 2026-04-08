@@ -107,19 +107,12 @@ export const metadata: Metadata = {
     siteName: "Dakeek Property Maintenance",
     locale: "en_AE",
     type: "website",
-    images: [{
-      url: '/images/og-banner.png',
-      width: 1200,
-      height: 630,
-      alt: 'Dakeek Technical Services - Property Maintenance in Dubai'
-    }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dakeek - Commercial and Residential Property Maintenance",
     description: "Dubai's #1 Property Maintenance Service. Fast, Reliable, Precise. Professional Technical Support.",
     creator: "@dakeek_ae",
-    images: ['/images/og-banner.png'],
   },
   verification: {
     google: "dx0MGQgKU16cFZMrzrW9Su0YCXZ6uC7P6CXi83K6q9s",
