@@ -96,7 +96,7 @@ export default function Footer() {
         socials: [
             { name: "LinkedIn", href: "https://www.linkedin.com/company/dakeek-technical-service-co-llc/" },
             { name: "Indeed", href: "https://ae.indeed.com/" },
-            { name: "Instagram", href: "https://www.instagram.com/dakeektechnicalservice/" },
+            { name: "Instagram", href: "https://www.instagram.com/dakeek.ae/" },
             { name: "Facebook", href: "https://www.facebook.com/dakeektechnicalservice/" },
             { name: "X (Twitter)", href: "https://twitter.com" },
             { name: "TikTok", href: "https://tiktok.com" },

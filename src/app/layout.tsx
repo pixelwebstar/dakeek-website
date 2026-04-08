@@ -245,7 +245,7 @@ export default function RootLayout({
                     "value": "15"
                   },
                   "sameAs": [
-                    "https://www.instagram.com/dakeektechnicalservice/",
+                    "https://www.instagram.com/dakeek.ae/",
                     "https://www.facebook.com/dakeektechnicalservice/",
                     "https://www.linkedin.com/company/dakeek-technical-service-co-llc/"
                   ]

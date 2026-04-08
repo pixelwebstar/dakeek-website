@@ -177,7 +177,7 @@ export default function ContactPage() {
                         </a>
 
                         {/* Instagram */}
-                        <a href="https://www.instagram.com/dakeektechnicalservice/" target="_blank" rel="noopener noreferrer" className="group h-full flex flex-col justify-between p-8 border border-white/10 hover:border-[#E4405F] bg-white/5 hover:bg-[#E4405F]/10 transition-all duration-500 rounded-lg">
+                        <a href="https://www.instagram.com/dakeek.ae/" target="_blank" rel="noopener noreferrer" className="group h-full flex flex-col justify-between p-8 border border-white/10 hover:border-[#E4405F] bg-white/5 hover:bg-[#E4405F]/10 transition-all duration-500 rounded-lg">
                             <div>
                                 <Instagram className="w-8 h-8 text-[#E4405F] mb-6" />
                                 <h3 className="text-2xl font-serif mb-2">Instagram</h3>
