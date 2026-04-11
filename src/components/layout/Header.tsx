@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { serviceData } from "../../data/serviceData";
 import { usePWAInstall } from "../../hooks/usePWAInstall";
 import dynamic from "next/dynamic";
+import ScrollProgressBar from "./ScrollProgressBar";
 
 const InstallModal = dynamic(() => import("../shared/InstallModal"), {
     ssr: false,
@@ -26,7 +27,6 @@ export default function Header() {
     const [mounted, setMounted] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [scrollProgress, setScrollProgress] = useState(0);
     const { install, isIOS } = usePWAInstall();
     const [showInstallModal, setShowInstallModal] = useState(false);
 
@@ -49,9 +49,6 @@ export default function Header() {
             if (rafId) return;
             rafId = requestAnimationFrame(() => {
                 setScrolled(window.scrollY > 20);
-                // Calculate scroll progress optimized
-                const progress = docHeight > 0 ? window.scrollY / docHeight : 0;
-                setScrollProgress(progress);
                 rafId = 0;
             });
         };
@@ -194,15 +191,8 @@ export default function Header() {
                     </button>
                 </div>
 
-                {/* Progress Bar - CSS only */}
-                <div
-                    className="absolute bottom-0 left-0 h-[3px] origin-left z-50 transition-transform duration-100"
-                    style={{
-                        width: "100%",
-                        backgroundColor: progressBarColor,
-                        transform: `scaleX(${scrollProgress})`
-                    }}
-                />
+                {/* Progress Bar - Isolated component for performance */}
+                <ScrollProgressBar color={progressBarColor} />
             </header>
 
             {/* Mobile Menu Overlay - CSS animation */}

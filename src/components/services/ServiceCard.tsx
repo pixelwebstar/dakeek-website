@@ -4,12 +4,13 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { IconAC, IconElectrical, IconPlumbing, IconStoves, IconEmergency, IconCleaning, IconHandyman, IconOther } from "./ServiceIcons";
 
 interface ServiceCardProps {
   title: string;
   href: string;
   image: string;
-  icon?: React.ElementType<{ className?: string }>;
+  icon?: "ac" | "plumbing" | "electrical" | "cleaning" | "stoves" | "handyman" | "emergency" | "other";
   features: string[];
   variant?: "default" | "emergency" | "other";
   priority?: boolean;
@@ -20,7 +21,7 @@ export default function ServiceCard({
   title,
   href,
   image,
-  icon: Icon,
+  icon,
   features,
   variant = "default",
   priority = false,
@@ -28,6 +29,19 @@ export default function ServiceCard({
 }: ServiceCardProps) {
   const isEmergency = variant === "emergency";
   const isOther = variant === "other";
+
+  const IconMap = {
+    ac: IconAC,
+    plumbing: IconPlumbing,
+    electrical: IconElectrical,
+    cleaning: IconCleaning,
+    stoves: IconStoves,
+    handyman: IconHandyman,
+    emergency: IconEmergency,
+    other: IconOther,
+  };
+
+  const Icon = icon ? IconMap[icon] : null;
 
   return (
     <div>
