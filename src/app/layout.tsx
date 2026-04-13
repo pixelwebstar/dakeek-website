@@ -17,7 +17,6 @@ import ContactHubLoader from "../components/shared/ContactHubLoader";
 
 import PageTransition from "../components/shared/PageTransition";
 import JsonLd from "../components/shared/JsonLd";
-import { DUBAI_AREAS } from "../lib/constants";
 
 export const viewport: Viewport = {
   themeColor: "#111111",

@@ -4,6 +4,22 @@ import React, { useState, useEffect } from "react";
 import { Star, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+interface Review {
+    id: number;
+    author: string;
+    role: string;
+    content: string;
+    rating: number;
+    date: string;
+}
+
+interface ReviewsData {
+    overall_rating: number;
+    total_reviews: number;
+    reviews: Review[];
+    from_google?: boolean;
+}
+
 // SVG component for Google Logo
 const GoogleLogo = ({ className = "w-8 h-8" }: { className?: string }) => (
     <svg viewBox="0 0 24 24" className={className} xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +32,7 @@ const GoogleLogo = ({ className = "w-8 h-8" }: { className?: string }) => (
 );
 
 export default function ReviewsSection() {
-    const [reviewsData, setReviewsData] = useState<any>(null);
+    const [reviewsData, setReviewsData] = useState<ReviewsData | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
@@ -65,7 +81,7 @@ export default function ReviewsSection() {
                         </div>
                         <h2 className="text-5xl md:text-6xl font-serif text-[#111] mb-6">Client trust.</h2>
                         <p className="text-xl text-stone-500 font-light leading-relaxed">
-                            Don't just take our word for it. Discover why hundreds of Dubai residents and businesses rely on Dakeek for their maintenance needs.
+                            Don&apos;t just take our word for it. Discover why hundreds of Dubai residents and businesses rely on Dakeek for their maintenance needs.
                         </p>
                     </div>
 
@@ -124,7 +140,7 @@ export default function ReviewsSection() {
                             </div>
 
                             <p className="text-2xl md:text-3xl text-stone-700 font-serif leading-snug mb-8">
-                                "{currentReview.content}"
+                                &ldquo;{currentReview.content}&rdquo;
                             </p>
 
                             <div className="flex justify-between items-end mt-auto">

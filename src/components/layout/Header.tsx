@@ -39,11 +39,6 @@ export default function Header() {
         window.scrollTo(0, 0);
 
         let rafId: number;
-        let docHeight = document.documentElement.scrollHeight - window.innerHeight;
-
-        const handleResize = () => {
-            docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        };
 
         const handleScroll = () => {
             if (rafId) return;
@@ -54,13 +49,9 @@ export default function Header() {
         };
 
         window.addEventListener("scroll", handleScroll, { passive: true });
-        window.addEventListener("resize", handleResize, { passive: true });
-        // Initial calc
-        handleResize();
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
-            window.removeEventListener("resize", handleResize);
             if (rafId) cancelAnimationFrame(rafId);
         };
     }, []);

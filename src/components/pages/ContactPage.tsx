@@ -404,7 +404,7 @@ export default function ContactPage() {
                         <div className="mt-16 pt-12 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
                             <p className="text-stone-400 font-light max-w-lg">
                                 Fully licensed by the Dubai Department of Economy and Tourism.
-                                We operate with absolute transparency—it's not just a policy, it's our promise.
+                                We operate with absolute transparency—it&apos;s not just a policy, it&apos;s our promise.
                             </p>
                             <button
                                 onClick={handleCopyLicense}

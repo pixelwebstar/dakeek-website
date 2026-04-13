@@ -59,7 +59,7 @@ export async function GET() {
         const data = await response.json();
         
         if (data.status === 'OK' && data.result) {
-            const mappedReviews = data.result.reviews ? data.result.reviews.map((r: any, idx: number) => ({
+            const mappedReviews = data.result.reviews ? data.result.reviews.map((r: { author_name: string; author_url?: string; text: string; rating: number; relative_time_description: string }, idx: number) => ({
                 id: idx,
                 author: r.author_name,
                 role: r.author_url ? "Local Guide" : "Verified Customer",
