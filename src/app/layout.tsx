@@ -1,5 +1,6 @@
 import React from "react";
 import Script from "next/script";
+import type { Viewport, Metadata } from "next";
 import { Geist, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "../components/layout/Header";
