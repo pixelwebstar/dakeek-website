@@ -27,6 +27,49 @@ export const BLOG_CATEGORIES = {
 
 export const blogPosts: BlogPost[] = [
     {
+        slug: 'dakeek-expansion-hiring-dubai',
+        title: 'Dakeek Expansion: Why We Are Hiring the Best Technical Talent in Dubai',
+        excerpt: 'As Dakeek continues to grow across Dubai, we explore the critical importance of hiring verified, experienced technical talent to protect your property.',
+        content: `
+# Dakeek is Growing: The Pursuit of Technical Excellence
+
+Dubai’s property landscape is expanding, and so is our commitment to maintaining it. As we open new technical roles across Deira and beyond, we want to share why our hiring process is fundamentally different.
+
+## The Cost of Unverified Technicians
+
+Many property owners in Dubai learn the hard way that "cheap" maintenance often results in catastrophic expense. 
+A poorly wired AC unit doesn't just fail; it can cause electrical fires. A subpar plumbing job doesn't just leak; it can destroy structural integrity and cause thousands of dirhams in water damage.
+
+That is exactly why Dakeek refuses to compromise on talent. 
+
+## What Makes a Dakeek Technician?
+
+### 1. Proven Experience
+We don't hire beginners to practice on your property. Every technician and sales officer joining our ranks—like the ones we are currently hiring—must demonstrate extensive, proven experience in the UAE market.
+
+### 2. Comprehensive System Knowledge
+Modern Dubai villas and commercial spaces are highly interconnected. An AC technician must understand the electrical load implications of their work. Our technicians undergo cross-disciplinary training.
+
+### 3. Professional Accountability
+Our staff operate on a foundation of total transparency. From clear communication to arriving on time, the soft skills are just as important as the wrench.
+
+## Join Our Mission
+
+Are you an experienced Sales Officer or a Senior Maintenance Technician? We are actively looking for ambitious professionals to join our ranks. 
+If you believe in delivering uncompromising quality, we want you on our team.
+
+[View Our Open Positions and Apply Today](/careers)
+        `,
+        author: 'Dakeek Management',
+        date: new Date().toISOString().split('T')[0],
+        readTime: '4 min read',
+        category: 'news',
+        tags: ['Company News', 'Hiring', 'Maintenance', 'Dubai'],
+        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80',
+        featured: true,
+        seoKeywords: ['Dakeek hiring', 'technical jobs Dubai', 'property maintenance careers', 'verified technicians']
+    },
+    {
         slug: 'when-to-service-your-ac',
         title: 'When Should You Service Your AC in Dubai? The Complete Guide',
         excerpt: 'Learn the signs that your AC needs maintenance and the best times of year to schedule service in Dubai.',

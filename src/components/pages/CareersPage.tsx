@@ -1,202 +1,215 @@
 "use client";
 
-import React from "react";
-import { Briefcase, ShieldCheck, Star, Users } from "lucide-react";
-import Balancer from "react-wrap-balancer";
-import GradientHero from "../hero/GradientHero";
+import React, { useState } from "react";
+import { Briefcase, MapPin, CheckCircle, Upload, Send, FileText, CheckCircle2 } from "lucide-react";
+import GradientHero from "@/components/hero/GradientHero";
 
 export default function CareersPage() {
-    return (
-        <main className="min-h-screen bg-[#0A0A0A] text-white selection:bg-[#C4A67C] selection:text-white">
+    const [selectedJob, setSelectedJob] = useState<string>("Sales Officer");
+    const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-            {/* 1. HERO: Exact Replica of Home Page Design */}
-            <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-canvas">
-                <GradientHero
-                    color1="#9CA3AF"
-                    color2="#E5E7EB"
-                    initialColor="#E5E7EB"
-                />
+    const handleApply = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setFormStatus("submitting");
+
+        const formData = new FormData(e.currentTarget);
+        formData.append("position", selectedJob);
+
+        try {
+            const res = await fetch("/api/apply", {
+                method: "POST",
+                body: formData, // FormData sends correctly parsed multipart data in Next.js
+            });
+
+            if (res.ok) {
+                setFormStatus("success");
+                (e.target as HTMLFormElement).reset();
+            } else {
+                setFormStatus("error");
+            }
+        } catch (error) {
+            console.error("Submission error:", error);
+            setFormStatus("error");
+        }
+    };
+
+    return (
+        <main className="min-h-screen bg-[#FAFAF9] text-[#111] selection:bg-[#C4A67C] selection:text-white">
+            
+            {/* HERO SECTION */}
+            <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden border-b border-black/5 text-[#111]">
+                <GradientHero color1="#9CA3AF" color2="#E5E7EB" initialColor="#E5E7EB" />
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-                    <h1 className="flex flex-col items-center">
-                        <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-titanium bg-white/50">
-                            Talent Acquisition
-                        </span>
-                        <span className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade block" style={{ animationDelay: '0s' }}>
-                            <Balancer>Join the Elite.</Balancer>
-                        </span>
-                        <span className="text-lg md:text-2xl font-light max-w-2xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12 animate-hero-fade block" style={{ animationDelay: '0.3s' }}>
-                            <Balancer>
-                                We don&apos;t just hire technicians. We recruit craftsmen who define the standard for luxury property maintenance in Dubai.
-                            </Balancer>
-                        </span>
+                    <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
+                        Join Dakeek
+                    </p>
+                    <h1 className="text-6xl md:text-8xl lg:text-9xl font-sans tracking-tight mb-6 md:mb-8 leading-[0.9] text-[#111]">
+                        Careers
                     </h1>
-
-                    <div className="flex flex-col md:flex-row gap-4 justify-center items-center animate-hero-fade" style={{ animationDelay: '0.5s' }}>
-                        <a
-                            href="mailto:care@dakeek.ae"
-                            className="group relative inline-flex items-center justify-center px-12 py-4 bg-ink text-white overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl"
-                        >
-                            <span className="relative z-10 font-mono text-xs font-medium uppercase tracking-[0.2em]">Apply Now</span>
-                            <div className="absolute inset-0 bg-[#C4A67C] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
-                        </a>
-                    </div>
-                </div>
-
-                <div className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 text-[#999] animate-bounce">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M6 9l6 6 6-6" />
-                    </svg>
+                    <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#555] mb-12 uppercase tracking-widest">
+                        Build The Future Of Property Maintenance
+                    </p>
                 </div>
             </section>
 
-            {/* 2. NO VACANCY / WAITLIST */}
-            <section className="py-32 px-[5vw] lg:px-[8vw] bg-[#0A0A0A] relative">
-                <div className="max-w-4xl mx-auto text-center border border-white/10 bg-white/5 p-12 md:p-20 rounded-2xl backdrop-blur-sm relative overflow-hidden">
-                    {/* Background glow */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#C4A67C]/10 blur-[100px] rounded-full pointer-events-none"></div>
-
-                    <div className="relative z-10">
-                        <div className="w-16 h-16 bg-[#C4A67C]/10 rounded-full flex items-center justify-center mx-auto mb-8 border border-[#C4A67C]/20">
-                            <Briefcase className="w-8 h-8 text-[#C4A67C]" />
+            {/* MAIN CONTENT */}
+            <section className="py-24 px-[5vw] lg:px-[8vw] bg-white">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+                    
+                    {/* LEFT COLUMN: Job Listings */}
+                    <div className="lg:col-span-7">
+                        <div className="flex items-center gap-4 mb-8">
+                            <div className="w-12 h-px bg-[#C4A67C]"></div>
+                            <span className="font-mono text-xs uppercase tracking-widest text-[#C4A67C]">Open Positions</span>
                         </div>
+                        <h2 className="text-4xl md:text-5xl font-serif text-[#111] mb-12">Current Opportunities.</h2>
 
-                        <h2 className="text-3xl md:text-5xl font-serif mb-6 text-white">No Current Openings.</h2>
-                        <p className="text-stone-400 text-lg leading-relaxed mb-10 max-w-lg mx-auto">
-                            Our team is currently at full capacity. However, we are always scouting for exceptional talent to join our reserve list for future deployments.
-                        </p>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left bg-black/20 p-8 rounded-xl border border-white/5">
-                            <div className="space-y-2">
-                                <div className="flex items-center gap-2 text-white font-medium">
-                                    <ShieldCheck className="w-4 h-4 text-[#C4A67C]" />
-                                    <span>Vetted Skills</span>
-                                </div>
-                                <p className="text-xs text-stone-500 uppercase tracking-wider">Expert Level</p>
-                            </div>
-                            <div className="space-y-2">
-                                <div className="flex items-center gap-2 text-white font-medium">
-                                    <Star className="w-4 h-4 text-[#C4A67C]" />
-                                    <span>Premium Pay</span>
-                                </div>
-                                <p className="text-xs text-stone-500 uppercase tracking-wider">Above Market Rates</p>
-                            </div>
-                            <div className="space-y-2">
-                                <div className="flex items-center gap-2 text-white font-medium">
-                                    <Users className="w-4 h-4 text-[#C4A67C]" />
-                                    <span>Top Culture</span>
-                                </div>
-                                <p className="text-xs text-stone-500 uppercase tracking-wider">Growth Focused</p>
-                            </div>
-                        </div>
-
-                        <a
-                            href="mailto:care@dakeek.ae?subject=Application for Reserve List - [Your Name]"
-                            className="group relative inline-flex items-center justify-center px-12 py-4 bg-white text-black overflow-hidden rounded-full transition-all hover:scale-105 shadow-xl hover:shadow-[#C4A67C]/20"
-                        >
-                            <span className="relative z-10 font-mono text-xs font-bold uppercase tracking-[0.2em] group-hover:text-white transition-colors">
-                                Apply for Reserve List
-                            </span>
-                            <div className="absolute inset-0 bg-[#C4A67C] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]" />
-                        </a>
-                        <p className="mt-6 text-xs text-stone-600 font-mono uppercase tracking-widest">
-                            Send CV & Portfolio
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            {/* 3. LIGHT SECTION: "Equipped for Excellence" (The Rhythm Breaker) */}
-            <section className="py-24 px-[5vw] lg:px-[8vw] bg-[#FAFAF9] text-[#111] border-y border-black/5">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row gap-16 items-center">
-                        <div className="w-full md:w-1/2 space-y-8">
-                            <span className="inline-block font-mono text-xs text-[#6B5344] uppercase tracking-[0.3em] mb-2">
-                                The Environment
-                            </span>
-                            <h2 className="text-4xl md:text-5xl font-serif leading-tight">
-                                Equipped to <br />
-                                <span className="italic text-[#C4A67C]">Perform.</span>
-                            </h2>
-                            <p className="text-[#444] text-lg leading-relaxed">
-                                We provide the tools you need to do your best work. Dakeek technicians are equipped with high-quality professional tools and technology.
-                            </p>
-                            <ul className="space-y-4 mt-8">
-                                <li className="flex items-center gap-4">
-                                    <div className="w-10 h-10 rounded-full bg-[#E5E5E5] flex items-center justify-center text-[#111]">
-                                        <Briefcase className="w-4 h-4" />
-                                    </div>
+                        <div className="space-y-8">
+                            {/* Job 1: Sales Officer */}
+                            <div 
+                                className={`p-8 rounded-3xl border transition-all duration-300 \${selectedJob === "Sales Officer" ? "border-[#C4A67C] bg-[#FAFAF9] shadow-md" : "border-black/5 hover:border-black/10 cursor-pointer"}`}
+                                onClick={() => setSelectedJob("Sales Officer")}
+                            >
+                                <div className="flex flex-col md:flex-row justify-between md:items-start gap-4 mb-6">
                                     <div>
-                                        <div className="font-serif text-lg">Clear Job Details</div>
-                                        <div className="text-xs font-mono uppercase text-[#666] tracking-wider">Organized Schedule</div>
+                                        <h3 className="text-2xl font-bold font-sans tracking-tight text-[#111] mb-2">Sales Officer</h3>
+                                        <div className="flex flex-wrap gap-3 text-xs font-mono uppercase tracking-widest text-[#666]">
+                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><Briefcase className="w-3 h-3"/> Full Time</span>
+                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><MapPin className="w-3 h-3"/> Dubai (Deira radius)</span>
+                                            <span className="bg-[#111] text-white px-3 py-1.5 rounded-full">3 Openings</span>
+                                        </div>
                                     </div>
-                                </li>
-                                <li className="flex items-center gap-4">
-                                    <div className="w-10 h-10 rounded-full bg-[#E5E5E5] flex items-center justify-center text-[#111]">
-                                        <ShieldCheck className="w-4 h-4" />
-                                    </div>
-                                    <div>
-                                        <div className="font-serif text-lg">Professional Gear</div>
-                                        <div className="text-xs font-mono uppercase text-[#666] tracking-wider">Quality Uniforms</div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* Visual Abstract - Typography/Grid */}
-                        <div className="w-full md:w-1/2 relative h-[500px] border border-black/10 rounded-2xl overflow-hidden bg-white p-8 md:p-12 flex flex-col justify-between">
-                            <div className="absolute top-0 right-0 p-8 opacity-10">
-                                <Star className="w-32 h-32" />
-                            </div>
-                            <div className="space-y-2">
-                                <div className="text-6xl md:text-8xl font-serif text-[#111]">100%</div>
-                                <div className="text-sm font-mono uppercase tracking-[0.2em] text-[#666]">Support Ratio</div>
-                            </div>
-                            <div className="space-y-6">
-                                <p className="text-[#333] font-light italic text-xl border-l-2 border-[#C4A67C] pl-6">
-                                    &quot;You focus on the fix. We handle the logistics, the bookings, and the client. Complete freedom to practice your craft.&quot;
+                                </div>
+                                <p className="text-[#555] leading-relaxed mb-6 font-light">
+                                    We are looking for ambitious and experienced Sales Officers to join our growing team. You will be responsible for driving B2B and B2C sales across our property maintenance portfolio.
                                 </p>
-                                <div className="text-xs font-bold uppercase tracking-widest text-[#111]">— Operations Command</div>
+                                <ul className="space-y-3 text-sm text-[#444]">
+                                    <li className="flex items-start gap-3"><CheckCircle className="w-4 h-4 text-[#C4A67C] shrink-0 mt-0.5" /> <strong>Mandatory Requirement:</strong> Proven sales experience and a strong track record.</li>
+                                    <li className="flex items-start gap-3"><CheckCircle className="w-4 h-4 text-[#C4A67C] shrink-0 mt-0.5" /> Excellent communication and negotiation skills.</li>
+                                    <li className="flex items-start gap-3"><CheckCircle className="w-4 h-4 text-[#C4A67C] shrink-0 mt-0.5" /> Ideal candidate is located near our business location (Deira / max 25km radius).</li>
+                                    <li className="flex items-start gap-3"><CheckCircle className="w-4 h-4 text-[#C4A67C] shrink-0 mt-0.5" /> <strong>Visa Status:</strong> Must own a valid UAE visa.</li>
+                                </ul>
+                            </div>
+
+                            {/* Job 2: Senior Maintenance Technician */}
+                            <div 
+                                className={`p-8 rounded-3xl border transition-all duration-300 \${selectedJob === "Senior Maintenance Technician" ? "border-[#C4A67C] bg-[#FAFAF9] shadow-md" : "border-black/5 hover:border-black/10 cursor-pointer"}`}
+                                onClick={() => setSelectedJob("Senior Maintenance Technician")}
+                            >
+                                <div className="flex flex-col md:flex-row justify-between md:items-start gap-4 mb-6">
+                                    <div>
+                                        <h3 className="text-2xl font-bold font-sans tracking-tight text-[#111] mb-2">Maintenance Technician</h3>
+                                        <div className="flex flex-wrap gap-3 text-xs font-mono uppercase tracking-widest text-[#666]">
+                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><Briefcase className="w-3 h-3"/> Full Time</span>
+                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><MapPin className="w-3 h-3"/> Field Service</span>
+                                            <span className="bg-[#111] text-white px-3 py-1.5 rounded-full">1 Opening</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="text-[#555] leading-relaxed mb-6 font-light">
+                                    Dakeek is expanding its on-ground field operations. We require a versatile technician capable of handling a variety of residential and commercial property maintenance tasks.
+                                </p>
+                                <ul className="space-y-3 text-sm text-[#444]">
+                                    <li className="flex items-start gap-3"><CheckCircle className="w-4 h-4 text-[#C4A67C] shrink-0 mt-0.5" /> Experience required in AC, Electrical, Plumbing, or Gas Stove repair.</li>
+                                    <li className="flex items-start gap-3"><CheckCircle className="w-4 h-4 text-[#C4A67C] shrink-0 mt-0.5" /> Base experience is mandatory, but advanced hands-on training will be provided by our senior engineers.</li>
+                                    <li className="flex items-start gap-3"><CheckCircle className="w-4 h-4 text-[#C4A67C] shrink-0 mt-0.5" /> Professional demeanor and ability to diagnose complex faults on-site.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+
+                    {/* RIGHT COLUMN: Application Form */}
+                    <div className="lg:col-span-5 sticky top-32 h-fit">
+                        <div className="bg-[#0A0A0A] rounded-[2rem] p-8 md:p-10 shadow-2xl relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-[#C4A67C]/10 rounded-full blur-3xl" />
+                            
+                            <h3 className="text-3xl font-serif text-white mb-2 relative z-10">Apply Now</h3>
+                            <p className="text-stone-400 mb-8 font-light relative z-10">Application for: <span className="text-white font-medium">{selectedJob}</span></p>
+
+                            {formStatus === "success" ? (
+                                <div className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center relative z-10 animate-fade-in">
+                                    <CheckCircle2 className="w-16 h-16 text-[#C4A67C] mx-auto mb-4" />
+                                    <h4 className="text-2xl font-serif text-white mb-2">Application Sent</h4>
+                                    <p className="text-stone-400 font-light">We have received your application and resume. Our hiring team will review it and contact you shortly.</p>
+                                    <button 
+                                        onClick={() => setFormStatus("idle")}
+                                        className="mt-8 text-xs font-mono uppercase tracking-widest text-[#C4A67C] hover:text-white transition-colors"
+                                    >
+                                        Submit Another
+                                    </button>
+                                </div>
+                            ) : (
+                                <form onSubmit={handleApply} className="space-y-5 relative z-10">
+                                    <div className="space-y-4">
+                                        <input 
+                                            type="text" 
+                                            name="name"
+                                            required
+                                            placeholder="Full Name *" 
+                                            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-stone-500 focus:outline-none focus:border-[#C4A67C] transition-colors"
+                                        />
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <input 
+                                                type="email" 
+                                                name="email"
+                                                required
+                                                placeholder="Email Address *" 
+                                                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-stone-500 focus:outline-none focus:border-[#C4A67C] transition-colors"
+                                            />
+                                            <input 
+                                                type="tel" 
+                                                name="phone"
+                                                required
+                                                placeholder="Phone Number *" 
+                                                className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-stone-500 focus:outline-none focus:border-[#C4A67C] transition-colors"
+                                            />
+                                        </div>
+                                        <textarea 
+                                            name="coverLetter"
+                                            rows={4}
+                                            placeholder="Cover Letter / Introduction" 
+                                            className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-stone-500 focus:outline-none focus:border-[#C4A67C] transition-colors resize-none"
+                                        ></textarea>
+                                        
+                                        {/* File Upload handling */}
+                                        <div className="relative group overflow-hidden">
+                                            <input 
+                                                type="file" 
+                                                name="resume"
+                                                accept=".pdf,.doc,.docx"
+                                                required
+                                                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
+                                            />
+                                            <div className="w-full bg-white/5 border border-white/10 border-dashed rounded-xl px-5 py-6 flex flex-col items-center justify-center text-center group-hover:bg-white/10 transition-colors">
+                                                <Upload className="w-6 h-6 text-[#C4A67C] mb-3" />
+                                                <span className="text-white font-medium text-sm mb-1">Click to attach limit (max 5MB)</span>
+                                                <span className="text-stone-500 text-xs font-mono uppercase tracking-wider">PDF, DOC, DOCX</span>
+                                                <div className="mt-4 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    <span className="flex items-center gap-2 text-xs text-[#C4A67C]"><FileText className="w-3 h-3" /> Select file</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {formStatus === "error" && (
+                                        <p className="text-red-400 text-xs font-mono text-center">There was an error submitting your application. Please ensure your file is under 5MB or try again later.</p>
+                                    )}
+
+                                    <button 
+                                        type="submit" 
+                                        disabled={formStatus === "submitting"}
+                                        className="w-full bg-white text-black hover:bg-[#C4A67C] hover:text-white rounded-xl py-4 flex items-center justify-center gap-3 font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        {formStatus === "submitting" ? "Submitting..." : "Submit Application"}
+                                        {formStatus !== "submitting" && <Send className="w-4 h-4" />}
+                                    </button>
+                                </form>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </section>
-
-            {/* 4. VALUES (SEO Content) */}
-            <section className="py-24 px-[5vw] lg:px-[8vw] border-t border-white/10">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-                    <div>
-                        <span className="text-[#C4A67C] font-mono text-xs uppercase tracking-widest block mb-4">Why Dakeek?</span>
-                        <h2 className="text-4xl md:text-5xl font-serif mb-8 text-white">Defining the Standard.</h2>
-                        <p className="text-stone-400 leading-relaxed mb-6">
-                            Dakeek isn&apos;t just a maintenance company; it&apos;s a promise of perfection. working here means adhering to the strictest standards in Dubai&apos;s residential service sector.
-                        </p>
-                        <p className="text-stone-400 leading-relaxed">
-                            We serve exclusive communities like Palm Jumeirah, Emirates Hills, and Downtown Dubai. Our clients expect invisibility, precision, and technical mastery. If you have these traits, you belong here.
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <div className="p-6 bg-white/5 border border-white/10 rounded-lg">
-                            <h3 className="text-xl text-white font-serif mb-3">AC Technicians</h3>
-                            <p className="text-sm text-stone-500">Masters of cooling efficiency, ductwork, and smart climate control systems.</p>
-                        </div>
-                        <div className="p-6 bg-white/5 border border-white/10 rounded-lg">
-                            <h3 className="text-xl text-white font-serif mb-3">Master Plumbers</h3>
-                            <p className="text-sm text-stone-500">Experts in leak detection, pressure optimization, and luxury fixture care.</p>
-                        </div>
-                        <div className="p-6 bg-white/5 border border-white/10 rounded-lg">
-                            <h3 className="text-xl text-white font-serif mb-3">Electricians</h3>
-                            <p className="text-sm text-stone-500">Certified for smart home integration, safety audits, and complex wiring.</p>
-                        </div>
-                        <div className="p-6 bg-white/5 border border-white/10 rounded-lg">
-                            <h3 className="text-xl text-white font-serif mb-3">Specialists</h3>
-                            <p className="text-sm text-stone-500">From furniture assembly to specialized deep cleaning protocols.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
         </main>
     );
 }

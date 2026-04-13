@@ -7,6 +7,56 @@ import { blogPosts, BLOG_CATEGORIES } from "@/data/blogData";
 import { ArrowRight, BookOpen } from "lucide-react";
 import GradientHero from "@/components/hero/GradientHero";
 
+function NewsletterForm() {
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setStatus("loading");
+        const formData = new FormData(e.currentTarget);
+        
+        try {
+            const res = await fetch("/api/newsletter", {
+                method: "POST",
+                body: JSON.stringify({ email: formData.get("email") }),
+                headers: { "Content-Type": "application/json" }
+            });
+            if (res.ok) setStatus("success");
+            else setStatus("error");
+        } catch {
+            setStatus("error");
+        }
+    };
+
+    if (status === "success") {
+        return (
+            <div className="text-center animate-fade-in p-6 bg-[#FAFAF9] rounded-2xl border border-black/5">
+                <p className="text-[#C4A67C] font-serif text-xl mb-2">Thank you.</p>
+                <p className="text-[#555] text-sm">Your email has been securely added to our distribution list.</p>
+            </div>
+        );
+    }
+
+    return (
+        <form onSubmit={handleSubmit} className="flex justify-center flex-col md:flex-row gap-2">
+            <input
+                type="email"
+                name="email"
+                required
+                placeholder="Email address"
+                className="bg-transparent border-b border-[#999] px-4 py-3 text-sm flex-grow focus:border-[#C4A67C] transition-colors outline-none text-center md:text-left placeholder:text-[#555]"
+            />
+            <button 
+                type="submit"
+                disabled={status === "loading"}
+                className="text-xs font-mono uppercase tracking-widest text-[#111] hover:text-[#C4A67C] transition-colors py-3 px-4 disabled:opacity-50"
+            >
+                {status === "loading" ? "Subscribing..." : "Subscribe"}
+            </button>
+        </form>
+    );
+}
+
 export default function JournalHubPage() {
     const [activeCategory, setActiveCategory] = useState("all");
 
@@ -185,16 +235,7 @@ export default function JournalHubPage() {
                         <h2 className="font-serif text-3xl md:text-4xl mb-4 text-[#1c1917]">Stay Informed.</h2>
                         <p className="text-[#333] mb-8">Get the expert advice you need to maintain a perfect home.</p>
 
-                        <div className="flex justify-center flex-col md:flex-row gap-2">
-                            <input
-                                type="email"
-                                placeholder="Email address"
-                                className="bg-transparent border-b border-[#999] px-4 py-3 text-sm flex-grow focus:border-[#C4A67C] transition-colors outline-none text-center md:text-left placeholder:text-[#555]"
-                            />
-                            <button className="text-xs font-mono uppercase tracking-widest text-[#111] hover:text-[#C4A67C] transition-colors py-3 px-4">
-                                Subscribe
-                            </button>
-                        </div>
+                        <NewsletterForm />
                     </div>
                 </div>
 

@@ -2,21 +2,18 @@ import { Metadata } from "next";
 import CareersPage from "@/components/pages/CareersPage";
 
 export const metadata: Metadata = {
-    title: "Careers at Dakeek | Join Our Dubai Team",
-    description: "Looking for technician jobs in Dubai? Dakeek recruits elite AC technicians, plumbers, and electricians for luxury residential service. Join our reserve list.",
+    title: "Careers | Dakeek Technical Services in Dubai",
+    description: "Join the Dakeek team. We are hiring ambitious Sales Officers and Senior Maintenance Technicians in Dubai. Apply today.",
     keywords: [
-        "Jobs in Dubai",
-        "Technician Jobs Dubai",
-        "AC Technician Job Dubai",
-        "Plumber Job Dubai",
-        "Electrician Vacancy Dubai",
-        "Careers Dakeek",
-        "Luxury Property Maintenance Jobs",
-        "Maintenance work Dubai"
+        "Jobs Dubai",
+        "Dakeek Careers",
+        "Technical Services Jobs Dubai",
+        "Sales Officer Dubai",
+        "Maintenance Technician Dubai"
     ],
     openGraph: {
-        title: "Careers | Dakeek - Residential Service & Maintenance",
-        description: "Join the elite team serving Dubai's finest homes.",
+        title: "Careers | Dakeek",
+        description: "Join Dubai's premium technical services team.",
     },
     alternates: {
         canonical: "https://dakeek.ae/careers",
@@ -24,6 +21,6 @@ export const metadata: Metadata = {
     },
 };
 
-export default function Page() {
+export default function Careers() {
     return <CareersPage />;
 }
