@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Shield, Lock, Globe } from "lucide-react";
 
+import GradientHero from "@/components/hero/GradientHero";
+
 export const metadata: Metadata = {
     title: "Privacy Policy | Dakeek Data Protection",
     description: "Our commitment to data privacy under UAE and International Law. Your data is secure and never sold.",
@@ -13,22 +15,26 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
     return (
-        <main className="min-h-screen bg-[#FAFAF9] text-[#111] selection:bg-[#C4A67C] selection:text-white pt-32 pb-24">
+        <main className="min-h-screen bg-[#FAFAF9] text-[#111] selection:bg-[#C4A67C] selection:text-white pb-24">
 
-            <div className="max-w-4xl mx-auto px-[5vw] lg:px-8">
+            {/* HERO SECTION */}
+            <section className="relative min-h-[50vh] md:min-h-[60vh] w-full flex items-center justify-center overflow-hidden border-b border-black/5 text-[#111] pt-20 mb-16">
+                <GradientHero color1="#9CA3AF" color2="#E5E7EB" initialColor="#E5E7EB" />
 
-                {/* Header */}
-                <div className="mb-16 border-b border-black/10 pb-8">
-                    <div className="flex items-center gap-3 mb-4 text-[#C4A67C]">
-                        <Shield className="w-6 h-6" />
-                        <span className="font-mono text-xs uppercase tracking-[0.2em]">Legal Compliance</span>
-                    </div>
-                    <h1 className="text-4xl md:text-5xl font-serif text-[#111] mb-6">Privacy Policy</h1>
-                    <p className="text-xl text-[#666] font-light max-w-2xl leading-relaxed">
-                        Your trust is our foundation. We strictly adhere to UAE Data Protection Laws and international standards to ensure your personal information remains private and secure.
+                <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+                    <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50 flex flex-row items-center gap-2 w-fit mx-auto">
+                        <Shield className="w-3 h-3 text-[#C4A67C]" /> Legal Compliance
+                    </p>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans tracking-tight mb-6 md:mb-8 leading-[0.9] text-[#111]">
+                        Privacy Policy
+                    </h1>
+                    <p className="text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed backdrop-blur-sm text-[#555] uppercase tracking-widest">
+                        Your trust is our foundation.
                     </p>
                 </div>
+            </section>
 
+            <div className="max-w-4xl mx-auto px-[5vw] lg:px-8">
                 {/* Content */}
                 <div className="space-y-12">
 

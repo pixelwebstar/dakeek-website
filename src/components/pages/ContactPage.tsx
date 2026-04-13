@@ -99,17 +99,23 @@ export default function ContactPage() {
                                         <path d="M1 1h22v22H1z" fill="none"/>
                                     </svg>
                                 </div>
-                                <div className="text-center md:text-left">
-                                    <h3 className="text-2xl font-serif text-white mb-1 flex items-center justify-center md:justify-start gap-3">
-                                        Dakeek Technical Services <span className="text-[10px] bg-[#4285F4] text-white px-2 py-0.5 rounded font-mono uppercase tracking-tighter">Verified</span>
+                                <div className="text-center md:text-left flex flex-col items-center md:items-start w-full">
+                                    {/* Mobile Verified Badge */}
+                                    <span className="md:hidden text-[10px] bg-[#4285F4] text-white px-2 py-0.5 rounded font-mono uppercase tracking-tighter mb-2">Verified</span>
+                                    
+                                    <h3 className="text-[1.35rem] sm:text-xl md:text-2xl font-serif text-white mb-2 flex items-center justify-center md:justify-start gap-3 whitespace-nowrap">
+                                        Dakeek Technical Services 
+                                        {/* Desktop Verified Badge */}
+                                        <span className="hidden md:inline-block text-[10px] bg-[#4285F4] text-white px-2 py-0.5 rounded font-mono uppercase tracking-tighter">Verified</span>
                                     </h3>
-                                    <div className="flex items-center justify-center md:justify-start gap-2">
+                                    
+                                    <div className="flex items-center justify-center md:justify-start gap-2 mt-1">
                                         <div className="flex gap-0.5 -mt-0.5">
                                             {[...Array(5)].map((_, i) => (
                                                 <Star key={i} className="w-4 h-4 fill-[#FBBC05] text-[#FBBC05]" />
                                             ))}
                                         </div>
-                                        <span className="text-sm font-bold text-stone-300 group-hover:text-white tracking-wide transition-colors">{googleRating} Overall Rating on Google</span>
+                                        <span className="text-sm font-bold text-stone-300 group-hover:text-white tracking-wide transition-colors whitespace-nowrap">{googleRating} Overall Rating on Google</span>
                                     </div>
                                 </div>
                             </div>

@@ -123,7 +123,7 @@ export default function ReviewsSection() {
                 </div>
 
                 {/* Animated Carousel Section */}
-                <div className="relative h-[300px] w-full max-w-4xl mx-auto">
+                <div className="relative h-[400px] sm:h-[350px] md:h-[300px] w-full max-w-4xl mx-auto">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentIndex}
@@ -131,7 +131,7 @@ export default function ReviewsSection() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -15 }}
                             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute inset-0 bg-white p-10 md:p-14 rounded-3xl border border-black/5 shadow-md flex flex-col justify-center"
+                            className="absolute inset-0 bg-white p-8 md:p-14 rounded-3xl border border-black/5 shadow-md flex flex-col justify-center"
                         >
                             <div className="flex gap-1 mb-6">
                                 {[...Array(Math.round(currentReview.rating || 5))].map((_, i) => (

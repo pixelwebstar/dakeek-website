@@ -7,6 +7,7 @@ import GradientHero from "@/components/hero/GradientHero";
 export default function CareersPage() {
     const [selectedJob, setSelectedJob] = useState<string>("Sales Officer");
     const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+    const [fileName, setFileName] = useState<string | null>(null);
 
     const handleApply = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -37,7 +38,7 @@ export default function CareersPage() {
         <main className="min-h-screen bg-[#FAFAF9] text-[#111] selection:bg-[#C4A67C] selection:text-white">
             
             {/* HERO SECTION */}
-            <section className="relative h-[80vh] w-full flex items-center justify-center overflow-hidden border-b border-black/5 text-[#111]">
+            <section className="relative min-h-[60vh] md:min-h-[80vh] w-full flex items-center justify-center overflow-hidden border-b border-black/5 text-[#111] pt-20">
                 <GradientHero color1="#9CA3AF" color2="#E5E7EB" initialColor="#E5E7EB" />
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
@@ -69,19 +70,25 @@ export default function CareersPage() {
                             {/* Job 1: Sales Officer */}
                             <div 
                                 className={`p-8 rounded-3xl border transition-all duration-300 \${selectedJob === "Sales Officer" ? "border-[#C4A67C] bg-[#FAFAF9] shadow-md" : "border-black/5 hover:border-black/10 cursor-pointer"}`}
-                                onClick={() => setSelectedJob("Sales Officer")}
+                                onClick={() => {
+                                    setSelectedJob("Sales Officer");
+                                    document.getElementById("apply-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                }}
                             >
                                 <div className="flex flex-col md:flex-row justify-between md:items-start gap-4 mb-6">
                                     <div>
                                         <h3 className="text-2xl font-bold font-sans tracking-tight text-[#111] mb-2">Sales Officer</h3>
-                                        <div className="flex flex-wrap gap-3 text-xs font-mono uppercase tracking-widest text-[#666]">
+                                        <div className="flex flex-wrap gap-2 md:gap-3 text-[10px] md:text-xs font-mono uppercase tracking-widest text-[#666]">
                                             <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><Briefcase className="w-3 h-3"/> Full Time</span>
-                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><MapPin className="w-3 h-3"/> Dubai (Deira radius)</span>
+                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><MapPin className="w-3 h-3"/> Dubai (Deira)</span>
                                             <span className="bg-[#111] text-white px-3 py-1.5 rounded-full">3 Openings</span>
                                         </div>
                                     </div>
+                                    <button className="md:hidden block text-xs font-mono uppercase tracking-widest text-[#C4A67C] border border-[#C4A67C] px-4 py-2 rounded-full mt-2">
+                                        Apply Now
+                                    </button>
                                 </div>
-                                <p className="text-[#555] leading-relaxed mb-6 font-light">
+                                <p className="text-[#555] leading-relaxed mb-6 font-light text-sm md:text-base">
                                     We are looking for ambitious and experienced Sales Officers to join our growing team. You will be responsible for driving B2B and B2C sales across our property maintenance portfolio.
                                 </p>
                                 <ul className="space-y-3 text-sm text-[#444]">
@@ -95,19 +102,25 @@ export default function CareersPage() {
                             {/* Job 2: Senior Maintenance Technician */}
                             <div 
                                 className={`p-8 rounded-3xl border transition-all duration-300 \${selectedJob === "Senior Maintenance Technician" ? "border-[#C4A67C] bg-[#FAFAF9] shadow-md" : "border-black/5 hover:border-black/10 cursor-pointer"}`}
-                                onClick={() => setSelectedJob("Senior Maintenance Technician")}
+                                onClick={() => {
+                                    setSelectedJob("Senior Maintenance Technician");
+                                    document.getElementById("apply-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                }}
                             >
                                 <div className="flex flex-col md:flex-row justify-between md:items-start gap-4 mb-6">
                                     <div>
                                         <h3 className="text-2xl font-bold font-sans tracking-tight text-[#111] mb-2">Maintenance Technician</h3>
-                                        <div className="flex flex-wrap gap-3 text-xs font-mono uppercase tracking-widest text-[#666]">
+                                        <div className="flex flex-wrap gap-2 md:gap-3 text-[10px] md:text-xs font-mono uppercase tracking-widest text-[#666]">
                                             <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><Briefcase className="w-3 h-3"/> Full Time</span>
                                             <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><MapPin className="w-3 h-3"/> Field Service</span>
                                             <span className="bg-[#111] text-white px-3 py-1.5 rounded-full">1 Opening</span>
                                         </div>
                                     </div>
+                                    <button className="md:hidden block text-xs font-mono uppercase tracking-widest text-[#C4A67C] border border-[#C4A67C] px-4 py-2 rounded-full mt-2">
+                                        Apply Now
+                                    </button>
                                 </div>
-                                <p className="text-[#555] leading-relaxed mb-6 font-light">
+                                <p className="text-[#555] leading-relaxed mb-6 font-light text-sm md:text-base">
                                     Dakeek is expanding its on-ground field operations. We require a versatile technician capable of handling a variety of residential and commercial property maintenance tasks.
                                 </p>
                                 <ul className="space-y-3 text-sm text-[#444]">
@@ -140,7 +153,7 @@ export default function CareersPage() {
                                     </button>
                                 </div>
                             ) : (
-                                <form onSubmit={handleApply} className="space-y-5 relative z-10">
+                                <form id="apply-form" onSubmit={handleApply} className="space-y-5 relative z-10">
                                     <div className="space-y-4">
                                         <input 
                                             type="text" 
@@ -179,14 +192,25 @@ export default function CareersPage() {
                                                 name="resume"
                                                 accept=".pdf,.doc,.docx"
                                                 required
+                                                onChange={(e) => setFileName(e.target.files?.[0]?.name || null)}
                                                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
                                             />
                                             <div className="w-full bg-white/5 border border-white/10 border-dashed rounded-xl px-5 py-6 flex flex-col items-center justify-center text-center group-hover:bg-white/10 transition-colors">
-                                                <Upload className="w-6 h-6 text-[#C4A67C] mb-3" />
-                                                <span className="text-white font-medium text-sm mb-1">Click to attach limit (max 5MB)</span>
-                                                <span className="text-stone-500 text-xs font-mono uppercase tracking-wider">PDF, DOC, DOCX</span>
+                                                {fileName ? (
+                                                    <>
+                                                        <FileText className="w-6 h-6 text-[#C4A67C] mb-3" />
+                                                        <span className="text-white font-medium text-sm mb-1">{fileName}</span>
+                                                        <span className="text-stone-500 text-xs font-mono uppercase tracking-wider">File Selected</span>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <Upload className="w-6 h-6 text-[#C4A67C] mb-3" />
+                                                        <span className="text-white font-medium text-sm mb-1">Click to attach resume</span>
+                                                        <span className="text-stone-500 text-xs font-mono uppercase tracking-wider">PDF, DOC, DOCX (Max 5MB)</span>
+                                                    </>
+                                                )}
                                                 <div className="mt-4 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
-                                                    <span className="flex items-center gap-2 text-xs text-[#C4A67C]"><FileText className="w-3 h-3" /> Select file</span>
+                                                    <span className="flex items-center gap-2 text-xs text-[#C4A67C]"><FileText className="w-3 h-3" /> {fileName ? "Change file" : "Select file"}</span>
                                                 </div>
                                             </div>
                                         </div>
