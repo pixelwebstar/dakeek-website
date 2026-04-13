@@ -349,8 +349,7 @@ export default function ContactPage() {
                         <div className="pt-6 border-t border-white/10">
                             <p className="text-sm">
                                 <span className="text-white font-medium block mb-1">Hours of Operation</span>
-                                Mon - Sat: 8:00 AM - 8:00 PM<br />
-                                Sunday: Emergency Only
+                                Mon - Fri: 9:00 AM - 5:00 PM
                             </p>
                         </div>
                     </div>
