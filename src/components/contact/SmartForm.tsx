@@ -156,19 +156,41 @@ export function SmartForm() {
                 <div className="space-y-4">
                     <label className="text-xs font-bold uppercase tracking-[0.15em] text-slate-400 block">02 / Contact Info</label>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {/* Location with Datalist */}
+                        {/* Custom Location Autocomplete */}
                         <div className="md:col-span-2 relative">
                             <input
                                 {...register("location")}
-                                list="dubai-areas"
+                                autoComplete="off"
+                                onFocus={() => {
+                                    // small hack to set some state to show dropdown if we wanted, 
+                                    // but we can just use a sibling hover/focus-within trick or simple state.
+                                    // To keep it simple and robust, let's just show it when focused and hide on blur.
+                                }}
+                                onClick={(e) => (e.target as HTMLInputElement).select()}
                                 placeholder="Location (Select or Type Area)"
-                                className={`w-full bg-slate-50/50 border rounded-xl px-4 py-4 text-sm focus:outline-none focus:bg-white focus:ring-2 transition-all placeholder:text-slate-400 text-slate-900
+                                className={`w-full bg-slate-50/50 border rounded-xl px-4 py-4 text-sm focus:outline-none focus:bg-white focus:ring-2 transition-all placeholder:text-slate-400 text-slate-900 peer
                                     ${errors.location ? "border-red-200 bg-red-50/10 focus:ring-red-100" : "border-slate-200 focus:ring-slate-100 focus:border-[#5A4A32]"}
                                 `}
                             />
-                            <datalist id="dubai-areas">
-                                {DUBAI_AREAS.map(area => <option key={area} value={area} />)}
-                            </datalist>
+                            {/* Dropdown Menu */}
+                            <div className="absolute top-full left-0 w-full mt-2 bg-white border border-slate-100 rounded-xl shadow-2xl z-50 max-h-48 overflow-y-auto hidden peer-focus:block hover:block transform opacity-0 peer-focus:opacity-100 transition-all duration-200">
+                                {DUBAI_AREAS.filter(area => area.toLowerCase().includes((watch("location") || "").toLowerCase())).map((area) => (
+                                    <div 
+                                        key={area}
+                                        onMouseDown={(e) => {
+                                            // onMouseDown fires before input onBlur, allowing the click to register
+                                            e.preventDefault(); 
+                                            setValue("location", area, { shouldValidate: true });
+                                        }}
+                                        className="px-4 py-3 text-sm text-slate-600 hover:bg-slate-50 hover:text-black cursor-pointer transition-colors border-b border-slate-50 last:border-0"
+                                    >
+                                        {area}
+                                    </div>
+                                ))}
+                                {DUBAI_AREAS.filter(area => area.toLowerCase().includes((watch("location") || "").toLowerCase())).length === 0 && (
+                                    <div className="px-4 py-3 text-sm text-slate-400 italic">No areas found. You can still type a custom area.</div>
+                                )}
+                            </div>
                             {errors.location && <span className="text-red-500 text-[10px] absolute -bottom-4 left-2">{errors.location.message}</span>}
                         </div>
 
