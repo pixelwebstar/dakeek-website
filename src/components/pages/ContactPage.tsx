@@ -32,7 +32,7 @@ export default function ContactPage() {
             .then(res => res.json())
             .then(data => {
                 if (data && data.overall_rating) {
-                    setGoogleRating(data.overall_rating.toString());
+                    setGoogleRating(data.overall_rating.toFixed(1));
                 }
             })
             .catch(err => console.error("Error loading rating:", err));

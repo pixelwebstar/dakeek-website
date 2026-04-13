@@ -108,7 +108,7 @@ export default function ReviewsSection() {
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <span className="text-5xl font-serif text-[#111] -mt-1">{reviewsData.overall_rating}</span>
+                                <span className="text-5xl font-serif text-[#111] -mt-1">{Number(reviewsData.overall_rating).toFixed(1)}</span>
                                 <div className="flex flex-col gap-1">
                                     <div className="flex items-center gap-0.5">
                                         {[...Array(5)].map((_, i) => (
