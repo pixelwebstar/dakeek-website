@@ -6,6 +6,7 @@ import IndustriesSection from "@/components/home/IndustriesSection";
 import StandardSection from "@/components/home/StandardSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import PromiseSection from "@/components/home/PromiseSection";
+import ReviewsSection from "@/components/shared/ReviewsSection";
 import DigitalJournalSection from "@/components/home/DigitalJournalSection";
 
 /**
@@ -24,6 +25,7 @@ export default function HomePage() {
             <StandardSection />
             <ProcessSection />
             <PromiseSection />
+            <ReviewsSection />
             <DigitalJournalSection />
         </main>
     );

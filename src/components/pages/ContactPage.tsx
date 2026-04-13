@@ -12,12 +12,15 @@ import {
     Linkedin,
     Briefcase,
     Search,
-    MapPin // MapPin is still used in section 6, so it should be kept.
+    MapPin,
+    Star,
+    ExternalLink
 } from "lucide-react";
 import Link from "next/link";
 
 import GradientHero from "../hero/GradientHero";
 import { SmartForm } from "../contact/SmartForm";
+import ReviewsSection from "../shared/ReviewsSection";
 
 export default function ContactPage() {
     return (
@@ -45,7 +48,7 @@ export default function ContactPage() {
             </section>
 
             {/* 2. DIRECT ACCESS (Black) */}
-            <section className="py-24 px-[5vw] lg:px-[8vw] bg-[#0A0A0A] text-white">
+            <section id="instant-lines" className="py-24 px-[5vw] lg:px-[8vw] bg-[#0A0A0A] text-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-16">
                         <div className="flex items-center gap-4 mb-6">
@@ -53,6 +56,41 @@ export default function ContactPage() {
                             <span className="font-mono text-xs uppercase tracking-widest text-[#C4A67C]">Instant Lines</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-serif">Direct Access.</h2>
+                    </div>
+
+                    {/* NEW: GOOGLE BUSINESS PROFILE MASTER BUTTON */}
+                    <div className="mb-12">
+                        <a 
+                            href="https://maps.app.goo.gl/ibmvUdgpqxifw8sS9" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="group relative overflow-hidden bg-white/5 hover:bg-[#C4A67C] border border-white/10 p-1 rounded-2xl transition-all duration-700 flex flex-col md:flex-row items-center gap-6 md:justify-between w-full shadow-2xl"
+                        >
+                            <div className="flex flex-col md:flex-row items-center gap-6 z-10 px-8 py-6">
+                                <div className="bg-white/10 group-hover:bg-black/10 p-4 rounded-xl transition-colors duration-500 border border-white/5 group-hover:border-black/20">
+                                    <MapPin className="w-8 h-8 text-white group-hover:text-black" />
+                                </div>
+                                <div className="text-center md:text-left">
+                                    <h3 className="text-2xl font-serif text-white group-hover:text-black mb-1 flex items-center justify-center md:justify-start gap-3">
+                                        Dakeek Technical Services <span className="text-[10px] bg-[#C4A67C] group-hover:bg-black text-white px-2 py-0.5 rounded font-mono uppercase tracking-tighter">Verified</span>
+                                    </h3>
+                                    <div className="flex items-center justify-center md:justify-start gap-2">
+                                        <div className="flex gap-0.5">
+                                            {[...Array(5)].map((_, i) => (
+                                                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400 group-hover:fill-black group-hover:text-black" />
+                                            ))}
+                                        </div>
+                                        <span className="text-sm font-bold text-stone-300 group-hover:text-black/70">4.9 Overall Rating on Google Maps</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="px-8 py-6 w-full md:w-auto border-t md:border-t-0 md:border-l border-white/10 group-hover:border-black/10 flex items-center justify-center gap-3 text-white group-hover:text-black font-mono text-xs uppercase tracking-[0.2em] whitespace-nowrap">
+                                Visit Business Profile <ExternalLink className="w-4 h-4" />
+                            </div>
+                            
+                            {/* Decorative background flare */}
+                            <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#C4A67C]/10 rounded-full blur-3xl group-hover:bg-black/10 transition-colors duration-700" />
+                        </a>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -305,6 +343,9 @@ export default function ContactPage() {
                     </a>
                 </div>
             </section>
+
+            {/* 7. REVIEWS SECTION */}
+            <ReviewsSection />
 
         </main>
     );

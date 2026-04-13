@@ -1,5 +1,5 @@
-import type { Metadata, Viewport } from "next";
 import React from "react";
+import Script from "next/script";
 import { Geist, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "../components/layout/Header";
@@ -145,6 +145,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Ads Tag */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18076209022"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18076209022');
+          `}
+        </Script>
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         <link rel="preload" href="/images/noise.svg" as="image" />
