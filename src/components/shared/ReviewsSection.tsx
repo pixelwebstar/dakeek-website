@@ -139,7 +139,7 @@ export default function ReviewsSection() {
                                 ))}
                             </div>
 
-                            <p className="text-2xl md:text-3xl text-stone-700 font-serif leading-snug mb-8">
+                            <p className="text-xl md:text-2xl text-stone-700 font-serif leading-snug mb-8 line-clamp-4">
                                 &ldquo;{currentReview.content}&rdquo;
                             </p>
 

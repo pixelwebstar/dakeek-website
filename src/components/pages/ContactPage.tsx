@@ -25,6 +25,18 @@ import ReviewsSection from "../shared/ReviewsSection";
 
 export default function ContactPage() {
     const [copied, setCopied] = useState(false);
+    const [googleRating, setGoogleRating] = useState('4.9');
+
+    React.useEffect(() => {
+        fetch('/api/reviews')
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.overall_rating) {
+                    setGoogleRating(data.overall_rating.toString());
+                }
+            })
+            .catch(err => console.error("Error loading rating:", err));
+    }, []);
 
     const handleCopyLicense = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -97,7 +109,7 @@ export default function ContactPage() {
                                                 <Star key={i} className="w-4 h-4 fill-[#FBBC05] text-[#FBBC05]" />
                                             ))}
                                         </div>
-                                        <span className="text-sm font-bold text-stone-300 group-hover:text-white tracking-wide transition-colors">4.9 Overall Rating on Google</span>
+                                        <span className="text-sm font-bold text-stone-300 group-hover:text-white tracking-wide transition-colors">{googleRating} Overall Rating on Google</span>
                                     </div>
                                 </div>
                             </div>
