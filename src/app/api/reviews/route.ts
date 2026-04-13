@@ -44,7 +44,7 @@ export async function GET() {
     const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
     
     // The Google Place ID for Dakeek Technical Services
-    const GOOGLE_PLACE_ID = process.env.GOOGLE_PLACE_ID || "ChIJSdtz5_xdXz4Rac49ney_8X4"; 
+    const GOOGLE_PLACE_ID = process.env.GOOGLE_PLACE_ID || "ChIJSdsD5_xdXz4RrHzTng2Y8X4"; 
     
     if (!GOOGLE_PLACES_API_KEY) {
         return NextResponse.json(FALLBACK_REVIEWS);
@@ -75,6 +75,9 @@ export async function GET() {
                 from_google: true,
             });
         }
+        
+        // Log the error from Google API for debugging
+        console.error("Google Places API returned non-OK status:", data.status, data.error_message || "");
     } catch (e) {
         console.error("Error fetching Google Reviews:", e);
     }
