@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
     Clock,
     Mail,
@@ -14,7 +14,8 @@ import {
     Search,
     MapPin,
     Star,
-    ExternalLink
+    ExternalLink,
+    CheckCircle
 } from "lucide-react";
 import Link from "next/link";
 
@@ -23,6 +24,16 @@ import { SmartForm } from "../contact/SmartForm";
 import ReviewsSection from "../shared/ReviewsSection";
 
 export default function ContactPage() {
+    const [copied, setCopied] = useState(false);
+
+    const handleCopyLicense = (e: React.MouseEvent) => {
+        e.preventDefault();
+        navigator.clipboard.writeText("1382290");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+        window.open("https://app.invest.dubai.ae/search-license", "_blank");
+    };
+
     return (
         <main className="min-h-screen bg-[#FAFAF9] text-[#111] selection:bg-[#C4A67C] selection:text-white">
 
@@ -352,6 +363,62 @@ export default function ContactPage() {
 
             {/* 7. REVIEWS SECTION */}
             <ReviewsSection />
+
+            {/* 8. LICENSE VERIFICATION: The Gold Standard */}
+            <section className="relative py-32 bg-[#050505] border-t border-white/5 overflow-hidden">
+                {/* Decorative Mesh */}
+                <div className="absolute inset-0 opacity-10"
+                    style={{ backgroundImage: 'radial-gradient(#A18262 1px, transparent 1px)', backgroundSize: '30px 30px' }}
+                />
+
+                <div className="relative max-w-5xl mx-auto px-[5vw] lg:px-[8vw]">
+                    <div className="relative p-8 lg:p-12 border border-[#222] bg-[#111]/50 backdrop-blur-sm rounded-2xl overflow-hidden group hover:border-[#C4A67C]/20 transition-all duration-700">
+
+                        {/* Metallic Sheen Effect */}
+                        <div className="absolute top-0 right-0 w-[300px] h-full bg-gradient-to-l from-white/5 to-transparent skew-x-12 translate-x-32 group-hover:translate-x-0 transition-transform duration-1000 ease-out pointer-events-none" />
+
+                        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-12 relative z-10">
+                            <div>
+                                <div className="flex items-center gap-3 mb-8">
+                                    <div className="p-2 rounded-full bg-[#C4A67C]/10 text-[#C4A67C]">
+                                        <Shield className="w-5 h-5" />
+                                    </div>
+                                    <span className="font-mono text-xs uppercase tracking-widest text-[#C4A67C]">Official Credentials</span>
+                                </div>
+                                <h2 className="text-4xl md:text-5xl font-serif text-white mb-2 tracking-tight">
+                                    Trusted & <span className="text-stone-500">Verified</span>
+                                </h2>
+                                <p className="text-stone-500 font-mono text-sm uppercase tracking-widest">
+                                    Dakeek Technical Services L.L.C
+                                </p>
+                            </div>
+
+                            <div className="flex flex-col items-start md:items-end">
+                                <span className="font-mono text-xs text-stone-600 mb-2 uppercase tracking-wider">Dubai DET License No.</span>
+                                <span className="text-5xl md:text-7xl font-mono text-transparent bg-clip-text bg-gradient-to-b from-white to-stone-600 tracking-tighter">
+                                    1382290
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="mt-16 pt-12 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                            <p className="text-stone-400 font-light max-w-lg">
+                                Fully licensed by the Dubai Department of Economy and Tourism.
+                                We operate with absolute transparency—it's not just a policy, it's our promise.
+                            </p>
+                            <button
+                                onClick={handleCopyLicense}
+                                className="inline-flex items-center gap-4 px-8 py-4 bg-white/5 hover:bg-[#C4A67C] text-white transition-all duration-300 border border-white/10 hover:border-[#C4A67C] group cursor-pointer"
+                            >
+                                <span className="font-mono text-xs uppercase tracking-widest">
+                                    {copied ? "Copied License No." : "Verify License"}
+                                </span>
+                                {copied ? <CheckCircle className="w-4 h-4" /> : <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </main>
     );
