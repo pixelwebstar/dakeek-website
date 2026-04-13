@@ -64,7 +64,7 @@ export default function ContactPage() {
                             href="https://maps.app.goo.gl/ibmvUdgpqxifw8sS9" 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="group relative overflow-hidden bg-white/5 hover:bg-[#C4A67C] border border-white/10 p-1 rounded-2xl transition-all duration-700 flex flex-col md:flex-row items-center gap-6 md:justify-between w-full shadow-2xl"
+                            className="group relative overflow-hidden bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 p-1 rounded-2xl transition-all duration-500 flex flex-col md:flex-row items-center gap-6 md:justify-between w-full shadow-2xl"
                         >
                             <div className="flex flex-col md:flex-row items-center gap-6 z-10 px-8 py-6">
                                 <div className="bg-white p-4 rounded-2xl transition-transform duration-500 group-hover:scale-110 shadow-lg border border-black/5">
@@ -77,7 +77,7 @@ export default function ContactPage() {
                                     </svg>
                                 </div>
                                 <div className="text-center md:text-left">
-                                    <h3 className="text-2xl font-serif text-white group-hover:text-black mb-1 flex items-center justify-center md:justify-start gap-3">
+                                    <h3 className="text-2xl font-serif text-white mb-1 flex items-center justify-center md:justify-start gap-3">
                                         Dakeek Technical Services <span className="text-[10px] bg-[#4285F4] text-white px-2 py-0.5 rounded font-mono uppercase tracking-tighter">Verified</span>
                                     </h3>
                                     <div className="flex items-center justify-center md:justify-start gap-2">
@@ -86,16 +86,16 @@ export default function ContactPage() {
                                                 <Star key={i} className="w-4 h-4 fill-[#FBBC05] text-[#FBBC05]" />
                                             ))}
                                         </div>
-                                        <span className="text-sm font-bold text-stone-300 group-hover:text-black/80 tracking-wide">4.9 Overall Rating on Google</span>
+                                        <span className="text-sm font-bold text-stone-300 group-hover:text-white tracking-wide transition-colors">4.9 Overall Rating on Google</span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="px-8 py-6 w-full md:w-auto border-t md:border-t-0 md:border-l border-white/10 group-hover:border-black/10 flex items-center justify-center gap-3 text-white group-hover:text-[#4285F4] font-mono text-xs uppercase tracking-[0.2em] whitespace-nowrap transition-colors">
+                            <div className="px-8 py-6 w-full md:w-auto border-t md:border-t-0 md:border-l border-white/10 group-hover:border-white/20 flex items-center justify-center gap-3 text-stone-300 group-hover:text-white font-mono text-xs uppercase tracking-[0.2em] whitespace-nowrap transition-colors">
                                 View Full Profile <ExternalLink className="w-4 h-4" />
                             </div>
                             
                             {/* Decorative background flare */}
-                            <div className="absolute -right-20 -top-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-[#4285F4]/20 transition-colors duration-700" />
+                            <div className="absolute -right-20 -top-20 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl group-hover:bg-[#4285F4]/10 transition-colors duration-500" />
                         </a>
                     </div>
 
