@@ -8,7 +8,7 @@ export const metadata: Metadata = {
         "Book Property Maintenance Dubai",
         "Contact Handyman Dubai",
         "Book AC Repair Dubai",
-        "Emergency Plumber Dubai",
+        "Urgent Plumber Dubai",
         "Expert Electrician Dubai",
         "WhatsApp Repair Dubai",
         "Property Service Booking Dubai",

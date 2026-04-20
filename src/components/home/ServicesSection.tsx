@@ -60,13 +60,13 @@ const SERVICES = [
         seoTitle: "Annual maintenance contracts for Dubai properties"
     },
     {
-        title: "Emergency\nServices",
-        href: "/services/emergency",
-        icon: "emergency",
-        image: "/images/services/emergency_final.png",
+        title: "Urgent\nServices",
+        href: "/services/urgent-support",
+        icon: "urgent-support",
+        image: "/images/services/urgent-support_final.png",
         features: ["Rapid Response", "Power Outage", "Water Leaks"],
-        variant: "emergency",
-        seoTitle: "Emergency property maintenance services"
+        variant: "urgent-support",
+        seoTitle: "Urgent property maintenance services"
     }
 ];
 
@@ -87,10 +87,10 @@ export default function ServicesSection() {
                         key={index}
                         title={service.title}
                         href={service.href}
-                        icon={service.icon as "ac" | "plumbing" | "electrical" | "cleaning" | "stoves" | "handyman" | "emergency" | "other"}
+                        icon={service.icon as "ac" | "plumbing" | "electrical" | "cleaning" | "stoves" | "handyman" | "urgent-support" | "other"}
                         image={service.image}
                         features={service.features}
-                        variant={service.variant as "default" | "emergency" | "other" | undefined}
+                        variant={service.variant as "default" | "urgent-support" | "other" | undefined}
                         seoTitle={service.seoTitle}
                     />
                 ))}

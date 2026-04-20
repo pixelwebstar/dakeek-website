@@ -9,7 +9,7 @@ export const metadata: Metadata = {
         "Plumber Price Dubai",
         "Property Maintenance FAQ Dubai",
         "Handyman Cost Dubai",
-        "Emergency Repair Fee Dubai",
+        "Urgent Repair Fee Dubai",
         "Dakeek Reviews",
         "Property Service Questions Dubai",
     ],

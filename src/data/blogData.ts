@@ -113,9 +113,9 @@ We recommend quarterly maintenance for Dubai homes. Our technicians can identify
         seoKeywords: ['AC service Dubai', 'when to service AC', 'AC maintenance timing']
     },
     {
-        slug: 'emergency-plumbing-tips',
+        slug: 'urgent-support-plumbing-tips',
         title: '5 Things to Do Before the Plumber Arrives',
-        excerpt: 'Quick actions that can save thousands in water damage while waiting for emergency plumbing service.',
+        excerpt: 'Quick actions that can save thousands in water damage while waiting for urgent-support plumbing service.',
         content: `
 # 5 Things to Do Before the Plumber Arrives
 
@@ -143,18 +143,18 @@ Move furniture and electronics away from the affected area.
 
 ## Call Dakeek Technical
 
-Our emergency plumbers arrive within 60 minutes, fully equipped to handle any situation.
+Our urgent-support plumbers arrive within 60 minutes, fully equipped to handle any situation.
 
-[Emergency Contact](/contact)
+[Urgent Contact](/contact)
         `,
         author: 'Dakeek Team',
         date: '2024-02-20',
         readTime: '3 min read',
         category: 'tips',
-        tags: ['Plumbing', 'Emergency', 'Water Damage'],
+        tags: ['Plumbing', 'Urgent', 'Water Damage'],
         image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&q=80',
         featured: true,
-        seoKeywords: ['emergency plumber Dubai', 'plumbing emergency', 'water leak what to do']
+        seoKeywords: ['urgent-support plumber Dubai', 'plumbing urgent-support', 'water leak what to do']
     },
     {
         slug: 'smart-home-electrical-guide',

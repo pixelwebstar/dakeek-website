@@ -15,7 +15,7 @@ export const SERVICE_TYPES = [
     "Gas & Cookers",
     "Handyman Services",
     "AMC Contracts",
-    "Emergency"
+    "Urgent Support"
 ] as const;
 
 export const CONTACT_METHODS = [

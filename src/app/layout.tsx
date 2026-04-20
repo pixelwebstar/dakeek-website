@@ -49,16 +49,16 @@ export const metadata: Metadata = {
     // Core Services
     "AC repair Dubai",
     "AC maintenance Dubai",
-    "Emergency plumber Dubai",
+    "Urgent plumber Dubai",
     "Electrician Dubai",
     "Handyman services Dubai",
     "Deep cleaning Dubai",
 
-    // Emergency & Time-sensitive
+    // Urgent & Time-sensitive
     "Professional plumber Dubai",
-    "Emergency AC repair Dubai",
+    "Urgent AC repair Dubai",
     "Same day electrician Dubai",
-    "Emergency property repair Dubai",
+    "Urgent property repair Dubai",
     "60 minute response Dubai",
 
     // Location-specific (Key Dubai Areas)

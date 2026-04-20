@@ -98,9 +98,9 @@ export const serviceData: Record<string, ServicePageData> = {
             keywords: [
                 "AC Repair Deira", "AC Maintenance Deira", "Best AC Repair in Deira", "Al Mateena St AC Service",
                 "BN Building AC Repair", "Deira Technical Services", "AC repair near Al Mateena", "Property AC Service Deira",
-                "Emergency AC Repair Deira", "Best AC Company Deira",
+                "Urgent AC Repair Deira", "Best AC Company Deira",
                 "Chiller Repair Dubai", "VRF System Maintenance", "Split AC Repair", "Central AC Maintenance",
-                "Duct Cleaning Dubai", "AC AMC Contract Dubai", "Emergency AC Repair", "Best AC Company Dubai",
+                "Duct Cleaning Dubai", "AC AMC Contract Dubai", "Urgent AC Repair", "Best AC Company Dubai",
                 "Office AC Maintenance", "Villa AC Repair", "Industrial AC Services",
                 ...DUBAI_AREAS.map(area => `AC Repair ${area}`),
                 ...DUBAI_AREAS.map(area => `AC Maintenance ${area}`)
@@ -179,10 +179,10 @@ export const serviceData: Record<string, ServicePageData> = {
         uniqueBenefits: [
             "Specialized AC training",
             "Equipped for major brands",
-            "Priority emergency service",
+            "Priority urgent-support service",
             "Clear upfront pricing"
         ],
-        relatedServices: ["cleaning", "electrical", "emergency"]
+        relatedServices: ["cleaning", "electrical", "urgent-support"]
     },
     plumbing: {
         id: "02",
@@ -205,8 +205,8 @@ export const serviceData: Record<string, ServicePageData> = {
             title: "Licensed Plumber Deira | Property Maintenance Dubai",
             keywords: [
                 "Plumber Deira", "Plumbing Al Mateena St", "Leak Detection Deira", "BN Building Plumber",
-                "Al Mateena Plumbing Service", "Emergency Plumber Deira", "Deira Leak Detection", "Water Heater Repair Deira",
-                "Emergency Plumber", "Villa Plumbing Maintenance", "Office Plumbing Services", "Blocked Toilet Fix",
+                "Al Mateena Plumbing Service", "Urgent Plumber Deira", "Deira Leak Detection", "Water Heater Repair Deira",
+                "Urgent Plumber", "Villa Plumbing Maintenance", "Office Plumbing Services", "Blocked Toilet Fix",
                 ...DUBAI_AREAS.map(area => `Plumber ${area}`),
                 ...DUBAI_AREAS.map(area => `Leak Detection ${area}`)
             ],
@@ -272,11 +272,11 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         uniqueBenefits: [
             "Advanced leak detection",
-            "Emergency response available",
+            "Urgent response available",
             "Experienced plumbers",
             "Clear upfront pricing"
         ],
-        relatedServices: ["cleaning", "ac", "emergency"]
+        relatedServices: ["cleaning", "ac", "urgent-support"]
     },
     electrical: {
         id: "03",
@@ -300,7 +300,7 @@ export const serviceData: Record<string, ServicePageData> = {
             keywords: [
                 "Electrician Deira", "Electrical Service Al Mateena", "Deira Electrical Repair", "BN Building Electrician",
                 "Al Mateena St Professional Electrician", "Deira Shop Fitting", "Short Circuit Fix Deira", "DB Dressing Deira",
-                "Electrical Maintenance AMC", "Chandelier Installation", "Emergency Electrician",
+                "Electrical Maintenance AMC", "Chandelier Installation", "Urgent Electrician",
                 ...DUBAI_AREAS.map(area => `Electrician ${area}`),
                 ...DUBAI_AREAS.map(area => `Electrical Services ${area}`)
             ],
@@ -370,7 +370,7 @@ export const serviceData: Record<string, ServicePageData> = {
             "Smart home integration",
             "Efficiency audits"
         ],
-        relatedServices: ["ac", "handyman", "emergency"]
+        relatedServices: ["ac", "handyman", "urgent-support"]
     },
     // 04. Cleaning (Consolidated)
     cleaning: {
@@ -659,10 +659,10 @@ export const serviceData: Record<string, ServicePageData> = {
         relatedServices: ["electrical", "cleaning", "ac"]
     },
 
-    // 08. Emergency (Moved Down)
-    emergency: {
+    // 08. Urgent (Moved Down)
+    "urgent-support": {
         id: "08",
-        slug: "emergency",
+        slug: "urgent-support",
         theme: {
             primaryText: "text-rose-900",
             primaryBg: "bg-rose-950",
@@ -674,36 +674,36 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         hero: {
             tag: "SOS",
-            title: "Emergency Services",
-            description: "We are on the way. Right now."
+            title: "Urgent Support",
+            description: "Rapid technical assistance when it matters most."
         },
         seo: {
-            title: "Emergency Property Maintenance Dubai | Fast Technical Support",
+            title: "Urgent Property Support Dubai | Rapid Technical Assistance",
             keywords: [
-                "Emergency Property Maintenance Dubai", "Urgent technical support Dubai", "Urgent AC Repair", "Emergency Plumber",
-                "Power Outage Emergency Dubai", "Flood Cleanup Service", "Emergency Handyman Dubai", "Fast Response Maintenance",
-                "After Hours Repair Dubai", "Holiday Maintenance Service", "Critical Property Repair", "SOS Property Services",
-                ...DUBAI_AREAS.map(area => `Emergency Repair ${area}`)
+                "Urgent Property Maintenance Dubai", "Rapid technical support Dubai", "Fast AC Repair", "Expert Plumber",
+                "Power Outage Support Dubai", "Flood Cleanup Service", "Urgent Handyman Dubai", "Fast Response Maintenance",
+                "After Hours Technical Dubai", "Critical Property Repair", "SOS Property Services",
+                ...DUBAI_AREAS.map(area => `Urgent Repair ${area}`)
             ],
-            schemaType: "EmergencyService",
+            schemaType: "UrgentService",
             qna: [
                 {
-                    question: "How long does it take for you to arrive in an emergency?",
-                    answer: "We aim for rapid arrival times for all emergency calls within Dubai limits."
+                    question: "How quickly can you arrive for urgent repairs?",
+                    answer: "We aim for rapid response times for all urgent calls within Dubai limits, subject to technician availability."
                 },
                 {
-                    question: "Is there an extra charge for after-hours service?",
-                    answer: "Emergency call-outs may carry a surcharge, which will be confirmed with you."
+                    question: "Do you offer support outside business hours?",
+                    answer: "We strive to provide support when needed. Please contact us to check current availability."
                 }
             ]
         },
         intro: {
-            heading: "Disasters don't keep office hours. Neither do we. If there is an issue, we deploy immediately.",
+            heading: "Technical issues don't wait. We aim to deploy our specialists as quickly as possible to resolve your situation.",
             stats: [
                 { value: "Fast", label: "Arrival", sub: "Target" },
-                { value: "Live", label: "Open", sub: "Always" },
-                { value: "Fully", label: "Stocked", sub: "Vans" },
-                { value: "Fixed", label: "Solution", sub: "Goal" }
+                { value: "Live", label: "Support", sub: "Contact" },
+                { value: "Equipped", label: "Vans", sub: "Ready" },
+                { value: "Safe", label: "Solution", sub: "Goal" }
             ]
         },
         details: [
@@ -714,7 +714,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 description: "We extract water and stop the flow to limit damage.",
                 icon: Droplet,
                 details: ["Valve Shutoff", "Water Vac", "Pipe Repair", "Damage Control"],
-                image: "/images/services/emergency.webp" // Flooded floor/water
+                image: "/images/services/urgent-support.webp" // Flooded floor/water
             },
             {
                 id: "power",
@@ -737,18 +737,18 @@ export const serviceData: Record<string, ServicePageData> = {
         ],
         techSpecs: {
             grid: [
-                { label: "SPEED", value: "MAX" },
+                { label: "SPEED", value: "FAST" },
                 { label: "TOOLS", value: "READY" },
-                { label: "TEAM", value: "AWAKE" },
-                { label: "SOLUTION", value: "NOW" }
+                { label: "TEAM", value: "PROFESSIONAL" },
+                { label: "SOLUTION", value: "RELIABLE" }
             ],
             tools: "Fully stocked vans for immediate repairs.",
             list: ["Stop leak", "Isolate power", "Cool down", "Clean up", "Report"]
         },
         uniqueBenefits: [
-            "Rapid arrival target in Dubai",
-            "Vans stocked for emergencies",
-            "Night and weekend availability",
+            "Rapid response target in Dubai",
+            "Vans equipped for urgent repairs",
+            "Professional technical availability",
             "Immediate damage control"
         ],
         relatedServices: ["ac", "plumbing", "electrical"]
@@ -783,7 +783,7 @@ export const serviceData: Record<string, ServicePageData> = {
             qna: [
                 {
                     question: "What is included in an AMC package?",
-                    answer: "Our packages typically include scheduled AC maintenance, plumbing and electrical inspections, and priority emergency response."
+                    answer: "Our packages typically include scheduled AC maintenance, plumbing and electrical inspections, and priority urgent-support response."
                 },
                 {
                     question: "Do you offer AMC for commercial properties?",
@@ -807,7 +807,7 @@ export const serviceData: Record<string, ServicePageData> = {
                 subtitle: "Residential",
                 description: "Comprehensive care for villas and apartments. Includes AC, plumbing, and electrical upkeep.",
                 icon: ShieldCheck,
-                details: ["Scheduled Visits", "Emergency Callouts", "AC Servicing", "Handyman Help"],
+                details: ["Scheduled Visits", "Urgent Callouts", "AC Servicing", "Handyman Help"],
                 image: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&q=80"
             },
             {

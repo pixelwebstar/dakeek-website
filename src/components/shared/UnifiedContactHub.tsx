@@ -214,7 +214,7 @@ export default function UnifiedContactHub() {
                         // Dynamic sub-options could be moved to constants as well for full centralization
                         if (singleData === "Cleaning Services") responseMsg.options = ["Deep Cleaning", "Water Tank", "Sofa / Carpet", "General", "Other"];
                         else if (singleData === "Handyman Services") responseMsg.options = ["Furniture Assembly", "Wall Mounting", "Curtains/Blinds", "Repairs", "Other"];
-                        else if (singleData === "Emergency") { responseMsg.content = "🚨 Priority Mode. What is the emergency?"; responseMsg.options = ["Water Leak / Flood", "Power Outage", "AC Failure", "Gas Issue", "Other"]; }
+                        else if (singleData === "Urgent") { responseMsg.content = "What is the specialized service you need?"; responseMsg.options = ["Water Leak / Flood", "Power Outage", "AC Failure", "Gas Issue", "Other"]; }
                         else if (singleData === "Gas & Cookers") responseMsg.options = ["Not Lighting", "Yellow Flame", "Gas Leak", "Maintenance", "Other"];
                         else responseMsg.options = ["Installation", "Maintenance", "Repair", "Inspection", "Other"];
                     }

@@ -83,7 +83,7 @@ export default function Footer() {
             { name: "Electrical Works", href: "/services/electrical" },
             { name: "Deep Cleaning", href: "/services/cleaning" },
             { name: "Handyman", href: "/services/handyman" },
-            { name: "Emergency Service", href: "/services/emergency" },
+            { name: "Urgent Service", href: "/services/urgent-support" },
         ],
         contact: [
             { name: "Call Support", href: "tel:+971542472151" },
@@ -186,7 +186,7 @@ export default function Footer() {
                                     <Link
                                         href={link.href}
                                         prefetch={true}
-                                        title={`${link.name} in Dubai – Emergency Service Available`}
+                                        title={`${link.name} in Dubai – Professional Technical Support`}
                                         className={`text-sm font-medium ${theme.mutedText} ${theme.hoverText} transition-colors block hover:translate-x-1 duration-200`}
                                     >
                                         {link.name}

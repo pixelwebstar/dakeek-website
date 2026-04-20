@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       "Technical Services Deira",
       "Xavier Business Center Dubai",
       "Handyman Al Mateena St",
-      "Emergency Plumber Deira",
+      "Urgent Plumber Deira",
       "Dakeek Deira",
       "Best AC repair in Deira",
       "Property Maintenance 30km radius Deira",

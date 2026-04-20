@@ -63,9 +63,9 @@ export default function JsonLd() {
         },
         "openingHoursSpecification": {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "00:00",
-          "closes": "23:59"
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "08:00",
+          "closes": "18:00"
         },
         "aggregateRating": {
           "@type": "AggregateRating",
@@ -91,7 +91,7 @@ export default function JsonLd() {
         "provider": { "@id": "https://dakeek.ae/#organization" },
         "areaServed": "Dubai, United Arab Emirates",
         "url": "https://dakeek.ae/services/ac",
-        "description": "Professional AC repair and maintenance services in Dubai. professional emergency AC repair, yearly maintenance contracts, and AC installation across all Dubai areas.",
+        "description": "Professional AC repair and maintenance services in Dubai. Specialized AC repair, yearly maintenance contracts, and AC installation across all Dubai areas.",
         "offers": {
           "@type": "Offer",
           "availability": "https://schema.org/InStock",
@@ -104,11 +104,11 @@ export default function JsonLd() {
       {
         "@type": "Service",
         "name": "Plumbing Services Dubai",
-        "serviceType": "Emergency plumber, leak detection, pipe repair services in Dubai",
+        "serviceType": "Professional plumber, leak detection, pipe repair services in Dubai",
         "provider": { "@id": "https://dakeek.ae/#organization" },
         "areaServed": "Dubai, United Arab Emirates",
         "url": "https://dakeek.ae/services/plumbing",
-        "description": "professional emergency plumber in Dubai. Water leak detection, pipe repairs, drainage solutions, water heater repair, and bathroom fitting services.",
+        "description": "professional plumber in Dubai. Water leak detection, pipe repairs, drainage solutions, water heater repair, and bathroom fitting services.",
         "offers": {
           "@type": "Offer",
           "availability": "https://schema.org/InStock",
@@ -171,12 +171,12 @@ export default function JsonLd() {
       },
       {
         "@type": "Service",
-        "name": "Emergency Property Maintenance Dubai",
-        "serviceType": "Emergency property maintenance and repair services in Dubai",
+        "name": "Urgent Property Support Dubai",
+        "serviceType": "Urgent property maintenance and repair services in Dubai",
         "provider": { "@id": "https://dakeek.ae/#organization" },
         "areaServed": "Dubai, United Arab Emirates",
-        "url": "https://dakeek.ae/services/emergency",
-        "description": "Professional emergency property repair services in Dubai. Fast response for plumbing emergencies, AC breakdowns, and electrical failures.",
+        "url": "https://dakeek.ae/services/urgent-support",
+        "description": "Professional urgent property repair services in Dubai. Rapid response for plumbing issues, AC breakdowns, and electrical failures.",
         "offers": {
           "@type": "Offer",
           "availability": "https://schema.org/InStock",

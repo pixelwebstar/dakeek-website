@@ -4,15 +4,15 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { IconAC, IconElectrical, IconPlumbing, IconStoves, IconEmergency, IconCleaning, IconHandyman, IconOther } from "./ServiceIcons";
+import { IconAC, IconElectrical, IconPlumbing, IconStoves, IconUrgent, IconCleaning, IconHandyman, IconOther } from "./ServiceIcons";
 
 interface ServiceCardProps {
   title: string;
   href: string;
   image: string;
-  icon?: "ac" | "plumbing" | "electrical" | "cleaning" | "stoves" | "handyman" | "emergency" | "other";
+  icon?: "ac" | "plumbing" | "electrical" | "cleaning" | "stoves" | "handyman" | "urgent-support" | "other";
   features: string[];
-  variant?: "default" | "emergency" | "other";
+  variant?: "default" | "urgent-support" | "other";
   priority?: boolean;
   seoTitle?: string;
 }
@@ -27,7 +27,7 @@ export default function ServiceCard({
   priority = false,
   seoTitle,
 }: ServiceCardProps) {
-  const isEmergency = variant === "emergency";
+  const isUrgent = variant === "urgent-support";
   const isOther = variant === "other";
 
   const IconMap = {
@@ -37,7 +37,7 @@ export default function ServiceCard({
     cleaning: IconCleaning,
     stoves: IconStoves,
     handyman: IconHandyman,
-    emergency: IconEmergency,
+    "urgent-support": IconUrgent,
     other: IconOther,
   };
 
@@ -49,7 +49,7 @@ export default function ServiceCard({
         href={href}
         title={seoTitle || `${title} services in Dubai`}
         className={`group relative block h-[480px] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl
-          ${isEmergency ? "rounded-2xl" : "rounded-2xl"}`}
+          ${isUrgent ? "rounded-2xl" : "rounded-2xl"}`}
       >
         {/* Background Image - Optimized */}
         <div className="absolute inset-0">
@@ -64,7 +64,7 @@ export default function ServiceCard({
           />
           {/* Gradient Overlay */}
           <div className={`absolute inset-0 transition-opacity duration-500
-            ${isEmergency
+            ${isUrgent
               ? "bg-gradient-to-t from-red-950/95 via-red-950/60 to-transparent"
               : isOther
                 ? "bg-gradient-to-t from-teal-950/95 via-teal-950/60 to-transparent"
@@ -74,7 +74,7 @@ export default function ServiceCard({
 
         {/* Glowing Border on Hover */}
         <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 border-2
-          ${isEmergency ? "border-red-500/50" : isOther ? "border-teal-500/50" : "border-[#5A4A32]/50"}`}
+          ${isUrgent ? "border-red-500/50" : isOther ? "border-teal-500/50" : "border-[#5A4A32]/50"}`}
         />
 
         {/* Content */}
@@ -82,21 +82,21 @@ export default function ServiceCard({
           {/* Icon Badge */}
           {Icon && (
             <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 backdrop-blur-md transition-transform duration-500 group-hover:scale-110
-              ${isEmergency ? "bg-red-500/20 border border-red-500/30" : isOther ? "bg-teal-500/20 border border-teal-500/30" : "bg-white/10 border border-white/20"}`}
+              ${isUrgent ? "bg-red-500/20 border border-red-500/30" : isOther ? "bg-teal-500/20 border border-teal-500/30" : "bg-white/10 border border-white/20"}`}
             >
-              <Icon className={`w-7 h-7 ${isEmergency ? "text-red-400" : isOther ? "text-teal-400" : "text-white"}`} />
+              <Icon className={`w-7 h-7 ${isUrgent ? "text-red-400" : isOther ? "text-teal-400" : "text-white"}`} />
             </div>
           )}
 
           {/* Title */}
           <h3 className={`text-2xl font-serif font-semibold mb-2 transition-colors duration-300 whitespace-pre-line
-            ${isEmergency ? "text-white group-hover:text-red-300" : isOther ? "text-white group-hover:text-teal-300" : "text-white"}`}
+            ${isUrgent ? "text-white group-hover:text-red-300" : isOther ? "text-white group-hover:text-teal-300" : "text-white"}`}
           >
             {title}
           </h3>
 
-          {/* Emergency Badge */}
-          {isEmergency && (
+          {/* Urgent Badge */}
+          {isUrgent && (
             <span className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-wider text-red-400 mb-3">
               <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
               Priority Response
@@ -109,7 +109,7 @@ export default function ServiceCard({
               <li
                 key={index}
                 className={`text-[10px] font-mono uppercase tracking-wider px-2 py-1 rounded-md backdrop-blur-md
-                  ${isEmergency
+                  ${isUrgent
                     ? "bg-red-500/20 text-red-200 border border-red-500/20"
                     : isOther
                       ? "bg-teal-500/20 text-teal-200 border border-teal-500/20"
@@ -122,7 +122,7 @@ export default function ServiceCard({
 
           {/* CTA */}
           <div className={`flex items-center gap-2 text-sm font-medium transition-all duration-300 group-hover:gap-3
-            ${isEmergency ? "text-red-400" : isOther ? "text-teal-400" : "text-[#5A4A32]"}`}
+            ${isUrgent ? "text-red-400" : isOther ? "text-teal-400" : "text-[#5A4A32]"}`}
           >
             View Service
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

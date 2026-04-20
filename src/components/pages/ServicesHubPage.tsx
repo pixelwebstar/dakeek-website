@@ -17,7 +17,7 @@ const getServiceImage = (slug: string) => {
 
 export default function ServicesHubPage() {
     // List of services in order - Included 'other'
-    const serviceKeys = ["ac", "plumbing", "electrical", "cleaning", "stoves", "handyman", "amc", "emergency"];
+    const serviceKeys = ["ac", "plumbing", "electrical", "cleaning", "stoves", "handyman", "amc", "urgent-support"];
 
     return (
         <main className="min-h-screen bg-[#FAFAF9] text-[#111] overflow-x-hidden selection:bg-[#5A4A32] selection:text-white">
@@ -174,7 +174,7 @@ export default function ServicesHubPage() {
                                                                 "Uneven heating", "Burner not lighting", "Gas smell (Urgent)", "Oven not heating", "Broken knobs"
                                                             ] : slug === 'handyman' ? [
                                                                 "Furniture assembly", "TV mounting", "Curtain installation", "Picture hanging", "Door alignment"
-                                                            ] : slug === 'emergency' ? [
+                                                            ] : slug === 'urgent-support' ? [
                                                                 "Major floods", "Total blackout", "AC failure (Summer)", "Gas leaks", "Lockouts"
                                                             ] : [
                                                                 "Custom projects", "Complex installations", "Unique repairs", "Renovations", "Special requests"
@@ -204,8 +204,8 @@ export default function ServicesHubPage() {
                                                                 "Jet cleaning", "Igniter replacement", "Valve safety check", "Element replacement", "Thermostat fix"
                                                             ] : slug === 'handyman' ? [
                                                                 "Precision mounting", "IKEA expert assembly", "Drilling & fixing", "Carpentry repairs", "Hardware install"
-                                                            ] : slug === 'emergency' ? [
-                                                                "60-min response", "Water extraction", "Power restoration", "Leak isolation", "Emergency secure"
+                                                            ] : slug === 'urgent-support' ? [
+                                                                "60-min response", "Water extraction", "Power restoration", "Leak isolation", "Urgent secure"
                                                             ] : [
                                                                 "Tailored solutions", "Project planning", "Specialist sourcing", "Custom fabrication", "End-to-end manage"
                                                             ]).map((fix, i) => (

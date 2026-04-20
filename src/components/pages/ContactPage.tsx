@@ -372,7 +372,7 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    <a href="https://www.google.com/maps/search/?api=1&query=Xavier+Business+Center+BN+Building+Al+Mateena+St+Deira+Dubai" target="_blank" rel="noopener noreferrer" className="mt-8 block w-full py-4 text-center border border-white/20 hover:border-[#C4A67C] text-white hover:text-[#C4A67C] transition-colors font-mono text-xs uppercase tracking-widest">
+                    <a href="https://maps.app.goo.gl/ibmvUdgpqxifw8sS9" target="_blank" rel="noopener noreferrer" className="mt-8 block w-full py-4 text-center border border-white/20 hover:border-[#C4A67C] text-white hover:text-[#C4A67C] transition-colors font-mono text-xs uppercase tracking-widest">
                         Get Directions
                     </a>
                 </div>

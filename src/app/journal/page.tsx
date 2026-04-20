@@ -3,7 +3,7 @@ import JournalHubPage from "@/components/pages/JournalHubPage";
 
 export const metadata: Metadata = {
     title: "The Journal | Dubai Maintenance Tips | Dakeek",
-    description: "Expert advice on AC maintenance schedules, emergency plumbing tips, electrical safety, and home care in Dubai.",
+    description: "Expert advice on AC maintenance schedules, urgent-support plumbing tips, electrical safety, and home care in Dubai.",
     keywords: [
         "AC maintenance tips Dubai",
         "Property maintenance advice Dubai",

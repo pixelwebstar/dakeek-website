@@ -63,8 +63,8 @@ export const IconStoves = ({ className }: { className?: string }) => (
     </svg>
 );
 
-// 07. Emergency: Siren / Warning
-export const IconEmergency = ({ className }: { className?: string }) => (
+// 07. Urgent: Siren / Warning
+export const IconUrgent = ({ className }: { className?: string }) => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
         <circle cx="12" cy="12" r="10" />
         <path d="M12 8v4" />

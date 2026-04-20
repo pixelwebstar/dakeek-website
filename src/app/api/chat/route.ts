@@ -87,7 +87,7 @@ export async function POST(req: Request) {
         const lowerMsg = message.toLowerCase();
         if (lowerMsg.includes("price") || lowerMsg.includes("cost") || lowerMsg.includes("how much")) {
             responseText = "Our team will review your request and get back to you with a quote shortly.";
-        } else if (lowerMsg.includes("emergency") || lowerMsg.includes("urgent")) {
+        } else if (lowerMsg.includes("urgent-support") || lowerMsg.includes("urgent")) {
             responseText = "For urgent matters, please call us directly at 800-DAKEEK (800-325335).";
         } else if (lowerMsg.includes("ac") || lowerMsg.includes("cooling")) {
             responseText = "We've received your AC service inquiry. A specialist will be in touch.";

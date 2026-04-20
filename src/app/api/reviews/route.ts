@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 
 const FALLBACK_REVIEWS = {
-    overall_rating: 4.9,
-    total_reviews: 15,
+    overall_rating: 5.0,
+    total_reviews: 14,
     reviews: [
         {
             id: 1,
@@ -32,7 +32,7 @@ const FALLBACK_REVIEWS = {
             id: 4,
             author: "Elena Petrova",
             role: "Apartment Owner",
-            content: "Fast response for a plumbing emergency at midnight. The technician knew exactly what to do. Truly 24/7 service as promised.",
+            content: "Fast response for a plumbing issue at midnight. The technician knew exactly what to do. Truly professional service as promised.",
             rating: 5,
             date: "2 months ago"
         }

@@ -90,7 +90,7 @@ export default function TechSpecs({ specs, tools, details, theme }: TechSpecsPro
                             <div>
                                 <div className={`text-xs font-mono uppercase tracking-widest mb-2 ${theme.primaryText}`}>Why It Saves You Money</div>
                                 <div className="text-slate-700 font-serif text-lg italic leading-relaxed opacity-90">
-                                    &ldquo;Preventive care costs less than emergency repairs. Our regular maintenance catches small issues before they become expensive breakdowns.&rdquo;
+                                    &ldquo;Preventive care costs less than urgent-support repairs. Our regular maintenance catches small issues before they become expensive breakdowns.&rdquo;
                                 </div>
                             </div>
                         </div>

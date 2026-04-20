@@ -15,7 +15,7 @@ const FAQ_CATEGORIES = [
         description: "Booking, timing, and areas.",
         image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80",
         questions: [
-            { q: "How quickly can you arrive?", a: "For emergency requests, our dispatch protocol targets a 60-minute arrival time anywhere in Dubai. For standard scheduled maintenance, we adhere to precise 1-hour windows to respect your schedule." },
+            { q: "How quickly can you arrive?", a: "For urgent-support requests, our dispatch protocol targets a 60-minute arrival time anywhere in Dubai. For standard scheduled maintenance, we adhere to precise 1-hour windows to respect your schedule." },
             { q: "What areas do you cover?", a: "We serve all major freehold communities including Emirates Hills, Palm Jumeirah, Arabian Ranches, Dubai Hills, Downtown Dubai, Dubai Marina, JLT, Business Bay, and 30+ other communities." },
             { q: "Is there a call-out fee?", a: "We charge a standard inspection fee of AED 150. This covers the engineer's time and professional diagnosis. Crucially, if you proceed with the quoted repair, this fee is completely waived." },
             { q: "Do I need to be home?", a: "We recommend being present for the initial diagnosis. However, for established clients in secure properties, we can coordinate access directly with your concierge or security team for seamless service." },
