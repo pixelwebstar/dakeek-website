@@ -68,8 +68,8 @@ export default function ReviewsSection() {
     const currentReview = reviewsData.reviews[currentIndex];
 
     return (
-        <section className="py-32 bg-[#FAFAF9] relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-[5vw] lg:px-[8vw]">
+        <section className="py-32 px-[5vw] lg:px-[8vw] bg-[#FAFAF9] relative overflow-hidden">
+            <div className="max-w-7xl mx-auto">
                 
                 <div className="flex flex-col lg:flex-row gap-16 justify-between items-start mb-20">
                     

@@ -38,7 +38,7 @@ export default function CareersPage() {
         <main className="min-h-screen bg-[#FAFAF9] text-[#111] selection:bg-[#C4A67C] selection:text-white">
 
             {/* HERO SECTION */}
-            <section className="relative min-h-[60vh] md:min-h-[80vh] w-full flex items-center justify-center overflow-hidden border-b border-black/5 text-[#111] pt-20">
+            <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden border-b border-black/5 text-[#111] pt-20">
                 <GradientHero color1="#9CA3AF" color2="#E5E7EB" initialColor="#E5E7EB" />
 
                 <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">

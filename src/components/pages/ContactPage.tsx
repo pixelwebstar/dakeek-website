@@ -226,8 +226,8 @@ export default function ContactPage() {
             </section>
 
             {/* 4. SOCIALS (Dark) */}
-            <section className="py-24 bg-[#0A0A0A] text-white border-b border-white/10">
-                <div className="max-w-7xl mx-auto px-[5vw] lg:px-[8vw]">
+            <section className="py-24 px-[5vw] lg:px-[8vw] bg-[#0A0A0A] text-white border-b border-white/10">
+                <div className="max-w-7xl mx-auto">
                     <div className="mb-16">
                         <div className="flex items-center gap-4 mb-6">
                             <div className="w-12 h-px bg-[#C4A67C]"></div>
@@ -279,8 +279,8 @@ export default function ContactPage() {
             </section>
 
             {/* 5. CAREERS (Light) */}
-            <section className="py-24 bg-white text-[#111]">
-                <div className="max-w-7xl mx-auto px-[5vw] lg:px-[8vw]">
+            <section className="py-24 px-[5vw] lg:px-[8vw] bg-white text-[#111]">
+                <div className="max-w-7xl mx-auto">
                     <div className="mb-16">
                         <div className="flex items-center gap-4 mb-6">
                             <div className="w-12 h-px bg-[#111]"></div>
