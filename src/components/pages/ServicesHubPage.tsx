@@ -34,7 +34,7 @@ export default function ServicesHubPage() {
                     <span className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#333] bg-white/50">
                         The Dakeek Standard
                     </span>
-                    <h1 className="text-6xl md:text-9xl font-sans tracking-tight mb-6 md:mb-8 leading-[0.9] text-[#111]">
+                    <h1 className="text-6xl md:text-9xl font-serif tracking-tight mb-6 md:mb-8 leading-[0.9] text-[#111]">
                         Services.
                     </h1>
                     <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#333] mb-12 uppercase tracking-widest">
@@ -95,13 +95,13 @@ export default function ServicesHubPage() {
                             {/* Texture Overlay */}
                             <div className="absolute inset-0 opacity-40 pointer-events-none mix-blend-multiply bg-[url('/images/noise.svg')] bg-repeat" />
 
-                            <div className="max-w-7xl mx-auto relative z-10">
+                            <div className="w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw] relative z-10">
                                 <SectionWrapper delay={0.1}>
                                     <div className={`flex flex-col lg:flex-row items-stretch gap-12 lg:gap-24 ${isEven ? '' : 'lg:flex-row-reverse'}`}>
 
                                         {/* VISUAL - Cinematic Card */}
                                         <div
-                                            className="w-full lg:w-1/2 relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-xl shadow-black/5 group cursor-pointer hover:scale-[1.02] transition-transform duration-700">
+                                            className={`w-full lg:w-1/2 relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-xl shadow-black/5 group cursor-pointer hover:scale-[1.02] transition-all duration-700 ${isEven ? 'lg:-translate-x-6' : 'lg:translate-x-6'}`}>
                                             <Link href={`/services/${slug}`} className="block w-full h-full relative">
                                                 <Image
                                                     src={coverImage}

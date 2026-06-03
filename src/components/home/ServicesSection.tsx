@@ -72,28 +72,30 @@ const SERVICES = [
 
 export default function ServicesSection() {
     return (
-        <section id="services" className="w-full px-[5vw] lg:px-[8vw] py-8 lg:py-12 space-y-8 bg-[#FAFAF9]">
-            <div className="flex justify-between items-end border-b border-[#E5E5E5] pb-8">
-                <div>
-                    <span className="block font-mono text-xs text-[#6B5344] uppercase tracking-[0.2em] mb-4">The Scope</span>
-                    <h2 className="text-4xl font-serif text-[#111]">Our Services</h2>
+        <section id="services" className="w-full py-8 lg:py-12 bg-[#FAFAF9]">
+            <div className="w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw] space-y-8">
+                <div className="flex justify-between items-end border-b border-[#E5E5E5] pb-8">
+                    <div>
+                        <span className="block font-mono text-xs text-[#6B5344] uppercase tracking-[0.2em] mb-4">The Scope</span>
+                        <h2 className="text-4xl font-serif text-[#111]">Our Services</h2>
+                    </div>
+                    <Link href="/services" className="text-xs font-mono text-[#333] hover:text-[#111] transition-colors uppercase tracking-widest">Full Specifications</Link>
                 </div>
-                <Link href="/services" className="text-xs font-mono text-[#333] hover:text-[#111] transition-colors uppercase tracking-widest">Full Specifications</Link>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {SERVICES.map((service, index) => (
-                    <ServiceCard
-                        key={index}
-                        title={service.title}
-                        href={service.href}
-                        icon={service.icon as "ac" | "plumbing" | "electrical" | "cleaning" | "stoves" | "handyman" | "urgent-support" | "other"}
-                        image={service.image}
-                        features={service.features}
-                        variant={service.variant as "default" | "urgent-support" | "other" | undefined}
-                        seoTitle={service.seoTitle}
-                    />
-                ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {SERVICES.map((service, index) => (
+                        <ServiceCard
+                            key={index}
+                            title={service.title}
+                            href={service.href}
+                            icon={service.icon as "ac" | "plumbing" | "electrical" | "cleaning" | "stoves" | "handyman" | "urgent-support" | "other"}
+                            image={service.image}
+                            features={service.features}
+                            variant={service.variant as "default" | "urgent-support" | "other" | undefined}
+                            seoTitle={service.seoTitle}
+                        />
+                    ))}
+                </div>
             </div>
         </section>
     );

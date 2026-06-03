@@ -12,7 +12,7 @@ const INDUSTRIES = [
 export default function IndustriesSection() {
     return (
         <section className="w-full bg-[#050505] text-white py-20 lg:py-24 border-b border-white/5">
-            <div className="max-w-7xl mx-auto px-[5vw] lg:px-[8vw]">
+            <div className="w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw]">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
                     <div>
                         <span className="inline-block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.3em] mb-4">

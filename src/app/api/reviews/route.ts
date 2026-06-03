@@ -41,10 +41,16 @@ const FALLBACK_REVIEWS = {
 
 export async function GET() {
     // If we have API keys configured, fetch real data from Google Places API
-    const GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
+    let GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
+    if (GOOGLE_PLACES_API_KEY) {
+        GOOGLE_PLACES_API_KEY = GOOGLE_PLACES_API_KEY.replace(/\\n/g, "").replace(/\n/g, "").trim();
+    }
     
     // The Google Place ID for Dakeek Technical Services
-    const GOOGLE_PLACE_ID = process.env.GOOGLE_PLACE_ID || "ChIJSdsD5_xdXz4RrHzTng2Y8X4"; 
+    let GOOGLE_PLACE_ID = process.env.GOOGLE_PLACE_ID || "ChIJSdsD5_xdXz4RrHzTng2Y8X4"; 
+    if (GOOGLE_PLACE_ID) {
+        GOOGLE_PLACE_ID = GOOGLE_PLACE_ID.replace(/\\n/g, "").replace(/\n/g, "").trim();
+    }
     
     if (!GOOGLE_PLACES_API_KEY) {
         return NextResponse.json(FALLBACK_REVIEWS);

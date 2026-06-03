@@ -1,11 +1,12 @@
 import {
-    Wind, Zap,
+    Wind,
     Flame, Gauge,
     Wrench, Thermometer,
     Droplet, Activity,
     Search,
     Sparkles, ShieldCheck
 } from "lucide-react";
+import { IconZapCustom as Zap } from "@/components/services/ServiceIcons";
 import { DUBAI_AREAS } from "@/lib/constants";
 
 export { DUBAI_AREAS };
@@ -203,6 +204,7 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         seo: {
             title: "Licensed Plumber Deira | Property Maintenance Dubai",
+            description: "Licensed plumber in Deira and across Dubai. Professional plumbing maintenance, water leak detection, heater repair, and booster pump services near Al Mateena St.",
             keywords: [
                 "Plumber Deira", "Plumbing Al Mateena St", "Leak Detection Deira", "BN Building Plumber",
                 "Al Mateena Plumbing Service", "Urgent Plumber Deira", "Deira Leak Detection", "Water Heater Repair Deira",
@@ -297,6 +299,7 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         seo: {
             title: "Licensed Electricians Deira | Property Maintenance Dubai",
+            description: "Licensed electrician in Deira and across Dubai. Safe residential and commercial electrical maintenance, short circuit tracing, and DB dressing near Al Mateena St.",
             keywords: [
                 "Electrician Deira", "Electrical Service Al Mateena", "Deira Electrical Repair", "BN Building Electrician",
                 "Al Mateena St Professional Electrician", "Deira Shop Fitting", "Short Circuit Fix Deira", "DB Dressing Deira",
@@ -392,6 +395,7 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         seo: {
             title: "Deep Cleaning & Property Sanitization Dubai | Dakeek",
+            description: "Professional cleaning company in Deira and across Dubai. Deep cleaning, water tank sanitization, floor scrubbing, and AC duct cleaning near Al Mateena St.",
             keywords: [
                 "Deep Cleaning Service Dubai", "Water Tank Cleaning Dubai", "Home Sanitization Dubai", "AC Duct Cleaning",
                 "Best Cleaning Company Dubai", "Move In Cleaning Dubai", "Villa Deep Cleaning", "Apartment Cleaning Service",
@@ -488,6 +492,7 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         seo: {
             title: "Gas Stove & Burner Repair Dubai | Dakeek",
+            description: "Expert cooker, stove, and burner repair service in Deira and across Dubai. Safe gas pipeline installation and gas safety inspections near Al Mateena St.",
             keywords: [
                 "Stove Repair Dubai", "Cooker Repair Dubai", "Commercial Burner Repair", "Restaurant Kitchen Maintenance",
                 "Oven Repair Service", "Gas Line Installation", "IGD System Maintenance", "Cooking Range Repair",
@@ -583,6 +588,7 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         seo: {
             title: "Handyman & Property Maintenance Deira | Dakeek",
+            description: "Affordable handyman service in Deira and across Dubai. Furniture assembly, TV wall mounting, door repair, shelving, and shop fit-out services near Al Mateena St.",
             keywords: [
                 "Handyman Dubai", "Shop Fitout Dubai", "Furniture Assembly", "TV Mounting Service",
                 "Retail Shop Maintenance", "Office Furniture Assembly", "Curtain Installation", "Door Closer Repair",
@@ -679,6 +685,7 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         seo: {
             title: "Urgent Property Support Dubai | Rapid Technical Assistance",
+            description: "Emergency property support in Deira and across Dubai. Fast 60-minute dispatch for water leak containment, electrical failure troubleshooting, and AC repair near Al Mateena St.",
             keywords: [
                 "Urgent Property Maintenance Dubai", "Rapid technical support Dubai", "Fast AC Repair", "Expert Plumber",
                 "Power Outage Support Dubai", "Flood Cleanup Service", "Urgent Handyman Dubai", "Fast Response Maintenance",
@@ -774,6 +781,7 @@ export const serviceData: Record<string, ServicePageData> = {
         },
         seo: {
             title: "AMC Contracts Dubai | Home & Business | Dakeek",
+            description: "Annual maintenance contracts (AMC) for homes and businesses in Deira and across Dubai. Comprehensive packages for AC servicing, plumbing, and electrical inspections near Al Mateena St.",
             keywords: [
                 "AMC Contract Dubai", "Property Maintenance Package", "Annual AC Maintenance Contract", "Villa AMC Dubai",
                 "Office Maintenance Contract", "Property Management AMC", "Building Maintenance Dubai", "Restaurant AMC Services",

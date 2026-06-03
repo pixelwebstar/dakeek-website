@@ -36,7 +36,7 @@ export default function CareersPage() {
 
     return (
         <main className="min-h-screen bg-[#FAFAF9] text-[#111] selection:bg-[#C4A67C] selection:text-white">
-            
+
             {/* HERO SECTION */}
             <section className="relative min-h-[60vh] md:min-h-[80vh] w-full flex items-center justify-center overflow-hidden border-b border-black/5 text-[#111] pt-20">
                 <GradientHero color1="#9CA3AF" color2="#E5E7EB" initialColor="#E5E7EB" />
@@ -57,7 +57,7 @@ export default function CareersPage() {
             {/* MAIN CONTENT */}
             <section className="py-24 px-[5vw] lg:px-[8vw] bg-white">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
-                    
+
                     {/* LEFT COLUMN: Job Listings */}
                     <div className="lg:col-span-7">
                         <div className="flex items-center gap-4 mb-8">
@@ -68,7 +68,7 @@ export default function CareersPage() {
 
                         <div className="space-y-8">
                             {/* Job 1: Sales Officer */}
-                            <div 
+                            <div
                                 className={`p-8 rounded-3xl border transition-all duration-300 \${selectedJob === "Sales Officer" ? "border-[#C4A67C] bg-[#FAFAF9] shadow-md" : "border-black/5 hover:border-black/10 cursor-pointer"}`}
                                 onClick={() => {
                                     setSelectedJob("Sales Officer");
@@ -79,8 +79,8 @@ export default function CareersPage() {
                                     <div>
                                         <h3 className="text-2xl font-bold font-sans tracking-tight text-[#111] mb-2">Sales Officer</h3>
                                         <div className="flex flex-wrap gap-2 md:gap-3 text-[10px] md:text-xs font-mono uppercase tracking-widest text-[#666]">
-                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><Briefcase className="w-3 h-3"/> Full Time</span>
-                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><MapPin className="w-3 h-3"/> Dubai (Deira)</span>
+                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><Briefcase className="w-3 h-3" /> Full Time</span>
+                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><MapPin className="w-3 h-3" /> Dubai (Deira)</span>
                                             <span className="bg-[#111] text-white px-3 py-1.5 rounded-full">3 Openings</span>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@ export default function CareersPage() {
                             </div>
 
                             {/* Job 2: Senior Maintenance Technician */}
-                            <div 
+                            <div
                                 className={`p-8 rounded-3xl border transition-all duration-300 \${selectedJob === "Senior Maintenance Technician" ? "border-[#C4A67C] bg-[#FAFAF9] shadow-md" : "border-black/5 hover:border-black/10 cursor-pointer"}`}
                                 onClick={() => {
                                     setSelectedJob("Senior Maintenance Technician");
@@ -111,8 +111,8 @@ export default function CareersPage() {
                                     <div>
                                         <h3 className="text-2xl font-bold font-sans tracking-tight text-[#111] mb-2">Maintenance Technician</h3>
                                         <div className="flex flex-wrap gap-2 md:gap-3 text-[10px] md:text-xs font-mono uppercase tracking-widest text-[#666]">
-                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><Briefcase className="w-3 h-3"/> Full Time</span>
-                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><MapPin className="w-3 h-3"/> Field Service</span>
+                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><Briefcase className="w-3 h-3" /> Full Time</span>
+                                            <span className="flex items-center gap-1 bg-white px-3 py-1.5 rounded-full border border-black/5"><MapPin className="w-3 h-3" /> Field Service</span>
                                             <span className="bg-[#111] text-white px-3 py-1.5 rounded-full">1 Opening</span>
                                         </div>
                                     </div>
@@ -136,7 +136,7 @@ export default function CareersPage() {
                     <div className="lg:col-span-5 sticky top-32 h-fit">
                         <div className="bg-[#0A0A0A] rounded-[2rem] p-8 md:p-10 shadow-2xl relative overflow-hidden">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-[#C4A67C]/10 rounded-full blur-3xl" />
-                            
+
                             <h3 className="text-3xl font-serif text-white mb-2 relative z-10">Apply Now</h3>
                             <p className="text-stone-400 mb-8 font-light relative z-10">Application for: <span className="text-white font-medium">{selectedJob}</span></p>
 
@@ -145,7 +145,7 @@ export default function CareersPage() {
                                     <CheckCircle2 className="w-16 h-16 text-[#C4A67C] mx-auto mb-4" />
                                     <h4 className="text-2xl font-serif text-white mb-2">Application Sent</h4>
                                     <p className="text-stone-400 font-light">We have received your application and resume. Our hiring team will review it and contact you shortly.</p>
-                                    <button 
+                                    <button
                                         onClick={() => setFormStatus("idle")}
                                         className="mt-8 text-xs font-mono uppercase tracking-widest text-[#C4A67C] hover:text-white transition-colors"
                                     >
@@ -155,40 +155,40 @@ export default function CareersPage() {
                             ) : (
                                 <form id="apply-form" onSubmit={handleApply} className="space-y-5 relative z-10">
                                     <div className="space-y-4">
-                                        <input 
-                                            type="text" 
+                                        <input
+                                            type="text"
                                             name="name"
                                             required
-                                            placeholder="Full Name *" 
+                                            placeholder="Full Name *"
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-stone-500 focus:outline-none focus:border-[#C4A67C] transition-colors"
                                         />
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                            <input 
-                                                type="email" 
+                                            <input
+                                                type="email"
                                                 name="email"
                                                 required
-                                                placeholder="Email Address *" 
+                                                placeholder="Email Address *"
                                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-stone-500 focus:outline-none focus:border-[#C4A67C] transition-colors"
                                             />
-                                            <input 
-                                                type="tel" 
+                                            <input
+                                                type="tel"
                                                 name="phone"
                                                 required
-                                                placeholder="Phone Number *" 
+                                                placeholder="Phone Number *"
                                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-stone-500 focus:outline-none focus:border-[#C4A67C] transition-colors"
                                             />
                                         </div>
-                                        <textarea 
+                                        <textarea
                                             name="coverLetter"
                                             rows={4}
-                                            placeholder="Cover Letter / Introduction" 
+                                            placeholder="Cover Letter / Introduction"
                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-stone-500 focus:outline-none focus:border-[#C4A67C] transition-colors resize-none"
                                         ></textarea>
-                                        
+
                                         {/* File Upload handling */}
                                         <div className="relative group overflow-hidden">
-                                            <input 
-                                                type="file" 
+                                            <input
+                                                type="file"
                                                 name="resume"
                                                 accept=".pdf,.doc,.docx"
                                                 required
@@ -220,8 +220,8 @@ export default function CareersPage() {
                                         <p className="text-red-400 text-xs font-mono text-center">There was an error submitting your application. Please ensure your file is under 5MB or try again later.</p>
                                     )}
 
-                                    <button 
-                                        type="submit" 
+                                    <button
+                                        type="submit"
                                         disabled={formStatus === "submitting"}
                                         className="w-full bg-white text-black hover:bg-[#C4A67C] hover:text-white rounded-xl py-4 flex items-center justify-center gap-3 font-mono text-xs uppercase tracking-[0.2em] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                                     >

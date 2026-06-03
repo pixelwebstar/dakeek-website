@@ -36,7 +36,7 @@ export default function AboutPage() {
                     <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50">
                         Our Promise Internal
                     </p>
-                    <h1 className="text-6xl md:text-9xl font-sans tracking-tight mb-6 md:mb-8 leading-[0.9] text-[#111] animate-hero-fade" style={{ animationDelay: '0s' }}>
+                    <h1 className="text-6xl md:text-9xl font-serif tracking-tight mb-6 md:mb-8 leading-[0.9] text-[#111] animate-hero-fade" style={{ animationDelay: '0s' }}>
                         Origins
                     </h1>
                     <p className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-[#555] mb-12 uppercase tracking-widest animate-hero-fade" style={{ animationDelay: '0.3s' }}>
@@ -63,11 +63,11 @@ export default function AboutPage() {
 
             {/* 2. THE CONFLICT: "The Intruder" (Dark - Tension) - REPLANNED (Image Added) */}
             <section
-                className="relative py-32 md:py-48 px-[5vw] lg:px-[8vw] max-w-7xl mx-auto bg-[#111]"
+                className="relative py-32 md:py-48 bg-[#111]"
             >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div className="w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw] grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     {/* Text Column */}
-                    <div>
+                    <div className="order-1 md:order-2">
                         <div className="flex items-center gap-4 mb-8">
                             <div className="w-12 h-px bg-[#C4A67C]"></div>
                             <span className="font-mono text-xs uppercase tracking-widest text-stone-400">The Reality</span>
@@ -88,7 +88,7 @@ export default function AboutPage() {
                     </div>
 
                     {/* Visual Column - Added Image as requested */}
-                    <div className="relative h-[500px] w-full group overflow-hidden rounded-2xl">
+                    <div className="relative h-[500px] w-full group overflow-hidden rounded-2xl order-2 md:order-1">
                         <Image
                             src="/images/ac_vent_minimal.png"
                             alt="Noise vs Silence"
@@ -104,16 +104,7 @@ export default function AboutPage() {
 
             {/* 3. THE ORIGIN: "It Started with a Leak" (Light - The Resolution) */}
             <section id="story" className="relative py-32 bg-[#FAFAF9] text-[#1C1917] border-y border-[#E7E5E4]" >
-                <div className="max-w-7xl mx-auto px-[5vw] grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-                    <div className="relative h-[600px] w-full shadow-sm group">
-                        <Image
-                            src="/images/plumbing_brass_detail.png" // Local premium image
-                            alt="Brass Pipe Detail"
-                            fill
-                            className="object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700"
-                        />
-                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700" />
-                    </div>
+                <div className="w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw] grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
                     <div>
                         <span className="font-mono text-xs uppercase tracking-widest text-[#6B5344] mb-8 block bg-[#6B5344]/10 w-fit px-3 py-1 rounded-sm">The Origin</span>
                         <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-10 leading-[0.9] tracking-tight text-[#111]">Built for the <span className="text-stone-500">heart of Deira.</span></h2>
@@ -128,6 +119,15 @@ export default function AboutPage() {
                                 In just 24 months, we&apos;ve become the neighborhood&apos;s most trusted technical team. Where &quot;locally based&quot; means we&apos;re at your door in Al Mateena or Deira while others are still stuck in traffic.
                             </p>
                         </div>
+                    </div>
+                    <div className="relative h-[600px] w-full shadow-sm group">
+                        <Image
+                            src="/images/plumbing_brass_detail.png" // Local premium image
+                            alt="Brass Pipe Detail"
+                            fill
+                            className="object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700"
+                        />
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700" />
                     </div>
                 </div>
             </section>
@@ -155,7 +155,7 @@ export default function AboutPage() {
                             <Shield className="w-5 h-5 text-[#C4A67C]" />
                             <span className="font-mono text-xs uppercase tracking-widest text-[#C4A67C]">Our Commitment</span>
                         </div>
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-sans mb-12 leading-[0.9] text-white tracking-tighter">
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif mb-12 leading-[0.9] text-white tracking-tighter">
                             Reliable service. <br />
                             <span className="font-serif text-gray-400">Professional care.</span>
                         </h2>
@@ -182,7 +182,7 @@ export default function AboutPage() {
                 {/* Subtle Grid Background */}
                 <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(#E5E5E5 1px, transparent 1px)', backgroundSize: '40px 40px', opacity: 0.5 }}></div>
 
-                <div className="max-w-7xl mx-auto px-[5vw] grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
+                <div className="w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw] grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
 
                     {/* Left: Text Content */}
                     <div>
@@ -240,8 +240,8 @@ export default function AboutPage() {
 
 
             {/* 6. THE ETHOS: The Pillars (Dark - Intimacy) */}
-            <section className="py-32 px-[5vw] relative bg-[#0A0A0A] overflow-hidden">
-                <div className="max-w-7xl mx-auto">
+            <section className="py-32 relative bg-[#0A0A0A] overflow-hidden">
+                <div className="w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw]">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
                         {/* Header */}
                         <div className="lg:col-span-4 lg:sticky lg:top-32 h-fit">
@@ -312,7 +312,7 @@ export default function AboutPage() {
                     style={{ backgroundImage: 'radial-gradient(#A18262 1px, transparent 1px)', backgroundSize: '30px 30px' }}
                 />
 
-                <div className="relative max-w-5xl mx-auto px-[5vw] lg:px-[8vw]">
+                <div className="relative w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw]">
                     <div className="relative p-8 lg:p-12 border border-[#222] bg-[#111]/50 backdrop-blur-sm rounded-2xl overflow-hidden group hover:border-[#C4A67C]/20 transition-all duration-700">
 
                         {/* Metallic Sheen Effect */}
@@ -368,7 +368,7 @@ export default function AboutPage() {
                     {/* Left: Content */}
                     <div>
                         <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#6B5344] mb-6 block">The Dakeek App</span>
-                        <h2 className="text-5xl lg:text-7xl font-sans mb-8 leading-[0.95] text-[#111] tracking-tight">
+                        <h2 className="text-5xl lg:text-7xl font-serif mb-8 leading-[0.95] text-[#111] tracking-tight">
                             Control your <br />
                             <span className="text-[#999]">home.</span>
                         </h2>

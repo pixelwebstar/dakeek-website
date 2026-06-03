@@ -10,7 +10,7 @@ export default function StandardSection() {
         <section className="w-full bg-[#F5F5F0] text-[#111] py-24 lg:py-32 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-black/10 to-transparent"></div>
 
-            <div className="max-w-7xl mx-auto px-[5vw] lg:px-[8vw] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                 <div>
                     <span className="inline-block font-mono text-xs text-slate-500 uppercase tracking-[0.3em] mb-6">
                         The Standard

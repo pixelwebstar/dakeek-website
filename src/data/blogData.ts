@@ -65,7 +65,7 @@ If you believe in delivering uncompromising quality, we want you on our team.
         readTime: '4 min read',
         category: 'news',
         tags: ['Company News', 'Hiring', 'Maintenance', 'Dubai'],
-        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80',
+        image: '/images/dubai_premium_architecture.png',
         featured: true,
         seoKeywords: ['Dakeek hiring', 'technical jobs Dubai', 'property maintenance careers', 'verified technicians']
     },

@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
                     <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] mb-4 md:mb-6 backdrop-blur-sm inline-block px-4 py-2 rounded-full border border-black/5 text-[#666] bg-white/50 flex flex-row items-center gap-2 w-fit mx-auto">
                         <Shield className="w-3 h-3 text-[#C4A67C]" /> Legal Compliance
                     </p>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans tracking-tight mb-6 md:mb-8 leading-[0.9] text-[#111]">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tight mb-6 md:mb-8 leading-[0.9] text-[#111]">
                         Privacy Policy
                     </h1>
                     <p className="text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed backdrop-blur-sm text-[#555] uppercase tracking-widest">

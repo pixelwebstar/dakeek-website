@@ -26,7 +26,7 @@ export default function DigitalJournalSection() {
             <section className="relative w-full bg-[#0A0A0A] text-white py-20 lg:py-28 overflow-hidden">
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#5A4A32] opacity-[0.03] blur-[120px] rounded-full pointer-events-none" />
 
-                <div className="relative z-10 max-w-7xl mx-auto px-[5vw] lg:px-[8vw] grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div className="relative z-10 w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw] grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center">
                     <div className="space-y-8">
                         <div>
                             <span className="inline-block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.3em] mb-4">

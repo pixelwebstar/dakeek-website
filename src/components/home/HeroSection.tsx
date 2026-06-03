@@ -22,7 +22,7 @@ export default function HeroSection() {
                         <span className="block md:inline">Commercial & Residential</span>
                         <span className="block md:inline md:ml-2">Property Maintenance</span>
                     </span>
-                    <span className="text-6xl md:text-9xl font-sans tracking-tighter mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade block" style={{ animationDelay: '0s' }}>
+                    <span className="text-6xl md:text-9xl font-serif tracking-tight mb-6 md:mb-8 leading-[0.9] text-ink animate-hero-fade block" style={{ animationDelay: '0s' }}>
                         <Balancer>Dakeek</Balancer>
                     </span>
                     <span className="text-lg md:text-2xl font-light max-w-xl mx-auto leading-relaxed backdrop-blur-sm text-titanium mb-12 uppercase tracking-widest animate-hero-fade block" style={{ animationDelay: '0.3s' }}>

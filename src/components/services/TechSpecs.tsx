@@ -16,12 +16,13 @@ export default function TechSpecs({ specs, tools, details, theme }: TechSpecsPro
     const dynamicBg = theme.secondaryBg;
 
     return (
-        <section className={`w-full px-[5vw] lg:px-[8vw] py-16 md:py-24 ${dynamicBg}`}>
+        <section className={`w-full py-16 md:py-24 ${dynamicBg}`}>
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-5%" }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
+                className="w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw]"
             >
                 <div className="flex flex-col lg:flex-row gap-20">
 

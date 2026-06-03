@@ -24,11 +24,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: service.seo.title,
-        description: service.hero.description + " " + service.intro.heading,
+        description: service.seo.description || (service.hero.description + " " + service.intro.heading),
         keywords: service.seo.keywords,
         openGraph: {
             title: service.seo.title,
-            description: service.hero.description,
+            description: service.seo.description || service.hero.description,
             images: [service.details[0].image],
         },
         alternates: {

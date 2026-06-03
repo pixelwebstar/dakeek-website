@@ -11,7 +11,7 @@ function ServiceSection({ service, index, theme }: { service: ServiceDetail, ind
 
     return (
         <section className="min-h-[auto] lg:min-h-[80vh] flex items-center justify-center py-20 md:py-32 relative overflow-hidden border-t border-white/10">
-            <div className="max-w-7xl mx-auto px-[5vw] lg:px-[8vw] grid grid-cols-1 lg:grid-cols-2 gap-16 items-center z-10">
+            <div className="w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw] grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center z-10">
                 {/* Content - Subtle Fade In */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ function ServiceSection({ service, index, theme }: { service: ServiceDetail, ind
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: false, amount: 0.25 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className={`relative h-[600px] w-full ${isEven ? "lg:order-2" : "lg:order-1"}`}
+                    className={`relative w-full aspect-square lg:aspect-[4/3] ${isEven ? "lg:order-2" : "lg:order-1"}`}
                 >
                     <div className={`relative w-full h-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl ${theme.iconBg}`}>
                         <div className={`absolute inset-0 bg-gradient-to-br from-white/10 to-transparent mix-blend-overlay z-10`} />

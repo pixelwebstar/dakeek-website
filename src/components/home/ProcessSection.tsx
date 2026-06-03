@@ -6,7 +6,7 @@ export default function ProcessSection() {
                 <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#5A4A32] to-transparent" />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-[5vw] lg:px-[8vw]">
+            <div className="relative z-10 w-full max-w-[90vw] 2xl:max-w-[1600px] mx-auto px-[2vw] lg:px-[4vw]">
                 <div className="text-center mb-10">
                     <span className="inline-block font-mono text-xs text-[#C4A67C] uppercase tracking-[0.3em] mb-6">
                         How it Works
